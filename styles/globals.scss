@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+@import './formul.scss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.swapt {
+  background: linear-gradient(
+    145.83deg,
+    #ff8b99 19.04%,
+    #fca27d 74.02%,
+    #ffcba5 97.03%
+  );
+}
+
+body {
+  background: #393939;
+  mix-blend-mode: normal;
+  font-family: Roboto;
+}
+
+input::placeholder {
+  color: #fff;
+}
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+}
+
+.fsa {
+  font-family: Roboto;
+  font-weight: 100;
+}
+
+.red {
+  color: #f70a0a;
+}
+.green {
+  color: #31e918;
+}
+
+// ::-webkit-scrollbar {
+//   width: 5px;
+// }
+// ::-webkit-scrollbar-track {
+//   background: transparent; /*back color */
+//   width: 5px;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background: linear-gradient(
+//     145.83deg,
+//     #ff8b99 19.04%,
+//     #fca27d 74.02%,
+//     #ffcba5 97.03%
+//   ); /*main color */
+//   border-radius: 5px;
+// }
+
+.Footer {
+  height: 40px;
+  margin-bottom: 20px;
+  // @media screen and (min-width:  1850px) {
+  //   position: absolute;
+  //   width: 100%;
+  //   margin-bottom: 0px;
+  //   bottom: 10px;
+  //   right: 50%;
+  //   transform: translate(50%, -50%);
+  // }
+}

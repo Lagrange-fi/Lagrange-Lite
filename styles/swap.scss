@@ -1,0 +1,232 @@
+@import './formul.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300:400&display=swap');
+
+.Swap {
+  padding: clamp(10px, 2.77vw, 40px);
+  .title {
+    color: #fff;
+    font-size: clamp(30px, 2.4305vw, 35px);
+    font-weight: 500;
+    display: flex;
+    margin: 0px auto 23px auto;
+    text-align: center !important;
+    width: clamp(300px, 93.88vw, 1352px);
+    @media screen and (max-width: 1024px) {
+      text-align: center;
+      display: block;
+    }
+  }
+
+  .contents {
+    @include displayflex($fd: row, $ai: flex-start, $jc: center);
+    @include font($fw: 400, $fm: Roboto, $c: #fff);
+    @media screen and (max-width: 1024px) {
+      @include displayflex($fd: column, $ai: center, $jc: center);
+    }
+
+    .swapcontent {
+      z-index: 0;
+      background: linear-gradient(
+        152.97deg,
+        rgba(38, 38, 38, 0.7) 0%,
+        rgba(130, 130, 130, 0.245) 100%
+      );
+      box-shadow: 2px 4px 9px 0px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(42px);
+      border-radius: 6px;
+      border: 2.2px solid transparent;
+      border-image-source: url('https://i.ibb.co/XJFmxcx/border.png');
+      border-image-slice: 1;
+      border-image-repeat: no-repeat;
+      padding: 20px;
+      margin-right: 20px; //
+      width: 440px;
+      @media screen and (max-width: 1024px) {
+        margin-right: 0px;
+        margin-bottom: 20px;
+        width: clamp(300px, 230px + 20.5vw, 440px);
+      }
+    }
+
+    .paydiv {
+      @include displayflex($fd: row, $ai: center, $jc: space-between);
+      label {
+        font-size: 24px;
+      }
+    }
+
+    figure {
+      @include displayflex($fd: row, $ai: center, $jc: space-between);
+      margin-top: 30px;
+      button {
+        @include displayflex($fd: row, $ai: center, $jc: space-between);
+        img {
+          width: clamp(20px, 2.43vw, 35px);
+          height: clamp(20px, 2.43vw, 35px);
+          margin-right: 10px;
+        }
+        span {
+          @include font(
+            $fw: 500,
+            $fm: Roboto,
+            $fs: clamp(18px, 1.8055vw, 26px),
+            $ls: 1.5px
+          );
+          margin-right: 8px;
+        }
+        .icon {
+          height: 30px;
+          color: #fff;
+        }
+      }
+
+      input {
+        margin-left: 10px;
+        background: rgba(34, 34, 34, 0.3);
+        border-style: solid;
+        border-width: 1px;
+        border-image: linear-gradient(
+            112.93deg,
+            #b3b3b3 -11.55%,
+            rgba(205, 205, 205, 0) 103.68%
+          )
+          1;
+        border-radius: 4px;
+        height: clamp(35px, 3.81vw, 55px);
+        width: clamp(50px, 13.68vw, 197px);
+        text-align: center;
+        font-weight: 500;
+        font-size: clamp(16px, 1.5277vw, 22px);
+        color: #fff;
+        outline: none;
+        @media screen and (max-width: 1024px) {
+          height: clamp(35px, 3.81vw, 55px);
+          width: clamp(120px, 19.23vw, 197px);
+        }
+      }
+    }
+
+    .switchdiv {
+      button {
+        @include displayflex;
+        margin: 50px auto 50px auto;
+        background: linear-gradient(
+          152.97deg,
+          rgba(255, 255, 255, 0.63) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        width: 40px;
+        height: 40px;
+        backdrop-filter: blur(42px);
+        border-radius: 118px;
+        @media screen and (max-width: 1024px) {
+          margin: clamp(20px, 20px + 2.92vw, 50px) auto
+            clamp(20px, 20px + 2.92vw, 50px) auto;
+          width: clamp(25px, 25px + 1.46vw, 40px);
+          height: clamp(25px, 25px + 1.46vw, 40px);
+        }
+      }
+
+      .icon {
+        color: black;
+        height: 30px;
+        @media screen and (max-width: 1024px) {
+          height: clamp(15px, 15px + 1.46vw, 30px);
+        }
+      }
+    }
+
+    .connectswap {
+      margin-top: 100px;
+      background: rgba(255, 255, 255, 1);
+      border-radius: 4px;
+      width: 100%;
+      font-size: 25px;
+      text-transform: uppercase;
+      font-family: 'Roboto';
+      font-weight: 700;
+      color: rgba(26, 26, 26, 1);
+
+      @media screen and (max-width: 1024px) {
+        font-size: 18px;
+        margin-top: clamp(20px, 20px + 7.81vw, 100px);
+      }
+    }
+
+    .SwapTokenInfo {
+      background: linear-gradient(
+        152.97deg,
+        rgba(38, 38, 38, 0.7) 0%,
+        rgba(130, 130, 130, 0.245) 100%
+      );
+      backdrop-filter: blur(42px);
+      border-radius: 6px;
+      border: 1.9px solid transparent;
+      border-image-source: url('https://i.ibb.co/XJFmxcx/border.png');
+      border-image-slice: 1;
+      border-image-repeat: no-repeat;
+      .borderD1 {
+        border: 1px solid #c8c8c8;
+        border-bottom: 0 solid #c8c8c8;
+      }
+      .borderD {
+        border: 1px solid #c8c8c8;
+      }
+      // border: 2px solid green;
+      .SwapTokenInfo1 {
+        width: clamp(300px, 72.22vw - 143px, 896px);
+        padding: 20px;
+        @media screen and (max-width: 1024px) {
+          width: 95vw;
+          max-width: 896px;
+        }
+      }
+      .selecttokenname {
+        font-size: 20px;
+        font-weight: 500;
+        @media screen and (max-width: 1024px) {
+          font-size: clamp(16px, 1.95vw, 20px);
+        }
+      }
+      .selectnumber {
+        font-size: 23px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 1);
+        margin-right: 23px;
+        @media screen and (max-width: 1024px) {
+          font-size: clamp(16px, 4.88vw, 23px);
+          margin-right: clamp(10px, 2.24vw, 23px);
+        }
+      }
+      #selectnumber1 {
+        font-size: 23px;
+        font-weight: 500;
+        @media screen and (max-width: 1024px) {
+          font-size: clamp(16px, 4.88vw, 23px);
+        }
+      }
+      .AreaChart {
+        // border: 1px solid red;
+      }
+      .dates {
+        @include displayflex($fd: row, $ai: center, $jc: flex-end);
+        button {
+          border: 1px solid rgba(235, 235, 235, 1);
+          border-radius: 6px;
+          color: #ebebeb;
+          font-size: 16px;
+          margin-right: 20px;
+          margin-top: 25px;
+          width: 50px;
+          &:hover {
+            background: #fff;
+            color: rgba(0, 0, 0, 1);
+          }
+          &:last-child {
+            margin-right: 0px;
+          }
+        }
+      }
+    }
+  }
+}

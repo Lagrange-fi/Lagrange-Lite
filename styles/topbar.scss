@@ -1,0 +1,195 @@
+@import './formul.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300:400&display=swap');
+
+.topbar {
+  z-index: 1000;
+  background: linear-gradient(
+    152.97deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  backdrop-filter: blur(42px);
+  padding: 15px 20px;
+  @media screen and (max-width: 768px) {
+    display: block;
+    padding: 7px 20px;
+  }
+  .burger {
+    z-index: 10;
+    display: none;
+    color: #fff;
+    margin-left: 20px;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+    i {
+      font-size: 20px;
+    }
+  }
+  .fa-times {
+    -webkit-filter: grayscale(1) invert(1);
+    filter: grayscale(1) invert(1);
+    width: 20px;
+    height: 20px;
+    display: none;
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+  nav {
+    .imgandul {
+      @include displayflex($fd: row, $ai: center, $jc: center);
+    }
+
+    @include displayflex($fd: row, $ai: center, $jc: space-between);
+    img {
+      width: clamp(100px, 100px + 12.8571vw, 280px);
+      height: 68px;
+      @media screen and (max-width: 768px) {
+        height: 38px;
+      }
+      object-fit: contain;
+      margin-right: clamp(20px, 6.25vw, 90px);
+    }
+    ul {
+      @include displayflex($fd: row, $ai: center, $jc: space-between);
+      font-size: clamp(16px, 1.7361vw, 25px);
+      font-weight: 700;
+      @media screen and (max-width: 1200px) {
+        font-weight: 500;
+      }
+      @media screen and (max-width: 768px) {
+        @include displayflex($fd: column, $ai: center, $jc: flex-start);
+        position: fixed;
+        right: 0%; //other ideya right:0%; width:0% jquery => width:55%
+        top: 0%;
+        background: #333333;
+        visibility: hidden;
+        color: #fff;
+        z-index: 1000;
+        width: 80%;
+        padding: 30px;
+        height: 100vh;
+      }
+
+      .active {
+        text-shadow: 3px 0px 11px #fc9f80;
+      }
+      li {
+        color: #fff;
+        margin-right: clamp(20px, 6.25vw, 90px);
+        &:hover {
+          color: #d1d1d1;
+        }
+        &:nth-child(4) {
+          margin-right: 0px;
+        }
+        &:last-child {
+          margin-right: 0px;
+        }
+        &:first-child {
+          margin-right: 0px;
+          margin-top: 0px;
+          @media screen and (max-width: 768px) {
+            @include displayflex($ai: center, $jc: flex-end);
+            width: 100%;
+          }
+        }
+        @media screen and (max-width: 768px) {
+          margin-right: 0px;
+          margin-top: 50px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .ConnectWalletButton {
+    .walletlist {
+      font-size: clamp(12px, 1.25vw, 18px);
+      font-weight: 600;
+      border-radius: 0px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      background: linear-gradient(
+        152.97deg,
+        rgba(38, 38, 38, 0.7) 0%,
+        rgba(130, 130, 130, 0.245) 100%
+      );
+      box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(42px);
+      border-radius: 4px;
+      color: #fff;
+      &:hover {
+        background: linear-gradient(
+          145.83deg,
+          #ff8b99 19.04%,
+          #fca27d 74.02%,
+          #ffcba5 97.03%
+        );
+      }
+
+      .imgspan {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 70%;
+        img {
+          height: clamp(20px, 2.08vw, 30px);
+          width: clamp(20px, 2.08vw, 30px);
+          margin-right: 10px;
+        }
+      }
+    }
+    button {
+      font-family: 'Roboto';
+      font-style: normal;
+      position: relative;
+      color: #000;
+      height: 50px;
+      font-weight: 700;
+      font-size: clamp(18px, 1.7361vw, 25px);
+      padding: 6px 0px;
+      width: clamp(120px, 19.93vw, 287px);
+      background: linear-gradient(
+        145.83deg,
+        #ff8b99 19.04%,
+        #fca27d 74.02%,
+        #ffcba5 97.03%
+      );
+      border-radius: 4px;
+      @media screen and (max-width: 768px) {
+        font-size: clamp(20px, 1.7361vw, 25px);
+        width: clamp(180px, 19.93vw, 287px);
+      }
+
+      &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: -10px;
+        right: 0px;
+        background: linear-gradient(
+          145.83deg,
+          #ff8b99 19.04%,
+          #fca27d 74.02%,
+          #ffcba5 97.03%
+        );
+        z-index: -1;
+        filter: blur(22px);
+        transform: scale(1, 0.8) translateY(20px);
+        opacity: 0;
+        transition: all 0.6s;
+      }
+      &:hover::before {
+        opacity: 1;
+      }
+    }
+  }
+}
