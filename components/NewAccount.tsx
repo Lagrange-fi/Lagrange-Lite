@@ -4,7 +4,6 @@ import {
   InformationCircleIcon,
 } from '@heroicons/react/outline'
 import Input, { Label } from './Input'
-import AccountSelect from './AccountSelect'
 import { ElementTitle } from './styles'
 import useMangoStore from '../stores/useMangoStore'
 import {
@@ -159,11 +158,6 @@ const NewAccount: FunctionComponent<NewAccountProps> = ({
         ) : null}
       </div>
       <h3 className="mb-2 text-center">{t('initial-deposit')}</h3>
-      <AccountSelect
-        accounts={walletTokens}
-        selectedAccount={selectedAccount}
-        onSelectAccount={handleAccountSelect}
-      />
       <Label className="mt-4">{t('amount')}</Label>
       <Input
         type="number"

@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 import { Responsive, WidthProvider } from 'react-grid-layout'
 import { round, max } from 'lodash'
-import MobileTradePage from './mobile/MobileTradePage'
+
 
 const TVChartContainer = dynamic(
   () => import('../components/TradingView/index'),
@@ -10,7 +10,6 @@ const TVChartContainer = dynamic(
 import { useEffect, useState } from 'react'
 import FloatingElement from '../components/FloatingElement'
 import Orderbook from '../components/Orderbook'
-import AccountInfo from './AccountInfo'
 import UserMarketInfo from './UserMarketInfo'
 import TradeForm from './trade_form/TradeForm'
 import UserInfo from './UserInfo'
@@ -144,7 +143,7 @@ const TradePageGrid = () => {
         </div>
         <div key="accountInfo">
           <FloatingElement className="h-full" showConnect>
-            <AccountInfo />
+
           </FloatingElement>
         </div>
         <div key="marketPosition">
@@ -165,7 +164,7 @@ const TradePageGrid = () => {
       </ResponsiveGridLayout>
     </>
   ) : (
-    <MobileTradePage />
+    <div></div>
   )
 }
 

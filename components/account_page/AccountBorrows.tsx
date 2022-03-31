@@ -18,7 +18,6 @@ import { useViewport } from '../../hooks/useViewport'
 import { breakpoints } from '../TradePageGrid'
 import { Table, Td, Th, TrBody, TrHead } from '../TableElements'
 import { ExpandableRow } from '../TableElements'
-import MobileTableHeader from '../mobile/MobileTableHeader'
 import { useTranslation } from 'next-i18next'
 import { walletSelector } from '../../stores/selectors'
 import Tooltip from '../Tooltip'
@@ -175,10 +174,7 @@ export default function AccountBorrows() {
                     </Table>
                   ) : (
                     <>
-                      <MobileTableHeader
-                        colOneHeader={t('asset')}
-                        colTwoHeader={t('balance')}
-                      />
+                    
                       {balances
                         .filter((assets) => assets.borrows.gt(ZERO_I80F48))
                         .map((asset, i) => {
@@ -414,10 +410,7 @@ export default function AccountBorrows() {
               </Table>
             ) : (
               <>
-                <MobileTableHeader
-                  colOneHeader={t('asset')}
-                  colTwoHeader={`${t('deposit')}/${t('borrow-rate')}`}
-                />
+
                 {mangoConfig.tokens.map((token, i) => {
                   const tokenIndex = mangoGroup.getTokenIndex(token.mintKey)
                   return (

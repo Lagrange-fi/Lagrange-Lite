@@ -7,7 +7,6 @@ import { useTranslation } from 'next-i18next'
 
 import useMangoStore from '../../stores/useMangoStore'
 import { formatUsdValue } from '../../utils'
-import BalancesTable from '../BalancesTable'
 import Switch from '../Switch'
 import useLocalStorageState from '../../hooks/useLocalStorageState'
 import ButtonGroup from '../ButtonGroup'
@@ -264,7 +263,6 @@ export default function AccountOverview() {
           {t('show-zero')}
         </Switch>
       </div>
-      <BalancesTable showZeroBalances={showZeroBalances} showDepositWithdraw />
     </>
   ) : null
 }

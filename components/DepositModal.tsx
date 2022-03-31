@@ -2,7 +2,6 @@ import React, { FunctionComponent, useEffect, useState } from 'react'
 import { ExclamationCircleIcon } from '@heroicons/react/outline'
 import Modal from './Modal'
 import Input, { Label } from './Input'
-import AccountSelect from './AccountSelect'
 import { ElementTitle } from './styles'
 import useMangoStore from '../stores/useMangoStore'
 import Loading from './Loading'
@@ -181,11 +180,6 @@ const DepositModal: FunctionComponent<DepositModalProps> = ({
           />
         </div>
       ) : null}
-      <AccountSelect
-        accounts={walletTokens}
-        selectedAccount={selectedAccount}
-        onSelectAccount={handleAccountSelect}
-      />
       <Label className={`mt-4`}>{t('amount')}</Label>
       <Input
         type="number"

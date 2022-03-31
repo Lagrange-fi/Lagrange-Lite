@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import useMangoStore from '../stores/useMangoStore'
 import OpenOrdersTable from './OpenOrdersTable'
-import BalancesTable from './BalancesTable'
 import PositionsTable from './PerpPositionsTable'
 import TradeHistoryTable from './TradeHistoryTable'
 import ManualRefresh from './ManualRefresh'
@@ -55,7 +54,7 @@ const TabContent = ({ activeTab }) => {
     case 'Orders':
       return <OpenOrdersTable />
     case 'Balances':
-      return <BalancesTable clickToPopulateTradeForm />
+      return <div></div>
     case 'Trade History':
       return <TradeHistoryTable numTrades={100} />
     case 'Positions':
@@ -63,7 +62,7 @@ const TabContent = ({ activeTab }) => {
     case 'Fee Discount':
       return <FeeDiscountsTable />
     default:
-      return <BalancesTable clickToPopulateTradeForm />
+      return <div></div>
   }
 }
 

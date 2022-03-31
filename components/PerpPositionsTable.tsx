@@ -19,7 +19,7 @@ import MarketCloseModal from './MarketCloseModal'
 import PerpSideBadge from './PerpSideBadge'
 import PnlText from './PnlText'
 import { settlePnl } from './MarketPosition'
-import MobileTableHeader from './mobile/MobileTableHeader'
+
 
 const PositionsTable = () => {
   const { t } = useTranslation('common')
@@ -252,10 +252,7 @@ const PositionsTable = () => {
               </Table>
             ) : (
               <>
-                <MobileTableHeader
-                  colOneHeader={t('market')}
-                  colTwoHeader={t('unrealized-pnl')}
-                />
+
                 {openPositions.map(
                   (
                     {

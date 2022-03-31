@@ -12,7 +12,6 @@ import Pagination from '../Pagination'
 import { useViewport } from '../../hooks/useViewport'
 import { breakpoints } from '../TradePageGrid'
 import { ExpandableRow } from '../TableElements'
-import MobileTableHeader from '../mobile/MobileTableHeader'
 import Chart from '../Chart'
 import Switch from '../Switch'
 import useLocalStorageState from '../../hooks/useLocalStorageState'
@@ -366,10 +365,7 @@ const AccountInterest = () => {
             </div>
           ) : (
             <>
-              <MobileTableHeader
-                colOneHeader={t('token')}
-                colTwoHeader={t('net')}
-              />
+             
               {interestStats.map(([symbol, stats], index) => {
                 const decimals = getTokenBySymbol(groupConfig, symbol).decimals
                 return (
