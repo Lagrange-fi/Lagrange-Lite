@@ -23,7 +23,6 @@
     @media screen and (max-width: 600px) {
       width: 90vw;
     }
-    backdrop-filter: blur(42px);
     border-radius: 4px;
     border: 1.9px solid transparent;
     border-image-source: url('https://i.ibb.co/XJFmxcx/border.png');
@@ -51,7 +50,7 @@
         rgba(130, 130, 130, 0.245) 100%
       );
       box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(42px);
+
       .image-and-coin-name {
         @include displayflex();
         .img-icon {

@@ -92,7 +92,7 @@ const ConnectWalletButton = () => {
                   >
                     Select Wallet
                   </Menu.Button>
-                  <Menu.Items className="absolute">
+                  <Menu.Items className="absolute" style={{zIndex:"100000"}}>
                     {WALLET_PROVIDERS.map(({ name, url, icon }) => (
                       <Menu.Item key={name}>
                         <button

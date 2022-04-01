@@ -82,25 +82,15 @@ const Overview: NextPage<Props> = (props) => {
                     <th>
                       <div className="image-and-coin-name">
                         <div className="img-icon">
-                          <Image
-                            src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
-                            alt="USDC"
-                            width={35}
-                            height={35}
-                          />
-                        </div>
+                          <img src="/coin/3408.png" />
+                        </div> 
                         USDC
                       </div>
                     </th>
                     <th>
                       <div className="image-and-coin-name">
                         <div className="img-icon">
-                          <Image
-                            src="https://assets.coingecko.com/coins/images/19479/small/agEUR.png?1635283566"
-                            alt="agEUR"
-                            width={35}
-                            height={35}
-                          />
+                            <img src="/coin/2989.png" />
                         </div>
                         agEUR
                       </div>
@@ -108,12 +98,7 @@ const Overview: NextPage<Props> = (props) => {
                     <th>
                       <div className="image-and-coin-name">
                         <div className="img-icon">
-                          <Image
-                            src="https://s2.coinmarketcap.com/static/img/coins/64x64/5181.png"
-                            alt="TRYB"
-                            width={35}
-                            height={35}
-                          />
+                      <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5181.png" />
                         </div>
                         TRYB
                       </div>
@@ -121,12 +106,7 @@ const Overview: NextPage<Props> = (props) => {
                     <th>
                       <div className="image-and-coin-name">
                         <div className="img-icon">
-                          <Image
-                            src="https://s2.coinmarketcap.com/static/img/coins/64x64/4139.png"
-                            alt="BRZ"
-                            width={35}
-                            height={35}
-                          />
+                         <img src="/coin/4139.png" />
                         </div>
                         BRZ
                       </div>
@@ -139,12 +119,7 @@ const Overview: NextPage<Props> = (props) => {
                     <td>
                       <div className="image-and-coin-name">
                         <div className="img-icon">
-                          <Image
-                            src="https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png"
-                            alt="USDC"
-                            width={35}
-                            height={35}
-                          />
+                        <img src="/coin/3408.png" />
                         </div>
                         USDC
                       </div>
@@ -158,12 +133,7 @@ const Overview: NextPage<Props> = (props) => {
                     <td>
                       <div className="image-and-coin-name">
                         <div className="img-icon">
-                          <Image
-                            src="https://assets.coingecko.com/coins/images/19479/small/agEUR.png?1635283566"
-                            alt="agEUR"
-                            width={35}
-                            height={35}
-                          />
+                    <img src="/coin/2989.png" />
                         </div>
                         agEUR
                       </div>
@@ -177,12 +147,7 @@ const Overview: NextPage<Props> = (props) => {
                     <td>
                       <div className="image-and-coin-name">
                         <div className="img-icon">
-                          <Image
-                            src="https://s2.coinmarketcap.com/static/img/coins/64x64/5181.png"
-                            alt="TRYB"
-                            width={35}
-                            height={35}
-                          />
+                         <img src="https://s2.coinmarketcap.com/static/img/coins/64x64/5181.png" />                         
                         </div>
                         TRYB
                       </div>
@@ -196,12 +161,7 @@ const Overview: NextPage<Props> = (props) => {
                     <td>
                       <div className="image-and-coin-name">
                         <div className="img-icon">
-                          <Image
-                            src="https://s2.coinmarketcap.com/static/img/coins/64x64/4139.png"
-                            alt="BRZ"
-                            width={35}
-                            height={35}
-                          />
+                     <img src="/coin/4139.png" />
                         </div>
                         BRZ
                       </div>

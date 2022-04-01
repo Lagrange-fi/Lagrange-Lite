@@ -697,7 +697,7 @@ const Pools = (props) => {
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
         >
           <div className="poolcontents">
@@ -786,7 +786,7 @@ const Pools = (props) => {
                   </tr>
                 </thead>
                 <tbody className="section section-step">
-                  <tr className="sub-header">
+                  <tr>
                     <td>
                       <div
                         style={{

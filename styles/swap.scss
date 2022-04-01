@@ -159,7 +159,6 @@
         rgba(38, 38, 38, 0.7) 0%,
         rgba(130, 130, 130, 0.245) 100%
       );
-      backdrop-filter: blur(42px);
       border-radius: 6px;
       border: 1.9px solid transparent;
       border-image-source: url('https://i.ibb.co/XJFmxcx/border.png');
@@ -206,7 +205,7 @@
         }
       }
       .AreaChart {
-        // border: 1px solid red;
+
       }
       .dates {
         @include displayflex($fd: row, $ai: center, $jc: flex-end);
