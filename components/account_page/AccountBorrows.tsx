@@ -11,9 +11,7 @@ import {
   i80f48ToPercent,
   tokenPrecision,
 } from '../../utils/index'
-import WithdrawModal from '../WithdrawModal'
 import Button from '../Button'
-import DepositModal from '../DepositModal'
 import { useViewport } from '../../hooks/useViewport'
 import { breakpoints } from '../TradePageGrid'
 import { Table, Td, Th, TrBody, TrHead } from '../TableElements'
@@ -515,23 +513,8 @@ export default function AccountBorrows() {
           </div>
         </div>
       </div>
-      {showBorrowModal && (
-        <WithdrawModal
-          isOpen={showBorrowModal}
-          onClose={handleCloseWithdraw}
-          tokenSymbol={borrowSymbol}
-          title={t('borrow-withdraw')}
-          borrow
-        />
-      )}
-      {showDepositModal && (
-        <DepositModal
-          isOpen={showDepositModal}
-          onClose={handleCloseDeposit}
-          repayAmount={depositToSettle.amount}
-          tokenSymbol={depositToSettle.symbol}
-        />
-      )}
+     
+      
     </>
   )
 }

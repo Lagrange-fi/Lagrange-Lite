@@ -4,8 +4,6 @@ import { round, max } from 'lodash'
 import { useEffect, useState } from 'react'
 import FloatingElement from '../components/FloatingElement'
 import Orderbook from '../components/Orderbook'
-import UserMarketInfo from './UserMarketInfo'
-import UserInfo from './UserInfo'
 import RecentMarketTrades from './RecentMarketTrades'
 import useMangoStore from '../stores/useMangoStore'
 import useLocalStorageState from '../hooks/useLocalStorageState'
@@ -139,21 +137,13 @@ const TradePageGrid = () => {
 
           </FloatingElement>
         </div>
-        <div key="marketPosition">
-          <FloatingElement className="h-full" showConnect>
-            <UserMarketInfo />
-          </FloatingElement>
-        </div>
+
         <div key="marketTrades">
           <FloatingElement className="h-full">
             <RecentMarketTrades />
           </FloatingElement>
         </div>
-        <div key="userInfo">
-          <FloatingElement className="h-full">
-            <UserInfo />
-          </FloatingElement>
-        </div>
+        
       </ResponsiveGridLayout>
     </>
   ) : (

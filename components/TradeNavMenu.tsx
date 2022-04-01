@@ -8,7 +8,6 @@ import {
 } from '@heroicons/react/solid'
 import useMangoGroupConfig from '../hooks/useMangoGroupConfig'
 import useLocalStorageState from '../hooks/useLocalStorageState'
-import MarketNavItem from './MarketNavItem'
 
 const initialMenuCategories = [
   /*   { name: 'Perp', desc: 'perp-desc' }, */
@@ -129,13 +128,7 @@ const TradeNavMenu = () => {
               </div>
               <div className="col-span-2 p-4 rounded-br-lg bg-th-bkg-3">
                 <div className="grid grid-flow-row grid-cols-2 gap-x-6">
-                  {markets.map((mkt) => (
-                    <MarketNavItem
-                      buttonRef={buttonRef}
-                      market={mkt}
-                      key={mkt.name}
-                    />
-                  ))}
+                
                 </div>
               </div>
             </Popover.Panel>

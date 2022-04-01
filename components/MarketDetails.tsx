@@ -18,7 +18,6 @@ import BN from 'bn.js'
 import { useViewport } from '../hooks/useViewport'
 import { breakpoints } from './TradePageGrid'
 import { useTranslation } from 'next-i18next'
-import SwitchMarketDropdown from './SwitchMarketDropdown'
 import Tooltip from './Tooltip'
 
 export function calculateFundingRate(perpStats, perpMarket) {
@@ -179,7 +178,7 @@ const MarketDetails = () => {
       <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="hidden md:block md:pb-4 md:pr-6 lg:pb-0">
           <div className="flex items-center">
-            <SwitchMarketDropdown />
+        
           </div>
         </div>
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-3 lg:grid-cols-none lg:grid-flow-col lg:grid-rows-1 lg:gap-6">

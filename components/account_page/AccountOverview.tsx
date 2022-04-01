@@ -11,7 +11,6 @@ import Switch from '../Switch'
 import useLocalStorageState from '../../hooks/useLocalStorageState'
 import ButtonGroup from '../ButtonGroup'
 import PerformanceChart from './PerformanceChart'
-import PositionsTable from '../PerpPositionsTable'
 import { exportDataToCSV } from '../../utils/export'
 import Button from '../Button'
 import Loading from '../Loading'
@@ -226,8 +225,7 @@ export default function AccountOverview() {
         </div>
       </div>
       <div className="pb-8 pt-16 lg:pt-0">
-        <h2 className="mb-4">{t('perp-positions')}</h2>
-        <PositionsTable />
+        
       </div>
       <h2 className="mb-4">{t('assets-liabilities')}</h2>
 
