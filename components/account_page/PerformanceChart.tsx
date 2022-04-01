@@ -16,8 +16,7 @@ import { useTranslation } from 'next-i18next'
 import ButtonGroup from '../ButtonGroup'
 import { formatUsdValue } from '../../utils'
 import { numberCompacter } from '../SwapTokenInfo'
-import Checkbox from '../Checkbox'
-import Tooltip from '../Tooltip'
+
 
 type PerformanceChart = {
   hourlyPerformanceStats: any[]
@@ -193,9 +192,7 @@ const PerformanceChart = ({
                 })})`}
               </span>
             </div>
-            <Tooltip content={t('delayed-info')}>
-              <InformationCircleIcon className="cursor-help h-5 ml-1.5 text-th-fgd-3 w-5" />
-            </Tooltip>
+      
           </div>
           {mouseData ? (
             <>
@@ -255,20 +252,7 @@ const PerformanceChart = ({
 
           {chartToShow === 'PnL' ? (
             <div className="flex pt-4 space-x-3">
-              <Checkbox
-                checked={showSpotPnl}
-                disabled={!showPerpPnl}
-                onChange={(e) => setShowSpotPnl(e.target.checked)}
-              >
-                {t('include-spot')}
-              </Checkbox>
-              <Checkbox
-                checked={showPerpPnl}
-                disabled={!showSpotPnl}
-                onChange={(e) => setShowPerpPnl(e.target.checked)}
-              >
-                {t('include-perp')}
-              </Checkbox>
+          
             </div>
           ) : null}
         </div>

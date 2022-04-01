@@ -1,7 +1,6 @@
 import { LockClosedIcon, LockOpenIcon } from '@heroicons/react/outline'
 import { Transition } from '@headlessui/react'
 import useMangoStore from '../stores/useMangoStore'
-import ResetLayout from './ResetLayout'
 import Tooltip from './Tooltip'
 import { IconButton } from './Button'
 import { useTranslation } from 'next-i18next'
@@ -31,7 +30,7 @@ const UiLock = ({ className = '' }) => {
           leaveTo="opacity-0"
           className="pr-2"
         >
-          <ResetLayout />
+      
         </Transition>
       ) : null}
       <div className={`${className} flex relative cursor-pointer`}>

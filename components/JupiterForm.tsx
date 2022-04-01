@@ -40,7 +40,6 @@ import {
 } from '@blockworks-foundation/mango-client'
 import Button, { IconButton, LinkButton } from './Button'
 import { useViewport } from '../hooks/useViewport'
-import { breakpoints } from './TradePageGrid'
 import useLocalStorageState from '../hooks/useLocalStorageState'
 import Modal from './Modal'
 import { ElementTitle } from './styles'
@@ -49,7 +48,7 @@ import Tooltip from './Tooltip'
 import SwapSettingsModal from './SwapSettingsModal'
 import SwapTokenInfo from './SwapTokenInfo'
 import { numberFormatter } from './SwapTokenInfo'
-import SwapTokenInsights from './SwapTokenInsights'
+
 
 const TrustedTokenAddresses = [
   'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // USDC
@@ -92,7 +91,6 @@ const JupiterForm: FunctionComponent = () => {
   const [showWalletDraw, setShowWalletDraw] = useState(false)
   const [walletTokenPrices, setWalletTokenPrices] = useState(null)
   const { width } = useViewport()
-  const isMobile = width ? width < breakpoints.sm : false
   const [feeValue, setFeeValue] = useState(null as any)
   const [showRoutesModal, setShowRoutesModal] = useState(false)
   const [loadWalletTokens, setLoadWalletTokens] = useState(false)

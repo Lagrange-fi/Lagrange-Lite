@@ -8,9 +8,7 @@ import MenuItem from './MenuItem'
 import times from '../public/assets/icons/cancel.png'
 import useMangoStore from '../stores/useMangoStore'
 import ConnectWalletButton from './ConnectWalletButton'
-import { DEFAULT_MARKET_KEY, initialMarket } from './SettingsModal'
 import { useTranslation } from 'next-i18next'
-import Settings from './Settings'
 import { useRouter } from 'next/router'
 
 const TopBar = () => {
@@ -23,10 +21,7 @@ const TopBar = () => {
   const mangoAccount = useMangoStore((s) => s.selectedMangoAccount.current)
   const wallet = useMangoStore((s) => s.wallet.current)
   const [showAccountsModal, setShowAccountsModal] = useState(false)
-  const [defaultMarket] = useLocalStorageState(
-    DEFAULT_MARKET_KEY,
-    initialMarket
-  )
+
 
   useEffect(() => {
     window

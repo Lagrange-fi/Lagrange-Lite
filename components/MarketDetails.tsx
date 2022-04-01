@@ -4,7 +4,6 @@ import usePrevious from '../hooks/usePrevious'
 import useInterval from '../hooks/useInterval'
 import ChartApi from '../utils/chartDataConnector'
 import UiLock from './UiLock'
-import ManualRefresh from './ManualRefresh'
 import useOraclePrice from '../hooks/useOraclePrice'
 import DayHighLow from './DayHighLow'
 import {
@@ -16,9 +15,7 @@ import {
 import { PerpMarket } from '@blockworks-foundation/mango-client'
 import BN from 'bn.js'
 import { useViewport } from '../hooks/useViewport'
-import { breakpoints } from './TradePageGrid'
 import { useTranslation } from 'next-i18next'
-import Tooltip from './Tooltip'
 
 export function calculateFundingRate(perpStats, perpMarket) {
   const oldestStat = perpStats[perpStats.length - 1]
@@ -65,7 +62,7 @@ const MarketDetails = () => {
   const previousMarketName: string = usePrevious(selectedMarketName)
   const connected = useMangoStore((s) => s.wallet.connected)
   const { width } = useViewport()
-  const isMobile = width ? width < breakpoints.sm : false
+  const isMobile = width ? width < 800 : false
 
   const [ohlcv, setOhlcv] = useState(null)
   const [change24h, setChange24h] = useState(0)
@@ -232,23 +229,7 @@ const MarketDetails = () => {
           ) : null}
           {isPerpMarket && selectedMarket instanceof PerpMarket ? (
             <>
-              <Tooltip
-                content="Funding is paid continuously. The 1hr rate displayed is a rolling average of the past 60 mins."
-                placement={'bottom'}
-              >
-                <div className="flex items-center justify-between md:block hover:cursor-help">
-                  <div className="flex text-th-fgd-3 tiny-text pb-0.5 items-center">
-                    {t('average-funding')}
-                  </div>
-                  <div className="text-th-fgd-1 md:text-xs">
-                    {selectedMarket ? (
-                      `${funding1hStr}% (${fundingAprStr}% APR)`
-                    ) : (
-                      <MarketDataLoader />
-                    )}
-                  </div>
-                </div>
-              </Tooltip>
+
               <div className="flex items-center justify-between md:block">
                 <div className="text-th-fgd-3 tiny-text pb-0.5">
                   {t('open-interest')}
@@ -286,7 +267,7 @@ const MarketDetails = () => {
           </div>
         ) : null}
         <div id="data-refresh-tip">
-          {!isMobile && connected ? <ManualRefresh /> : null}
+
         </div>
       </div>
     </div>
