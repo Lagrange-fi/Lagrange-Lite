@@ -418,7 +418,7 @@ const useMangoStore = create<MangoStore>((set, get) => {
                 state.selectedMangoAccount.initialLoad = false
                 state.mangoAccounts = sortedAccounts
                 if (!state.selectedMangoAccount.current) {
-                  const lastAccount = localStorage.getItem(LAST_ACCOUNT_KEY)
+                  const lastAccount = localStorage.getItem("s")
                   let currentAcct = sortedAccounts[0]
                   if (lastAccount) {
                     currentAcct =

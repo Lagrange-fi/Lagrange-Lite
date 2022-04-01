@@ -1,17 +1,10 @@
 import dynamic from 'next/dynamic'
 import { Responsive, WidthProvider } from 'react-grid-layout'
 import { round, max } from 'lodash'
-
-
-const TVChartContainer = dynamic(
-  () => import('../components/TradingView/index'),
-  { ssr: false }
-)
 import { useEffect, useState } from 'react'
 import FloatingElement from '../components/FloatingElement'
 import Orderbook from '../components/Orderbook'
 import UserMarketInfo from './UserMarketInfo'
-import TradeForm from './trade_form/TradeForm'
 import UserInfo from './UserInfo'
 import RecentMarketTrades from './RecentMarketTrades'
 import useMangoStore from '../stores/useMangoStore'
@@ -132,14 +125,14 @@ const TradePageGrid = () => {
       >
         <div key="tvChart">
           <FloatingElement className="h-full pl-0 md:pl-0 md:pr-1 md:pb-1 md:pt-2.5">
-            <TVChartContainer />
+      
           </FloatingElement>
         </div>
         <div key="orderbook">
           <Orderbook depth={orderbookDepth} />
         </div>
         <div key="tradeForm">
-          <TradeForm />
+    
         </div>
         <div key="accountInfo">
           <FloatingElement className="h-full" showConnect>
