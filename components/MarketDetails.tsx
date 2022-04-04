@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import useMangoStore, { SECONDS } from '../stores/useMangoStore'
 import usePrevious from '../hooks/usePrevious'
@@ -174,9 +176,7 @@ const MarketDetails = () => {
     >
       <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="hidden md:block md:pb-4 md:pr-6 lg:pb-0">
-          <div className="flex items-center">
-        
-          </div>
+          <div className="flex items-center"></div>
         </div>
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-3 lg:grid-cols-none lg:grid-flow-col lg:grid-rows-1 lg:gap-6">
           <div className="flex items-center justify-between md:block">
@@ -229,7 +229,6 @@ const MarketDetails = () => {
           ) : null}
           {isPerpMarket && selectedMarket instanceof PerpMarket ? (
             <>
-
               <div className="flex items-center justify-between md:block">
                 <div className="text-th-fgd-3 tiny-text pb-0.5">
                   {t('open-interest')}
@@ -266,9 +265,7 @@ const MarketDetails = () => {
             <UiLock />
           </div>
         ) : null}
-        <div id="data-refresh-tip">
-
-        </div>
+        <div id="data-refresh-tip"></div>
       </div>
     </div>
   )

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import { cloneDeep } from 'lodash'
@@ -16,7 +18,6 @@ import { useTranslation } from 'next-i18next'
 import ButtonGroup from '../ButtonGroup'
 import { formatUsdValue } from '../../utils'
 import { numberCompacter } from '../SwapTokenInfo'
-
 
 type PerformanceChart = {
   hourlyPerformanceStats: any[]
@@ -192,7 +193,6 @@ const PerformanceChart = ({
                 })})`}
               </span>
             </div>
-      
           </div>
           {mouseData ? (
             <>
@@ -251,9 +251,7 @@ const PerformanceChart = ({
           </div>
 
           {chartToShow === 'PnL' ? (
-            <div className="flex pt-4 space-x-3">
-          
-            </div>
+            <div className="flex pt-4 space-x-3"></div>
           ) : null}
         </div>
       </div>

@@ -49,7 +49,6 @@ import SwapSettingsModal from './SwapSettingsModal'
 import SwapTokenInfo from './SwapTokenInfo'
 import { numberFormatter } from './SwapTokenInfo'
 
-
 const TrustedTokenAddresses = [
   'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v', // USDC
   'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB', // USDT
@@ -407,7 +406,6 @@ const JupiterForm: FunctionComponent = () => {
               value={formValue.amount || ''}
               placeholder="0.00"
               type="number"
-              pattern="[0-9]*"
               autoComplete="off"
               onInput={(e: any) => {
                 let newValue = e.target?.value || 0
