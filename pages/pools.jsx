@@ -141,7 +141,6 @@ const Pools = (props) => {
     fetchPool()
   }, [])
 
-
   useEffect(() => {
     async function fetchPool1() {
       const response = await fetch('https://api.atrix.finance/api/tvl')
@@ -180,9 +179,6 @@ const Pools = (props) => {
     }
     fetchPool1()
   }, [])
-
-
-
 
   useEffect(() => {
     //-----------------usd-----------------//
@@ -876,7 +872,7 @@ const Pools = (props) => {
                       </td>
                       <td>
                         <figure>
-                          <span>TVL: $25000</span>
+                          <span>TVL: $50000</span>
                         </figure>
                       </td>
                     </tr>
@@ -913,7 +909,7 @@ const Pools = (props) => {
                     <td>
                       <button>
                         Add
-                        <i 
+                        <i
                           onClick={() => {
                             setCheck1((prevCheck) => !prevCheck)
                           }}
