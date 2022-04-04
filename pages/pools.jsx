@@ -75,8 +75,10 @@ const Pools = (props) => {
   ////
   const [displayl, setDisplayl] = useState('none')
   const [check, setCheck] = useState(false)
+  const [check1, setCheck1] = useState(false)
   const [pool, setPool] = useState()
   const [pool1, setPool1] = useState([])
+  const [pool2, setPool2] = useState([])
   const mountedStyle = { animation: 'inAnimation 250ms ease-in' }
   const unmountedStyle = {
     animation: 'outAnimation 270ms ease-out',
@@ -139,6 +141,30 @@ const Pools = (props) => {
     fetchPool()
   }, [])
 
+
+  useEffect(() => {
+    async function fetchPool1() {
+      const response = await fetch('https://api.atrix.finance/api/tvl')
+      const data = await response.json()
+      // console.log('pool')
+      // console.log(data)
+      // console.log(
+      //   data?.pools?.find(
+      //     (item) =>
+      //       item.poolKey === '65m1dv8LJDJiz7AoVfNMFaAN8PB9t2d5haoh71qVQ2Ah'
+      //   )
+      // )
+      setPool2(
+        data?.pools?.find(
+          (item) =>
+            item.poolKey === 'CYPU45SXe9iBj31BhYVJhY98SaqUR3VzPa4gKVGahK1H'
+        )
+      )
+    }
+
+    fetchPool1()
+  }, [])
+
   useEffect(() => {
     async function fetchPool1() {
       const response = await fetch(
@@ -154,6 +180,9 @@ const Pools = (props) => {
     }
     fetchPool1()
   }, [])
+
+
+
 
   useEffect(() => {
     //-----------------usd-----------------//
@@ -697,7 +726,7 @@ const Pools = (props) => {
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
           }}
         >
           <div className="poolcontents">
@@ -884,10 +913,47 @@ const Pools = (props) => {
                     <td>
                       <button>
                         Add
-                        <i className="fa-solid fa-arrow-down"></i>
+                        <i 
+                          onClick={() => {
+                            setCheck1((prevCheck) => !prevCheck)
+                          }}
+                          className="fa-solid fa-arrow-down"
+                          style={check1 ? mountedStyle1 : unmountedStyle1}
+                        ></i>
                       </button>
                     </td>
                   </tr>
+                  {check1 && (
+                    <tr
+                      className="accordtr"
+                      style={check1 ? mountedStyle : unmountedStyle}
+                    >
+                      <td>
+                        <figure>
+                          <img src="/coin/4139.png" />
+                          <span>
+                            R$
+                            {pool2?.coinTokens == undefined
+                              ? 0
+                              : pool2.coinTokens}
+                          </span>
+                        </figure>
+                      </td>
+                      <td>
+                        <figure>
+                          <img src="/coin/192x192.png" />
+                          <span>
+                            ${pool2?.pcTokens == undefined ? 0 : pool2.pcTokens}
+                          </span>
+                        </figure>
+                      </td>
+                      <td>
+                        <figure>
+                          <span>TVL: $50000</span>
+                        </figure>
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -927,20 +993,17 @@ const Pools = (props) => {
                       </div>
                     </td>
                     <td>
-                      {
-
-                        wetokenbalance == undefined
+                      {wetokenbalance == undefined
                         ? 0
                         : Number(
                             (wetokenbalance /
                               pool1.reduce(
                                 (total, item) => (total += item),
                                 0
-                              ) * 1000000) *
+                              )) *
+                              1000000 *
                               100
-                          ).toFixed(2)
-
-                      }
+                          ).toFixed(2)}
                       %
                     </td>
                     <td>0.00 USD </td>

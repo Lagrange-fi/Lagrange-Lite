@@ -22,7 +22,6 @@ const TopBar = () => {
   const wallet = useMangoStore((s) => s.wallet.current)
   const [showAccountsModal, setShowAccountsModal] = useState(false)
 
-
   useEffect(() => {
     window
       .matchMedia('(min-width: 768px)')

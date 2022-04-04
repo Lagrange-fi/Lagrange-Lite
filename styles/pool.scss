@@ -197,11 +197,7 @@
 .section-step {
   border-radius: 4px; /* 1 */
   box-shadow: 0 0 0 1px grey; /* 1 */
-
 }
-
-
-
 
 .pool1 tr th {
   font-size: 16px;
@@ -218,11 +214,11 @@
 }
 
 .pool1 tr td {
-   font-size: clamp(10px, 4px + 1.25vw, 22px);
-   font-weight: 500;
-   padding: 0px 10px;
-   text-align: center;
-   transform: translate(0%, -15%);
+  font-size: clamp(10px, 4px + 1.25vw, 22px);
+  font-weight: 500;
+  padding: 0px 10px;
+  text-align: center;
+  transform: translate(0%, -15%);
   &:nth-child(1) {
     font-weight: 400;
     font-size: clamp(10px, 4px + 2.44vw, 25px);

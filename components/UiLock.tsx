@@ -29,9 +29,7 @@ const UiLock = ({ className = '' }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
           className="pr-2"
-        >
-      
-        </Transition>
+        ></Transition>
       ) : null}
       <div className={`${className} flex relative cursor-pointer`}>
         <Tooltip

@@ -13,28 +13,28 @@
 
 .swapt {
   background: linear-gradient(
-        152.97deg,
-        rgba(38, 38, 38, 1) 0%,
-        rgba(130, 130, 130, 1) 100%
-      );
-      &:hover {
-        background: linear-gradient(
-          145.83deg,
-          #ff8b99 19.04%,
-          #fca27d 74.02%,
-          #ffcba5 97.03%
-        );
-      }
+    152.97deg,
+    rgba(38, 38, 38, 1) 0%,
+    rgba(130, 130, 130, 1) 100%
+  );
+  &:hover {
+    background: linear-gradient(
+      145.83deg,
+      #ff8b99 19.04%,
+      #fca27d 74.02%,
+      #ffcba5 97.03%
+    );
+  }
 }
 
 body {
   background: #393939;
   mix-blend-mode: normal;
   font-family: Roboto;
-  color:#fff;
+  color: #fff;
 }
 
-input[type=number]::-webkit-inner-spin-button {
+input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
