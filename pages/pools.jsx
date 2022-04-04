@@ -1095,7 +1095,7 @@ const Pools = (props) => {
                         }}
                       >
                         <div className="imgs">
-                          <img src="/coin/5181.png" />
+                          <img src="/coin/4139.png" />
                           <img src="/coin/192x192.png" className="img2" />
                         </div>
                         <span>0.00 USD</span>
@@ -1149,7 +1149,7 @@ const Pools = (props) => {
                         }}
                       >
                         <div className="imgs">
-                          <img src="/coin/4139.png" />
+                          <img src="/coin/5181.png" />
                           <img src="/coin/192x192.png" className="img2" />
                         </div>
                         <span>0.00 USD</span>
