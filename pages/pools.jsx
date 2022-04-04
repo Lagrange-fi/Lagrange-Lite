@@ -45,6 +45,7 @@ const Pools = (props) => {
 
   //////-----  token balance ------/////////
   const [wetokenbalance, wetokensetbalance] = useState()
+  const [wetokenbalance1, wetokensetbalance1] = useState()
   const [usdbalance, setUsdbalance] = useState()
   const [ageurbalance, setAgeurbalance] = useState()
   const [brzbalance, setBrzbalance] = useState()
@@ -79,6 +80,7 @@ const Pools = (props) => {
   const [pool, setPool] = useState()
   const [pool1, setPool1] = useState([])
   const [pool2, setPool2] = useState([])
+  const [pool3, setPool3] = useState([])
   const mountedStyle = { animation: 'inAnimation 250ms ease-in' }
   const unmountedStyle = {
     animation: 'outAnimation 270ms ease-out',
@@ -178,6 +180,22 @@ const Pools = (props) => {
       // console.log(pool1)
     }
     fetchPool1()
+  }, [])
+
+
+  useEffect(() => {
+    async function fetchPool3() {
+      const response = await fetch(
+        'https://public-api.solscan.io/token/holders?tokenAddress=5QEs2UzoefaSoCTDKaaQvce7BDyjQNaAGNs7twH3cVgP&offset=0&limit=10'
+      )
+      const res = await response.json()
+      console.log('poooooooooooooooool3')
+      console.log(res.data[0].amount)
+      // console.log(res.data.map((d) => d.amount))
+      setPool3(res.data.map((d) => d.amount))
+      // console.log(pool1)
+    }
+    fetchPool3()
   }, [])
 
   useEffect(() => {
@@ -301,6 +319,70 @@ const Pools = (props) => {
       setBilirabalance$(data.bilira.usd.toFixed(2))
     }
     changeBilira()
+
+
+        //----We token balance -----///
+
+        const getTokenBalance1 = async () => {
+          const walletAddress = wallet?.publicKey
+          console.log('publicKey')
+          console.log(wallet?.publicKey)
+          const tokenMintAddress = '5QEs2UzoefaSoCTDKaaQvce7BDyjQNaAGNs7twH3cVgP'
+          //const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+          const response = await axios({
+            url: `https://api.mainnet-beta.solana.com`,
+            method: 'post',
+            headers: { 'Content-Type': 'application/json' },
+            data: {
+              jsonrpc: '2.0',
+              id: 1,
+              method: 'getTokenAccountsByOwner',
+              params: [
+                walletAddress,
+                {
+                  mint: tokenMintAddress,
+                },
+                {
+                  encoding: 'jsonParsed',
+                },
+              ],
+            },
+          })
+    
+          if (
+            Array.isArray(response?.data?.result?.value) &&
+            response?.data?.result?.value?.length > 0 &&
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info
+              ?.tokenAmount?.amount > 0 &&
+            connected == true
+          ) {
+            Number(
+              response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+                5
+              )
+            )
+            wetokensetbalance1(
+              response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+                6
+              )
+            )
+            console.log(
+              ' wetoken Balance:   ' +
+                response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+                  5
+                )
+            )
+          } else {
+            // wetokensetbalance(0)
+            console.log(
+              ' wetoken Balance:   ' +
+                response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+                  5
+                )
+            )
+          }
+        }
+        getTokenBalance1()
 
     //----We token balance -----///
 
@@ -994,6 +1076,60 @@ const Pools = (props) => {
                         : Number(
                             (wetokenbalance /
                               pool1.reduce(
+                                (total, item) => (total += item),
+                                0
+                              )) *
+                              1000000 *
+                              100
+                          ).toFixed(2)}
+                      %
+                    </td>
+                    <td>0.00 USD </td>
+                    <td>
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        <div className="imgs">
+                          <img src="/coin/5181.png" />
+                          <img src="/coin/192x192.png" className="img2" />
+                        </div>
+                        <span>0.00 USD</span>
+                      </div>
+                    </td>
+                    <td>
+                      <button>Remove</button>
+                    </td>
+                  </tr>
+                </tbody>
+                
+                <tbody className="section section-step">
+                  <tr>
+                    <td>
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <div className="imgs">
+                          <img src="/coin/5181.png" />
+                          <img src="/coin/192x192.png" className="img2" />
+                        </div>
+                        <span>TRYB/USDL</span>
+                      </div>
+                    </td>
+                    <td>
+                      {wetokenbalance1 == undefined
+                        ? 0
+                        : Number(
+                            (wetokenbalance1 /
+                              pool3.reduce(
                                 (total, item) => (total += item),
                                 0
                               )) *
