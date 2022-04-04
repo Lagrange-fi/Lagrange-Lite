@@ -341,7 +341,7 @@ const Pools = (props) => {
                 walletAddress,
                 {
                   mint: tokenMintAddress,
-                },
+                },   
                 {
                   encoding: 'jsonParsed',
                 },
