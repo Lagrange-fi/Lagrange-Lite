@@ -1008,7 +1008,7 @@ const Pools = (props) => {
                     >
                       <td>
                         <figure>
-                          <img src="/coin/4139.png" />
+                          <img src="/coin/5181.png" />
                           <span>
                             R$
                             {pool2?.coinTokens == undefined
