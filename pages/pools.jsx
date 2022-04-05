@@ -255,16 +255,7 @@ const Pools = (props) => {
     }
     fetchBilira()
 
-    //------------sol change usd------------///
-    async function changeUsd() {
-      const response = await fetch(
-        'https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd'
-      )
-      const data = await response.json()
-      // console.log('sol usd ' + data.solana.usd)
-      setChangeUsdBalance(data.solana.usd)
-    }
-    changeUsd()
+
 
     //------------USDC change usd------------///
     async function changeUsdc() {
@@ -277,7 +268,7 @@ const Pools = (props) => {
     }
     changeUsdc()
 
-    //------------USDT change usd------------///
+    //------------USDT change usd------------/// 
     async function changeUsdt() {
       const response = await fetch(
         'https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd'
@@ -392,7 +383,7 @@ const Pools = (props) => {
       console.log('publicKey')
       console.log(wallet?.publicKey)
       const tokenMintAddress = 'D3bsdYS22s8xY1tunY2iJLCdrcpx3ZUaS2EJWor2sgD'
-      //const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+       //const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
       const response = await axios({
         url: `https://api.mainnet-beta.solana.com`,
         method: 'post',
@@ -1039,11 +1030,19 @@ const Pools = (props) => {
           </div>
 
           <div className="pool2" style={{ display: displayl }}>
-            <div className="titlediv">
-              <span className="title">Your Liquidity</span>
-              <button>Claim Rewards</button>
-            </div>
-
+         
+            {!wetokenbalance && !wetokenbalance1 && (
+              <h1 style={{fontSize:"40px"}}>You do not own any portions</h1>
+            )}       
+          
+            {(wetokenbalance || wetokenbalance1) && (
+              <>
+              <div className="titlediv">
+                <span className="title">Your Liquidity</span>
+                <button>Claim Rewards</button>
+              </div> 
+           
+           
             <div className="tablaparent" >
               <table>
                 <tr>
@@ -1055,61 +1054,61 @@ const Pools = (props) => {
                 </tr>
                 {wetokenbalance && (
                   <tbody className="section section-step">
-                  <tr >
-                    <td>
-                      <div
-                        style={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <div className="imgs">
-                          <img src="/coin/4139.png" />
-                          <img src="/coin/192x192.png" className="img2" />
+                    <tr >
+                      <td>
+                        <div
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                          }}
+                        >
+                          <div className="imgs">
+                            <img src="/coin/4139.png" />
+                            <img src="/coin/192x192.png" className="img2" />
+                          </div>
+                          <span>WBRZ/USDL</span>
                         </div>
-                        <span>WBRZ/USDL</span>
-                      </div>
-                    </td>
-                    <td>
-                      {wetokenbalance == undefined
-                        ? 0
-                        : Number(
-                          (wetokenbalance /
-                            pool1.reduce(
-                              (total, item) => (total += item),
-                              0
-                            )) *
-                          1000000 *
-                          100
-                        ).toFixed(2)}
-                      %
-                    </td>
-                    <td>0.00 USD </td>
-                    <td>
-                      <div
-                        style={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                        }}
-                      >
-                        <div className="imgs">
-                          <img src="/coin/4139.png" />
-                          <img src="/coin/192x192.png" className="img2" />
+                      </td>
+                      <td>
+                        {wetokenbalance == undefined
+                          ? 0
+                          : Number(
+                            (wetokenbalance /
+                              pool1.reduce(
+                                (total, item) => (total += item),
+                                0
+                              )) *
+                            1000000 *
+                            100
+                          ).toFixed(2)}
+                        %
+                      </td>
+                      <td>0.00 USD </td>
+                      <td>
+                        <div
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          <div className="imgs">
+                            <img src="/coin/4139.png" />
+                            <img src="/coin/192x192.png" className="img2" />
+                          </div>
+                          <span>0.00 USD</span>
                         </div>
-                        <span>0.00 USD</span>
-                      </div>
-                    </td>
-                    <td>
-                      <button>Remove</button>
-                    </td>
-                  </tr>
-                </tbody>
+                      </td>
+                      <td>
+                        <button>Remove</button>
+                      </td>
+                    </tr>
+                  </tbody>
 
                 )}
-              
+
 
                 {wetokenbalance1 && (
 
@@ -1169,17 +1168,10 @@ const Pools = (props) => {
 
                 )
                 }
-
-
-
-
-
-
-
-
               </table>
-
             </div>
+            </>
+                         )}
           </div>
         </div>
       </div>
