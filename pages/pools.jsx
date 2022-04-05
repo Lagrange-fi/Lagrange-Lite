@@ -89,6 +89,7 @@ const Pools = (props) => {
   const mountedStyle1 = { transform: 'rotate(180deg)' }
   const unmountedStyle1 = { transform: 'rotate(0deg)' }
 
+
   const { swappableOutputForSol } = props
 
   const wallet = useMangoStore(walletSelector)
@@ -892,7 +893,7 @@ const Pools = (props) => {
                     <th></th>
                   </tr>
                 </thead>
-                <tbody className="section section-step">
+                <tbody className="section section-step" >
                   <tr>
                     <td>
                       <div
@@ -1053,8 +1054,10 @@ const Pools = (props) => {
                   <th>Action</th>
                 </tr>
 
-                <tbody className="section section-step">
-                  <tr>
+                <tbody  className="section section-step" 
+                style={ { display: wetokenbalance == undefined ? 'none' : 'flex' } } 
+                >
+                  <tr > 
                     <td>
                       <div
                         style={{
@@ -1107,7 +1110,9 @@ const Pools = (props) => {
                   </tr>
                 </tbody>
                 
-                <tbody className="section section-step">
+                <tbody className="section section-step"
+                  style={ { display: wetokenbalance1 == undefined ? 'none' : 'flex' } } 
+                  >
                   <tr>
                     <td>
                       <div
