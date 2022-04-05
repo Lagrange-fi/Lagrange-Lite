@@ -99,7 +99,7 @@ const Pools = (props) => {
   console.log('connected')
   console.log(connected == true)
 
-  const gelsolbalance = async () => {}
+  const gelsolbalance = async () => { }
 
   useEffect(() => {
     setUsdcbalance$c(Number(usdbalance * usdcbalance$).toFixed(2))
@@ -322,68 +322,68 @@ const Pools = (props) => {
     changeBilira()
 
 
-        //----We token balance -----///
+    //----We token balance -----///
 
-        const getTokenBalance1 = async () => {
-          const walletAddress = wallet?.publicKey
-          console.log('publicKey')
-          console.log(wallet?.publicKey)
-          const tokenMintAddress = '5QEs2UzoefaSoCTDKaaQvce7BDyjQNaAGNs7twH3cVgP'
-          //const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
-          const response = await axios({
-            url: `https://api.mainnet-beta.solana.com`,
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            data: {
-              jsonrpc: '2.0',
-              id: 1,
-              method: 'getTokenAccountsByOwner',
-              params: [
-                walletAddress,
-                {
-                  mint: tokenMintAddress,
-                },   
-                {
-                  encoding: 'jsonParsed',
-                },
-              ],
+    const getTokenBalance1 = async () => {
+      const walletAddress = wallet?.publicKey
+      console.log('publicKey')
+      console.log(wallet?.publicKey)
+      const tokenMintAddress = '5QEs2UzoefaSoCTDKaaQvce7BDyjQNaAGNs7twH3cVgP'
+      //const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      const response = await axios({
+        url: `https://api.mainnet-beta.solana.com`,
+        method: 'post',
+        headers: { 'Content-Type': 'application/json' },
+        data: {
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'getTokenAccountsByOwner',
+          params: [
+            walletAddress,
+            {
+              mint: tokenMintAddress,
             },
-          })
-    
-          if (
-            Array.isArray(response?.data?.result?.value) &&
-            response?.data?.result?.value?.length > 0 &&
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info
-              ?.tokenAmount?.amount > 0 &&
-            connected == true
-          ) {
-            Number(
-              response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-                5
-              )
-            )
-            wetokensetbalance1(
-              response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-                6
-              )
-            )
-            console.log(
-              ' wetoken Balance:   ' +
-                response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-                  5
-                )
-            )
-          } else {
-            // wetokensetbalance(0)
-            console.log(
-              ' wetoken Balance:   ' +
-                response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-                  5
-                )
-            )
-          }
-        }
-        getTokenBalance1()
+            {
+              encoding: 'jsonParsed',
+            },
+          ],
+        },
+      })
+
+      if (
+        Array.isArray(response?.data?.result?.value) &&
+        response?.data?.result?.value?.length > 0 &&
+        response?.data?.result?.value[0]?.account?.data?.parsed?.info
+          ?.tokenAmount?.amount > 0 &&
+        connected == true
+      ) {
+        Number(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        )
+        wetokensetbalance1(
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            6
+          )
+        )
+        console.log(
+          ' wetoken Balance:   ' +
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        )
+      } else {
+        // wetokensetbalance(0)
+        console.log(
+          ' wetoken Balance:   ' +
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
+        )
+      }
+    }
+    getTokenBalance1()
 
     //----We token balance -----///
 
@@ -432,17 +432,17 @@ const Pools = (props) => {
         )
         console.log(
           ' wetoken Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
         )
       } else {
         // wetokensetbalance(0)
         console.log(
           ' wetoken Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
         )
       }
     }
@@ -619,17 +619,17 @@ const Pools = (props) => {
         )
         console.log(
           'Ageur Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
         )
       } else {
         setAgeurbalance(0)
         console.log(
           'Ageur Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
+          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+            5
+          )
         )
       }
     }
@@ -1044,7 +1044,7 @@ const Pools = (props) => {
               <button>Claim Rewards</button>
             </div>
 
-            <div className="tablaparent">
+            <div className="tablaparent" >
               <table>
                 <tr>
                   <th>Pool</th>
@@ -1053,11 +1053,9 @@ const Pools = (props) => {
                   <th>Unclaimed Rewards</th>
                   <th>Action</th>
                 </tr>
-
-                <tbody  className="section section-step" 
-                style={ { display: wetokenbalance == undefined ? 'none' : 'flex' } } 
-                >
-                  <tr > 
+                {wetokenbalance && (
+                  <tbody className="section section-step">
+                  <tr >
                     <td>
                       <div
                         style={{
@@ -1077,14 +1075,14 @@ const Pools = (props) => {
                       {wetokenbalance == undefined
                         ? 0
                         : Number(
-                            (wetokenbalance /
-                              pool1.reduce(
-                                (total, item) => (total += item),
-                                0
-                              )) *
-                              1000000 *
-                              100
-                          ).toFixed(2)}
+                          (wetokenbalance /
+                            pool1.reduce(
+                              (total, item) => (total += item),
+                              0
+                            )) *
+                          1000000 *
+                          100
+                        ).toFixed(2)}
                       %
                     </td>
                     <td>0.00 USD </td>
@@ -1109,63 +1107,78 @@ const Pools = (props) => {
                     </td>
                   </tr>
                 </tbody>
-                
-                <tbody className="section section-step"
-                  style={ { display: wetokenbalance1 == undefined ? 'none' : 'flex' } } 
-                  >
-                  <tr>
-                    <td>
-                      <div
-                        style={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                        }}
-                      >
-                        <div className="imgs">
-                          <img src="/coin/5181.png" />
-                          <img src="/coin/192x192.png" className="img2" />
+
+                )}
+              
+
+                {wetokenbalance1 && (
+
+                  <tbody className="section section-step" >
+                    <tr>
+                      <td>
+                        <div
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                          }}
+                        >
+                          <div className="imgs">
+                            <img src="/coin/5181.png" />
+                            <img src="/coin/192x192.png" className="img2" />
+                          </div>
+                          <span>TRYB/USDL</span>
                         </div>
-                        <span>TRYB/USDL</span>
-                      </div>
-                    </td>
-                    <td>
-                      {wetokenbalance1 == undefined
-                        ? 0
-                        : Number(
+                      </td>
+                      <td>
+                        {wetokenbalance1 == undefined
+                          ? 0
+                          : Number(
                             (wetokenbalance1 /
                               pool3.reduce(
                                 (total, item) => (total += item),
                                 0
                               )) *
-                              1000000 *
-                              100
+                            1000000 *
+                            100
                           ).toFixed(2)}
-                      %
-                    </td>
-                    <td>0.00 USD </td>
-                    <td>
-                      <div
-                        style={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                        }}
-                      >
-                        <div className="imgs">
-                          <img src="/coin/5181.png" />
-                          <img src="/coin/192x192.png" className="img2" />
+                        %
+                      </td>
+                      <td>0.00 USD </td>
+                      <td>
+                        <div
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}
+                        >
+                          <div className="imgs">
+                            <img src="/coin/5181.png" />
+                            <img src="/coin/192x192.png" className="img2" />
+                          </div>
+                          <span>0.00 USD</span>
                         </div>
-                        <span>0.00 USD</span>
-                      </div>
-                    </td>
-                    <td>
-                      <button>Remove</button>
-                    </td>
-                  </tr>
-                </tbody>
+                      </td>
+                      <td>
+                        <button>Remove</button>
+                      </td>
+                    </tr>
+                  </tbody>
+
+                )
+                }
+
+
+
+
+
+
+
+
               </table>
+
             </div>
           </div>
         </div>
