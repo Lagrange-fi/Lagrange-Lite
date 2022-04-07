@@ -1069,18 +1069,7 @@ const Pools = (props) => {
                             </div>
                           </td>
                           <td>
-                            {wetokenbalance == undefined
-                              ? 0
-                              : Number(
-                                  (wetokenbalance /
-                                    pool1.reduce(
-                                      (total, item) => (total += item),
-                                      0
-                                    )) *
-                                    1000000 *
-                                    100
-                                ).toFixed(2)}
-                            %
+                            50 %
                           </td>
                           <td>0.00 USD </td>
                           <td>
