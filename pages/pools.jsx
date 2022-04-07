@@ -33,11 +33,7 @@ import {
 } from '@solana/web3.js'
 import axios from 'axios'
 
-
-
 const Pools = (props) => {
-
-  
   const [usd, setUsd] = useState()
   const [ageur, setAgeur] = useState()
   const [brz, setBrz] = useState()
@@ -93,7 +89,6 @@ const Pools = (props) => {
   const mountedStyle1 = { transform: 'rotate(180deg)' }
   const unmountedStyle1 = { transform: 'rotate(0deg)' }
 
-
   const { swappableOutputForSol } = props
 
   const wallet = useMangoStore(walletSelector)
@@ -103,7 +98,7 @@ const Pools = (props) => {
   console.log('connected')
   console.log(connected == true)
 
-  const gelsolbalance = async () => { }
+  const gelsolbalance = async () => {}
 
   useEffect(() => {
     setUsdcbalance$c(Number(usdbalance * usdcbalance$).toFixed(2))
@@ -187,7 +182,6 @@ const Pools = (props) => {
     fetchPool1()
   }, [])
 
-
   useEffect(() => {
     async function fetchPool3() {
       const response = await fetch(
@@ -259,8 +253,6 @@ const Pools = (props) => {
     }
     fetchBilira()
 
-
-
     //------------USDC change usd------------///
     async function changeUsdc() {
       const response = await fetch(
@@ -272,7 +264,7 @@ const Pools = (props) => {
     }
     changeUsdc()
 
-    //------------USDT change usd------------/// 
+    //------------USDT change usd------------///
     async function changeUsdt() {
       const response = await fetch(
         'https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=usd'
@@ -315,7 +307,6 @@ const Pools = (props) => {
       setBilirabalance$(data.bilira.usd.toFixed(2))
     }
     changeBilira()
-
 
     //----We token balance -----///
 
@@ -364,17 +355,17 @@ const Pools = (props) => {
         )
         console.log(
           ' wetoken Balance:   ' +
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
         )
       } else {
         // wetokensetbalance(0)
         console.log(
           ' wetoken Balance:   ' +
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
         )
       }
     }
@@ -427,17 +418,17 @@ const Pools = (props) => {
         )
         console.log(
           ' wetoken Balance:   ' +
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
         )
       } else {
         // wetokensetbalance(0)
         console.log(
           ' wetoken Balance:   ' +
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
         )
       }
     }
@@ -453,10 +444,10 @@ const Pools = (props) => {
       const response = await axios({
         url: `https://api.mainnet-beta.solana.com`,
         method: 'post',
-        delayed: true ,
-        headers: { 
-          'Content-Type': 'application/json'
-      },
+        delayed: true,
+        headers: {
+          'Content-Type': 'application/json',
+        },
         data: {
           jsonrpc: '2.0',
           id: 1,
@@ -472,8 +463,6 @@ const Pools = (props) => {
           ],
         },
       })
-      
-   
 
       if (
         Array.isArray(response?.data?.result?.value) &&
@@ -619,17 +608,17 @@ const Pools = (props) => {
         )
         console.log(
           'Ageur Balance:   ' +
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
         )
       } else {
         setAgeurbalance(0)
         console.log(
           'Ageur Balance:   ' +
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
+            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
+              5
+            )
         )
       }
     }
@@ -893,7 +882,7 @@ const Pools = (props) => {
                     <th></th>
                   </tr>
                 </thead>
-                <tbody className="section section-step" >
+                <tbody className="section section-step">
                   <tr>
                     <td>
                       <div
@@ -984,7 +973,7 @@ const Pools = (props) => {
                             className="img2"
                           />
                         </div>
-                        <span>TRYB/USDL</span>
+                        <span>TTRYB/USDL</span>
                       </div>
                     </td>
                     <td>--%</td>
@@ -1039,140 +1028,131 @@ const Pools = (props) => {
           </div>
 
           <div className="pool2" style={{ display: displayl }}>
-        
-            {wallet?.publicKey?.toBase58() != "7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8" ? (
-              <h1 style={{fontSize:"40px"}}>You do not own any portions</h1>
-            ): null}
+            {wallet?.publicKey?.toBase58() !=
+            '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' ? (
+              <h1 style={{ fontSize: '40px' }}>You do not own any portions</h1>
+            ) : null}
 
-           {wallet?.publicKey?.toBase58() == "7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8" ? (
-             <>
-              <div className="titlediv">
-                <span className="title">Your Liquidity</span>
-                <button>Claim Rewards</button>
-              </div>
-            <div className="tablaparent" >
-              <table>
-                <tr>
-                  <th>Pool</th>
-                  <th>Portion Amount</th>
-                  <th>Portion Value </th>
-                  <th>Unclaimed Rewards</th>
-                  <th>Action</th>
-                </tr>
-                {wetokenbalance && (
-                  <tbody className="section section-step">
-                    <tr >
-                      <td>
-                        <div
-                          style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                          }}
-                        >
-                          <div className="imgs">
-                            <img src="/coin/4139.png" />
-                            <img src="/coin/192x192.png" className="img2" />
-                          </div>
-                          <span>WBRZ/USDL</span>
-                        </div>
-                      </td>
-                      <td>
-                        {wetokenbalance == undefined
-                          ? 0
-                          : Number(
-                            (wetokenbalance /
-                              pool1.reduce(
-                                (total, item) => (total += item),
-                                0
-                              )) *
-                            1000000 *
-                            100
-                          ).toFixed(2)}
-                        %
-                      </td>
-                      <td>0.00 USD </td>
-                      <td>
-                        <div
-                          style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                          }}
-                        >
-                          <div className="imgs">
-                            <img src="/coin/4139.png" />
-                            <img src="/coin/192x192.png" className="img2" />
-                          </div>
-                          <span>0.00 USD</span>
-                        </div>
-                      </td>
-                      <td>
-                        <button>Remove</button>
-                      </td>
+            {wallet?.publicKey?.toBase58() ==
+            '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' ? (
+              <>
+                <div className="titlediv">
+                  <span className="title">Your Liquidity</span>
+                  <button>Claim Rewards</button>
+                </div>
+                <div className="tablaparent">
+                  <table>
+                    <tr>
+                      <th>Pool</th>
+                      <th>Portion Amount</th>
+                      <th>Portion Value </th>
+                      <th>Unclaimed Rewards</th>
+                      <th>Action</th>
                     </tr>
-                  </tbody>
+                    {wallet?.publicKey?.toBase58() ==
+                    'FGyR2P9KYewWk5CvbJ3ZB9rqjNVfYuXJuzAV78jkEnRx' ? (
+                      <tbody className="section section-step">
+                        <tr>
+                          <td>
+                            <div
+                              style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                              }}
+                            >
+                              <div className="imgs">
+                                <img src="/coin/4139.png" />
+                                <img src="/coin/192x192.png" className="img2" />
+                              </div>
+                              <span>WBRZ/USDL</span>
+                            </div>
+                          </td>
+                          <td>
+                            {wetokenbalance == undefined
+                              ? 0
+                              : Number(
+                                  (wetokenbalance /
+                                    pool1.reduce(
+                                      (total, item) => (total += item),
+                                      0
+                                    )) *
+                                    1000000 *
+                                    100
+                                ).toFixed(2)}
+                            %
+                          </td>
+                          <td>0.00 USD </td>
+                          <td>
+                            <div
+                              style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                              }}
+                            >
+                              <div className="imgs">
+                                <img src="/coin/4139.png" />
+                                <img src="/coin/192x192.png" className="img2" />
+                              </div>
+                              <span>0.00 USD</span>
+                            </div>
+                          </td>
+                          <td>
+                            <button>Remove</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    ) : null}
 
-                )}
-
-
-     {wallet?.publicKey?.toBase58() == "7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8" ? 
-          (
-
-            <tbody className="section section-step" >
-              <tr>
-                <td>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <div className="imgs">
-                      <img src="/coin/5181.png" />
-                      <img src="/coin/192x192.png" className="img2" />
-                    </div>
-                    <span>TRYB/USDL</span>
-                  </div>
-                </td>
-                <td>                  
-                 50 %
-                </td>
-                <td>0.00 USD </td>
-                <td>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <div className="imgs">
-                      <img src="/coin/5181.png" />
-                      <img src="/coin/192x192.png" className="img2" />
-                    </div>
-                    <span>0.00 USD</span>
-                  </div>
-                </td>
-                <td>
-                  <button>Remove</button>
-                </td>
-              </tr>
-            </tbody>
-
-          ) 
-     
-     
-     
-     : null
-     }
-              </table>
-            </div>
-            </>
-            )   : null}
+                    {wallet?.publicKey?.toBase58() ==
+                    '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' ? (
+                      <tbody className="section section-step">
+                        <tr>
+                          <td>
+                            <div
+                              style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                              }}
+                            >
+                              <div className="imgs">
+                                <img src="/coin/5181.png" />
+                                <img src="/coin/192x192.png" className="img2" />
+                              </div>
+                              <span>TTRYB/USDL</span>
+                            </div>
+                          </td>
+                          <td>50 %</td>
+                          <td>0.00 USD </td>
+                          <td>
+                            <div
+                              style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                              }}
+                            >
+                              <div className="imgs">
+                                <img src="/coin/5181.png" />
+                                <img src="/coin/192x192.png" className="img2" />
+                              </div>
+                              <span>0.00 USD</span>
+                            </div>
+                          </td>
+                          <td>
+                            <button>Remove</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    ) : null}
+                  </table>
+                </div>
+              </>
+            ) : null}
           </div>
         </div>
       </div>
