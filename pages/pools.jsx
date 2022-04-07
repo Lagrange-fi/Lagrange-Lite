@@ -33,7 +33,11 @@ import {
 } from '@solana/web3.js'
 import axios from 'axios'
 
+
+
 const Pools = (props) => {
+
+  
   const [usd, setUsd] = useState()
   const [ageur, setAgeur] = useState()
   const [brz, setBrz] = useState()
@@ -383,7 +387,7 @@ const Pools = (props) => {
       console.log('publicKey')
       console.log(wallet?.publicKey)
       const tokenMintAddress = 'D3bsdYS22s8xY1tunY2iJLCdrcpx3ZUaS2EJWor2sgD'
-       //const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      // const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
       const response = await axios({
         url: `https://api.mainnet-beta.solana.com`,
         method: 'post',
@@ -449,7 +453,10 @@ const Pools = (props) => {
       const response = await axios({
         url: `https://api.mainnet-beta.solana.com`,
         method: 'post',
-        headers: { 'Content-Type': 'application/json' },
+        delayed: true ,
+        headers: { 
+          'Content-Type': 'application/json'
+      },
         data: {
           jsonrpc: '2.0',
           id: 1,
@@ -465,6 +472,8 @@ const Pools = (props) => {
           ],
         },
       })
+      
+   
 
       if (
         Array.isArray(response?.data?.result?.value) &&
@@ -1030,19 +1039,17 @@ const Pools = (props) => {
           </div>
 
           <div className="pool2" style={{ display: displayl }}>
-         
-            {!wetokenbalance && !wetokenbalance1 && (
+        
+            {wallet?.publicKey?.toBase58() != "7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8" ? (
               <h1 style={{fontSize:"40px"}}>You do not own any portions</h1>
-            )}       
-          
-            {(wetokenbalance || wetokenbalance1) && (
-              <>
+            ): null}
+
+           {wallet?.publicKey?.toBase58() == "7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8" ? (
+             <>
               <div className="titlediv">
                 <span className="title">Your Liquidity</span>
                 <button>Claim Rewards</button>
-              </div> 
-           
-           
+              </div>
             <div className="tablaparent" >
               <table>
                 <tr>
@@ -1110,68 +1117,62 @@ const Pools = (props) => {
                 )}
 
 
-                {wetokenbalance1 && (
+     {wallet?.publicKey?.toBase58() == "7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8" ? 
+          (
 
-                  <tbody className="section section-step" >
-                    <tr>
-                      <td>
-                        <div
-                          style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                          }}
-                        >
-                          <div className="imgs">
-                            <img src="/coin/5181.png" />
-                            <img src="/coin/192x192.png" className="img2" />
-                          </div>
-                          <span>TRYB/USDL</span>
-                        </div>
-                      </td>
-                      <td>
-                        {wetokenbalance1 == undefined
-                          ? 0
-                          : Number(
-                            (wetokenbalance1 /
-                              pool3.reduce(
-                                (total, item) => (total += item),
-                                0
-                              )) *
-                            1000000 *
-                            100
-                          ).toFixed(2)}
-                        %
-                      </td>
-                      <td>0.00 USD </td>
-                      <td>
-                        <div
-                          style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                          }}
-                        >
-                          <div className="imgs">
-                            <img src="/coin/5181.png" />
-                            <img src="/coin/192x192.png" className="img2" />
-                          </div>
-                          <span>0.00 USD</span>
-                        </div>
-                      </td>
-                      <td>
-                        <button>Remove</button>
-                      </td>
-                    </tr>
-                  </tbody>
+            <tbody className="section section-step" >
+              <tr>
+                <td>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <div className="imgs">
+                      <img src="/coin/5181.png" />
+                      <img src="/coin/192x192.png" className="img2" />
+                    </div>
+                    <span>TRYB/USDL</span>
+                  </div>
+                </td>
+                <td>                  
+                 50 %
+                </td>
+                <td>0.00 USD </td>
+                <td>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <div className="imgs">
+                      <img src="/coin/5181.png" />
+                      <img src="/coin/192x192.png" className="img2" />
+                    </div>
+                    <span>0.00 USD</span>
+                  </div>
+                </td>
+                <td>
+                  <button>Remove</button>
+                </td>
+              </tr>
+            </tbody>
 
-                )
-                }
+          ) 
+     
+     
+     
+     : null
+     }
               </table>
             </div>
             </>
-                         )}
+            )   : null}
           </div>
         </div>
       </div>

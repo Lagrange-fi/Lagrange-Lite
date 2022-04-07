@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import { PlusCircleIcon, TrashIcon } from '@heroicons/react/outline'
 import Modal from './Modal'

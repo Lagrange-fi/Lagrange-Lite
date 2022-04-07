@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable */
 import { JupiterProvider } from '@jup-ag/react-hook'
 import type { NextPage } from 'next'
 // @ts-ignore

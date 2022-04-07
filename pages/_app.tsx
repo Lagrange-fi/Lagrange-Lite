@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
+/* eslint-disable */
 import Head from 'next/head'
 import { ThemeProvider } from 'next-themes'
 import '../node_modules/react-grid-layout/css/styles.css'

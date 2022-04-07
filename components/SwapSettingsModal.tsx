@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useEffect, useState } from 'react'
 import Modal from './Modal'
 import { useTranslation } from 'next-i18next'

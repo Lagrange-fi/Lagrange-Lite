@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable */
 import { memo, useMemo, useState, PureComponent, useEffect } from 'react'
 import { SearchIcon } from '@heroicons/react/outline'
 import Modal from './Modal'

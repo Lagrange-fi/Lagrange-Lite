@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import useMangoGroupConfig from '../hooks/useMangoGroupConfig'
