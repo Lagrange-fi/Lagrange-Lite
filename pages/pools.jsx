@@ -1028,13 +1028,11 @@ const Pools = (props) => {
           </div>
 
           <div className="pool2" style={{ display: displayl }}>
-            {wallet?.publicKey?.toBase58() !=
-            '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' ? (
+            {wallet?.publicKey?.toBase58() != '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' && wallet?.publicKey?.toBase58() != 'FGyR2P9KYewWk5CvbJ3ZB9rqjNVfYuXJuzAV78jkEnRx'   ? (
               <h1 style={{ fontSize: '40px' }}>You do not own any portions</h1>
             ) : null}
 
-            {wallet?.publicKey?.toBase58() ==
-            '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' ? (
+            {wallet?.publicKey?.toBase58() == '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' || wallet?.publicKey?.toBase58() == 'FGyR2P9KYewWk5CvbJ3ZB9rqjNVfYuXJuzAV78jkEnRx' ? (
               <>
                 <div className="titlediv">
                   <span className="title">Your Liquidity</span>
