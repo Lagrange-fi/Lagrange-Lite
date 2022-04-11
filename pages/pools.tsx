@@ -1,16 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
 import React, { useEffect, useState, useCallback, useRef } from 'react'
 import TopBar from '../components/TopBar'
 import Footer from '../components/Footer'
-import Image from 'next/image'
-import EURS from '../public/coin/2989.png'
-import USDC from '../public/coin/3408.png'
-import USDT from '../public/coin/825.png'
-import JPYC from '../public/coin/9045.png'
-import TRYB from '../public/coin/5181.png'
-import BRZ from '../public/coin/4139.png'
-import LAG from '../public/assets/icons/192x192.png'
 import Head from 'next/head'
 
 import useMangoStore from '../stores/useMangoStore'
@@ -30,42 +21,11 @@ import {
   zeroKey,
 } from '@blockworks-foundation/mango-client'
 import { sortBy, sum } from 'lodash'
-import {
-  Keypair,
-  Transaction,
-  LAMPORTS_PER_SOL,
-  clusterApiUrl,
-  Connection,
-  PublicKey,
-} from '@solana/web3.js'
+import { LAMPORTS_PER_SOL } from '@solana/web3.js'
 import axios from 'axios'
 
-interface Provider {
-  connected: boolean
-  type: string
-}
-
 const Pools = (props) => {
-  const [usd, setUsd] = useState()
-  const [ageur, setAgeur] = useState()
-  const [brz, setBrz] = useState()
-  const [jpyc, setJpyc] = useState()
-  const [bilira, setBilira] = useState()
-
-  //// FOR solana ////
-  const [changeUsdBalance, setChangeUsdBalance] = useState()
-
-  //////-----  token balance ------/////////
-  const [wetokenbalance, wetokensetbalance] = useState()
-  const [wetokenbalance1, wetokensetbalance1] = useState()
-  const [usdbalance, setUsdbalance] = useState(Number)
-  const [ageurbalance, setAgeurbalance] = useState()
-  const [brzbalance, setBrzbalance] = useState()
-  const [usdtbalance, setUsdtbalance] = useState(Number)
-  const [bilirabalance, setBilirabalance] = useState()
-  ////////////-----finish-----//////////////////////
-
-  //////-----  @token balance $ ------/////////
+  //////-----  @token per price  $ ------/////////
   const [usdcbalance$, setUsdcbalance$] = useState(Number)
   const [ageurbalance$, setAgeurbalance$] = useState(Number)
   const [brzbalance$, setBrzbalance$] = useState(Number)
@@ -73,7 +33,6 @@ const Pools = (props) => {
   const [bilirabalance$, setBilirabalance$] = useState(Number)
   ////////////-----finish-----//////////////////////
 
-  const { data } = props
   const [mybalance, setMybalance] = useState(String)
 
   const [displayl, setDisplayl] = useState('none')
@@ -177,6 +136,7 @@ const Pools = (props) => {
 
   const inputBrzBalance = () => {
     if (walletTokens.length) {
+      console.log('walletTokens')
       const walletToken = walletTokens.filter((t) => {
         return (
           t.account.mint.toString() ===
@@ -206,7 +166,10 @@ const Pools = (props) => {
   const inputWeTokenBalance = () => {
     if (walletTokens.length) {
       const walletToken = walletTokens.filter((t) => {
-        //return t.account.mint.toString() === 'D3bsdYS22s8xY1tunY2iJLCdrcpx3ZUaS2EJWor2sgD'
+        return (
+          t.account.mint.toString() ===
+          'D3bsdYS22s8xY1tunY2iJLCdrcpx3ZUaS2EJWor2sgD'
+        )
         //return t.account.mint.toString() === "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
       })
       const largestTokenAccount = sortBy(walletToken, 'uiBalance').reverse()[0]
@@ -305,61 +268,6 @@ const Pools = (props) => {
   }, [])
 
   useEffect(() => {
-    //-----------------usd-----------------//
-    async function fetchUsd() {
-      const response = await fetch(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=usd-coin&order=market_cap_desc&per_page=100&page=1&sparkline=false'
-      )
-      const data = await response.json()
-      // console.log(data.map((d) => d.total_volume))
-      setUsd(data.map((d) => d.total_volume))
-    }
-    fetchUsd()
-
-    //-----------------ageur-----------------//
-    async function fetchAgeur() {
-      const response = await fetch(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=ageur&order=market_cap_desc&per_page=100&page=1&sparkline=false'
-      )
-      const data = await response.json()
-      // console.log(data.map((d) => d.total_volume))
-      setAgeur(data.map((d) => d.total_volume))
-    }
-    fetchAgeur()
-
-    //-----------------JPYC-----------------//
-    async function fetchJpyc() {
-      const response = await fetch(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=jpyc&order=market_cap_desc&per_page=100&page=1&sparkline=false'
-      )
-      const data = await response.json()
-      // console.log(data.map((d) => d.total_volume))
-      setJpyc(data.map((d) => d.total_volume))
-    }
-    fetchJpyc()
-
-    //-----------------brz-----------------//
-    async function fetchBrz() {
-      const response = await fetch(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=brz&order=market_cap_desc&per_page=100&page=1&sparkline=false'
-      )
-      const data = await response.json()
-      // console.log(data.map((d) => d.total_volume))
-      setBrz(data.map((d) => d.total_volume))
-    }
-    fetchBrz()
-
-    //-----------------brz-----------------//
-    async function fetchBilira() {
-      const response = await fetch(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bilira&order=market_cap_desc&per_page=100&page=1&sparkline=false'
-      )
-      const data = await response.json()
-      // console.log(data.map((d) => d.total_volume))
-      setBilira(data.map((d) => d.total_volume))
-    }
-    fetchBilira()
-
     //------------USDC change usd------------///
     async function changeUsdc() {
       const response = await fetch(
@@ -520,7 +428,7 @@ const Pools = (props) => {
                     <td>
                       <div className="loqoword">
                         <img src="/coin/5181.png" />
-                        <span>TRYB </span>
+                        <span>TTRYB </span>
                       </div>
                     </td>
                     <td>${bilirabalance$}</td>
@@ -655,7 +563,7 @@ const Pools = (props) => {
                             className="img2"
                           />
                         </div>
-                        <span>TRYB/USDL</span>
+                        <span>TTRYB/USDL</span>
                       </div>
                     </td>
                     <td>--%</td>
@@ -803,7 +711,7 @@ const Pools = (props) => {
                                 <img src="/coin/5181.png" />
                                 <img src="/coin/192x192.png" className="img2" />
                               </div>
-                              <span>TRYB/USDL</span>
+                              <span>TTRYB/USDL</span>
                             </div>
                           </td>
                           <td>
