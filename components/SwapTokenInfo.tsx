@@ -117,10 +117,6 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
     )
     const inputData = await inputResponse.json()
     const outputData = await outputResponse.json()
-    console.log('inputData')
-    console.log(inputData)
-    console.log('outputData')
-    console.log(outputData)
     /// tokenleri birlesdirdik bir arraya //////
     let data: any[] = []
     if (Array.isArray(inputData)) {
@@ -131,26 +127,12 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
     }
     //// tokenler format edirik ////
     const formattedData = data.reduce((a, c) => {
-      console.log('a')
-      console.log(a)
-      console.log('c')
-      console.log(c)
-      // console.log(c[0])
-      console.log(c[4])
       const found = a.find((price: { time: any }) => price.time === c[0])
-      // console.log("a.find((price) => price.time === c[0]")
-      // console.log(a.find((price) => price.time === c[0]))
       if (found) {
-        console.log('found')
-        console.log(found)
         if (['usd-coin', 'tether'].includes(quoteTokenId)) {
-          console.log(found.inputPrice)
-          console.log(c[4])
           found.price = found.inputPrice / c[4]
         } else {
           found.price = c[4] / found.inputPrice
-          console.log('found.price')
-          console.log(found.price)
         }
       } else {
         a.push({ time: c[0], inputPrice: c[4] })

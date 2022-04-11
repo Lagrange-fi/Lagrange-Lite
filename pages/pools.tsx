@@ -24,6 +24,13 @@ import {
   WalletNotConnectedError,
 } from '@solana/wallet-adapter-base'
 import {
+  getTokenAccountsByOwnerWithWrappedSol,
+  nativeToUi,
+  TokenAccount,
+  zeroKey,
+} from '@blockworks-foundation/mango-client'
+import { sortBy, sum } from 'lodash'
+import {
   Keypair,
   Transaction,
   LAMPORTS_PER_SOL,
@@ -32,6 +39,11 @@ import {
   PublicKey,
 } from '@solana/web3.js'
 import axios from 'axios'
+
+interface Provider {
+  connected: boolean
+  type: string
+}
 
 const Pools = (props) => {
   const [usd, setUsd] = useState()
@@ -46,41 +58,34 @@ const Pools = (props) => {
   //////-----  token balance ------/////////
   const [wetokenbalance, wetokensetbalance] = useState()
   const [wetokenbalance1, wetokensetbalance1] = useState()
-  const [usdbalance, setUsdbalance] = useState()
+  const [usdbalance, setUsdbalance] = useState(Number)
   const [ageurbalance, setAgeurbalance] = useState()
   const [brzbalance, setBrzbalance] = useState()
-  const [usdtbalance, setUsdtbalance] = useState()
+  const [usdtbalance, setUsdtbalance] = useState(Number)
   const [bilirabalance, setBilirabalance] = useState()
   ////////////-----finish-----//////////////////////
 
-  //////-----  token balance USD ------/////////
-  const [usdcbalance$, setUsdcbalance$] = useState()
-  const [ageurbalance$, setAgeurbalance$] = useState()
-  const [brzbalance$, setBrzbalance$] = useState()
-  const [usdtbalance$, setUsdtbalance$] = useState()
-  const [bilirabalance$, setBilirabalance$] = useState()
+  //////-----  @token balance $ ------/////////
+  const [usdcbalance$, setUsdcbalance$] = useState(Number)
+  const [ageurbalance$, setAgeurbalance$] = useState(Number)
+  const [brzbalance$, setBrzbalance$] = useState(Number)
+  const [usdtbalance$, setUsdtbalance$] = useState(Number)
+  const [bilirabalance$, setBilirabalance$] = useState(Number)
   ////////////-----finish-----//////////////////////
 
-  //////----- current token balance USD ------/////////
-  const [usdcbalance$c, setUsdcbalance$c] = useState()
-  const [ageurbalance$c, setAgeurbalance$c] = useState()
-  const [brzbalance$c, setBrzbalance$c] = useState()
-  const [usdtbalance$c, setUsdtbalance$c] = useState()
-  const [bilirabalance$c, setBilirabalance$c] = useState()
-  ////////////-----finish-----//////////////////////
-
-  const [mytotalvalue, setMytotalvalue] = useState()
-  const [isExpanded, toggleExpansion] = useState(true)
   const { data } = props
   const [mybalance, setMybalance] = useState(String)
-  ////
+
   const [displayl, setDisplayl] = useState('none')
   const [check, setCheck] = useState(false)
   const [check1, setCheck1] = useState(false)
-  const [pool, setPool] = useState()
+  const [pool, setPool] = useState(undefined || Number)
   const [pool1, setPool1] = useState([])
   const [pool2, setPool2] = useState([])
   const [pool3, setPool3] = useState([])
+  const [walletTokens, setWalletTokens] = useState([])
+  const [tokens, setTokens] = useState([])
+
   const mountedStyle = { animation: 'inAnimation 250ms ease-in' }
   const unmountedStyle = {
     animation: 'outAnimation 270ms ease-out',
@@ -89,36 +94,139 @@ const Pools = (props) => {
   const mountedStyle1 = { transform: 'rotate(180deg)' }
   const unmountedStyle1 = { transform: 'rotate(0deg)' }
 
-  const { swappableOutputForSol } = props
-
   const wallet = useMangoStore(walletSelector)
   const connection = useMangoStore(connectionSelector)
   const connected = useMangoStore(walletConnectedSelector)
-  console.log(wallet?.publicKey?.toBase58())
-  console.log('connected')
-  console.log(connected == true)
+  // console.log(wallet?.publicKey?.toBase58())
+  // console.log('connected')
+  // console.log(connected == true)
 
   const gelsolbalance = async () => {}
 
-  useEffect(() => {
-    setUsdcbalance$c(Number(usdbalance * usdcbalance$).toFixed(2))
-  }, [usd, usdbalance, usdcbalance$])
+  const fetchWalletTokens: { (): void; (): Promise<void> } =
+    useCallback(async () => {
+      const ownedTokens:
+        | ((prevState: never[]) => never[])
+        | { account: TokenAccount; uiBalance: number }[] = []
+      const ownedTokenAccounts = await getTokenAccountsByOwnerWithWrappedSol(
+        connection,
+        // @ts-ignore
+        wallet.publicKey
+      )
+
+      ownedTokenAccounts.forEach((account) => {
+        const decimals = tokens.find(
+          (t) => t?.address === account.mint.toString()
+        )?.decimals
+
+        const uiBalance = nativeToUi(account.amount, decimals || 6)
+        ownedTokens.push({ account, uiBalance })
+      })
+      console.log('ownedToknes', ownedTokens)
+      // @ts-ignore
+      setWalletTokens(ownedTokens)
+    }, [wallet, connection, tokens])
 
   useEffect(() => {
-    setAgeurbalance$c(Number(ageurbalance * ageurbalance$).toFixed(2))
-  }, [ageur, ageurbalance, ageurbalance$])
+    if (connected) {
+      fetchWalletTokens()
+    }
+  }, [connected])
 
-  useEffect(() => {
-    setBrzbalance$c(Number(brzbalance * brzbalance$).toFixed(2))
-  }, [brz, brzbalance, brzbalance$])
+  const inputUSDCBalance = () => {
+    if (walletTokens.length) {
+      const walletToken = walletTokens.filter((t) => {
+        return (
+          t.account.mint.toString() ===
+          'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
+        )
+      })
+      const largestTokenAccount = sortBy(walletToken, 'uiBalance').reverse()[0]
+      return largestTokenAccount?.uiBalance || 0.0
+    }
+    return 0.0
+  }
 
-  useEffect(() => {
-    setUsdtbalance$c(Number(usdtbalance * usdtbalance$).toFixed(2))
-  }, [jpyc, usdtbalance, usdcbalance$])
+  const inputUSDTBalance = () => {
+    if (walletTokens.length) {
+      const walletToken = walletTokens.filter((t) => {
+        return (
+          t.account.mint.toString() ===
+          'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
+        )
+      })
+      const largestTokenAccount = sortBy(walletToken, 'uiBalance').reverse()[0]
+      return largestTokenAccount?.uiBalance || 0.0
+    }
+    return 0.0
+  }
 
-  useEffect(() => {
-    setBilirabalance$c(Number(bilirabalance * bilirabalance$).toFixed(2))
-  }, [bilirabalance, bilirabalance$])
+  const inputAgeurBalance = () => {
+    if (walletTokens.length) {
+      const walletToken = walletTokens.filter((t) => {
+        return (
+          t.account.mint.toString() ===
+          'CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1'
+        )
+      })
+      const largestTokenAccount = sortBy(walletToken, 'uiBalance').reverse()[0]
+      return largestTokenAccount?.uiBalance || 0.0
+    }
+    return 0.0
+  }
+
+  const inputBrzBalance = () => {
+    if (walletTokens.length) {
+      const walletToken = walletTokens.filter((t) => {
+        return (
+          t.account.mint.toString() ===
+          'FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD'
+        )
+      })
+      const largestTokenAccount = sortBy(walletToken, 'uiBalance').reverse()[0]
+      return largestTokenAccount?.uiBalance || 0.0
+    }
+    return 0.0
+  }
+
+  const inputTrybBalance = () => {
+    if (walletTokens.length) {
+      const walletToken = walletTokens.filter((t) => {
+        return (
+          t.account.mint.toString() ===
+          'A94X2fRy3wydNShU4dRaDyap2UuoeWJGWyATtyp61WZf'
+        )
+      })
+      const largestTokenAccount = sortBy(walletToken, 'uiBalance').reverse()[0]
+      return largestTokenAccount?.uiBalance || 0.0
+    }
+    return 0.0
+  }
+
+  const inputWeTokenBalance = () => {
+    if (walletTokens.length) {
+      const walletToken = walletTokens.filter((t) => {
+        //return t.account.mint.toString() === 'D3bsdYS22s8xY1tunY2iJLCdrcpx3ZUaS2EJWor2sgD'
+        //return t.account.mint.toString() === "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+      })
+      const largestTokenAccount = sortBy(walletToken, 'uiBalance').reverse()[0]
+      return largestTokenAccount?.uiBalance || null
+    }
+  }
+
+  const inputWeToken1Balance = () => {
+    if (walletTokens.length) {
+      const walletToken = walletTokens.filter((t) => {
+        return (
+          t.account.mint.toString() ===
+          '5QEs2UzoefaSoCTDKaaQvce7BDyjQNaAGNs7twH3cVgPD'
+        )
+        //return t.account.mint.toString() === "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
+      })
+      const largestTokenAccount = sortBy(walletToken, 'uiBalance').reverse()[0]
+      return largestTokenAccount?.uiBalance || null
+    }
+  }
 
   useEffect(() => {
     async function fetchPool() {
@@ -172,9 +280,8 @@ const Pools = (props) => {
         'https://public-api.solscan.io/token/holders?tokenAddress=D3bsdYS22s8xY1tunY2iJLCdrcpx3ZUaS2EJWor2sgD&offset=0&limit=10'
       )
       const res = await response.json()
-      console.log('poooooooooooooooool1')
-
-      console.log(res.data[0].amount)
+      // console.log('poooooooooooooooool1')
+      // console.log(res.data[0].amount)
       // console.log(res.data.map((d) => d.amount))
       setPool1(res.data.map((d) => d.amount))
       // console.log(pool1)
@@ -188,8 +295,8 @@ const Pools = (props) => {
         'https://public-api.solscan.io/token/holders?tokenAddress=5QEs2UzoefaSoCTDKaaQvce7BDyjQNaAGNs7twH3cVgP&offset=0&limit=10'
       )
       const res = await response.json()
-      console.log('poooooooooooooooool3')
-      console.log(res.data[0].amount)
+      // console.log('poooooooooooooooool3')
+      // console.log(res.data[0].amount)
       // console.log(res.data.map((d) => d.amount))
       setPool3(res.data.map((d) => d.amount))
       // console.log(pool1)
@@ -308,431 +415,6 @@ const Pools = (props) => {
     }
     changeBilira()
 
-    //----We token balance -----///
-
-    const getTokenBalance1 = async () => {
-      const walletAddress = wallet?.publicKey
-      console.log('publicKey')
-      console.log(wallet?.publicKey)
-      const tokenMintAddress = '5QEs2UzoefaSoCTDKaaQvce7BDyjQNaAGNs7twH3cVgP'
-      //const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
-      const response = await axios({
-        url: `https://api.mainnet-beta.solana.com`,
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        data: {
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'getTokenAccountsByOwner',
-          params: [
-            walletAddress,
-            {
-              mint: tokenMintAddress,
-            },
-            {
-              encoding: 'jsonParsed',
-            },
-          ],
-        },
-      })
-
-      if (
-        Array.isArray(response?.data?.result?.value) &&
-        response?.data?.result?.value?.length > 0 &&
-        response?.data?.result?.value[0]?.account?.data?.parsed?.info
-          ?.tokenAmount?.amount > 0 &&
-        connected == true
-      ) {
-        Number(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        wetokensetbalance1(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            6
-          )
-        )
-        console.log(
-          ' wetoken Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
-        )
-      } else {
-        // wetokensetbalance(0)
-        console.log(
-          ' wetoken Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
-        )
-      }
-    }
-    getTokenBalance1()
-
-    //----We token balance -----///
-
-    const getTokenBalance = async () => {
-      const walletAddress = wallet?.publicKey
-      console.log('publicKey')
-      console.log(wallet?.publicKey)
-      const tokenMintAddress = 'D3bsdYS22s8xY1tunY2iJLCdrcpx3ZUaS2EJWor2sgD'
-      // const tokenMintAddress = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
-      const response = await axios({
-        url: `https://api.mainnet-beta.solana.com`,
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        data: {
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'getTokenAccountsByOwner',
-          params: [
-            walletAddress,
-            {
-              mint: tokenMintAddress,
-            },
-            {
-              encoding: 'jsonParsed',
-            },
-          ],
-        },
-      })
-
-      if (
-        Array.isArray(response?.data?.result?.value) &&
-        response?.data?.result?.value?.length > 0 &&
-        response?.data?.result?.value[0]?.account?.data?.parsed?.info
-          ?.tokenAmount?.amount > 0 &&
-        connected == true
-      ) {
-        Number(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        wetokensetbalance(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            6
-          )
-        )
-        console.log(
-          ' wetoken Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
-        )
-      } else {
-        // wetokensetbalance(0)
-        console.log(
-          ' wetoken Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
-        )
-      }
-    }
-    getTokenBalance()
-
-    //----USDC balance -----///
-
-    const getUSDCBalance = async () => {
-      const walletAddress = wallet?.publicKey
-      console.log('publicKey')
-      console.log(wallet?.publicKey)
-      const tokenMintAddress = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
-      const response = await axios({
-        url: `https://api.mainnet-beta.solana.com`,
-        method: 'post',
-        delayed: true,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        data: {
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'getTokenAccountsByOwner',
-          params: [
-            walletAddress,
-            {
-              mint: tokenMintAddress,
-            },
-            {
-              encoding: 'jsonParsed',
-            },
-          ],
-        },
-      })
-
-      if (
-        Array.isArray(response?.data?.result?.value) &&
-        response?.data?.result?.value?.length > 0 &&
-        response?.data?.result?.value[0]?.account?.data?.parsed?.info
-          ?.tokenAmount?.amount > 0 &&
-        connected == true
-      ) {
-        Number(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        setUsdbalance(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info
-            ?.tokenAmount?.uiAmount
-        )
-        // console.log(
-        //   'USDC Balance:   ' +
-        //     response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-        //       5
-        //     )
-        // )
-      } else {
-        setUsdbalance(0)
-        // console.log(
-        //   'USDC Balance:   ' +
-        //     response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-        //       5
-        //     )
-        // )
-      }
-    }
-    getUSDCBalance()
-
-    ///--- USDC Balance FINISH ---- /////
-
-    //----USDT balance -----///
-
-    const getUSDTBalance = async () => {
-      const walletAddress = wallet?.publicKey
-      const tokenMintAddress = 'Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB'
-      const response = await axios({
-        url: `https://api.mainnet-beta.solana.com`,
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        data: {
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'getTokenAccountsByOwner',
-          params: [
-            walletAddress,
-            {
-              mint: tokenMintAddress,
-            },
-            {
-              encoding: 'jsonParsed',
-            },
-          ],
-        },
-      })
-
-      // console.log(response.data.result.value[0].account.data.parsed.info.tokenAmount)
-
-      if (
-        Array.isArray(response?.data?.result?.value) &&
-        response?.data?.result?.value?.length > 0 &&
-        response?.data?.result?.value[0]?.account?.data?.parsed?.info
-          ?.tokenAmount?.amount > 0 &&
-        connected == true
-      ) {
-        Number(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        setUsdtbalance(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        // console.log(
-        //   'USDT Balance:   ' +
-        //     response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-        //       5
-        //     )
-        // )
-      } else {
-        setUsdtbalance(0)
-        // console.log(
-        //   'USDT Balance:   ' +
-        //     response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-        //       5
-        //     )
-        // )
-      }
-    }
-    getUSDTBalance()
-
-    ///--- USDT Balance FINISH ---- /////
-
-    //----Ageur balance -----///
-
-    const getAgeurBalance = async () => {
-      const walletAddress = wallet?.publicKey
-      const tokenMintAddress = 'CbNYA9n3927uXUukee2Hf4tm3xxkffJPPZvGazc2EAH1'
-      const response = await axios({
-        url: `https://api.mainnet-beta.solana.com`,
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        data: {
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'getTokenAccountsByOwner',
-          params: [
-            walletAddress,
-            {
-              mint: tokenMintAddress,
-            },
-            {
-              encoding: 'jsonParsed',
-            },
-          ],
-        },
-      })
-
-      if (
-        Array.isArray(response?.data?.result?.value) &&
-        response?.data?.result?.value?.length > 0 &&
-        response?.data?.result?.value[0]?.account?.data?.parsed?.info
-          ?.tokenAmount?.amount > 0 &&
-        connected == true
-      ) {
-        Number(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        setAgeurbalance(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        console.log(
-          'Ageur Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
-        )
-      } else {
-        setAgeurbalance(0)
-        console.log(
-          'Ageur Balance:   ' +
-            response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-              5
-            )
-        )
-      }
-    }
-    getAgeurBalance()
-
-    ///--- Ageur Balance FINISH ---- /////
-
-    //----Brz balance -----///
-
-    const getBrzBalance = async () => {
-      const walletAddress = wallet?.publicKey
-      const tokenMintAddress = 'FtgGSFADXBtroxq8VCausXRr2of47QBf5AS1NtZCu4GD'
-      const response = await axios({
-        url: `https://api.mainnet-beta.solana.com`,
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        data: {
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'getTokenAccountsByOwner',
-          params: [
-            walletAddress,
-            {
-              mint: tokenMintAddress,
-            },
-            {
-              encoding: 'jsonParsed',
-            },
-          ],
-        },
-      })
-
-      // console.log(response.data.result.value[0].account.data.parsed.info.tokenAmount)
-
-      if (
-        Array.isArray(response?.data?.result?.value) &&
-        response?.data?.result?.value?.length > 0 &&
-        response?.data?.result?.value[0]?.account?.data?.parsed?.info
-          ?.tokenAmount?.amount > 0 &&
-        connected == true
-      ) {
-        Number(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        setBrzbalance(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        // console.log(
-        //   'BRZ Balance:   ' +
-        //     response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-        //       5
-        //     )
-        // )
-      } else {
-        setBrzbalance(0)
-        // console.log('BRZ Balance:   ' + 0)
-      }
-    }
-    getBrzBalance()
-
-    ///--- Brz Balance FINISH ---- /////
-
-    //----BiLira balance -----///
-
-    const getBiliraBalance = async () => {
-      const walletAddress = wallet?.publicKey
-      const tokenMintAddress = 'A94X2fRy3wydNShU4dRaDyap2UuoeWJGWyATtyp61WZf'
-      const response = await axios({
-        url: `https://api.mainnet-beta.solana.com`,
-        method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        data: {
-          jsonrpc: '2.0',
-          id: 1,
-          method: 'getTokenAccountsByOwner',
-          params: [
-            walletAddress,
-            {
-              mint: tokenMintAddress,
-            },
-            {
-              encoding: 'jsonParsed',
-            },
-          ],
-        },
-      })
-
-      if (
-        Array.isArray(response?.data?.result?.value) &&
-        response?.data?.result?.value?.length > 0 &&
-        response?.data?.result?.value[0]?.account?.data?.parsed?.info
-          ?.tokenAmount?.amount > 0 &&
-        connected == true
-      ) {
-        Number(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-        setBilirabalance(
-          response?.data?.result?.value[0]?.account?.data?.parsed?.info?.tokenAmount?.uiAmount.toFixed(
-            5
-          )
-        )
-      } else {
-        setBilirabalance(0)
-      }
-    }
-    getBiliraBalance()
-
     /* BiLira Balance FINISH */
     if (wallet?.publicKey == null) {
       setMybalance(0)
@@ -764,18 +446,6 @@ const Pools = (props) => {
   }, [connection, wallet?.publicKey])
 
   checkBalance()
-  let fromKeypair = Keypair.generate()
-
-  const connectiontestnet = useRef(
-    new Connection(clusterApiUrl('mainnet-beta'))
-  )
-
-  const testnetbalance = async () => {
-    const testnetBalance = await connectiontestnet.current.getBalanceAndContext(
-      fromKeypair.publicKey,
-      'confirmed'
-    )
-  }
 
   return (
     <>
@@ -816,9 +486,12 @@ const Pools = (props) => {
                       </div>
                     </td>
                     <td>${usdcbalance$}</td>
-                    <td>{usdbalance == undefined ? 0 : usdbalance}</td>
-                    <td>${isNaN(usdcbalance$c) ? 0.0 : usdcbalance$c}</td>
+                    <td>{inputUSDCBalance()}</td>
+                    <td>
+                      ${Number(inputUSDCBalance() * usdcbalance$).toFixed(2)}
+                    </td>
                   </tr>
+
                   <tr>
                     <td>
                       <div className="loqoword">
@@ -827,9 +500,12 @@ const Pools = (props) => {
                       </div>
                     </td>
                     <td>${usdtbalance$}</td>
-                    <td>{usdtbalance == undefined ? 0 : usdtbalance}</td>
-                    <td>${isNaN(usdtbalance$c) ? 0.0 : usdtbalance$c}</td>
+                    <td>{inputUSDTBalance()}</td>
+                    <td>
+                      ${Number(inputUSDTBalance() * usdtbalance$).toFixed(2)}
+                    </td>
                   </tr>
+
                   <tr>
                     <td>
                       <div className="loqoword">
@@ -838,8 +514,10 @@ const Pools = (props) => {
                       </div>
                     </td>
                     <td>${ageurbalance$}</td>
-                    <td>{ageurbalance == undefined ? 0 : ageurbalance}</td>
-                    <td>${isNaN(ageurbalance$c) ? 0.0 : ageurbalance$c}</td>
+                    <td>{inputAgeurBalance()}</td>
+                    <td>
+                      ${Number(inputAgeurBalance() * ageurbalance$).toFixed(2)}
+                    </td>
                   </tr>
                   <tr>
                     <td>
@@ -849,8 +527,10 @@ const Pools = (props) => {
                       </div>
                     </td>
                     <td>${bilirabalance$}</td>
-                    <td>{bilirabalance == undefined ? 0 : bilirabalance}</td>
-                    <td>${isNaN(bilirabalance$c) ? 0.0 : bilirabalance$c}</td>
+                    <td>{inputTrybBalance()}</td>
+                    <td>
+                      ${Number(inputTrybBalance() * bilirabalance$).toFixed(2)}
+                    </td>
                   </tr>
                   <tr>
                     <td>
@@ -860,8 +540,10 @@ const Pools = (props) => {
                       </div>
                     </td>
                     <td>${brzbalance$}</td>
-                    <td>{brzbalance == undefined ? 0 : brzbalance}</td>
-                    <td>${isNaN(brzbalance$c) ? 0.0 : brzbalance$c}</td>
+                    <td>{inputBrzBalance()}</td>
+                    <td>
+                      ${Number(inputBrzBalance() * brzbalance$).toFixed(2)}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -928,9 +610,11 @@ const Pools = (props) => {
                           <img src="/coin/4139.png" />
                           <span>
                             R$
+                            {/*@ts-ignore */}
                             {pool?.coinTokens == undefined
                               ? 0
-                              : pool.coinTokens}
+                              : /*@ts-ignore */
+                                pool.coinTokens}
                           </span>
                         </figure>
                       </td>
@@ -938,7 +622,8 @@ const Pools = (props) => {
                         <figure>
                           <img src="/coin/192x192.png" />
                           <span>
-                            ${pool?.pcTokens == undefined ? 0 : pool.pcTokens}
+                            {/*@ts-ignore */}$
+                            {pool?.pcTokens == undefined ? 0 : pool.pcTokens}
                           </span>
                         </figure>
                       </td>
@@ -973,7 +658,7 @@ const Pools = (props) => {
                             className="img2"
                           />
                         </div>
-                        <span>TTRYB/USDL</span>
+                        <span>TRYB/USDL</span>
                       </div>
                     </td>
                     <td>--%</td>
@@ -1001,9 +686,11 @@ const Pools = (props) => {
                           <img src="/coin/5181.png" />
                           <span>
                             R$
+                            {/*@ts-ignore */}
                             {pool2?.coinTokens == undefined
                               ? 0
-                              : pool2.coinTokens}
+                              : /*@ts-ignore */
+                                pool2.coinTokens}
                           </span>
                         </figure>
                       </td>
@@ -1011,7 +698,8 @@ const Pools = (props) => {
                         <figure>
                           <img src="/coin/192x192.png" />
                           <span>
-                            ${pool2?.pcTokens == undefined ? 0 : pool2.pcTokens}
+                            {/*@ts-ignore */}$
+                            {pool2?.pcTokens == undefined ? 0 : pool2.pcTokens}
                           </span>
                         </figure>
                       </td>
@@ -1028,11 +716,11 @@ const Pools = (props) => {
           </div>
 
           <div className="pool2" style={{ display: displayl }}>
-            {wallet?.publicKey?.toBase58() != '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' && wallet?.publicKey?.toBase58() != 'FGyR2P9KYewWk5CvbJ3ZB9rqjNVfYuXJuzAV78jkEnRx'   ? (
+            {!inputWeTokenBalance() && !inputWeToken1Balance() && (
               <h1 style={{ fontSize: '40px' }}>You do not own any portions</h1>
-            ) : null}
+            )}
 
-            {wallet?.publicKey?.toBase58() == '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' || wallet?.publicKey?.toBase58() == 'FGyR2P9KYewWk5CvbJ3ZB9rqjNVfYuXJuzAV78jkEnRx' ? (
+            {(inputWeTokenBalance() || inputWeToken1Balance()) && (
               <>
                 <div className="titlediv">
                   <span className="title">Your Liquidity</span>
@@ -1047,8 +735,7 @@ const Pools = (props) => {
                       <th>Unclaimed Rewards</th>
                       <th>Action</th>
                     </tr>
-                    {wallet?.publicKey?.toBase58() ==
-                    'FGyR2P9KYewWk5CvbJ3ZB9rqjNVfYuXJuzAV78jkEnRx' ? (
+                    {inputWeTokenBalance() && (
                       <tbody className="section section-step">
                         <tr>
                           <td>
@@ -1067,7 +754,18 @@ const Pools = (props) => {
                             </div>
                           </td>
                           <td>
-                            50 %
+                            {inputWeTokenBalance() == undefined
+                              ? 0
+                              : Number(
+                                  (inputWeTokenBalance() /
+                                    pool1.reduce(
+                                      (total, item) => (total += item),
+                                      0
+                                    )) *
+                                    100000000000 *
+                                    100
+                                ).toFixed(2)}
+                            %
                           </td>
                           <td>0.00 USD </td>
                           <td>
@@ -1091,10 +789,9 @@ const Pools = (props) => {
                           </td>
                         </tr>
                       </tbody>
-                    ) : null}
+                    )}
 
-                    {wallet?.publicKey?.toBase58() ==
-                    '7GZL3acyrm4mqzJeyLTj1cgizVmbcFvdJJyCHd6J4kC8' ? (
+                    {inputWeToken1Balance() && (
                       <tbody className="section section-step">
                         <tr>
                           <td>
@@ -1109,10 +806,23 @@ const Pools = (props) => {
                                 <img src="/coin/5181.png" />
                                 <img src="/coin/192x192.png" className="img2" />
                               </div>
-                              <span>TTRYB/USDL</span>
+                              <span>TRYB/USDL</span>
                             </div>
                           </td>
-                          <td>50 %</td>
+                          <td>
+                            {inputWeToken1Balance() == undefined
+                              ? 0
+                              : Number(
+                                  (inputWeToken1Balance() /
+                                    pool3.reduce(
+                                      (total, item) => (total += item),
+                                      0
+                                    )) *
+                                    100000000000 *
+                                    100
+                                ).toFixed(2)}
+                            %
+                          </td>
                           <td>0.00 USD </td>
                           <td>
                             <div
@@ -1135,11 +845,11 @@ const Pools = (props) => {
                           </td>
                         </tr>
                       </tbody>
-                    ) : null}
+                    )}
                   </table>
                 </div>
               </>
-            ) : null}
+            )}
           </div>
         </div>
       </div>
