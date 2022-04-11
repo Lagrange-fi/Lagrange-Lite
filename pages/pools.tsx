@@ -416,9 +416,7 @@ const Pools = (props) => {
     changeBilira()
 
     /* BiLira Balance FINISH */
-    if (wallet?.publicKey == null) {
-      setMybalance(0)
-    }
+
     gelsolbalance()
     checkBalance()
   }, [wallet?.publicKey])
