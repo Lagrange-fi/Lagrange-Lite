@@ -427,8 +427,6 @@ const Pools = (props) => {
     if (!wallet?.publicKey) {
       throw new WalletNotConnectedError() && console.log('Wallet not connected')
       // eslint-disable-next-line no-unreachable
-      /*@ts-ignore */
-      setMybalance(0)
     }
 
     const walletBalance = await connection.getBalance(
