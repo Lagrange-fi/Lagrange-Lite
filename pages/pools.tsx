@@ -667,7 +667,7 @@ const Pools = (props) => {
                                       (total, item) => (total += item),
                                       0
                                     )) *
-                                    100000000000 *
+                                    1000000 *
                                     100
                                 ).toFixed(2)}
                             %
@@ -723,7 +723,7 @@ const Pools = (props) => {
                                       (total, item) => (total += item),
                                       0
                                     )) *
-                                    100000000000 *
+                                    1000000 *
                                     100
                                 ).toFixed(2)}
                             %
