@@ -36,7 +36,7 @@ const NODE_URLS = [
   { label: 'Custom', value: '' },
 ]
 
-const THEMES = ['Light', 'Dark', 'Mango']
+const THEMES = ['Light', 'Dark']
 
 export const LANGS = [
   { locale: 'en', name: 'english', description: 'english' },
@@ -75,9 +75,9 @@ const SettingsModal = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       {!settingsView ? (
-        <div className="border-b border-th-bkg-4">
+        <div className="settingsmodal">
           <button
-            className="default-transition flex w-full items-center justify-between rounded-none border-t border-th-bkg-4 py-3 font-normal text-th-fgd-1 hover:text-th-primary focus:outline-none"
+            className="default-transition flex w-full items-center justify-between font-normal"
             onClick={() => setSettingsView('Theme')}
           >
             <span>{t('theme')}</span>
@@ -112,7 +112,7 @@ const ThemeSettings = ({ setSettingsView }) => {
   const { t } = useTranslation('common')
 
   return (
-    <>
+    <div className="ThemeSettings">
       <Label>{t('theme')}</Label>
       <ButtonGroup
         activeValue={theme}
@@ -122,6 +122,6 @@ const ThemeSettings = ({ setSettingsView }) => {
       <Button onClick={() => setSettingsView('')} className="mt-6 w-full">
         <div className={`flex items-center justify-center`}>{t('save')}</div>
       </Button>
-    </>
+    </div>
   )
 }

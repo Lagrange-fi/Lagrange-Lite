@@ -295,7 +295,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                         <stop
                           offset="90%"
                           stopColor="rgba(253, 159, 129, 0.33)"
-                          stopOpacity={0.3}
+                          stopOpacity={0.1}
                         />
                       </linearGradient>
                     </defs>

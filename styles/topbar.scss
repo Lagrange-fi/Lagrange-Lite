@@ -3,22 +3,17 @@
 
 [data-theme='Dark'] {
   .topbar {
-
-
     .burger {
       color: #fff;
     }
     nav {
       ul {
-        li{
-          color: #fff
+        li {
+          color: #fff;
         }
       }
     }
   }
-
- 
-
 }
 
 .topbar {
@@ -161,7 +156,7 @@
 
   .ConnectWalletButton {
     .walletlist {
-      font-size: clamp(12px, 1.25vw, 18px);
+      font-size: 12px;
       font-weight: 600;
       border-radius: 0px !important;
       display: flex;
@@ -169,18 +164,22 @@
       align-items: center;
       z-index: 1000 !important;
       position: sticky;
-      background: linear-gradient(152.97deg,
-          rgba(38, 38, 38, 1) 0%,
-          rgba(130, 130, 130, 1) 100%);
+      background: linear-gradient(
+        152.97deg,
+        rgba(38, 38, 38, 1) 0%,
+        rgba(130, 130, 130, 1) 100%
+      );
       box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.25);
       border-radius: 4px;
       color: #fff;
 
       &:hover {
-        background: linear-gradient(145.83deg,
-            #ff8b99 19.04%,
-            #fca27d 74.02%,
-            #ffcba5 97.03%);
+        background: linear-gradient(
+          145.83deg,
+          #ff8b99 19.04%,
+          #fca27d 74.02%,
+          #ffcba5 97.03%
+        );
       }
 
       .imgspan {
@@ -191,8 +190,8 @@
         width: 70%;
 
         img {
-          height: clamp(20px, 2.08vw, 30px);
-          width: clamp(20px, 2.08vw, 30px);
+          height: 20px;
+          width: 20px;
           margin-right: 10px;
         }
       }
@@ -209,10 +208,12 @@
       font-size: 14px;
       padding: 6px 0px;
       width: clamp(120px, 19.93vw, 187px);
-      background: linear-gradient(145.83deg,
-          #ff8b99 19.04%,
-          #fca27d 74.02%,
-          #ffcba5 97.03%);
+      background: linear-gradient(
+        145.83deg,
+        #ff8b99 19.04%,
+        #fca27d 74.02%,
+        #ffcba5 97.03%
+      );
       border-radius: 6px;
 
       @media screen and (max-width: 768px) {
@@ -226,10 +227,12 @@
         position: absolute;
         top: -10px;
         right: 0px;
-        background: linear-gradient(145.83deg,
-            #ff8b99 19.04%,
-            #fca27d 74.02%,
-            #ffcba5 97.03%);
+        background: linear-gradient(
+          145.83deg,
+          #ff8b99 19.04%,
+          #fca27d 74.02%,
+          #ffcba5 97.03%
+        );
         z-index: -1;
         filter: blur(22px);
         transform: scale(1, 0.8) translateY(20px);

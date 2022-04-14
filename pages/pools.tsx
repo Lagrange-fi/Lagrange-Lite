@@ -466,6 +466,7 @@ const Pools = (props) => {
                     <th>Asset</th>
                     <th>Rewards APR</th>
                     <th>Total Pool Value</th>
+                    <th>Value</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -492,16 +493,14 @@ const Pools = (props) => {
                     </td>
                     <td>--%</td>
                     <td>$0.00</td>
+                    <td>$0.00</td>
                     <td>
-                      <button>
+                      <button
+                        onClick={() => {
+                          setCheck((prevCheck) => !prevCheck)
+                        }}
+                      >
                         Add
-                        <i
-                          onClick={() => {
-                            setCheck((prevCheck) => !prevCheck)
-                          }}
-                          className="fa-solid fa-arrow-down"
-                          style={check ? mountedStyle1 : unmountedStyle1}
-                        ></i>
                       </button>
                     </td>
                   </tr>
@@ -568,16 +567,14 @@ const Pools = (props) => {
                     </td>
                     <td>--%</td>
                     <td>$0.00</td>
+                    <td>$0.00</td>
                     <td>
-                      <button>
+                      <button
+                        onClick={() => {
+                          setCheck1((prevCheck) => !prevCheck)
+                        }}
+                      >
                         Add
-                        <i
-                          onClick={() => {
-                            setCheck1((prevCheck) => !prevCheck)
-                          }}
-                          className="fa-solid fa-arrow-down"
-                          style={check1 ? mountedStyle1 : unmountedStyle1}
-                        ></i>
                       </button>
                     </td>
                   </tr>

@@ -72,8 +72,6 @@ const Overview: NextPage<Props> = (props) => {
         <TopBar />
         <div className="Overwiew">
           <section>
-            <div className="title">Market Overview</div>
-
             <div className="table-border-divp">
               <div className="table-border-div">
                 <table>

@@ -37,6 +37,7 @@ import '../styles/pool.scss'
 import '../styles/swap.scss'
 import '../styles/topbar.scss'
 import '../styles/overview.scss'
+import '../styles/settingsmodal.scss'
 
 const MangoStoreUpdater = () => {
   useHydrateStore()
