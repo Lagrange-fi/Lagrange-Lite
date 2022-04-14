@@ -7,9 +7,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-
     extend: {
-
       colors: {
         'light-theme': {
           orange: {
@@ -18,7 +16,7 @@ module.exports = {
           },
           red: { DEFAULT: '#CC2929', dark: '#CC2929', muted: '#eba9a9' },
           green: { DEFAULT: '#5EBF4D', dark: '#5EBF4D', muted: '#bfe5b8' },
-          'bkg-1': 'red',
+          'bkg-1': '#fff',
           'bkg-2': '#FDFDFD',
           'bkg-3': '#F0F0F0',
           'bkg-4': '#E6E6E6',
@@ -65,7 +63,6 @@ module.exports = {
         'th-orange': 'var(--orange)',
         'th-bkg-button': 'var(--bkg-button)',
       },
-
     },
   },
 

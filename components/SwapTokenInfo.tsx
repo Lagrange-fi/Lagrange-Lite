@@ -324,64 +324,400 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
           </div>
         )}
       </div>
-      {/* accordion */}
 
-      {inputTokenInfo && outputTokenInfo && baseTokenId ? (
-        <div>
-          <Disclosure>
-            {({ open }) => (
-              <>
-                <Disclosure.Button
-                  className={`default-transition flex items-center justify-between mt-4 p-2 rounded-md w-full hover:bg-th-bkg-2 ${
-                    open
-                      ? 'borderD1 rounded-b-none'
-                      : 'borderD transform rotate-360'
-                  }`}
-                >
-                  <div className="flex items-center">
-                    {
-                      // @ts-ignore
-                      inputTokenInfo.image?.small ? (
-                        <img
-                          className="rounded-full" // @ts-ignore
-                          src={inputTokenInfo.image?.small}
-                          width="38"
-                          height="40" // @ts-ignore
-                          alt={inputTokenInfo.name}
-                        />
-                      ) : null
-                    }
-                    <div className="ml-2.5 text-left">
-                      <h2 className="selecttokenname">
+      {/* accordion */}
+      <div className="Disclosures">
+        {inputTokenInfo && outputTokenInfo && baseTokenId ? (
+          <div>
+            <Disclosure>
+              {({ open }) => (
+                <>
+                  <Disclosure.Button className={` DisclosureButton`}>
+                    <ul>
+                      <li>
+                        {
+                          // @ts-ignore
+                          inputTokenInfo.image?.small ? (
+                            <img
+                              // @ts-ignore
+                              src={inputTokenInfo.image?.small}
+                              alt={inputTokenInfo.name}
+                            />
+                          ) : null
+                        }
+                      </li>
+
+                      <li className="selecttokenname">
                         {
                           // @ts-ignore
                           inputTokenInfo?.symbol?.toUpperCase()
                         }
-                      </h2>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="flex items-center">
+                      </li>
+
+                      <li>
+                        {
+                          // @ts-ignore
+                          inputTokenInfo.market_data?.current_price?.usd ? (
+                            <div className="selectnumber">
+                              $
+                              {numberFormatter.format(
+                                // @ts-ignore
+                                inputTokenInfo.market_data?.current_price.usd
+                              )}
+                            </div>
+                          ) : null
+                        }
+                      </li>
+
+                      <li>
+                        {
+                          // @ts-ignore
+                          inputTokenInfo.market_data // @ts-ignore
+                            ?.price_change_percentage_24h ? (
+                            <div
+                              id="selectnumber1"
+                              className={`${
+                                inputTokenInfo.market_data // @ts-ignore
+                                  .price_change_percentage_24h >= 0
+                                  ? 'green'
+                                  : 'red'
+                              }`}
+                            >
+                              {
+                                // @ts-ignore
+                                inputTokenInfo.market_data.price_change_percentage_24h.toFixed(
+                                  2
+                                )
+                              }
+                              %
+                            </div>
+                          ) : null
+                        }
+                      </li>
+                    </ul>
+
+                    <ChevronDownIcon
+                      style={{ height: '30px' }}
+                      className={`default-transition text-th-fgd-3 ${
+                        open ? 'transform rotate-180' : 'transform rotate-360'
+                      }`}
+                    />
+                  </Disclosure.Button>
+                  <Disclosure.Panel>
+                    <div className="DisclosurePanel">
+                      <div style={{ fontSize: '18px' }}>Market data</div>
+                      <ul className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-2">
+                        <li>
+                          {
+                            // @ts-ignore
+                            inputTokenInfo.market_cap_rank ? (
+                              <div className="parent">
+                                <span> market-cap-rank</span>
+                                <span>
+                                  {' '}
+                                  #
+                                  {
+                                    // @ts-ignore
+                                    inputTokenInfo.market_cap_rank
+                                  }
+                                </span>
+                              </div>
+                            ) : null
+                          }
+                        </li>
+                        <li>
+                          {
+                            // @ts-ignore
+                            inputTokenInfo.market_data?.market_cap &&
+                            // @ts-ignore
+                            inputTokenInfo.market_data?.market_cap?.usd !==
+                              0 ? (
+                              <div className="parent">
+                                <span>market-cap</span>
+                                <span>
+                                  $
+                                  {
+                                    // @ts-ignore
+                                    numberCompacter.format(
+                                      // @ts-ignore
+                                      inputTokenInfo.market_data?.market_cap
+                                        ?.usd
+                                    )
+                                  }
+                                </span>
+                              </div>
+                            ) : null
+                          }
+                        </li>
+                        <li>
+                          {
+                            // @ts-ignore
+                            inputTokenInfo.market_data?.total_volume?.usd ? (
+                              <div className="parent">
+                                <span>daily-volume</span>
+                                <span>
+                                  $
+                                  {numberCompacter.format(
+                                    // @ts-ignore
+                                    inputTokenInfo.market_data?.total_volume
+                                      ?.usd
+                                  )}
+                                </span>
+                              </div>
+                            ) : null
+                          }
+                        </li>
+                        <li>
+                          {
+                            // @ts-ignore
+                            inputTokenInfo.market_data?.circulating_supply ? (
+                              <div className="parent">
+                                <span>token-supply</span>
+                                <span>
+                                  {numberCompacter.format(
+                                    // @ts-ignore
+                                    inputTokenInfo.market_data
+                                      .circulating_supply
+                                  )}
+                                </span>
+                                {
+                                  // @ts-ignore
+                                  inputTokenInfo.market_data?.max_supply ? (
+                                    <div className="text-xs text-th-fgd-2">
+                                      max-supply:
+                                      {
+                                        // @ts-ignore
+                                        numberCompacter.format(
+                                          // @ts-ignore
+                                          inputTokenInfo.market_data.max_supply
+                                        )
+                                      }
+                                    </div>
+                                  ) : null
+                                }
+                              </div>
+                            ) : null
+                          }
+                        </li>
+                        <li>
+                          {
+                            // @ts-ignore
+                            inputTokenInfo.market_data?.ath?.usd ? (
+                              <div className="parent">
+                                <span>ath</span>
+
+                                <div className="difparent">
+                                  <div className="dif3">
+                                    {
+                                      // @ts-ignore
+                                      inputTokenInfo.market_data?.ath_date
+                                        ?.usd ? (
+                                        <div>
+                                          {dayjs(
+                                            // @ts-ignore
+                                            inputTokenInfo.market_data.ath_date
+                                              .usd
+                                          ).fromNow()}
+                                        </div>
+                                      ) : null
+                                    }
+                                  </div>
+
+                                  <div className="dif2">
+                                    {
+                                      // @ts-ignore
+                                      inputTokenInfo.market_data
+                                        ?.ath_change_percentage?.usd ? (
+                                        <div
+                                          className={`mt-1.5 ml-1.5  ${
+                                            // @ts-ignore
+                                            inputTokenInfo.market_data
+                                              ?.ath_change_percentage?.usd >= 0
+                                              ? 'green'
+                                              : 'red'
+                                          }`}
+                                        >
+                                          {(inputTokenInfo.market_data?.ath_change_percentage?.usd) // @ts-ignore
+                                            .toFixed(2)}
+                                          %
+                                        </div>
+                                      ) : null
+                                    }
+                                  </div>
+                                  <div className="dif1">
+                                    $
+                                    {numberFormatter.format(
+                                      // @ts-ignore
+                                      inputTokenInfo.market_data.ath.usd
+                                    )}
+                                  </div>
+                                </div>
+                              </div>
+                            ) : null
+                          }
+                        </li>
+                        <li>
+                          {
+                            // @ts-ignore
+                            inputTokenInfo.market_data?.atl?.usd ? (
+                              <div className="parent">
+                                <span>atl</span>
+                                <div className="difparent">
+                                  <div className="dif3">
+                                    {
+                                      // @ts-ignore
+                                      inputTokenInfo.market_data?.atl_date
+                                        ?.usd ? (
+                                        <div>
+                                          {dayjs(
+                                            // @ts-ignore
+                                            inputTokenInfo.market_data.atl_date
+                                              .usd
+                                          ).fromNow()}
+                                        </div>
+                                      ) : null
+                                    }
+                                  </div>
+
+                                  <div className="dif2">
+                                    {
+                                      // @ts-ignore
+                                      inputTokenInfo.market_data
+                                        ?.atl_change_percentage?.usd ? (
+                                        <div
+                                          className={`ml-1.5 mt-1.5  ${
+                                            // @ts-ignore
+                                            inputTokenInfo.market_data
+                                              ?.atl_change_percentage?.usd >= 0
+                                              ? 'green'
+                                              : 'red'
+                                          }`}
+                                        >
+                                          {(inputTokenInfo.market_data?.atl_change_percentage?.usd).toLocaleString(
+                                            undefined,
+                                            {
+                                              minimumFractionDigits: 0,
+                                              maximumFractionDigits: 2,
+                                            }
+                                          )}
+                                          %
+                                        </div>
+                                      ) : null
+                                    }
+                                  </div>
+
+                                  <div className="dif1">
+                                    $
+                                    {
+                                      // @ts-ignore
+                                      numberFormatter.format(
+                                        // @ts-ignore
+                                        inputTokenInfo.market_data.atl.usd
+                                      )
+                                    }
+                                  </div>
+                                </div>
+                              </div>
+                            ) : null
+                          }
+                        </li>
+                      </ul>
                       {
                         // @ts-ignore
-                        inputTokenInfo.market_data?.current_price?.usd ? (
+                        topHolders?.inputHolders ? (
+                          <div className="pt-4">
+                            <div className="pb-3 m-1 text-base font-bold text-th-fgd-1">
+                              top-ten
+                            </div>
+                            {
+                              // @ts-ignore
+                              topHolders.inputHolders.map((holder) => (
+                                <a
+                                  className="border-t border-th-bkg-4 default transition flex justify-between mx-1 px-2 py-2.5 text-th-fgd-3 hover:bg-th-bkg-2"
+                                  href={`https://explorer.solana.com/address/${holder.owner}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  key={holder.owner}
+                                >
+                                  <div className="text-th-fgd-3">
+                                    {holder.owner.slice(0, 5) +
+                                      '…' +
+                                      holder.owner.slice(-5)}
+                                  </div>
+                                  <div className="flex items-center">
+                                    <div className="text-th-fgd-1">
+                                      {numberFormatter.format(
+                                        holder.amount /
+                                          Math.pow(10, holder.decimals)
+                                      )}
+                                    </div>
+                                    <ExternalLinkIcon className="w-4 h-4 ml-2" />
+                                  </div>
+                                </a>
+                              ))
+                            }
+                          </div>
+                        ) : null
+                      }
+                    </div>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
+        ) : (
+          <div className="p-4 mt-3 text-center rounded-md bg-th-bkg-3 text-th-fgd-3"></div>
+        )}
+
+        {/*      {outputTokenInfo && quoteTokenId ? (*/}
+        <div className="w-full">
+          <Disclosure>
+            {({ open }) => (
+              <>
+                <Disclosure.Button className={` DisclosureButton`}>
+                  <ul>
+                    <li>
+                      {
+                        // @ts-ignore
+                        outputTokenInfo?.image?.small ? (
+                          <img
+                            // @ts-ignore
+                            src={outputTokenInfo?.image?.small}
+                            alt={outputTokenInfo?.name}
+                          />
+                        ) : null
+                      }
+                    </li>
+                    <li className="selecttokenname">
+                      {
+                        // @ts-ignore
+                        outputTokenInfo?.symbol?.toUpperCase()
+                      }
+                    </li>
+                    <li>
+                      {
+                        // @ts-ignore
+                        outputTokenInfo?.market_data?.current_price?.usd ? (
                           <div className="selectnumber">
                             $
                             {numberFormatter.format(
                               // @ts-ignore
-                              inputTokenInfo.market_data?.current_price.usd
+                              outputTokenInfo?.market_data.current_price.usd
                             )}
                           </div>
                         ) : null
                       }
+                    </li>
+                    <li>
                       {
                         // @ts-ignore
-                        inputTokenInfo.market_data // @ts-ignore
+                        outputTokenInfo?.market_data
                           ?.price_change_percentage_24h ? (
                           <div
                             id="selectnumber1"
                             className={`${
-                              inputTokenInfo.market_data // @ts-ignore
+                              // @ts-ignore
+                              outputTokenInfo.market_data
                                 .price_change_percentage_24h >= 0
                                 ? 'green'
                                 : 'red'
@@ -389,7 +725,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                           >
                             {
                               // @ts-ignore
-                              inputTokenInfo.market_data.price_change_percentage_24h.toFixed(
+                              outputTokenInfo?.market_data.price_change_percentage_24h.toFixed(
                                 2
                               )
                             }
@@ -397,321 +733,237 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                           </div>
                         ) : null
                       }
-                    </div>
-                    <ChevronDownIcon
-                      style={{ height: '30px' }}
-                      className={`default-transition text-th-fgd-3 ${
-                        open ? 'transform rotate-180' : 'transform rotate-360'
-                      }`}
-                    />
-                  </div>
+                    </li>
+                  </ul>
+
+                  <ChevronDownIcon
+                    style={{ height: '30px' }}
+                    className={`default-transition text-th-fgd-3 ${
+                      open ? 'transform rotate-180' : 'transform rotate-360'
+                    }`}
+                  />
                 </Disclosure.Button>
                 <Disclosure.Panel>
-                  <div
-                    className="pt-1 p-3 border border-t-0  rounded-b-md"
-                    style={{ border: '1px solid #C8C8C8', borderTop: '0px' }}
-                  >
+                  <div className="DisclosurePanel">
                     <div style={{ fontSize: '18px' }}>Market data</div>
-                    <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-                      {
-                        // @ts-ignore
-                        inputTokenInfo.market_cap_rank ? (
-                          <div
-                            className="m-1  rounded-md "
-                            style={{
-                              border: '1px solid #C8C8C8',
-                              height: '55px',
-                              padding: '5px 7px',
-                            }}
-                          >
-                            <div style={{ fontSize: '14px' }}>
-                              market-cap-rank
-                            </div>
-                            <div
-                              style={{ fontSize: '18px', fontWeight: '500' }}
-                            >
-                              #
-                              {
-                                // @ts-ignore
-                                inputTokenInfo.market_cap_rank
-                              }
-                            </div>
-                          </div>
-                        ) : null
-                      }
-                      {
-                        // @ts-ignore
-                        inputTokenInfo.market_data?.market_cap &&
-                        // @ts-ignore
-                        inputTokenInfo.market_data?.market_cap?.usd !== 0 ? (
-                          <div
-                            className="p-3 m-1 rounded-md "
-                            style={{
-                              border: '1px solid #C8C8C8',
-                              height: '55px',
-                              padding: '5px 7px',
-                            }}
-                          >
-                            <div style={{ fontSize: '14px' }}>market-cap</div>
-                            <div
-                              style={{ fontSize: '18px', fontWeight: '500' }}
-                            >
-                              $
-                              {
-                                // @ts-ignore
-                                numberCompacter.format(
+                    <ul className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-2">
+                      <li>
+                        {
+                          // @ts-ignore
+                          outputTokenInfo?.market_cap_rank ? (
+                            <div className="parent">
+                              <span>market-cap-rank</span>
+                              <span>
+                                #
+                                {
                                   // @ts-ignore
-                                  inputTokenInfo.market_data?.market_cap?.usd
-                                )
+                                  outputTokenInfo?.market_cap_rank
+                                }
+                              </span>
+                            </div>
+                          ) : null
+                        }
+                      </li>
+                      <li>
+                        {
+                          // @ts-ignore
+                          outputTokenInfo?.market_data?.market_cap && // @ts-ignore
+                          outputTokenInfo?.market_data?.market_cap?.usd !==
+                            0 ? (
+                            <div className="parent">
+                              <span>market-cap</span>
+                              <span>
+                                $
+                                {numberCompacter.format(
+                                  // @ts-ignore
+                                  outputTokenInfo?.market_data?.market_cap?.usd
+                                )}
+                              </span>
+                            </div>
+                          ) : null
+                        }
+                      </li>
+                      <li>
+                        {
+                          // @ts-ignore
+                          outputTokenInfo?.market_data?.total_volume?.usd ? (
+                            <div className="parent">
+                              <span>daily-volume</span>
+                              <span>
+                                $
+                                {numberCompacter.format(
+                                  // @ts-ignore
+                                  outputTokenInfo?.market_data?.total_volume
+                                    ?.usd
+                                )}
+                              </span>
+                            </div>
+                          ) : null
+                        }
+                      </li>
+                      <li>
+                        {
+                          // @ts-ignore
+                          outputTokenInfo?.market_data?.circulating_supply ? (
+                            <div className="parent">
+                              <span>token-supply</span>
+                              <span>
+                                {numberCompacter.format(
+                                  // @ts-ignore
+                                  outputTokenInfo.market_data.circulating_supply
+                                )}
+                              </span>
+                              {
+                                // @ts-ignore
+                                outputTokenInfo.market_data?.max_supply ? (
+                                  <div
+                                    style={{
+                                      fontSize: '18px',
+                                      fontWeight: '500',
+                                    }}
+                                  >
+                                    {' '}
+                                    {numberCompacter.format(
+                                      // @ts-ignore
+                                      outputTokenInfo.market_data.max_supply
+                                    )}
+                                  </div>
+                                ) : null
                               }
                             </div>
-                          </div>
-                        ) : null
-                      }
-                      {
-                        // @ts-ignore
-                        inputTokenInfo.market_data?.total_volume?.usd ? (
-                          <div
-                            className="p-3 m-1 rounded-md"
-                            style={{
-                              border: '1px solid #C8C8C8',
-                              height: '55px',
-                              padding: '5px 7px',
-                            }}
-                          >
-                            <div style={{ fontSize: '14px' }}>daily-volume</div>
-                            <div
-                              style={{ fontSize: '18px', fontWeight: '500' }}
-                            >
-                              $
-                              {numberCompacter.format(
-                                // @ts-ignore
-                                inputTokenInfo.market_data?.total_volume?.usd
-                              )}
-                            </div>
-                          </div>
-                        ) : null
-                      }
-                      {
-                        // @ts-ignore
-                        inputTokenInfo.market_data?.circulating_supply ? (
-                          <div
-                            className="p-3 m-1  rounded-md "
-                            style={{
-                              border: '1px solid #C8C8C8',
-                              height: '55px',
-                              padding: '5px 7px',
-                            }}
-                          >
-                            <div style={{ fontSize: '14px' }}>token-supply</div>
-                            <div
-                              style={{ fontSize: '18px', fontWeight: '500' }}
-                            >
-                              {numberCompacter.format(
-                                // @ts-ignore
-                                inputTokenInfo.market_data.circulating_supply
-                              )}
-                            </div>
-                            {
-                              // @ts-ignore
-                              inputTokenInfo.market_data?.max_supply ? (
-                                <div className="text-xs text-th-fgd-2">
-                                  max-supply:
+                          ) : null
+                        }
+                      </li>
+                      <li>
+                        {
+                          // @ts-ignore
+                          outputTokenInfo?.market_data?.ath?.usd ? (
+                            <div className="parent">
+                              <span>ath</span>
+
+                              <div className="difparent">
+                                <div className="dif3">
                                   {
                                     // @ts-ignore
-                                    numberCompacter.format(
-                                      // @ts-ignore
-                                      inputTokenInfo.market_data.max_supply
-                                    )
+                                    outputTokenInfo.market_data?.ath_date
+                                      ?.usd ? (
+                                      <div>
+                                        {dayjs(
+                                          // @ts-ignore
+                                          outputTokenInfo.market_data.ath_date
+                                            .usd
+                                        ).fromNow()}
+                                      </div>
+                                    ) : null
                                   }
                                 </div>
-                              ) : null
-                            }
-                          </div>
-                        ) : null
-                      }
-                      {
-                        // @ts-ignore
-                        inputTokenInfo.market_data?.ath?.usd ? (
-                          <div
-                            className="p-3 m-1  rounded-md "
-                            style={{
-                              border: '1px solid rgba(200, 200, 200, 1)',
-                              height: '55px',
-                              padding: '5px 7px',
-                            }}
-                          >
-                            <div style={{ fontSize: '14px' }}>ath</div>
-                            <div
-                              style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                              }}
-                            >
-                              <div
-                                style={{
-                                  display: 'flex',
-                                  flexDirection: 'row',
-                                  alignItems: 'center',
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    fontSize: '18px',
-                                    fontWeight: '500',
-                                  }}
-                                >
+
+                                <div className="dif2">
+                                  {
+                                    // @ts-ignore
+                                    outputTokenInfo.market_data
+                                      ?.ath_change_percentage?.usd ? (
+                                      <div
+                                        className={`ml-1.5 mt-1.5 text-xs ${
+                                          // @ts-ignore
+                                          outputTokenInfo.market_data
+                                            ?.ath_change_percentage?.usd >= 0
+                                            ? 'green'
+                                            : 'red'
+                                        }`}
+                                      >
+                                        {(outputTokenInfo?.market_data?.ath_change_percentage?.usd) // @ts-ignore
+                                          .toFixed(2)}
+                                        %
+                                      </div>
+                                    ) : null
+                                  }
+                                </div>
+                                <div className="dif1">
                                   $
                                   {numberFormatter.format(
                                     // @ts-ignore
-                                    inputTokenInfo.market_data.ath.usd
+                                    outputTokenInfo?.market_data.ath.usd
                                   )}
                                 </div>
-
-                                {
-                                  // @ts-ignore
-                                  inputTokenInfo.market_data
-                                    ?.ath_change_percentage?.usd ? (
-                                    <div
-                                      style={{
-                                        fontSize: '12px',
-                                        fontWeight: '500',
-                                      }}
-                                      className={`mt-1.5 ml-1.5  ${
-                                        // @ts-ignore
-                                        inputTokenInfo.market_data
-                                          ?.ath_change_percentage?.usd >= 0
-                                          ? 'green'
-                                          : 'red'
-                                      }`}
-                                    >
-                                      {(inputTokenInfo.market_data?.ath_change_percentage?.usd) // @ts-ignore
-                                        .toFixed(2)}
-                                      %
-                                    </div>
-                                  ) : null
-                                }
                               </div>
-
-                              {
-                                // @ts-ignore
-                                inputTokenInfo.market_data?.ath_date?.usd ? (
-                                  <div
-                                    style={{ fontSize: '12px' }}
-                                    className="fsa"
-                                  >
-                                    {dayjs(
-                                      // @ts-ignore
-                                      inputTokenInfo.market_data.ath_date.usd
-                                    ).fromNow()}
-                                  </div>
-                                ) : null
-                              }
                             </div>
-                          </div>
-                        ) : null
-                      }
-                      {
-                        // @ts-ignore
-                        inputTokenInfo.market_data?.atl?.usd ? (
-                          <div
-                            className="p-3 m-1  rounded-md "
-                            style={{
-                              border: '1px solid rgba(200, 200, 200, 1)',
-                              height: '55px',
-                              padding: '5px 7px',
-                            }}
-                          >
-                            <div style={{ fontSize: '14px' }}>atl</div>
-                            <div
-                              style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                              }}
-                            >
-                              <div
-                                style={{
-                                  display: 'flex',
-                                  flexDirection: 'row',
-                                  alignItems: 'center',
-                                }}
-                              >
-                                <div
-                                  style={{
-                                    fontSize: '18px',
-                                    fontWeight: '500',
-                                  }}
-                                >
-                                  $
+                          ) : null
+                        }
+                      </li>
+
+                      <li>
+                        {
+                          // @ts-ignore
+                          outputTokenInfo?.market_data?.atl?.usd ? (
+                            <div className="parent">
+                              <span>atl</span>
+
+                              <div className="difparent">
+                                <div className="dif3">
                                   {
                                     // @ts-ignore
-                                    numberFormatter.format(
-                                      // @ts-ignore
-                                      inputTokenInfo.market_data.atl.usd
-                                    )
+                                    outputTokenInfo?.market_data?.atl_date
+                                      ?.usd ? (
+                                      <div>
+                                        {dayjs(
+                                          // @ts-ignore
+                                          outputTokenInfo?.market_data.atl_date
+                                            .usd
+                                        ).fromNow()}
+                                      </div>
+                                    ) : null
                                   }
                                 </div>
 
-                                {
-                                  // @ts-ignore
-                                  inputTokenInfo.market_data
-                                    ?.atl_change_percentage?.usd ? (
-                                    <div
-                                      style={{
-                                        fontSize: '12px',
-                                        fontWeight: '500',
-                                      }}
-                                      className={`ml-1.5 mt-1.5  ${
-                                        // @ts-ignore
-                                        inputTokenInfo.market_data
-                                          ?.atl_change_percentage?.usd >= 0
-                                          ? 'green'
-                                          : 'red'
-                                      }`}
-                                    >
-                                      {(inputTokenInfo.market_data?.atl_change_percentage?.usd).toLocaleString(
-                                        undefined,
-                                        {
-                                          minimumFractionDigits: 0,
-                                          maximumFractionDigits: 2,
-                                        }
-                                      )}
-                                      %
-                                    </div>
-                                  ) : null
-                                }
+                                <div className="dif2">
+                                  {
+                                    // @ts-ignore
+                                    outputTokenInfo?.market_data
+                                      ?.atl_change_percentage?.usd ? (
+                                      <div
+                                        className={`ml-1.5 mt-1.5  ${
+                                          // @ts-ignore
+                                          outputTokenInfo.market_data
+                                            ?.atl_change_percentage?.usd >= 0
+                                            ? 'green'
+                                            : 'red'
+                                        }`}
+                                      >
+                                        {(outputTokenInfo?.market_data?.atl_change_percentage?.usd) // @ts-ignore
+                                          .toLocaleString(undefined, {
+                                            minimumFractionDigits: 0,
+                                            maximumFractionDigits: 2,
+                                          })}
+                                        %
+                                      </div>
+                                    ) : null
+                                  }
+                                </div>
+
+                                <div className="dif1">
+                                  $
+                                  {numberFormatter.format(
+                                    // @ts-ignore
+                                    outputTokenInfo?.market_data.atl.usd
+                                  )}
+                                </div>
                               </div>
-                              {
-                                // @ts-ignore
-                                inputTokenInfo.market_data?.atl_date?.usd ? (
-                                  <div
-                                    style={{ fontSize: '12px' }}
-                                    className="fsa"
-                                  >
-                                    {dayjs(
-                                      // @ts-ignore
-                                      inputTokenInfo.market_data.atl_date.usd
-                                    ).fromNow()}
-                                  </div>
-                                ) : null
-                              }
                             </div>
-                          </div>
-                        ) : null
-                      }
-                    </div>
+                          ) : null
+                        }
+                      </li>
+                    </ul>
                     {
                       // @ts-ignore
-                      topHolders?.inputHolders ? (
+                      topHolders?.outputHolders ? (
                         <div className="pt-4">
                           <div className="pb-3 m-1 text-base font-bold text-th-fgd-1">
                             top-ten
                           </div>
                           {
                             // @ts-ignore
-                            topHolders.inputHolders.map((holder) => (
+                            topHolders.outputHolders.map((holder) => (
                               <a
                                 className="border-t border-th-bkg-4 default transition flex justify-between mx-1 px-2 py-2.5 text-th-fgd-3 hover:bg-th-bkg-2"
                                 href={`https://explorer.solana.com/address/${holder.owner}`}
@@ -745,404 +997,6 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
             )}
           </Disclosure>
         </div>
-      ) : (
-        <div className="p-4 mt-3 text-center rounded-md bg-th-bkg-3 text-th-fgd-3"></div>
-      )}
-
-      {/*      {outputTokenInfo && quoteTokenId ? (*/}
-      <div className="w-full">
-        <Disclosure>
-          {({ open }) => (
-            <>
-              <Disclosure.Button
-                className={`default-transition flex items-center justify-between mt-2 p-2 rounded-md w-full hover:bg-th-bkg-2 ${
-                  open
-                    ? 'borderD1 rounded-b-none'
-                    : 'borderD transform rotate-360'
-                }`}
-              >
-                <div className="flex items-center">
-                  {
-                    // @ts-ignore
-                    outputTokenInfo?.image?.small ? (
-                      <img
-                        className="rounded-full" // @ts-ignore
-                        src={outputTokenInfo?.image?.small}
-                        width="38"
-                        height="40" // @ts-ignore
-                        alt={outputTokenInfo?.name}
-                      />
-                    ) : null
-                  }
-                  <div className="ml-2.5 text-left">
-                    <h2 className="selecttokenname">
-                      {
-                        // @ts-ignore
-                        outputTokenInfo?.symbol?.toUpperCase()
-                      }
-                    </h2>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <div className="flex items-center">
-                    {
-                      // @ts-ignore
-                      outputTokenInfo?.market_data?.current_price?.usd ? (
-                        <div className="selectnumber">
-                          $
-                          {numberFormatter.format(
-                            // @ts-ignore
-                            outputTokenInfo?.market_data.current_price.usd
-                          )}
-                        </div>
-                      ) : null
-                    }
-                    {
-                      // @ts-ignore
-                      outputTokenInfo?.market_data
-                        ?.price_change_percentage_24h ? (
-                        <div
-                          id="selectnumber1"
-                          className={`${
-                            // @ts-ignore
-                            outputTokenInfo.market_data
-                              .price_change_percentage_24h >= 0
-                              ? 'green'
-                              : 'red'
-                          }`}
-                        >
-                          {
-                            // @ts-ignore
-                            outputTokenInfo?.market_data.price_change_percentage_24h.toFixed(
-                              2
-                            )
-                          }
-                          %
-                        </div>
-                      ) : null
-                    }
-                  </div>
-                  <ChevronDownIcon
-                    style={{ height: '30px' }}
-                    className={`default-transition text-th-fgd-3 ${
-                      open ? 'transform rotate-180' : 'transform rotate-360'
-                    }`}
-                  />
-                </div>
-              </Disclosure.Button>
-              <Disclosure.Panel>
-                <div
-                  className="pt-1 p-3 border border-t-0 border-th-bkg-4 rounded-b-md"
-                  style={{ border: '1px solid #fff', borderTop: '0px' }}
-                >
-                  <div style={{ fontSize: '18px' }}>Market data</div>
-                  <div className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-                    {
-                      // @ts-ignore
-                      outputTokenInfo?.market_cap_rank ? (
-                        <div
-                          className="p-3 m-1 rounded-md "
-                          style={{
-                            border: '1px solid rgba(200, 200, 200, 1)',
-                            height: '55px',
-                            padding: '5px 7px',
-                          }}
-                        >
-                          <div style={{ fontSize: '14px' }}>
-                            market-cap-rank
-                          </div>
-                          <div style={{ fontSize: '18px', fontWeight: '500' }}>
-                            #
-                            {
-                              // @ts-ignore
-                              outputTokenInfo?.market_cap_rank
-                            }
-                          </div>
-                        </div>
-                      ) : null
-                    }
-                    {
-                      // @ts-ignore
-                      outputTokenInfo?.market_data?.market_cap && // @ts-ignore
-                      outputTokenInfo?.market_data?.market_cap?.usd !== 0 ? (
-                        <div
-                          className="p-3 m-1 rounded-md "
-                          style={{
-                            border: '1px solid rgba(200, 200, 200, 1)',
-                            height: '55px',
-                            padding: '5px 7px',
-                          }}
-                        >
-                          <div className="text-xs text-th-fgd-3">
-                            market-cap
-                          </div>
-                          <div style={{ fontSize: '18px', fontWeight: '500' }}>
-                            $
-                            {numberCompacter.format(
-                              // @ts-ignore
-                              outputTokenInfo?.market_data?.market_cap?.usd
-                            )}
-                          </div>
-                        </div>
-                      ) : null
-                    }
-                    {
-                      // @ts-ignore
-                      outputTokenInfo?.market_data?.total_volume?.usd ? (
-                        <div
-                          className="p-3 m-1 rounded-md "
-                          style={{
-                            border: '1px solid rgba(200, 200, 200, 1)',
-                            height: '55px',
-                            padding: '5px 7px',
-                          }}
-                        >
-                          <div style={{ fontSize: '14px' }}>daily-volume</div>
-                          <div style={{ fontSize: '18px', fontWeight: '500' }}>
-                            $
-                            {numberCompacter.format(
-                              // @ts-ignore
-                              outputTokenInfo?.market_data?.total_volume?.usd
-                            )}
-                          </div>
-                        </div>
-                      ) : null
-                    }
-                    {
-                      // @ts-ignore
-                      outputTokenInfo?.market_data?.circulating_supply ? (
-                        <div
-                          className="p-3 m-1 rounded-md "
-                          style={{
-                            border: '1px solid rgba(200, 200, 200, 1)',
-                            height: '55px',
-                            padding: '5px 7px',
-                          }}
-                        >
-                          <div style={{ fontSize: '14px' }}>token-supply</div>
-                          <div style={{ fontSize: '18px', fontWeight: '500' }}>
-                            {numberCompacter.format(
-                              // @ts-ignore
-                              outputTokenInfo.market_data.circulating_supply
-                            )}
-                          </div>
-                          {
-                            // @ts-ignore
-                            outputTokenInfo.market_data?.max_supply ? (
-                              <div
-                                style={{ fontSize: '18px', fontWeight: '500' }}
-                              >
-                                {' '}
-                                {numberCompacter.format(
-                                  // @ts-ignore
-                                  outputTokenInfo.market_data.max_supply
-                                )}
-                              </div>
-                            ) : null
-                          }
-                        </div>
-                      ) : null
-                    }
-                    {
-                      // @ts-ignore
-                      outputTokenInfo?.market_data?.ath?.usd ? (
-                        <div
-                          className="p-3 m-1 rounded-md "
-                          style={{
-                            border: '1px solid rgba(200, 200, 200, 1)',
-                            height: '55px',
-                            padding: '5px 7px',
-                          }}
-                        >
-                          <div style={{ fontSize: '14px' }}>ath</div>
-                          <div
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'space-between',
-                              alignItems: 'center',
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                              }}
-                            >
-                              <div
-                                style={{ fontSize: '18px', fontWeight: '500' }}
-                              >
-                                $
-                                {numberFormatter.format(
-                                  // @ts-ignore
-                                  outputTokenInfo?.market_data.ath.usd
-                                )}
-                              </div>
-                              {
-                                // @ts-ignore
-                                outputTokenInfo.market_data
-                                  ?.ath_change_percentage?.usd ? (
-                                  <div
-                                    style={{
-                                      fontSize: '12px',
-                                      fontWeight: '500',
-                                    }}
-                                    className={`ml-1.5 mt-1.5 text-xs ${
-                                      // @ts-ignore
-                                      outputTokenInfo.market_data
-                                        ?.ath_change_percentage?.usd >= 0
-                                        ? 'green'
-                                        : 'red'
-                                    }`}
-                                  >
-                                    {(outputTokenInfo?.market_data?.ath_change_percentage?.usd) // @ts-ignore
-                                      .toFixed(2)}
-                                    %
-                                  </div>
-                                ) : null
-                              }
-                            </div>
-                            {
-                              // @ts-ignore
-                              outputTokenInfo.market_data?.ath_date?.usd ? (
-                                <div
-                                  style={{ fontSize: '12px' }}
-                                  className="fsa"
-                                >
-                                  {dayjs(
-                                    // @ts-ignore
-                                    outputTokenInfo.market_data.ath_date.usd
-                                  ).fromNow()}
-                                </div>
-                              ) : null
-                            }
-                          </div>
-                        </div>
-                      ) : null
-                    }
-                    {
-                      // @ts-ignore
-                      outputTokenInfo?.market_data?.atl?.usd ? (
-                        <div
-                          className="p-3 m-1 rounded-md "
-                          style={{
-                            border: '1px solid rgba(200, 200, 200, 1)',
-                            height: '55px',
-                            padding: '5px 7px',
-                          }}
-                        >
-                          <div style={{ fontSize: '14px' }}>atl</div>
-                          <div
-                            style={{
-                              display: 'flex',
-                              justifyContent: 'space-between',
-                              alignItems: 'center',
-                            }}
-                          >
-                            <div
-                              style={{
-                                display: 'flex',
-                                flexDirection: 'row',
-                                alignItems: 'center',
-                              }}
-                            >
-                              <div
-                                style={{ fontSize: '18px', fontWeight: '500' }}
-                              >
-                                $
-                                {numberFormatter.format(
-                                  // @ts-ignore
-                                  outputTokenInfo?.market_data.atl.usd
-                                )}
-                              </div>
-                              {
-                                // @ts-ignore
-                                outputTokenInfo?.market_data
-                                  ?.atl_change_percentage?.usd ? (
-                                  <div
-                                    style={{
-                                      fontSize: '12px',
-                                      fontWeight: '500',
-                                    }}
-                                    className={`ml-1.5 mt-1.5 text-xs ${
-                                      // @ts-ignore
-                                      outputTokenInfo.market_data
-                                        ?.atl_change_percentage?.usd >= 0
-                                        ? 'green'
-                                        : 'red'
-                                    }`}
-                                  >
-                                    {(outputTokenInfo?.market_data?.atl_change_percentage?.usd) // @ts-ignore
-                                      .toLocaleString(undefined, {
-                                        minimumFractionDigits: 0,
-                                        maximumFractionDigits: 2,
-                                      })}
-                                    %
-                                  </div>
-                                ) : null
-                              }
-                            </div>
-                            {
-                              // @ts-ignore
-                              outputTokenInfo?.market_data?.atl_date?.usd ? (
-                                <div
-                                  style={{ fontSize: '12px' }}
-                                  className="fsa"
-                                >
-                                  {dayjs(
-                                    // @ts-ignore
-                                    outputTokenInfo?.market_data.atl_date.usd
-                                  ).fromNow()}
-                                </div>
-                              ) : null
-                            }
-                          </div>
-                        </div>
-                      ) : null
-                    }
-                  </div>
-                  {
-                    // @ts-ignore
-                    topHolders?.outputHolders ? (
-                      <div className="pt-4">
-                        <div className="pb-3 m-1 text-base font-bold text-th-fgd-1">
-                          top-ten
-                        </div>
-                        {
-                          // @ts-ignore
-                          topHolders.outputHolders.map((holder) => (
-                            <a
-                              className="border-t border-th-bkg-4 default transition flex justify-between mx-1 px-2 py-2.5 text-th-fgd-3 hover:bg-th-bkg-2"
-                              href={`https://explorer.solana.com/address/${holder.owner}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              key={holder.owner}
-                            >
-                              <div className="text-th-fgd-3">
-                                {holder.owner.slice(0, 5) +
-                                  '…' +
-                                  holder.owner.slice(-5)}
-                              </div>
-                              <div className="flex items-center">
-                                <div className="text-th-fgd-1">
-                                  {numberFormatter.format(
-                                    holder.amount /
-                                      Math.pow(10, holder.decimals)
-                                  )}
-                                </div>
-                                <ExternalLinkIcon className="w-4 h-4 ml-2" />
-                              </div>
-                            </a>
-                          ))
-                        }
-                      </div>
-                    ) : null
-                  }
-                </div>
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
       </div>
     </>
   )

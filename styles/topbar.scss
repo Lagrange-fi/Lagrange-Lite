@@ -1,29 +1,51 @@
 @import './formul.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
+[data-theme='Dark'] {
+  .topbar {
+
+
+    .burger {
+      color: #fff;
+    }
+    nav {
+      ul {
+        li{
+          color: #fff
+        }
+      }
+    }
+  }
+
+ 
+
+}
+
 .topbar {
   font-family: 'Montserrat';
   z-index: 1000;
-  padding: 25px  clamp(10px, 8.33vw, 120px);
+  padding: 25px clamp(10px, 8.33vw, 120px);
+
   @media screen and (max-width: 768px) {
     display: block;
     padding: 7px 20px;
-  } 
+  }
 
-
-
-  .burger { 
+  .burger {
     z-index: 10;
     display: none;
     color: #fff;
     margin-left: 20px;
+
     @media screen and (max-width: 768px) {
       display: block;
     }
+
     i {
       font-size: 20px;
     }
   }
+
   .fa-times {
     -webkit-filter: grayscale(1) invert(1);
     filter: grayscale(1) invert(1);
@@ -33,24 +55,26 @@
     font-size: 40px;
     font-weight: 700;
     color: #fff;
+
     @media screen and (max-width: 768px) {
       display: block;
     }
   }
-  
-  
-  
+
   nav {
     @include displayflex($fd: row, $ai: center, $jc: space-between);
+
     img {
       width: clamp(100px, 100px + 12.8571vw, 200px);
       height: 48px;
+
       @media screen and (max-width: 768px) {
         height: 38px;
       }
       object-fit: contain;
       margin-right: clamp(20px, 6.25vw, 90px);
     }
+
     ul {
       @include displayflex($fd: row, $ai: center, $jc: space-between);
       font-size: clamp(16px, 1.7361vw, 18px);
@@ -73,49 +97,59 @@
       .active {
         font-weight: 700;
       }
+
       li {
-        color: #fff;
+        color: #000;
         margin-right: clamp(20px, 6.25vw, 90px);
         margin-top: 10px;
         height: 40px;
         width: 150px;
         white-space: nowrap;
-        a{
+
+        a {
           @include displayflex($fd: column, $ai: center, $jc: center);
-          .activetop{
+
+          .activetop {
             width: 7px;
             height: 7px;
-            background: #FF9193;
+            background: #ff9193;
             border-radius: 50%;
             margin-top: 2px;
           }
-          .deactivetop{
+
+          .deactivetop {
             width: 0px;
             height: 0px;
           }
         }
+
         // &:hover {
         //   font-weight: 700;
         // }
         &:nth-child(5) {
           display: none;
           margin-right: 0px;
+
           @media screen and (max-width: 768px) {
             display: block;
           }
         }
+
         &:last-child {
           margin-right: 0px;
         }
+
         &:first-child {
           display: none;
           margin-right: 0px;
           margin-top: 0px;
+
           @media screen and (max-width: 768px) {
             @include displayflex($ai: center, $jc: flex-end);
             width: 100%;
           }
         }
+
         @media screen and (max-width: 768px) {
           margin-right: 0px;
           margin-top: 50px;
@@ -124,6 +158,7 @@
       }
     }
   }
+
   .ConnectWalletButton {
     .walletlist {
       font-size: clamp(12px, 1.25vw, 18px);
@@ -134,21 +169,18 @@
       align-items: center;
       z-index: 1000 !important;
       position: sticky;
-      background: linear-gradient(
-        152.97deg,
-        rgba(38, 38, 38, 1) 0%,
-        rgba(130, 130, 130, 1) 100%
-      );
+      background: linear-gradient(152.97deg,
+          rgba(38, 38, 38, 1) 0%,
+          rgba(130, 130, 130, 1) 100%);
       box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.25);
       border-radius: 4px;
       color: #fff;
+
       &:hover {
-        background: linear-gradient(
-          145.83deg,
-          #ff8b99 19.04%,
-          #fca27d 74.02%,
-          #ffcba5 97.03%
-        );
+        background: linear-gradient(145.83deg,
+            #ff8b99 19.04%,
+            #fca27d 74.02%,
+            #ffcba5 97.03%);
       }
 
       .imgspan {
@@ -157,6 +189,7 @@
         justify-content: space-between;
         align-items: center;
         width: 70%;
+
         img {
           height: clamp(20px, 2.08vw, 30px);
           width: clamp(20px, 2.08vw, 30px);
@@ -164,6 +197,7 @@
         }
       }
     }
+
     button {
       font-family: 'Montserrat';
       font-style: normal;
@@ -175,13 +209,12 @@
       font-size: 14px;
       padding: 6px 0px;
       width: clamp(120px, 19.93vw, 187px);
-      background: linear-gradient(
-        145.83deg,
-        #ff8b99 19.04%,
-        #fca27d 74.02%,
-        #ffcba5 97.03%
-      );
+      background: linear-gradient(145.83deg,
+          #ff8b99 19.04%,
+          #fca27d 74.02%,
+          #ffcba5 97.03%);
       border-radius: 6px;
+
       @media screen and (max-width: 768px) {
         width: clamp(120px, 19.93vw, 187px);
       }
@@ -193,18 +226,17 @@
         position: absolute;
         top: -10px;
         right: 0px;
-        background: linear-gradient(
-          145.83deg,
-          #ff8b99 19.04%,
-          #fca27d 74.02%,
-          #ffcba5 97.03%
-        );
+        background: linear-gradient(145.83deg,
+            #ff8b99 19.04%,
+            #fca27d 74.02%,
+            #ffcba5 97.03%);
         z-index: -1;
         filter: blur(22px);
         transform: scale(1, 0.8) translateY(20px);
         opacity: 0;
         transition: all 0.6s;
       }
+
       &:hover::before {
         opacity: 1;
       }
