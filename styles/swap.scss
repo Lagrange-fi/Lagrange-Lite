@@ -91,10 +91,9 @@
       padding: 24px;
       margin-right: 20px;
       width: 384px;
-
-      @media screen and (max-width: 1024px) {
+      margin-bottom: 20px;
+      @media screen and (max-width: 500px) {
         margin-right: 0px;
-        margin-bottom: 20px;
         width: clamp(300px, 230px + 20.5vw, 440px);
       }
     }
@@ -119,6 +118,7 @@
           width: 24px;
           height: 24px;
           margin-right: 8px;
+         
         }
 
         span {
@@ -129,6 +129,7 @@
         .icon {
           height: 25px;
           color: black;
+       
         }
       }
 
@@ -141,6 +142,9 @@
         padding-left: 12px;
         font-size: 18px;
         outline: none;
+        @media screen and (max-width: 500px) {
+          width: 130px;
+        }
       }
     }
 
@@ -181,12 +185,7 @@
         height: 40px;
         border-radius: 6px;
 
-        @media screen and (max-width: 1024px) {
-          margin: clamp(20px, 20px + 2.92vw, 50px) auto
-            clamp(20px, 20px + 2.92vw, 50px) auto;
-          width: clamp(25px, 25px + 1.46vw, 40px);
-          height: clamp(25px, 25px + 1.46vw, 40px);
-        }
+   
       }
 
       .icon {
@@ -239,6 +238,9 @@
         font-weight: 600;
         font-size: 20px;
         @include displayflex($fd: row, $ai: center, $jc: space-between);
+        @media screen and (max-width: 700px) {
+          @include displayflex($fd: column, $ai: center, $jc: space-between);
+        }
       }
 
       .chartnumber {
@@ -261,9 +263,14 @@
         }
       }
       .Disclosures {
+   
         margin-top: 25px;
         width: clamp(300px, 72.22vw - 143px, 792px);
         @include displayflex($fd: row, $ai: flex-start, $jc: space-between);
+         @media screen and (max-width: 1300px) {
+           width: 100%;
+          @include displayflex($fd:column, $ai: center, $jc: center);
+         }
       }
 
       .DisclosureButton {
@@ -274,6 +281,14 @@
         border-radius: 6px;
         width: 384px;
         @include displayflex($fd: row, $ai: center, $jc: space-between);
+        @media screen and (max-width: 1300px) {
+          margin-right: 0px;
+        }
+
+        @media screen and (max-width: 450px) {
+          width: 290px;
+        }
+      
 
         ul {
           @include displayflex($fd: row, $ai: center, $jc: space-between);
@@ -300,6 +315,9 @@
         .selectnumber {
           font-size: 20px;
           font-weight: 600;
+          @media screen and (max-width: 450px) {
+            font-size: 15px;
+          }
         }
 
         #selectnumber1 {
@@ -366,6 +384,10 @@
 
       .dates {
         @include displayflex($fd: row, $ai: center, $jc: flex-end);
+        @media screen and (max-width: 700px) {
+         margin: 10px 0px;
+        }
+       
 
         button {
           color: #333333;
@@ -376,6 +398,11 @@
           margin-right: 20px;
           width: 59px;
           padding: 8px 0px;
+          @media screen and (max-width: 700px) {
+            font-size: 12px;
+            margin-right: 5px;
+            width: 49px;
+           }
           &:last-child {
             margin-right: 0px;
           }
@@ -390,6 +417,10 @@
           font-size: 16px;
           padding: 8px 15px;
           outline: none;
+          @media screen and (max-width: 700px) {
+            font-size: 12px;
+            width: 120px;
+           }
 
           &::-webkit-inner-spin-button {
             height: 30px;
@@ -398,6 +429,10 @@
           &::-webkit-calendar-picker-indicator {
             font-size: 18px;
             background-color: #ebebeb;
+            @media screen and (max-width: 700px) {
+              font-size: 12px;
+             
+             }
           }
         }
       }

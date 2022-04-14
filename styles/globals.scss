@@ -30,16 +30,15 @@
 [data-theme='Dark'] {
   body {
     --bkg-1: theme('colors.dark-theme.bkg-1');
-    color:#fff;
+    color: #fff;
   }
 }
 
 body {
   --bkg-1: theme('colors.light-theme.bkg-1');
-  color:#000;
+  color: #000;
   mix-blend-mode: normal;
   font-family: Roboto;
- 
 }
 
 input[type='number']::-webkit-inner-spin-button {
@@ -111,7 +110,6 @@ input::placeholder {
   .line1 {
     background: #444444;
   }
-  
 }
 .line1 {
   background: #ededed;

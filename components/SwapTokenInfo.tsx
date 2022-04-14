@@ -670,7 +670,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
         )}
 
         {/*      {outputTokenInfo && quoteTokenId ? (*/}
-        <div className="w-full">
+        <div>
           <Disclosure>
             {({ open }) => (
               <>
