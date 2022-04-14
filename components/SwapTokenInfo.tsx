@@ -184,164 +184,147 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
     : 0
 
   return (
-    <div className="SwapTokenInfo1">
-      {chartData.length && baseTokenId && quoteTokenId ? (
-        <div>
-          {/*------------------------------- chart olan bolge start ---------------------------------- */}
-          {!hideChart ? (
-            <div
-              className="w-full"
-              ref={observe}
-              style={{
-                borderRadius: '4px',
-                fontSize: '25px',
-              }}
-            >
-              {inputTokenInfo && outputTokenInfo ? (
-                <div
-                  className="text-th-fgd-3"
-                  style={{
-                    fontSize: '25px',
-                    fontWeight: '500',
-                    fontFamily: 'Roboto!important',
-                  }}
-                >
-                  {`${
-                    // @ts-ignore
-                    outputTokenInfo?.symbol?.toUpperCase()
-                  }/${inputTokenInfo?.symbol?.toUpperCase()}`}
-                </div>
-              ) : null}
-              {mouseData ? (
-                <>
-                  <div
-                    className="text-lg font-bold text-th-fgd-1"
-                    style={{
-                      fontSize: '17px',
-                      fontWeight: '400',
-                      fontFamily: 'Roboto!important',
-                      height: '28px',
-                    }}
-                  >
-                    {
-                      // @ts-ignore
-                      numberFormatter.format(mouseData['price'])
-                    }
-                    <span
-                      className={`ml-2 text-xs ${
-                        chartChange >= 0 ? 'green' : 'red'
-                      }`}
-                    >
-                      {chartChange.toFixed(2)}%
+    <>
+      <div className="SwapTokenInfo1">
+        {chartData.length && baseTokenId && quoteTokenId ? (
+          <div>
+            {!hideChart ? (
+              <div
+                className="w-full"
+                ref={observe}
+                style={{
+                  borderRadius: '4px',
+                  fontSize: '25px',
+                }}
+              >
+                {/* symbol and date */}
+                {inputTokenInfo && outputTokenInfo ? (
+                  <div className="symbolanddate">
+                    <span>
+                      {`${
+                        // @ts-ignore
+                        outputTokenInfo?.symbol?.toUpperCase()
+                      }/${inputTokenInfo?.symbol?.toUpperCase()}`}
                     </span>
+                    <div className="dates">
+                      <button onClick={() => setDaysToShow(1)}>24H</button>
+                      <button onClick={() => setDaysToShow(7)}>7D</button>
+                      <button onClick={() => setDaysToShow(30)}>30D</button>
+                      <input
+                        type="date"
+                        id="start"
+                        name="trip-start"
+                        value="2018-07-22"
+                      />
+                    </div>
                   </div>
-                  <div
-                    className="font-normal text-th-fgd-3"
-                    style={{
-                      fontSize: '17px',
-                      fontWeight: '400',
-                      fontFamily: 'Roboto!important',
-                      height: '28px',
-                    }}
-                  >
-                    {
-                      // @ts-ignore
-                      dayjs(mouseData['time']).format('DD MMM YY, h:mma')
-                    }
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div
-                    className="text-lg font-bold text-th-fgd-1"
-                    style={{
-                      fontSize: '15px',
-                      fontWeight: '400',
-                      fontFamily: 'Roboto!important',
-                      height: '28px',
-                    }}
-                  >
-                    {numberFormatter.format(
-                      chartData[chartData.length - 1]['price']
-                    )}
-                    <span
-                      className={`ml-2 text-xs ${
-                        chartChange >= 0 ? 'green' : 'red'
-                      }`}
-                    >
-                      {chartChange.toFixed(2)}%
-                    </span>
-                  </div>
-                  <div
-                    className="text-xs font-normal text-th-fgd-3"
-                    style={{
-                      fontSize: '15px',
-                      fontWeight: '400',
-                      fontFamily: 'Roboto!important',
-                      height: '28px',
-                    }}
-                  >
-                    {dayjs(chartData[chartData.length - 1]['time']).format(
-                      'DD MMM YY, h:mma'
-                    )}
-                  </div>
-                </>
-              )}
-              <ResponsiveContainer width="100%" height={195}>
-                <AreaChart
-                  className="AreaChart"
-                  data={chartData} // @ts-ignore
-                  onMouseMove={handleMouseMove}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <Tooltip
-                    cursor={{
-                      strokeOpacity: 0,
-                    }}
-                    content={<></>}
-                  />
-                  <defs>
-                    <linearGradient
-                      id="gradientArea"
-                      x1="0"
-                      y1="0"
-                      x2="0"
-                      y2="1"
-                    >
-                      <stop offset="0%" stopColor="#706347" stopOpacity={0.9} />
-                      <stop offset="90%" stopColor="#706347" stopOpacity={1} />
-                    </linearGradient>
-                  </defs>
-                  <Area
-                    isAnimationActive={true}
-                    type="monotone"
-                    dataKey="price"
-                    stroke="rgba(253, 196, 71, 1)"
-                    fill="url(#gradientArea)"
-                  />
-                  <XAxis dataKey="time" hide />
-                  <YAxis
-                    dataKey="price"
-                    type="number"
-                    domain={['dataMin', 'dataMax']}
-                    hide
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-          ) : null}
-        </div>
-      ) : (
-        <div className="p-4 mt-4 text-center rounded-md bg-th-bkg-3 md:mt-0 text-th-fgd-3">
-          <LineChartIcon className="w-6 h-6 mx-auto text-th-primary" />
-        </div>
-      )}
+                ) : null}
 
-      <div className="dates">
-        <button onClick={() => setDaysToShow(1)}>24H</button>
-        <button onClick={() => setDaysToShow(7)}>7D</button>
-        <button onClick={() => setDaysToShow(30)}>30D</button>
+                {/* chart number */}
+                {mouseData ? (
+                  <>
+                    <div className="chartnumber">
+                      <span>
+                        {' '}
+                        {
+                          // @ts-ignore
+                          numberFormatter.format(mouseData['price'])
+                        }{' '}
+                      </span>
+                      <span className={`${chartChange >= 0 ? 'green' : 'red'}`}>
+                        {chartChange.toFixed(2)}%
+                      </span>
+                      <span>
+                        {
+                          // @ts-ignore
+                          dayjs(mouseData['time']).format('DD MMM YY, h:mma')
+                        }
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="chartnumber">
+                      <span>
+                        {numberFormatter.format(
+                          chartData[chartData.length - 1]['price']
+                        )}
+                      </span>
+                      <span
+                        className={` ${chartChange >= 0 ? 'green' : 'red'}`}
+                      >
+                        {chartChange.toFixed(2)}%
+                      </span>
+                      <span>
+                        {dayjs(chartData[chartData.length - 1]['time']).format(
+                          'DD MMM YY, h:mma'
+                        )}
+                      </span>
+                    </div>
+                  </>
+                )}
+
+                {/* chart  */}
+
+                <ResponsiveContainer width="100%" height={195}>
+                  <AreaChart
+                    className="AreaChart"
+                    data={chartData} // @ts-ignore
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Tooltip
+                      cursor={{
+                        strokeOpacity: 0,
+                      }}
+                      content={<></>}
+                    />
+                    <defs>
+                      <linearGradient
+                        id="gradientArea"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="0%"
+                          stopColor="rgba(253, 159, 129, 0.33) "
+                          stopOpacity={1}
+                        />
+                        <stop
+                          offset="90%"
+                          stopColor="rgba(253, 159, 129, 0.33)"
+                          stopOpacity={0.3}
+                        />
+                      </linearGradient>
+                    </defs>
+                    <Area
+                      isAnimationActive={true}
+                      type="monotone"
+                      dataKey="price"
+                      stroke="#FD9F81"
+                      fill="url(#gradientArea)"
+                    />
+                    <XAxis dataKey="time" hide />
+                    <YAxis
+                      dataKey="price"
+                      type="number"
+                      domain={['dataMin', 'dataMax']}
+                      hide
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+            ) : null}
+          </div>
+        ) : (
+          <div className="p-4 mt-4 text-center rounded-md bg-th-bkg-3 md:mt-0 text-th-fgd-3">
+            <LineChartIcon className="w-6 h-6 mx-auto text-th-primary" />
+          </div>
+        )}
       </div>
+      {/* accordion */}
 
       {inputTokenInfo && outputTokenInfo && baseTokenId ? (
         <div>
@@ -1161,7 +1144,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
           )}
         </Disclosure>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -10,6 +10,7 @@ import useMangoStore from '../stores/useMangoStore'
 import ConnectWalletButton from './ConnectWalletButton'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
+import Settings from './Settings'
 
 const TopBar = () => {
   const [a, setA] = useState(false)
@@ -65,39 +66,59 @@ const TopBar = () => {
     <>
       <div className="topbar">
         <nav>
-          <div className="imgandul">
-            <Link href="/">
-              <a>
-                <img src="/Lagrange-logo-light.png" alt="next" />
-              </a>
-            </Link>
-            <ul>
-              <li>
-                <img
-                  src="/assets/icons/cancel.png"
-                  className="fa-times"
-                  alt=""
-                  onClick={times}
-                />
-              </li>
-              <li className={router.asPath == '/swap' ? 'active' : ''}>
-                <Link href="/swap">
-                  <a>Swap</a>
-                </Link>
-              </li>
-              <li className={router.asPath == '/overview' ? 'active' : ''}>
-                <Link href="/overview">
-                  <a>Market Overview</a>
-                </Link>
-              </li>
-              <li className={router.asPath == '/pools' ? 'active' : ''}>
-                <Link href="/pools">
-                  <a>Pools</a>
-                </Link>
-              </li>
-              <li>{matches && <ConnectWalletButton />}</li>
-            </ul>
-          </div>
+          <Link href="/">
+            <a>
+              <img src="/Lagrange-logo-light.png" alt="next" />
+            </a>
+          </Link>
+          <ul>
+            <li>
+              <img
+                src="/assets/icons/cancel.png"
+                className="fa-times"
+                alt=""
+                onClick={times}
+              />
+            </li>
+            <li className={router.asPath == '/swap' ? 'active' : ''}>
+              <Link href="/swap">
+                <a>
+                  Swap
+                  <div
+                    className={
+                      router.asPath == '/swap' ? 'activetop' : 'deactivetop'
+                    }
+                  ></div>
+                </a>
+              </Link>
+            </li>
+            <li className={router.asPath == '/overview' ? 'active' : ''}>
+              <Link href="/overview">
+                <a>
+                  Market Overview
+                  <div
+                    className={
+                      router.asPath == '/overview' ? 'activetop' : 'deactivetop'
+                    }
+                  ></div>
+                </a>
+              </Link>
+            </li>
+            <li className={router.asPath == '/pools' ? 'active' : ''}>
+              <Link href="/pools">
+                <a>
+                  Pools
+                  <div
+                    className={
+                      router.asPath == '/pools' ? 'activetop' : 'deactivetop'
+                    }
+                  ></div>
+                </a>
+              </Link>
+            </li>
+            <li>{matches && <ConnectWalletButton />}</li>
+          </ul>
+          <Settings />
 
           <div className="imgandul">
             {!matches && <ConnectWalletButton />}

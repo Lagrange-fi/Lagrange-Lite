@@ -1,19 +1,18 @@
 @import './formul.scss';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300:400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
 .topbar {
+  font-family: 'Montserrat';
   z-index: 1000;
-  background: linear-gradient(
-    152.97deg,
-    rgba(255, 255, 255, 0.35) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  padding: 15px 20px;
+  padding: 25px  clamp(10px, 8.33vw, 120px);
   @media screen and (max-width: 768px) {
     display: block;
     padding: 7px 20px;
-  }
-  .burger {
+  } 
+
+
+
+  .burger { 
     z-index: 10;
     display: none;
     color: #fff;
@@ -38,15 +37,14 @@
       display: block;
     }
   }
+  
+  
+  
   nav {
-    .imgandul {
-      @include displayflex($fd: row, $ai: center, $jc: center);
-    }
-
     @include displayflex($fd: row, $ai: center, $jc: space-between);
     img {
-      width: clamp(100px, 100px + 12.8571vw, 280px);
-      height: 68px;
+      width: clamp(100px, 100px + 12.8571vw, 200px);
+      height: 48px;
       @media screen and (max-width: 768px) {
         height: 38px;
       }
@@ -55,11 +53,9 @@
     }
     ul {
       @include displayflex($fd: row, $ai: center, $jc: space-between);
-      font-size: clamp(16px, 1.7361vw, 25px);
-      font-weight: 700;
-      @media screen and (max-width: 1200px) {
-        font-weight: 500;
-      }
+      font-size: clamp(16px, 1.7361vw, 18px);
+      font-weight: 500;
+
       @media screen and (max-width: 768px) {
         @include displayflex($fd: column, $ai: center, $jc: flex-start);
         position: fixed;
@@ -75,21 +71,44 @@
       }
 
       .active {
-        text-shadow: 3px 0px 11px #fc9f80;
+        font-weight: 700;
       }
       li {
         color: #fff;
         margin-right: clamp(20px, 6.25vw, 90px);
-        &:hover {
-          color: #d1d1d1;
+        margin-top: 10px;
+        height: 40px;
+        width: 150px;
+        white-space: nowrap;
+        a{
+          @include displayflex($fd: column, $ai: center, $jc: center);
+          .activetop{
+            width: 7px;
+            height: 7px;
+            background: #FF9193;
+            border-radius: 50%;
+            margin-top: 2px;
+          }
+          .deactivetop{
+            width: 0px;
+            height: 0px;
+          }
         }
-        &:nth-child(4) {
+        // &:hover {
+        //   font-weight: 700;
+        // }
+        &:nth-child(5) {
+          display: none;
           margin-right: 0px;
+          @media screen and (max-width: 768px) {
+            display: block;
+          }
         }
         &:last-child {
           margin-right: 0px;
         }
         &:first-child {
+          display: none;
           margin-right: 0px;
           margin-top: 0px;
           @media screen and (max-width: 768px) {
@@ -146,25 +165,25 @@
       }
     }
     button {
-      font-family: 'Roboto';
+      font-family: 'Montserrat';
       font-style: normal;
       position: relative;
-      color: #000;
-      height: 50px;
+      text-transform: uppercase;
+      color: #fff;
+      height: 41px;
       font-weight: 700;
-      font-size: clamp(18px, 1.7361vw, 25px);
+      font-size: 14px;
       padding: 6px 0px;
-      width: clamp(120px, 19.93vw, 287px);
+      width: clamp(120px, 19.93vw, 187px);
       background: linear-gradient(
         145.83deg,
         #ff8b99 19.04%,
         #fca27d 74.02%,
         #ffcba5 97.03%
       );
-      border-radius: 4px;
+      border-radius: 6px;
       @media screen and (max-width: 768px) {
-        font-size: clamp(20px, 1.7361vw, 25px);
-        width: clamp(180px, 19.93vw, 287px);
+        width: clamp(120px, 19.93vw, 187px);
       }
 
       &::before {

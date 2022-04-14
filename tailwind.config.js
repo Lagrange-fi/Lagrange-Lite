@@ -1,56 +1,24 @@
+// const colors = require('tailwindcss/colors')
+// const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    fontFamily: {
-      display: ['Roboto, sans-serif'],
-      body: ['Roboto, sans-serif'],
-      lagrange: ['Montserrat', 'sans-serif'],
-    },
+
     extend: {
-      animation: {
-        shake: 'shake 0.4s linear 4',
-        'spin-fast': 'spin 0.5s linear infinite',
-      },
-      cursor: {
-        help: 'help',
-      },
+
       colors: {
         'light-theme': {
-          lagrangenavcolor: '#007D5E',
-          lagrangewalletcolor: '#242424',
-          lagrangelight: '#29E1AA26',
-          lagrangedark: '#1A8BFD26',
-          lagrangeborder: '#343A40',
-          lagrangegraybackground: '#373737',
-          lagrangepurple: '#4D54F9',
-          lagrangepurpledark: '#2B30B9',
-          lagrangesidebarmobile: '#E1F0FF',
-          lagrangered: '#D70000',
-          lagrangechartcolor: '#7459D91A',
-          lagrangesidebarlightopacity: '#1A8BFD26',
-          lagrangesidebardarkopacity: '#30D6B126',
-          lagrangebuttondarkblue: '#0F1262',
-          lagrangebuttongray: '#373737',
-          lagrangeswapbutton: '#2B30B9',
-          lagrangesidebarpoolmenucolor: '#343A400D',
-          lagrangesidebarbuttonbackgroundcolor: '#1C1C1C',
-          lagrangebuttonproblue: '#7BFCC5',
-          lagrangebuttonpropurple: '#9844FE',
-          lagrangeswapbuttoncolor: '#0F1262',
-          lagrangesidebarmenufontcolor: '#3D3D3D',
-          lagrangewalletbuttonbordercolor: '#2EDAAF',
-          lagrangemenufontcolor: '#5B5B5B',
-          lagrangemenufontcolorhover: '#007D5E',
           orange: {
             DEFAULT: '#FF9C24',
             dark: '#F58700',
           },
           red: { DEFAULT: '#CC2929', dark: '#CC2929', muted: '#eba9a9' },
           green: { DEFAULT: '#5EBF4D', dark: '#5EBF4D', muted: '#bfe5b8' },
-          'bkg-1': '#f7f7f7',
+          'bkg-1': 'red',
           'bkg-2': '#FDFDFD',
           'bkg-3': '#F0F0F0',
           'bkg-4': '#E6E6E6',
@@ -68,7 +36,7 @@ module.exports = {
           red: { DEFAULT: '#CC2929', dark: '#AA2222', muted: '#571e20' },
           green: { DEFAULT: '#5EBF4D', dark: '#4BA53B', muted: '#365D31' },
           orange: { DEFAULT: '#FF9C24' },
-          'bkg-1': '#101012',
+          'bkg-1': '#393939',
           'bkg-2': '#1B1B1F',
           'bkg-3': '#27272B',
           'bkg-4': '#38383D',
@@ -77,24 +45,6 @@ module.exports = {
           'fgd-3': '#B3B3B3',
           'fgd-4': '#878787',
           'bkg-button': '#4E5152',
-        },
-        'mango-theme': {
-          yellow: {
-            DEFAULT: '#F2C94C',
-            dark: '#E4AF11',
-          },
-          red: { DEFAULT: '#F84638', dark: '#C7251A', muted: '#6d2832' },
-          green: { DEFAULT: '#AFD803', dark: '#91B503', muted: '#49601b' },
-          orange: { DEFAULT: '#FF9C24' },
-          'bkg-1': '#141026',
-          'bkg-2': '#1D1832',
-          'bkg-3': '#2A2440',
-          'bkg-4': '#37324D',
-          'fgd-1': '#E5E3EC',
-          'fgd-2': '#D2CEDE',
-          'fgd-3': '#C1BED3',
-          'fgd-4': '#706C81',
-          'bkg-button': '#464063',
         },
         'th-bkg-1': 'var(--bkg-1)',
         'th-bkg-2': 'var(--bkg-2)',
@@ -115,31 +65,9 @@ module.exports = {
         'th-orange': 'var(--orange)',
         'th-bkg-button': 'var(--bkg-button)',
       },
-      fontSize: {
-        xxs: '.65rem',
-      },
-      keyframes: {
-        shake: {
-          '0%, 100%': {
-            transform: 'rotate(0deg)',
-          },
-          '20%, 60%': {
-            transform: 'rotate(6deg)',
-          },
-          '40%, 80%': {
-            transform: 'rotate(-6deg)',
-          },
-        },
-      },
+
     },
   },
-  // variants: {
-  //   extend: {
-  //     cursor: ['hover', 'focus', 'disabled'],
-  //     opacity: ['disabled'],
-  //     backgroundColor: ['disabled'],
-  //     textColor: ['disabled'],
-  //   },
-  // },
+
   plugins: [],
 }
