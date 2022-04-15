@@ -8,6 +8,9 @@
       color: #fff;
     }
     nav {
+      .img {
+        background-image: url("https://i.ibb.co/Pr5pF0M/Lagrange-logo-light.png");
+      }
       ul {
         @media screen and (max-width: 768px) {
           background: #333333;
@@ -15,7 +18,7 @@
         }
         li {
           color: #fff;
-        }
+        } 
       }
     }
   }
@@ -71,14 +74,17 @@
 
   nav {
     @include displayflex($fd: row, $ai: center, $jc: space-between);
-    img {
+    .img {
       width: clamp(100px, 100px + 6.94vw, 200px);
       height: 48px;
-
+      background-position: center; 
+      background-repeat: no-repeat; 
+      background-size: cover; 
+      background-image: url("https://i.ibb.co/YtTr6zg/Lagrange-logo-dark.png");
       @media screen and (max-width: 768px) {
         height: 38px;
       }
-      object-fit: contain;
+  
     }
 
     ul {
@@ -98,7 +104,7 @@
           #ffcba5 97.03%
         );
         visibility: hidden;
-        color: #fff;
+        color: #fff; 
         z-index: 1000;
         width: 80%;
         padding: 30px;

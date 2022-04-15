@@ -68,7 +68,7 @@ const TopBar = () => {
         <nav>
           <Link href="/">
             <a>
-              <img src="/Lagrange-logo-light.png" alt="next" />
+              <div className="img"></div>
             </a>
           </Link>
           <ul ref={burgerb}>
