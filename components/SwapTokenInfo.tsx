@@ -265,56 +265,75 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                 )}
 
                 {/* chart  */}
-
-                <ResponsiveContainer width="100%" height={195}>
-                  <AreaChart
-                    className="AreaChart"
-                    data={chartData} // @ts-ignore
-                    onMouseMove={handleMouseMove}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <Tooltip
-                      cursor={{
-                        strokeOpacity: 0,
-                      }}
-                      content={<></>}
-                    />
-                    <defs>
-                      <linearGradient
-                        id="gradientArea"
-                        x1="0"
-                        y1="0"
-                        x2="0"
-                        y2="1"
+                <div className="allchartnumber">
+                  <div className="chartandnumber">
+                    <ul>
+                      <li>$40 k</li>
+                      <li>$30 k</li>
+                      <li>$30 k</li>
+                      <li>$10 k</li>
+                      <li>$0 k</li>
+                    </ul>
+                    <ResponsiveContainer width="93%" height={162}>
+                      <AreaChart
+                        className="AreaChart"
+                        data={chartData} // @ts-ignore
+                        onMouseMove={handleMouseMove}
+                        onMouseLeave={handleMouseLeave}
                       >
-                        <stop
-                          offset="0%"
-                          stopColor="rgba(253, 159, 129, 0.33) "
-                          stopOpacity={1}
+                        <Tooltip
+                          cursor={{
+                            strokeOpacity: 0,
+                          }}
+                          content={<></>}
                         />
-                        <stop
-                          offset="90%"
-                          stopColor="rgba(253, 159, 129, 0.33)"
-                          stopOpacity={0.1}
+                        <defs>
+                          <linearGradient
+                            id="gradientArea"
+                            x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="1"
+                          >
+                            <stop
+                              offset="0%"
+                              stopColor="rgba(253, 159, 129, 0.33) "
+                              stopOpacity={1}
+                            />
+                            <stop
+                              offset="90%"
+                              stopColor="rgba(253, 159, 129, 0.33)"
+                              stopOpacity={0.1}
+                            />
+                          </linearGradient>
+                        </defs>
+                        <Area
+                          isAnimationActive={true}
+                          type="monotone"
+                          dataKey="price"
+                          stroke="#FD9F81"
+                          fill="url(#gradientArea)"
                         />
-                      </linearGradient>
-                    </defs>
-                    <Area
-                      isAnimationActive={true}
-                      type="monotone"
-                      dataKey="price"
-                      stroke="#FD9F81"
-                      fill="url(#gradientArea)"
-                    />
-                    <XAxis dataKey="time" hide />
-                    <YAxis
-                      dataKey="price"
-                      type="number"
-                      domain={['dataMin', 'dataMax']}
-                      hide
-                    />
-                  </AreaChart>
-                </ResponsiveContainer>
+                        <XAxis dataKey="time" hide />
+                        <YAxis
+                          dataKey="price"
+                          type="number"
+                          domain={['dataMin', 'dataMax']}
+                          hide
+                        />
+                      </AreaChart>
+                    </ResponsiveContainer>
+                  </div>
+                  <ul className="ul">
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sut</li>
+                    <li>Sun</li>
+                  </ul>
+                </div>
               </div>
             ) : null}
           </div>
@@ -406,7 +425,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                   <Disclosure.Panel>
                     <div className="DisclosurePanel">
                       <div style={{ fontSize: '18px' }}>Market data</div>
-                      <ul className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-2">
+                      <ul className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
                         <li>
                           {
                             // @ts-ignore
@@ -746,7 +765,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                 <Disclosure.Panel>
                   <div className="DisclosurePanel">
                     <div style={{ fontSize: '18px' }}>Market data</div>
-                    <ul className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-2">
+                    <ul className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
                       <li>
                         {
                           // @ts-ignore

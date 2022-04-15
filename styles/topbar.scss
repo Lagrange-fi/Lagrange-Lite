@@ -1,6 +1,7 @@
 @import './formul.scss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
+// dark theme ///
 [data-theme='Dark'] {
   .topbar {
     .burger {
@@ -8,6 +9,10 @@
     }
     nav {
       ul {
+        @media screen and (max-width: 768px) {
+          background: #333333;
+          color: #fff;
+        }
         li {
           color: #fff;
         }
@@ -16,21 +21,27 @@
   }
 }
 
+////////////////////////////
+
 .topbar {
   font-family: 'Montserrat';
   z-index: 1000;
-  padding: 25px clamp(10px, 8.33vw, 120px);
-
+  padding: 25px clamp(10px, 11.80vw - 50px, 120px);
+  @media screen and (max-width: 1200px) {
+    padding: 25px 20px;
+  }
   @media screen and (max-width: 768px) {
     display: block;
-    padding: 7px 20px;
+    padding: 7px 10px;
   }
 
+  /// burger and cancel //////
   .burger {
     z-index: 10;
     display: none;
-    color: #fff;
-    margin-left: 20px;
+    color: #000;
+    margin-left: 10px;
+    margin-top: 5px;
 
     @media screen and (max-width: 768px) {
       display: block;
@@ -56,23 +67,24 @@
     }
   }
 
+  ///////////////////////////
+
   nav {
     @include displayflex($fd: row, $ai: center, $jc: space-between);
-
     img {
-      width: clamp(100px, 100px + 12.8571vw, 200px);
+      width: clamp(100px, 100px + 6.94vw, 200px);
       height: 48px;
-
+      
       @media screen and (max-width: 768px) {
         height: 38px;
       }
       object-fit: contain;
-      margin-right: clamp(20px, 6.25vw, 90px);
+
     }
 
     ul {
       @include displayflex($fd: row, $ai: center, $jc: space-between);
-      font-size: clamp(16px, 1.7361vw, 18px);
+      font-size: clamp(16px, 1.25vw, 18px);
       font-weight: 500;
 
       @media screen and (max-width: 768px) {
@@ -80,7 +92,12 @@
         position: fixed;
         right: 0%; //other ideya right:0%; width:0% jquery => width:55%
         top: 0%;
-        background: #333333;
+        background: linear-gradient(
+        145.83deg,
+        #ff8b99 19.04%,
+        #fca27d 74.02%,
+        #ffcba5 97.03%
+      );
         visibility: hidden;
         color: #fff;
         z-index: 1000;
@@ -94,11 +111,10 @@
       }
 
       li {
-        color: #000;
-        margin-right: clamp(20px, 6.25vw, 90px);
+        margin-right: clamp(10px,4.25vw, 64px);
         margin-top: 10px;
         height: 40px;
-        width: 150px;
+        width:  auto;
         white-space: nowrap;
 
         a {
@@ -118,17 +134,8 @@
           }
         }
 
-        // &:hover {
-        //   font-weight: 700;
-        // }
-        &:nth-child(5) {
-          display: none;
-          margin-right: 0px;
-
-          @media screen and (max-width: 768px) {
-            display: block;
-          }
-        }
+     
+      
 
         &:last-child {
           margin-right: 0px;
@@ -168,7 +175,7 @@
         152.97deg,
         rgba(38, 38, 38, 1) 0%,
         rgba(130, 130, 130, 1) 100%
-      );
+      ); 
       box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.25);
       border-radius: 4px;
       color: #fff;
@@ -205,9 +212,9 @@
       color: #fff;
       height: 41px;
       font-weight: 700;
-      font-size: 14px;
+      font-size: clamp(13px, 0.97vw, 14px);
       padding: 6px 0px;
-      width: clamp(120px, 19.93vw, 187px);
+      width: clamp(140px, 12.98vw, 187px);
       background: linear-gradient(
         145.83deg,
         #ff8b99 19.04%,
@@ -217,7 +224,7 @@
       border-radius: 6px;
 
       @media screen and (max-width: 768px) {
-        width: clamp(120px, 19.93vw, 187px);
+        width: clamp(140px, 12.98vw, 187px);
       }
 
       &::before {

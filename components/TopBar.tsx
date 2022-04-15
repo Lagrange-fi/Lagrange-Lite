@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
-import { useCallback, useState, useEffect } from 'react'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+import { useCallback, useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { abbreviateAddress } from '../utils/index'
 import useLocalStorageState from '../hooks/useLocalStorageState'
@@ -13,6 +14,7 @@ import { useRouter } from 'next/router'
 import Settings from './Settings'
 
 const TopBar = () => {
+  const burgerb = useRef(String)
   const [a, setA] = useState(false)
   const router = useRouter()
   const [matches, setMatches] = useState(
@@ -35,18 +37,16 @@ const TopBar = () => {
 
   const burger = (e) => {
     setA((prevState) => !prevState)
-    console.log(
-      e.target.parentNode.parentNode.previousElementSibling.children[1]
-    )
+    // console.log(
+    //   e.target.parentNode.parentNode.previousElementSibling.children[1]
+    // )
 
     if (a === true) {
       e.target.classList.remove('deactivemenu')
-      e.target.parentNode.parentNode.previousElementSibling.children[1].style.display =
-        'hidden'
+      burgerb.current.style.display = 'hidden'
     } else {
       e.target.classList.add('deactivemenu')
-      e.target.parentNode.parentNode.previousElementSibling.children[1].style.visibility =
-        'visible'
+      burgerb.current.style.visibility = 'visible'
     }
   }
 
@@ -55,10 +55,10 @@ const TopBar = () => {
 
     if (a === true) {
       e.target.classList.remove('deactivemenu')
-      e.target.parentNode.parentNode.style.visibility = 'hidden'
+      burgerb.current.style.visibility = 'hidden'
     } else {
       e.target.classList.add('deactivemenu')
-      e.target.parentNode.parentNode.style.visibility = 'visible'
+      burgerb.current.style.visibility = 'visible'
     }
   }
 
@@ -71,7 +71,7 @@ const TopBar = () => {
               <img src="/Lagrange-logo-light.png" alt="next" />
             </a>
           </Link>
-          <ul>
+          <ul ref={burgerb}>
             <li>
               <img
                 src="/assets/icons/cancel.png"
@@ -116,12 +116,21 @@ const TopBar = () => {
                 </a>
               </Link>
             </li>
-            <li>{matches && <ConnectWalletButton />}</li>
+            {matches && (
+              <li>
+                <ConnectWalletButton />{' '}
+              </li>
+            )}
           </ul>
-          <Settings />
 
-          <div className="imgandul">
-            {!matches && <ConnectWalletButton />}
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            {!matches && (
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Settings />
+                <ConnectWalletButton />
+              </div>
+            )}
+            {matches && <Settings />}
             <div className="burger" onClick={burger}>
               <i className="fas fa-bars"></i>
             </div>

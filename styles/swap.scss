@@ -118,7 +118,6 @@
           width: 24px;
           height: 24px;
           margin-right: 8px;
-         
         }
 
         span {
@@ -129,7 +128,6 @@
         .icon {
           height: 25px;
           color: black;
-       
         }
       }
 
@@ -184,8 +182,6 @@
         width: 40px;
         height: 40px;
         border-radius: 6px;
-
-   
       }
 
       .icon {
@@ -217,17 +213,56 @@
       }
     }
 
-    .SwapTokenInfo {
-      // border: 2px solid green;
+    .SwapTokenInfo {     
       .SwapTokenInfo1 {
         width: clamp(300px, 72.22vw - 143px, 792px);
-        padding: 20px;
+        padding: 20px; 
         background: #fff;
         border-radius: 6px;
         box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.08);
         @media screen and (max-width: 1024px) {
           width: 95vw;
           max-width: 896px;
+        }
+      
+      }
+      .allchartnumber{
+        margin-top: 25px;
+        display: flex;
+        flex-direction:column;
+        .ul{
+          display: flex;
+          flex-direction: row;
+          align-self: flex-end;
+          justify-content: space-between;
+          width: 91%;
+
+         
+          li{
+            white-space: nowrap;
+            font-size: 12px;
+            letter-spacing: 0.4;
+            color: #9c9c9c;
+          }
+        }
+      }
+
+      .chartandnumber{
+        display: flex;
+        flex-direction: row;
+        ul{
+          margin-right: 30px;
+          height: 162px;
+          display: flex;
+          flex-direction: column;
+          align-items: space-between;
+          justify-content: space-between;
+          li{
+            white-space: nowrap;
+            font-size: 12px;
+            letter-spacing: 0.4;
+            color: #9c9c9c;
+          }
         }
       }
 
@@ -263,14 +298,13 @@
         }
       }
       .Disclosures {
-   
         margin-top: 25px;
         width: clamp(300px, 72.22vw - 143px, 792px);
         @include displayflex($fd: row, $ai: flex-start, $jc: space-between);
-         @media screen and (max-width: 1300px) {
-           width: 100%;
-          @include displayflex($fd:column, $ai: center, $jc: center);
-         }
+        @media screen and (max-width: 1300px) {
+          width: 100%;
+          @include displayflex($fd: column, $ai: center, $jc: center);
+        }
       }
 
       .DisclosureButton {
@@ -281,14 +315,15 @@
         border-radius: 6px;
         width: 384px;
         @include displayflex($fd: row, $ai: center, $jc: space-between);
+       
         @media screen and (max-width: 1300px) {
           margin-right: 0px;
         }
+        
 
         @media screen and (max-width: 450px) {
           width: 290px;
         }
-      
 
         ul {
           @include displayflex($fd: row, $ai: center, $jc: space-between);
@@ -301,7 +336,7 @@
             }
           }
         }
-
+ 
         img {
           width: 24px;
           height: 24px;
@@ -331,6 +366,10 @@
         box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.08);
         padding: 0px 20px 20px 20px;
         width: 384px;
+       
+        @media screen and (max-width: 450px) {
+          width: 290px;
+        }
 
         li {
           border: 1px solid #ededed;
@@ -385,9 +424,8 @@
       .dates {
         @include displayflex($fd: row, $ai: center, $jc: flex-end);
         @media screen and (max-width: 700px) {
-         margin: 10px 0px;
+          margin: 10px 0px;
         }
-       
 
         button {
           color: #333333;
@@ -402,7 +440,7 @@
             font-size: 12px;
             margin-right: 5px;
             width: 49px;
-           }
+          }
           &:last-child {
             margin-right: 0px;
           }
@@ -420,7 +458,7 @@
           @media screen and (max-width: 700px) {
             font-size: 12px;
             width: 120px;
-           }
+          }
 
           &::-webkit-inner-spin-button {
             height: 30px;
@@ -431,8 +469,7 @@
             background-color: #ebebeb;
             @media screen and (max-width: 700px) {
               font-size: 12px;
-             
-             }
+            }
           }
         }
       }
