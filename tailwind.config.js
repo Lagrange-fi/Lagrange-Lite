@@ -31,7 +31,7 @@ module.exports = {
           lagrangered: '#D70000',
           lagrangechartcolor: '#7459D91A',
           lagrangesidebarlightopacity: '#1A8BFD26',
-          lagrangesidebardarkopacity: '#30D6B126',
+          lagrangesidebardarkopacity: '#30D6B12s',
           lagrangebuttondarkblue: '#0F1262',
           lagrangebuttongray: '#373737',
           lagrangeswapbutton: '#2B30B9',
