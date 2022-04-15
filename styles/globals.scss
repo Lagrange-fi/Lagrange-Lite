@@ -29,13 +29,13 @@
 
 [data-theme='Dark'] {
   body {
-    --bkg-1: theme('colors.dark-theme.bkg-1');
+    background: #393939;
     color: #fff;
   }
 }
 
 body {
-  --bkg-1: theme('colors.light-theme.bkg-1');
+  background: #fff;
   color: #000;
   mix-blend-mode: normal;
   font-family: Roboto;
