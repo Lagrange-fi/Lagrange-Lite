@@ -45,6 +45,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
   inputTokenId,
   outputTokenId,
 }) => {
+  const [native, setNative] = useState('')
   const [chartData, setChartData] = useState([])
   const [hideChart, setHideChart] = useState(false)
   const [baseTokenId, setBaseTokenId] = useState('')
@@ -72,6 +73,28 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
       outputHolders: outputData.data,
     })
   }
+  ///// date function
+  const onNativeChange = (e) => {
+    console.log('onNativeChange: ', e.target.value)
+    setNative(e.target.value)
+  }
+
+  useEffect(() => {
+    var today = new Date()
+    var date =
+      today.getFullYear() +
+      '-0' +
+      (today.getMonth() + 1) +
+      '-' +
+      today.getDate()
+    console.log('2022-04-18')
+    console.log(
+      `${today.getFullYear()}-0${today.getMonth() + 1}-${today.getDate()}`
+    )
+    // setNative("2022-04-18");
+    setNative(date)
+  }, [])
+  //////
 
   useEffect(() => {
     if (inputTokenInfo && outputTokenInfo) {
@@ -117,6 +140,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
     )
     const inputData = await inputResponse.json()
     const outputData = await outputResponse.json()
+    console.log(inputData)
     /// tokenleri birlesdirdik bir arraya //////
     let data: any[] = []
     if (Array.isArray(inputData)) {
@@ -212,9 +236,8 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                       <button onClick={() => setDaysToShow(30)}>30D</button>
                       <input
                         type="date"
-                        id="start"
-                        name="trip-start"
-                        value="2018-07-22"
+                        value={native}
+                        onChange={onNativeChange}
                       />
                     </div>
                   </div>
