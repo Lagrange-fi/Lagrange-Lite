@@ -618,11 +618,11 @@ const Pools = (props) => {
           </div>
 
           <div className="pool2" style={{ display: displayl }}>
-            {inputWeTokenBalance() && inputWeToken1Balance() && (
+            {!inputWeTokenBalance() && !inputWeToken1Balance() && (
               <h1 style={{ fontSize: '40px' }}>You do not own any portions</h1>
             )}
 
-            {(!inputWeTokenBalance() || inputWeToken1Balance()) && (
+            {(inputWeTokenBalance() || inputWeToken1Balance()) && (
               <>
                 <div className="titlediv">
                   <span className="title">Your Liquidity</span>
@@ -637,7 +637,7 @@ const Pools = (props) => {
                       <th>Unclaimed Rewards</th>
                       <th>Action</th>
                     </tr>
-                    {!inputWeTokenBalance() && (
+                    {inputWeTokenBalance() && (
                       <tbody className="section section-step">
                         <tr>
                           <td>
@@ -693,7 +693,7 @@ const Pools = (props) => {
                       </tbody>
                     )}
 
-                    {!inputWeToken1Balance() && (
+                    {inputWeToken1Balance() && (
                       <tbody className="section section-step">
                         <tr>
                           <td>
