@@ -426,10 +426,10 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                     <div className="DisclosurePanel">
                       <div style={{ fontSize: '18px' }}>Market data</div>
                       <ul className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-                        <li>
-                          {
-                            // @ts-ignore
-                            inputTokenInfo.market_cap_rank ? (
+                        {
+                          // @ts-ignore
+                          inputTokenInfo.market_cap_rank ? (
+                            <li>
                               <div className="parent">
                                 <span> market-cap-rank</span>
                                 <span>
@@ -441,16 +441,16 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                   }
                                 </span>
                               </div>
-                            ) : null
-                          }
-                        </li>
-                        <li>
-                          {
-                            // @ts-ignore
-                            inputTokenInfo.market_data?.market_cap &&
-                            // @ts-ignore
-                            inputTokenInfo.market_data?.market_cap?.usd !==
-                              0 ? (
+                            </li>
+                          ) : null
+                        }
+
+                        {
+                          // @ts-ignore
+                          inputTokenInfo.market_data?.market_cap &&
+                          // @ts-ignore
+                          inputTokenInfo.market_data?.market_cap?.usd !== 0 ? (
+                            <li>
                               <div className="parent">
                                 <span>market-cap</span>
                                 <span>
@@ -465,13 +465,14 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                   }
                                 </span>
                               </div>
-                            ) : null
-                          }
-                        </li>
-                        <li>
-                          {
-                            // @ts-ignore
-                            inputTokenInfo.market_data?.total_volume?.usd ? (
+                            </li>
+                          ) : null
+                        }
+
+                        {
+                          // @ts-ignore
+                          inputTokenInfo.market_data?.total_volume?.usd ? (
+                            <li>
                               <div className="parent">
                                 <span>daily-volume</span>
                                 <span>
@@ -483,13 +484,14 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                   )}
                                 </span>
                               </div>
-                            ) : null
-                          }
-                        </li>
-                        <li>
-                          {
-                            // @ts-ignore
-                            inputTokenInfo.market_data?.circulating_supply ? (
+                            </li>
+                          ) : null
+                        }
+
+                        {
+                          // @ts-ignore
+                          inputTokenInfo.market_data?.circulating_supply ? (
+                            <li>
                               <div className="parent">
                                 <span>token-supply</span>
                                 <span>
@@ -515,13 +517,14 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                   ) : null
                                 }
                               </div>
-                            ) : null
-                          }
-                        </li>
-                        <li>
-                          {
-                            // @ts-ignore
-                            inputTokenInfo.market_data?.ath?.usd ? (
+                            </li>
+                          ) : null
+                        }
+
+                        {
+                          // @ts-ignore
+                          inputTokenInfo.market_data?.ath?.usd ? (
+                            <li>
                               <div className="parent">
                                 <span>ath</span>
 
@@ -572,13 +575,14 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                   </div>
                                 </div>
                               </div>
-                            ) : null
-                          }
-                        </li>
-                        <li>
-                          {
-                            // @ts-ignore
-                            inputTokenInfo.market_data?.atl?.usd ? (
+                            </li>
+                          ) : null
+                        }
+
+                        {
+                          // @ts-ignore
+                          inputTokenInfo.market_data?.atl?.usd ? (
+                            <li>
                               <div className="parent">
                                 <span>atl</span>
                                 <div className="difparent">
@@ -637,9 +641,9 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                   </div>
                                 </div>
                               </div>
-                            ) : null
-                          }
-                        </li>
+                            </li>
+                          ) : null
+                        }
                       </ul>
                       {
                         // @ts-ignore
@@ -766,10 +770,10 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                   <div className="DisclosurePanel">
                     <div style={{ fontSize: '18px' }}>Market data</div>
                     <ul className="grid grid-flow-row grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
-                      <li>
-                        {
-                          // @ts-ignore
-                          outputTokenInfo?.market_cap_rank ? (
+                      {
+                        // @ts-ignore
+                        outputTokenInfo?.market_cap_rank ? (
+                          <li>
                             <div className="parent">
                               <span>market-cap-rank</span>
                               <span>
@@ -780,15 +784,15 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                 }
                               </span>
                             </div>
-                          ) : null
-                        }
-                      </li>
-                      <li>
-                        {
-                          // @ts-ignore
-                          outputTokenInfo?.market_data?.market_cap && // @ts-ignore
-                          outputTokenInfo?.market_data?.market_cap?.usd !==
-                            0 ? (
+                          </li>
+                        ) : null
+                      }
+
+                      {
+                        // @ts-ignore
+                        outputTokenInfo?.market_data?.market_cap && // @ts-ignore
+                        outputTokenInfo?.market_data?.market_cap?.usd !== 0 ? (
+                          <li>
                             <div className="parent">
                               <span>market-cap</span>
                               <span>
@@ -799,13 +803,14 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                 )}
                               </span>
                             </div>
-                          ) : null
-                        }
-                      </li>
-                      <li>
-                        {
-                          // @ts-ignore
-                          outputTokenInfo?.market_data?.total_volume?.usd ? (
+                          </li>
+                        ) : null
+                      }
+
+                      {
+                        // @ts-ignore
+                        outputTokenInfo?.market_data?.total_volume?.usd ? (
+                          <li>
                             <div className="parent">
                               <span>daily-volume</span>
                               <span>
@@ -817,13 +822,14 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                 )}
                               </span>
                             </div>
-                          ) : null
-                        }
-                      </li>
-                      <li>
-                        {
-                          // @ts-ignore
-                          outputTokenInfo?.market_data?.circulating_supply ? (
+                          </li>
+                        ) : null
+                      }
+
+                      {
+                        // @ts-ignore
+                        outputTokenInfo?.market_data?.circulating_supply ? (
+                          <li>
                             <div className="parent">
                               <span>token-supply</span>
                               <span>
@@ -850,13 +856,14 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                 ) : null
                               }
                             </div>
-                          ) : null
-                        }
-                      </li>
-                      <li>
-                        {
-                          // @ts-ignore
-                          outputTokenInfo?.market_data?.ath?.usd ? (
+                          </li>
+                        ) : null
+                      }
+
+                      {
+                        // @ts-ignore
+                        outputTokenInfo?.market_data?.ath?.usd ? (
+                          <li>
                             <div className="parent">
                               <span>ath</span>
 
@@ -907,14 +914,14 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                 </div>
                               </div>
                             </div>
-                          ) : null
-                        }
-                      </li>
+                          </li>
+                        ) : null
+                      }
 
-                      <li>
-                        {
-                          // @ts-ignore
-                          outputTokenInfo?.market_data?.atl?.usd ? (
+                      {
+                        // @ts-ignore
+                        outputTokenInfo?.market_data?.atl?.usd ? (
+                          <li>
                             <div className="parent">
                               <span>atl</span>
 
@@ -969,9 +976,9 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                                 </div>
                               </div>
                             </div>
-                          ) : null
-                        }
-                      </li>
+                          </li>
+                        ) : null
+                      }
                     </ul>
                     {
                       // @ts-ignore
