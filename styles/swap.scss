@@ -215,6 +215,7 @@
 
     .SwapTokenInfo {
       .SwapTokenInfo1 {
+        
         width: clamp(300px, 72.22vw - 143px, 792px);
         padding: 20px;
         background: #fff;
@@ -224,11 +225,17 @@
           width: 95vw;
           max-width: 896px;
         }
+        @media screen and (max-width: 700px) {
+          overflow-x: scroll;
+         }
       }
       .allchartnumber {
         margin-top: 25px;
         display: flex;
-        flex-direction: column;
+        flex-direction: column;      
+       @media screen and (max-width: 700px) {    
+       width: 600px;
+      }
         .ul {
           display: flex;
           flex-direction: row;
@@ -248,6 +255,7 @@
       .chartandnumber {
         display: flex;
         flex-direction: row;
+   
         ul {
           margin-right: 30px;
           height: 162px;
@@ -265,7 +273,8 @@
       }
 
       .symbolanddate {
-        font-family: 'Montserrat';
+        
+        font-family: 'Montserrat'; 
         letter-spacing: 1.1px;
         font-style: normal;
         font-weight: 600;
