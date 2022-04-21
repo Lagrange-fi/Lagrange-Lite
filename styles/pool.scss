@@ -412,9 +412,8 @@
   font-weight: 400;
   margin-bottom: 40px;
   padding: 20px 20px 25px 20px;
-  h1{
-    border: 1px solid red;
-    font-size:clamp(16px,2.77vw,40px);
+  h1 {
+    font-size: clamp(16px, 2.77vw, 40px);
   }
 }
 
@@ -426,6 +425,9 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  @media screen and (max-width: 970px) {
+    flex-direction: column;
+  }
 }
 .titlediv button {
   width: 190px;
@@ -436,8 +438,9 @@
   font-size: 22px;
   @media screen and (max-width: 970px) {
     width: 120px;
-    font-size: 15px;
+    font-size: 14px;
     height: 38px;
+    margin-top: 10px;
   }
 }
 
