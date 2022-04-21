@@ -619,7 +619,7 @@ const Pools = (props) => {
 
           <div className="pool2" style={{ display: displayl }}>
             {!inputWeTokenBalance() && !inputWeToken1Balance() && (
-              <h1 style={{ fontSize: '40px' }}>You do not own any portions</h1>
+              <h1>You do not own any portions</h1>
             )}
 
             {(inputWeTokenBalance() || inputWeToken1Balance()) && (

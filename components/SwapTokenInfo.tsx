@@ -293,7 +293,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                     <ul>
                       <li>$40 k</li>
                       <li>$30 k</li>
-                      <li>$30 k</li>
+                      <li>$20 k</li>
                       <li>$10 k</li>
                       <li>$0 k</li>
                     </ul>
