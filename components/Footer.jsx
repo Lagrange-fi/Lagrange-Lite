@@ -1,10 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <div
- 
-        className="Footer"
-      > 
+      <div className="Footer">
         <div
           style={{
             width: 'clamp(200px,26.3888vw, 380px)',
