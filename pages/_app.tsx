@@ -37,6 +37,7 @@ import '../styles/pool.scss'
 import '../styles/swap.scss'
 import '../styles/topbar.scss'
 import '../styles/overview.scss'
+import '../styles/landing.scss'
 import '../styles/settingsmodal.scss'
 
 const MangoStoreUpdater = () => {
@@ -162,12 +163,17 @@ function App({ Component, pageProps }) {
           name="twitter:description"
           content="Lagrange offers a fully decentralized 24/7 FX market that does not require any broker or settlement periods."
         />
+
         <meta
           name="twitter:image"
-          content="https://www.mango.markets/socials/twitter-image-1200x600.png?34567878"
+          content="https://i.ibb.co/YtTr6zg/Lagrange-logo-dark.png"
         />
+        {/* <meta
+          name="twitter:image"
+          content="https://www.mango.markets/socials/twitter-image-1200x600.png?34567878"
+        /> */}
         <meta name="google" content="notranslate" />
-        <link rel="manifest" href="/manifest.json"></link>
+        {/* <link rel="manifest" href="/manifest.json"></link> */}
       </Head>
       <ErrorBoundary>
         <ErrorBoundary>

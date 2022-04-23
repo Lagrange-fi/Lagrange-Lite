@@ -2,14 +2,9 @@ const Footer = () => {
   return (
     <>
       <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: 'clamp(20px,6.94vw,100px)',
-        }}
+ 
         className="Footer"
-      >
+      > 
         <div
           style={{
             width: 'clamp(200px,26.3888vw, 380px)',
