@@ -1,3 +1,4 @@
+//@typescript-eslint/no-unused-vars
 const Component4 = () => {
   return (
     <>
@@ -10,9 +11,9 @@ const Component4 = () => {
                 <span className="span1">Lite version</span>
                 <span className="span2">
                   Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                  cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                  anim id est laborum.
+                  cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                  occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum.
                 </span>
                 <button>
                   Explore
@@ -26,8 +27,6 @@ const Component4 = () => {
             </div>
           </div>
         </figure>
-
-
       </div>
     </>
   )

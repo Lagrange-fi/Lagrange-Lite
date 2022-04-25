@@ -1,4 +1,4 @@
-
+//@typescript-eslint/no-unused-vars
 const Component3 = () => {
   return (
     <>

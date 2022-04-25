@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700;900&display=swap');
 
 .Index {
-
   nav {
     display: flex;
     flex-direction: row;
@@ -13,8 +12,7 @@
     border-bottom: 1px solid rgba(196, 196, 196, 0.1);
     background: #000;
     color: #fff;
-    font-family:"Red Hat Display";
-    
+    font-family: 'Red Hat Display';
 
     @media screen and (max-width: 660px) {
       padding: 15px 20px;
@@ -79,7 +77,6 @@
     position: relative;
     height: 623px;
 
- 
     aside:first-child {
       display: flex;
       justify-content: space-between;
@@ -98,7 +95,6 @@
       height: 623px;
       z-index: 100;
 
-
       @media screen and (max-width: 1080px) {
         background-size: 650px;
         width: 350px;
@@ -107,7 +103,7 @@
       @media screen and (max-width: 950px) {
         display: none;
       }
-    } 
+    }
 
     .galaxy {
       background-image: url('https://i.ibb.co/N2GvpPR/galaxy.png');
@@ -118,9 +114,6 @@
       height: 623px;
       width: clamp(660px, 54.16vw, 780px);
       position: relative;
-      
-
-
 
       @media screen and (max-width: 1080px) {
         background-size: 100%;
@@ -258,7 +251,7 @@
     grid-gap: 25px;
     align-items: center;
     justify-content: center;
-   margin-bottom: 100px;
+    margin-bottom: 100px;
     @media screen and (max-width: 1300px) {
       grid-template-columns: repeat(2, 282px);
     }
@@ -423,11 +416,11 @@
         background-size: cover;
         height: 1134px;
         width: 100%;
-         @media screen and (max-width: 505px) {
+        @media screen and (max-width: 505px) {
           background-position: bottom 10vw center;
         }
         @media screen and (max-width: 1110px) {
-          height: 400px;  
+          height: 400px;
         }
         @media screen and (min-width: 1540px) {
           background-size: 90%;
@@ -445,22 +438,21 @@
           height: 634px;
           width: clamp(300px, 50.97vw, 734px);
           position: absolute;
-          top:23%;
+          top: 23%;
           left: 35%;
-   
-          
+
           @media screen and (min-width: 1640px) {
             left: 40%;
           }
           @media screen and (max-width: 1110px) {
-            top:0%;
-            height: 400px;        
+            top: 0%;
+            height: 400px;
           }
-            @media screen and (max-width: 505px) {
+          @media screen and (max-width: 505px) {
             width: 280px;
-            top:50%;
-            left:50%;
-            transform: translate(-50%,0%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 0%);
             height: 200px;
           }
           // @media screen and (max-width: 895px) {
@@ -480,17 +472,17 @@
       align-items: flex-end;
       justify-content: center;
       position: absolute;
-      left:10%;
-      top:55%;
+      left: 10%;
+      top: 55%;
       @media screen and (max-width: 1110px) {
-      display: none;
+        display: none;
       }
 
       @media screen and (min-width: 1540px) {
-        left:8%;      
+        left: 8%;
       }
       @media screen and (min-width: 1640px) {
-        left:12%;
+        left: 12%;
       }
       aside {
         display: grid;
@@ -560,6 +552,5 @@
         }
       }
     }
-    
   }
 }

@@ -1,3 +1,6 @@
+//@typescript-eslint/no-unused-vars
+// react/no-unescaped-entities
+
 import Link from 'next/link'
 
 const Component1 = () => {
