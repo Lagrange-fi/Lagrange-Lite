@@ -156,6 +156,12 @@ function App({ Component, pageProps }) {
           sizes="192x192"
           href="/apple-touch-icon.png"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700;900&display=swap"
+          rel="stylesheet"
+        ></link>
 
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />

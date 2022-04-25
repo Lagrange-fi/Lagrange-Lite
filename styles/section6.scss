@@ -85,6 +85,7 @@ body {
         );
       }
       .pro-ver-cont {
+        opacity: 0.4;
         @include font(
           $fm: 'Inter',
           $fw: 400,
