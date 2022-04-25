@@ -3,8 +3,8 @@ const Component2 = () => {
   const [data, setData] = useState([
     {
       img: '/image/icon1.png',
-      value1: 'Angle Protocol',
-      value2: 'UAGEUR',
+      value1: 'agEUR',
+      value2: 'AGEUR',
     },
     {
       img: '/image/icon4.png',

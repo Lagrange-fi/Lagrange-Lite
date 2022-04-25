@@ -1,3 +1,5 @@
+import FooterLandingPage from './FooterLandingPage'
+
 const Section6 = () => {
 	return(
 		<div className="Section6">
@@ -28,7 +30,7 @@ const Section6 = () => {
 								<p className="twitter-title">Twitter</p> 
 								<p className="twitter-text">Follow @lagrange to het the lstest news and updates</p>
 							</div>
-							<i className="fa-solid fa-arrow-up-right-from-square"></i>
+							<a href="https://twitter.com/lagrange_fi" target="_blank" rel="noreferrer" ><i className="fa-solid fa-arrow-up-right-from-square"></i></a>							
 						</div>
 						<div className="discord-follow">
 							<i className="fa-brands fa-discord"></i>
@@ -36,7 +38,7 @@ const Section6 = () => {
 								<p className="discord-title">Discord</p> 
 								<p className="discord-text">Have a technical question?</p>
 							</div>
-							<i className="fa-solid fa-arrow-up-right-from-square"></i>
+							<a href="https://discord.com/invite/lagrange-fi" target="_blank"  rel="noreferrer" ><i className="fa-solid fa-arrow-up-right-from-square"></i></a>
 						</div>
 						<div className="medium-follow">
 							<i className="fa-brands fa-medium"></i>
@@ -44,7 +46,7 @@ const Section6 = () => {
 								<p className="medium-title">Medium</p> 
 								<p className="medium-text">Deeper in our community</p>
 							</div>
-							<i classNamw="fa-solid fa-arrow-up-right-from-square"></i>
+							<a href="https://medium.com/lagrange"  target="_blank"  rel="noreferrer" ><i className="fa-solid fa-arrow-up-right-from-square"></i></a>
 						</div>
 					</div>
 				</div>
@@ -56,6 +58,7 @@ const Section6 = () => {
 						<i className="fa-solid fa-arrow-right"></i>
 					</div>
 				</div>
+				<FooterLandingPage />
 			</div>
 		</div>
 		)

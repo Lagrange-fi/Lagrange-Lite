@@ -8,7 +8,6 @@ body{
 	color: #FFFFFF;
 	height: 0px;
 	.chart-lagrange{
-		margin-top: 100px;
 		display: grid;
 		align-items:center;
 		justify-content: center;
@@ -32,7 +31,7 @@ body{
 		top: 45%;
 		transform: translate(0%, -45%);
 		z-index: 100!important;
-		@include displayflex($ai: center, $jc: space-between);
+		@include displayflex($ai: center, $jc: center);
 		padding: 0px clamp(30px, 8.6111vw, 124px) 0px clamp(30px, 5.7638vw, 83px);
 		@media screen and (max-width: 900px) {
 			flex-direction: column;
@@ -82,21 +81,28 @@ body{
 	}	
 	.end-solar-sistem{
 		@include mp($p: 0 clamp(20px, 9.0277vw, 130px));
+
 		background-image: url("https://i.ibb.co/5xRn895/galaxy-3.png");
-		height: clamp(900px, 104.0277vw, 1498px); 
-		width: 100%;
-		background-position: top left; 
+		height: clamp(1000px, 104.0277vw, 1498px);
+		background-position:  bottom -5vw center ; 
 		background-repeat: no-repeat; 
-		background-size: contain; 
-		// right: 0%;
-		// top: 33%;
-		transform: translate(0%, -33%);
+		background-size: 100%; 
+    width: 100%;
+    border-radius: 0% 0% 0 0;
+		right: 0%;
+		top: 20%;
+		transform: translate(0%, -20%);
 		z-index: 1;
 		@include displayflex($fd: column, $ai: center, $jc: center);
-		@media screen and (max-width: 650px) {
-			height: 1100px;
+		@media screen and (max-width: 900px) {
+			height: 970px;
 		}
-
+		@media screen and (max-width: 400px) {
+			height: 1180px;
+		}
+		@media screen and (max-width: 350px) {
+			height: 1270px;
+		}
 		.joinfast-and-sosialm{
 			@include mp($m: clamp(50px, 16.0416vw, 231px) 0 0 0);
 			width: 100%;
@@ -105,10 +111,10 @@ body{
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				margin-top: 200px;
+				margin-top: 50px;
 			}
 			@media screen and (max-width: 400px) {
-				margin-top: 270px;
+				margin-top: 170px;
 			}
 			.join-fast{
 				width: clamp(200px, 24.7916vw, 357px);
@@ -134,7 +140,6 @@ body{
 					@include mp($p: clamp(20px, 2.7777vw, 40px) clamp(20px, 3.3333vw, 48px));
 					width: clamp(290px, 47.9166vw, 690px);
 					background: linear-gradient(129.06deg, #252525 9.44%, #171717 105.84%);
-					opacity: 0.5;
 					border-radius: 12px;
 					display: grid;
 					align-items:flex-start;
@@ -147,18 +152,21 @@ body{
 						@include font($fm: "Red Hat Display", $fw: 700, $fs: clamp(16px, 1.6666vw, 24px), $c: #FFFFFF, $ta: left);
 					}
 					.twitter-text{
+						opacity: 0.5;
 						@include font($fm: "Inter", $fw: 400, $fs: clamp(12px, 1.25vw, 18px), $c:#FFFFFF, $ta: left, $ls: 0.5px);
 					}
 					.fa-twitter-square{
 						margin-right: 10px;
 						font-size: clamp(36px, 3.1944vw, 46px);
 					}
+					.fa-arrow-up-right-from-square{
+						opacity: 0.5;
+					}
 				}
 				.discord-follow{
 					@include mp($p: clamp(20px, 2.7777vw, 40px) clamp(20px, 3.3333vw, 48px));
 					width: clamp(260px, 40.8333vw, 588px);
 					background: linear-gradient(129.06deg, #252525 9.44%, #171717 105.84%);
-					opacity: 0.5;
 					border-radius: 12px;
 					display: grid;
 					align-items:flex-start;
@@ -171,18 +179,21 @@ body{
 						@include font($fm: "Red Hat Display", $fw: 700, $fs: clamp(16px, 1.6666vw, 24px), $c: #FFFFFF, $ta: left);
 					}
 					.discord-text{
+						opacity: 0.5;
 						@include font($fm: "Inter", $fw: 400, $fs: clamp(14px, 1.25vw, 18px), $c:#FFFFFF, $ta: left, $ls: 0.5px);
 					}
 					.fa-discord{
 						margin-right: 10px;
 						font-size: clamp(28px, 3.1944vw, 46px);
 					}
+					.fa-arrow-up-right-from-square{
+						opacity: 0.5;
+					}
 				}
 				.medium-follow{
 					@include mp($p: clamp(20px, 2.7777vw, 40px) clamp(20px, 3.3333vw, 48px));
 					width: clamp(230px, 31.875vw, 459px);
 					background: linear-gradient(129.06deg, #252525 9.44%, #171717 105.84%);
-					opacity: 0.5;
 					border-radius: 12px;
 					display: grid;
 					align-items:flex-start;
@@ -195,11 +206,15 @@ body{
 						@include font($fm: "Red Hat Display", $fw: 700, $fs: clamp(16px, 1.6666vw, 24px), $c: #FFFFFF, $ta: left);
 					}
 					.medium-text{
+						opacity: 0.5;
 						@include font($fm: "Inter", $fw: 400, $fs: clamp(14px, 1.25vw, 18px), $c:#FFFFFF, $ta: left, $ls: 0.5px);
 					}
 					.fa-medium{
 						margin-right: 10px;
 						font-size: clamp(28px, 3.1944vw, 46px);
+					}
+					.fa-arrow-up-right-from-square{
+						opacity: 0.5;
 					}
 				}
 			}

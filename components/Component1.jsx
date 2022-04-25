@@ -19,10 +19,9 @@ const Component1 = () => {
           </span>
           <div className="buttondiv">
             <button>
-              {' '}
               <Link href="/swap">
                 <a>Lite version</a>
-              </Link>{' '}
+              </Link>
               <i
                 className="fa-solid fa-arrow-right"
                 style={{ marginLeft: '10px' }}

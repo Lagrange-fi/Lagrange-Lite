@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700;900&display=swap');
 
 .Index {
-  background: #000;
+
   nav {
     display: flex;
     flex-direction: row;
@@ -13,6 +13,8 @@
     border-bottom: 1px solid rgba(196, 196, 196, 0.1);
     background: #000;
     color: #fff;
+    font-family:"Red Hat Display";
+    
 
     @media screen and (max-width: 660px) {
       padding: 15px 20px;
@@ -23,6 +25,7 @@
       display: grid;
       grid-template-columns: repeat(2, auto);
       grid-gap: 0px 45px;
+      font-weight: 500;
 
       @media screen and (max-width: 660px) {
         grid-gap: 0px 15px;
@@ -76,6 +79,7 @@
     position: relative;
     height: 623px;
 
+ 
     aside:first-child {
       display: flex;
       justify-content: space-between;
@@ -92,6 +96,8 @@
       background-size: clamp(900px, 76.38vw, 1100px);
       width: clamp(300px, 43.26vw, 623px);
       height: 623px;
+      z-index: 100;
+
 
       @media screen and (max-width: 1080px) {
         background-size: 650px;
@@ -101,7 +107,7 @@
       @media screen and (max-width: 950px) {
         display: none;
       }
-    }
+    } 
 
     .galaxy {
       background-image: url('https://i.ibb.co/N2GvpPR/galaxy.png');
@@ -112,6 +118,9 @@
       height: 623px;
       width: clamp(660px, 54.16vw, 780px);
       position: relative;
+      
+
+
 
       @media screen and (max-width: 1080px) {
         background-size: 100%;
@@ -249,7 +258,7 @@
     grid-gap: 25px;
     align-items: center;
     justify-content: center;
-
+   margin-bottom: 100px;
     @media screen and (max-width: 1300px) {
       grid-template-columns: repeat(2, 282px);
     }
@@ -295,12 +304,12 @@
   }
 
   .Component3 {
-    padding: 0px 120px;
+    padding: 100px 120px;
     background-image: url('https://i.ibb.co/8gNW8n5/galaxy-2.png');
     background-color: #000;
     background-position: center 90%;
     background-repeat: no-repeat;
-    background-size: 110%;
+    background-size: contain;
 
     @media screen and (max-width: 1137px) {
       background-size: 150%;
@@ -318,7 +327,7 @@
       background-size: 300%;
     }
 
-    height: 823px;
+    height: 890px;
     width: 100%;
     color: #fff;
     display: flex;
@@ -410,21 +419,23 @@
         background-image: url('/image/planet3.png');
         background-position: right 32vw center;
         background-repeat: no-repeat;
-        background-size: 100%;
-        height: 634px;
+        position: relative;
+        background-size: cover;
+        height: 1134px;
         width: 100%;
-
-        @media screen and (max-width: 895px) {
-          height: 534px;
+         @media screen and (max-width: 505px) {
+          background-position: bottom 10vw center;
         }
-        @media screen and (max-width: 600px) {
-          background-image: initial;
-          background-position: center;
-          display: flex;
-          justify-content: center;
-          height: 534px;
+        @media screen and (max-width: 1110px) {
+          height: 400px;  
         }
-
+        @media screen and (min-width: 1540px) {
+          background-size: 90%;
+          background-position: right 40vw center;
+        }
+        @media screen and (min-width: 1640px) {
+          background-size: 80%;
+        }
         .lt1 {
           background: transparent;
           background-image: url('/image/lt1.png');
@@ -434,33 +445,52 @@
           height: 634px;
           width: clamp(300px, 50.97vw, 734px);
           position: absolute;
+          top:23%;
           left: 35%;
-
-          @media screen and (max-width: 895px) {
-            height: 534px;
+   
+          
+          @media screen and (min-width: 1640px) {
+            left: 40%;
           }
-          @media screen and (max-width: 600px) {
+          @media screen and (max-width: 1110px) {
+            top:0%;
+            height: 400px;        
+          }
+            @media screen and (max-width: 505px) {
             width: 280px;
-            left: 0%;
-            position: initial;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,0%);
+            height: 200px;
           }
+          // @media screen and (max-width: 895px) {
+          //   height: 534px;
+          // }
+          // @media screen and (max-width: 600px) {
+          //   width: 280px;
+          //   left: 0%;
+          //   position: initial;
+          // }
         }
       }
     }
 
-    figure:last-child {
+    .figure2 {
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      margin-top: -240px;
-
-      @media screen and (max-width: 1000px) {
-        flex-direction: column;
-        align-items: center;
-        margin-top: -140px;
+      position: absolute;
+      left:10%;
+      top:55%;
+      @media screen and (max-width: 1110px) {
+      display: none;
       }
-      @media screen and (max-width: 600px) {
-        margin-top: -200px;
+
+      @media screen and (min-width: 1540px) {
+        left:8%;      
+      }
+      @media screen and (min-width: 1640px) {
+        left:12%;
       }
       aside {
         display: grid;
@@ -468,7 +498,6 @@
         align-items: center;
         justify-content: center;
         width: clamp(400px, 49.44vw, 856px);
-        margin-bottom: 100px;
         margin-right: 20px;
         @media screen and (max-width: 600px) {
           width: 80%;
@@ -531,5 +560,6 @@
         }
       }
     }
+    
   }
 }

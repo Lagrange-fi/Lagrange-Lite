@@ -31,14 +31,8 @@ const Index: NextPage = (props) => {
           />
 
           <figure>
-            <div className="child1">
-              <i className="fa-solid fa-user-check"></i>
-              Login
-            </div>
-            <div className="child2">
-              <i className="fa-solid fa-user-plus"></i>
-              Register
-            </div>
+            <div className="child1">Whitepaper</div>
+            <div className="child2">Picth video</div>
           </figure>
         </nav>
         <Component1 />
