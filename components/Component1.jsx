@@ -1,5 +1,6 @@
 //@typescript-eslint/no-unused-vars
 // react/no-unescaped-entities
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 import Link from 'next/link'
 
@@ -15,7 +16,7 @@ const Component1 = () => {
         </aside>
         <aside>
           <span className="span1">
-            Doesn't require any broker or settlement periods.
+            Does not require any broker or settlement periods.
           </span>
           <span className="span2">
             Fully decentralized <br /> 24/7 FX market
