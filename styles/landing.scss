@@ -1,6 +1,6 @@
 
-
 .Index {
+font-family: "Roboto";
   nav {
     display: flex;
     flex-direction: row;
@@ -11,7 +11,7 @@
     border-bottom: 1px solid rgba(196, 196, 196, 0.1);
     background: #000;
     color: #fff;
-    font-family: 'Red Hat Display';
+
 
     @media screen and (max-width: 660px) {
       padding: 15px 20px;
@@ -169,11 +169,11 @@
 
       .span1 {
         color: #5e5e5e;
-        font-family: 'Red Hat Display';
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
         text-transform: uppercase;
+        
 
         @media screen and (max-width: 730px) {
           font-size: 12px;
@@ -185,7 +185,7 @@
       }
 
       .span2 {
-        font-family: 'Inter';
+
         font-style: normal;
         font-weight: 900;
         font-size: 80px;
@@ -268,7 +268,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      font-family: 'Red Hat Display';
       font-style: normal;
       font-weight: 700;
 
@@ -338,7 +337,6 @@
       grid-gap: 10px 0px;
 
       span:first-child {
-        font-family: 'Red Hat Display';
         font-style: normal;
         font-weight: 700;
         font-size: 14px;
@@ -347,7 +345,6 @@
       }
 
       span:last-child {
-        font-family: 'Inter';
         font-style: normal;
         font-weight: 900;
         font-size: clamp(30px, 3.33vw, 48px);
@@ -382,7 +379,6 @@
         grid-gap: 10px 0px;
 
         span:first-child {
-          font-family: 'Inter';
           font-style: normal;
           font-weight: 900;
           font-size: clamp(30px, 3.33vw, 48px);
@@ -390,7 +386,6 @@
         }
 
         span:last-child {
-          font-family: 'Red Hat Display';
           font-style: normal;
           font-weight: 400;
           font-size: 14px;
@@ -495,7 +490,6 @@
         }
 
         .span1 {
-          font-family: 'Inter';
           font-style: normal;
           font-weight: 900;
           font-size: clamp(30px, 3.33vw, 48px);
@@ -504,7 +498,6 @@
         }
 
         .span2 {
-          font-family: 'Inter';
           font-style: normal;
           font-weight: 400;
           font-size: 18px;
@@ -521,7 +514,6 @@
           border-radius: 4px;
           height: 52px;
           width: 193px;
-          font-family: 'Red Hat Display';
           font-style: normal;
           font-weight: 700;
           font-size: 16px;
