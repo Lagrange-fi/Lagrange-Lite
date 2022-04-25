@@ -1,4 +1,3 @@
-
 //@typescript-eslint/no-unused-vars
 import FooterLandingPage from './FooterLandingPage'
 
