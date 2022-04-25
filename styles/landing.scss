@@ -1,6 +1,5 @@
-
 .Index {
-font-family: "Roboto";
+  font-family: 'Roboto';
   nav {
     display: flex;
     flex-direction: row;
@@ -11,7 +10,6 @@ font-family: "Roboto";
     border-bottom: 1px solid rgba(196, 196, 196, 0.1);
     background: #000;
     color: #fff;
-
 
     @media screen and (max-width: 660px) {
       padding: 15px 20px;
@@ -173,7 +171,6 @@ font-family: "Roboto";
         font-weight: 700;
         font-size: 14px;
         text-transform: uppercase;
-        
 
         @media screen and (max-width: 730px) {
           font-size: 12px;
@@ -185,7 +182,6 @@ font-family: "Roboto";
       }
 
       .span2 {
-
         font-style: normal;
         font-weight: 900;
         font-size: 80px;
@@ -260,10 +256,9 @@ font-family: "Roboto";
     }
 
     div {
-      height: 309px;
       border-radius: 12px;
       background: linear-gradient(129.06deg, #252525 9.44%, #171717 105.84%);
-      padding: 38px 0px;
+      padding: 39px 0px;
       display: flex;
       flex-direction: column;
       align-items: center;

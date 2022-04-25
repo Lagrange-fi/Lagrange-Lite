@@ -1,4 +1,3 @@
-
 @import './formul.scss';
 body {
   background-color: #000000;
@@ -6,7 +5,7 @@ body {
 .Section6 {
   color: #ffffff;
   height: 0px;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   .chart-lagrange {
     display: grid;
     align-items: center;
@@ -76,7 +75,7 @@ body {
       @include displayflex($fd: column, $ai: flex-end, $jc: center);
       .pro-ver-title {
         @include font(
-          $fm:"Roboto",
+          $fm: 'Roboto',
           $fw: 900,
           $fs: clamp(30px, 3.3333vw, 48px),
           $c: #ffffff,
@@ -87,7 +86,7 @@ body {
       .pro-ver-cont {
         opacity: 0.4;
         @include font(
-          $fm:"Roboto",
+          $fm: 'Roboto',
           $fw: 400,
           $fs: clamp(14px, 1.25vw, 18px),
           $c: #ffffff,
@@ -101,7 +100,7 @@ body {
           $h: clamp(35px, 3.6111vw, 52px)
         );
         @include font(
-          $fm:"Roboto",
+          $fm: 'Roboto',
           $fw: 700,
           $fs: clamp(12px, 1.25vw, 16px),
           $c: #ffffff
@@ -156,7 +155,7 @@ body {
         .mini-connect-title {
           text-transform: uppercase;
           @include font(
-            $fm:"Roboto",
+            $fm: 'Roboto',
             $fw: 700,
             $fs: clamp(10px, 0.9722vw, 14px),
             $c: #5e5e5e,
@@ -166,7 +165,7 @@ body {
         }
         .join-main {
           @include font(
-            $fm:"Roboto",
+            $fm: 'Roboto',
             $fw: 900,
             $fs: clamp(30px, 3.3333vw, 48px),
             $c: #ffffff,
@@ -202,7 +201,7 @@ body {
           }
           .twitter-title {
             @include font(
-              $fm:"Roboto",
+              $fm: 'Roboto',
               $fw: 700,
               $fs: clamp(16px, 1.6666vw, 24px),
               $c: #ffffff,
@@ -212,7 +211,7 @@ body {
           .twitter-text {
             opacity: 0.5;
             @include font(
-              $fm:"Roboto",
+              $fm: 'Roboto',
               $fw: 400,
               $fs: clamp(12px, 1.25vw, 18px),
               $c: #ffffff,
@@ -248,7 +247,7 @@ body {
           }
           .discord-title {
             @include font(
-              $fm:"Roboto",
+              $fm: 'Roboto',
               $fw: 700,
               $fs: clamp(16px, 1.6666vw, 24px),
               $c: #ffffff,
@@ -258,7 +257,7 @@ body {
           .discord-text {
             opacity: 0.5;
             @include font(
-              $fm:"Roboto",
+              $fm: 'Roboto',
               $fw: 400,
               $fs: clamp(14px, 1.25vw, 18px),
               $c: #ffffff,
@@ -294,7 +293,7 @@ body {
           }
           .medium-title {
             @include font(
-              $fm:"Roboto",
+              $fm: 'Roboto',
               $fw: 700,
               $fs: clamp(16px, 1.6666vw, 24px),
               $c: #ffffff,
@@ -304,7 +303,7 @@ body {
           .medium-text {
             opacity: 0.5;
             @include font(
-              $fm:"Roboto",
+              $fm: 'Roboto',
               $fw: 400,
               $fs: clamp(14px, 1.25vw, 18px),
               $c: #ffffff,
@@ -327,7 +326,7 @@ body {
       @include mp($m: clamp(50px, 11.5972vw, 167px) 0 0 0);
       .receive-new {
         @include font(
-          $fm:"Roboto",
+          $fm: 'Roboto',
           $fw: 900,
           $fs: clamp(30px, 3.3333vw, 48px),
           $c: #ffffff,
@@ -337,7 +336,7 @@ body {
       }
       .recive-mini-cont {
         @include font(
-          $fm:"Roboto",
+          $fm: 'Roboto',
           $fw: 400,
           $fs: clamp(14px, 1.25vw, 18px),
           $c: #ffffff,
@@ -355,7 +354,7 @@ body {
             $h: clamp(45px, 4.1666vw, 60px)
           );
           @include font(
-            $fm:"Roboto",
+            $fm: 'Roboto',
             $fw: 400,
             $fs: clamp(14px, 1.25vw, 18px),
             $c: #767670,
