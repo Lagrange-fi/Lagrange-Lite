@@ -13,7 +13,7 @@
 
     @media screen and (max-width: 660px) {
       padding: 15px 20px;
-      font-size: 12px;
+      font-size: 10px;
     }
 
     figure {
@@ -72,7 +72,8 @@
     padding: 0px 0px;
     color: #fff;
     position: relative;
-    height: 623px;
+    height: 723px;
+
 
     aside:first-child {
       display: flex;
@@ -234,6 +235,34 @@
         button:last-child {
         }
       }
+    }
+
+    .powered{
+      display: grid;
+      justify-content: space-between;
+      padding-left: 120px;
+      margin-top: 120px;
+      @media screen and (max-width: 516px) {
+        padding-left: 30px;
+      }
+      span{
+        text-align: left;
+        color:rgba(254,254,254,0.2)
+      }
+      .imgdiv{
+        display: grid;
+        grid-template-columns: repeat(2,125px);
+        align-items: center;
+        grid-gap:20px 45px;
+        @media screen and (max-width: 516px) {
+          grid-template-columns: repeat(2,100px);
+        }
+        img{       
+          object-fit: contain;
+          display: grid;
+        }
+      }
+      
     }
   }
 

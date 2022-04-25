@@ -40,7 +40,16 @@ const Component1 = () => {
               </span>
             </button>
           </div>
+          <div className='powered'>
+          <span>POWERED BY</span>
+          <div className='imgdiv'>
+          <img src="https://solana.com/_next/static/media/solanaLogo.74d35f7a.svg" />
+          <img src="https://i.ibb.co/JCRzP61/serumdex-removebg-preview.png" />
+          </div>
+          <img />
+          </div>
         </aside>
+   
       </div>
     </>
   )
