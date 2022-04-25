@@ -38,6 +38,7 @@ import '../styles/swap.scss'
 import '../styles/topbar.scss'
 import '../styles/overview.scss'
 import '../styles/landing.scss'
+import '../styles/section6.scss'
 import '../styles/settingsmodal.scss'
 
 const MangoStoreUpdater = () => {
