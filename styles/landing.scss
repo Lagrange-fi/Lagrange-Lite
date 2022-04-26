@@ -1,5 +1,13 @@
+@font-face {
+  font-family: "Inter-Bold";
+  src: local("Inter-Bold"), url(../InterFonts/Inter-Bold.ttf) format("truetype");
+}
+
 .Index {
-  font-family: 'Roboto';
+
+ 
+
+  
   nav {
     display: flex;
     flex-direction: row;
@@ -183,6 +191,7 @@
       }
 
       .span2 {
+        font-family: 'Inter-Bold';
         font-style: normal;
         font-weight: 900;
         font-size: 80px;
