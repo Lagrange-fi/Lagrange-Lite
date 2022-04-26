@@ -1,13 +1,6 @@
-@font-face {
-  font-family: "Inter-Bold";
-  src: local("Inter-Bold"), url(../InterFonts/Inter-Bold.ttf) format("truetype");
-}
 
 .Index {
 
- 
-
-  
   nav {
     display: flex;
     flex-direction: row;
@@ -18,6 +11,7 @@
     border-bottom: 1px solid rgba(196, 196, 196, 0.1);
     background: #000;
     color: #fff;
+    font-family: "Inter-Bold";
 
     @media screen and (max-width: 660px) {
       padding: 15px 20px;
@@ -175,9 +169,10 @@
       width: 100%;
 
       .span1 {
+        font-family: 'RedHatDisplay-Black';
         color: #5e5e5e;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 900;
         font-size: 14px;
         text-transform: uppercase;
 
@@ -221,6 +216,7 @@
         align-items: center;
         justify-content: center;
         margin-top: 60px;
+        font-family: "RedHatDisplay-SemiBold";
 
         @media screen and (max-width: 730px) {
           margin-top: 30px;
@@ -256,7 +252,9 @@
       }
       span{
         text-align: left;
-        color:rgba(254,254,254,0.2)
+        color:rgba(254,254,254,0.2);
+        font-family: 'RedHatDisplay-Bold';
+        font-weight: 700;
       }
       .imgdiv{
         display: grid;
@@ -285,6 +283,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 100px;
+    font-family: "RedHatDisplay-SemiBold";
     @media screen and (max-width: 1300px) {
       grid-template-columns: repeat(2, 282px);
     }
@@ -375,15 +374,18 @@
         font-size: 14px;
         text-transform: uppercase;
         color: #5e5e5e;
+        font-family: "RedHatDisplay-Bold";
       }
 
       span:last-child {
+        font-family: "RedHatDisplay-Black";
         font-style: normal;
         font-weight: 900;
         font-size: clamp(30px, 3.33vw, 48px);
         line-height: 64px;
         letter-spacing: 0.5px;
         color: #ffffff;
+
 
         @media screen and (max-width: 900px) {
           line-height: 50px;
@@ -416,6 +418,7 @@
           font-weight: 900;
           font-size: clamp(30px, 3.33vw, 48px);
           letter-spacing: 0.5px;
+          font-family: "RedHatDisplay-Black";
         }
 
         span:last-child {
@@ -423,6 +426,7 @@
           font-weight: 400;
           font-size: 14px;
           color: #5e5e5e;
+          font-family: "RedHatDisplay-SemiBold";
         }
       }
     }
@@ -528,9 +532,11 @@
           font-size: clamp(30px, 3.33vw, 48px);
           letter-spacing: 0.5px;
           color: #ffffff;
+          font-family: "Inter-Black";
         }
 
         .span2 {
+          font-family: "Inter-Regular";
           font-style: normal;
           font-weight: 400;
           font-size: 18px;

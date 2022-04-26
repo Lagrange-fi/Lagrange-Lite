@@ -4,6 +4,43 @@
 // @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700;900&display=swap');
 @import './formul.scss';
 
+@font-face {
+  font-family: "Inter-Bold";
+  src: local("Inter-Bold"), url(../InterFonts/Inter-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Inter-Black";
+  src: local("Inter-Black"), url(../InterFonts/Inter-Black.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Inter-Regular";
+  src: local("Inter-Regular"), url(../InterFonts/Inter-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RedHatDisplay-Bold";
+  src: local("RedHatDisplay-Bold"), url(../RedHatFonts/RedHatDisplay-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RedHatDisplay-Regular";
+  src: local("RedHatDisplay-Regular"), url(../RedHatFonts/RedHatDisplay-Regular.ttf) format("truetype");
+}
+
+
+@font-face {
+  font-family: "RedHatDisplay-Black";
+  src: local("RedHatDisplay-Black"), url(../RedHatFonts/RedHatDisplay-Black.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "RedHatDisplay-SemiBold";
+  src: local("RedHatDisplay-SemiBold"), url(../RedHatFonts/RedHatDisplay-SemiBold.ttf) format("truetype");
+}
+
+
 * {
   padding: 0px;
   margin: 0px;

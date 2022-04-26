@@ -17,7 +17,7 @@
     .img-privacy {
       @include displayflex($ai: center, $jc: space-between);
       @include font(
-        $fm: 'Red Hat Display',
+        $fm: 'RedHatDisplay-Regular',
         $fw: 400,
         $fs: clamp(12px, 1.0416vw, 15px),
         $c: #ffffff,
@@ -34,7 +34,7 @@
     }
     .footer-address {
       @include font(
-        $fm: 'Red Hat Display',
+        $fm: 'RedHatDisplay-Regular',
         $fw: 400,
         $fs: clamp(12px, 1.0416vw, 15px),
         $c: #ffffff,
