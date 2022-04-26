@@ -1,6 +1,6 @@
 @import './formul.scss';
 
-.Section6 {
+.Section5 {
   color: #ffffff;
   background: #000000;
   .chart-lagrange {
@@ -12,11 +12,27 @@
         44.0277vw,
         634px
       );
+    @media screen and (max-width: 505px) {
+        grid-template-columns: clamp(280px, 79.2079vw, 400px);
+    }
     .chart-pro {
       right: -15%;
       top: 0%;
       transform: translate(15%, 0%);
       // z-index: 10;
+       @media screen and (max-width: 505px) {
+          right: 0%;
+          top: 20%;
+          transform: translate(0%, -20%);
+          order: 2;
+        }
+         @media screen and (max-width: 400px) {
+          right: 0%;
+          top: 30%;
+          transform: translate(0%, -30%);
+          order: 2;
+        }
+      
     }
     .lagrange-plnt {
       background-image: url('https://i.ibb.co/L5bbk7Q/planet-4.png');
@@ -24,6 +40,13 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: 155%;
+      @media screen and (max-width: 505px) {
+        background-size: 110%;
+          right: 0%;
+          top: 0%;
+          transform: translate(0%, 0%);
+
+      }
     }
   }
   .orderbook-pro-vers {
@@ -108,28 +131,39 @@
       }
     }
   }
-  .end-solar-sistem {
+}
+
+
+
+
+// -----------------------------Component6-----------------------------
+
+.Component6{
+  margin-top: -220px;
+  color: #FFFFFF;
+  background: #000000;
     @include mp($p: 0 clamp(20px, 9.0277vw, 130px));
     background-image: url('https://i.ibb.co/5xRn895/galaxy-3.png');
-    height: clamp(1000px, 104.0277vw, 1100px);
+    height: clamp(1000px, 104.0277vw, 1498px);
     background-position: bottom -5vw left;
     background-repeat: no-repeat;
-    background-size: 80%;
+    background-size: 100%;
     width: 100%;
     border-radius: 0% 0% 0 0;
-    right: 0%;
-    top: 20%;
-    transform: translate(0%, -20%);
     z-index: 1;
     @include displayflex($fd: column, $ai: center, $jc: center);
     @media screen and (max-width: 900px) {
       height: 970px;
+      margin-top: -200px;
+    }
+    @media screen and (max-width: 650px) {
+      height: 900px;
     }
     @media screen and (max-width: 400px) {
-      height: 1180px;
+      height: 1100px;
     }
-    @media screen and (max-width: 350px) {
-      height: 1270px;
+    @media screen and (max-width: 370px) {
+      height: 1170px;
     }
     .joinfast-and-sosialm {
       @include mp($m: clamp(50px, 16.0416vw, 231px) 0 0 0);
@@ -377,5 +411,5 @@
         }
       }
     }
-  }
+  
 }

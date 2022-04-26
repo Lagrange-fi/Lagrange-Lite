@@ -9,7 +9,8 @@ import Component1 from '../components/Component1'
 import Component2 from '../components/Component2'
 import Component3 from '../components/Component3'
 import Component4 from '../components/Component4'
-import Section6 from '../components/Section6'
+import Component5 from '../components/Component5'
+import Component6 from '../components/Component6'
 const Index: NextPage = (props) => {
   const [isExpanded, toggleExpansion] = useState(true)
 
@@ -39,7 +40,8 @@ const Index: NextPage = (props) => {
         <Component2 />
         <Component3 />
         <Component4 />
-        <Section6 />
+        <Component5 />
+        <Component6 />
       </div>
     </>
   )
