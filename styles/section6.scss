@@ -2,7 +2,8 @@
 
 .Section6 {
   color: #ffffff;
-  height: 0px;
+  background: #000000;
+  border:1px solid red;
   .chart-lagrange {
     display: grid;
     align-items: center;
@@ -111,10 +112,10 @@
   .end-solar-sistem {
     @include mp($p: 0 clamp(20px, 9.0277vw, 130px));
     background-image: url('https://i.ibb.co/5xRn895/galaxy-3.png');
-    height: clamp(1000px, 104.0277vw, 1498px);
+    height: clamp(1000px, 104.0277vw, 1100px);
     background-position: bottom -5vw left;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 80%;
     width: 100%;
     border-radius: 0% 0% 0 0;
     right: 0%;

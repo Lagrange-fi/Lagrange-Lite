@@ -140,7 +140,7 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
     )
     const inputData = await inputResponse.json()
     const outputData = await outputResponse.json()
-    console.log(inputData)
+    // console.log(inputData)
     /// tokenleri birlesdirdik bir arraya //////
     let data: any[] = []
     if (Array.isArray(inputData)) {
@@ -248,11 +248,10 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
                   <>
                     <div className="chartnumber">
                       <span>
-                        {' '}
                         {
                           // @ts-ignore
                           numberFormatter.format(mouseData['price'])
-                        }{' '}
+                        }
                       </span>
                       <span className={`${chartChange >= 0 ? 'green' : 'red'}`}>
                         {chartChange.toFixed(2)}%

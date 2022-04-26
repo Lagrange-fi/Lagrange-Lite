@@ -74,7 +74,7 @@
     padding: 0px 0px;
     color: #fff;
     position: relative;
-    height: 723px;
+    height: 623px;
 
 
     aside:first-child {
@@ -275,14 +275,13 @@
 
   ///Compomnent2
   .Component2 {
-    padding: 20px 0px;
+    padding: 150px 0px 40px 0px;
     background: #000;
     display: grid;
     grid-template-columns: repeat(4, 282px);
     grid-gap: 25px;
     align-items: center;
     justify-content: center;
-    margin-bottom: 100px;
     font-family: "RedHatDisplay-SemiBold";
     @media screen and (max-width: 1300px) {
       grid-template-columns: repeat(2, 282px);
