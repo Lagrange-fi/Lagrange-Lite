@@ -1,6 +1,4 @@
-
 .Index {
-
   nav {
     display: flex;
     flex-direction: row;
@@ -11,7 +9,7 @@
     border-bottom: 1px solid rgba(196, 196, 196, 0.1);
     background: #000;
     color: #fff;
-    font-family: "Inter-Bold";
+    font-family: 'Inter-Bold';
 
     @media screen and (max-width: 660px) {
       padding: 15px 20px;
@@ -75,7 +73,6 @@
     color: #fff;
     position: relative;
     height: 623px;
-
 
     aside:first-child {
       display: flex;
@@ -216,7 +213,7 @@
         align-items: center;
         justify-content: center;
         margin-top: 60px;
-        font-family: "RedHatDisplay-SemiBold";
+        font-family: 'RedHatDisplay-SemiBold';
 
         @media screen and (max-width: 730px) {
           margin-top: 30px;
@@ -242,7 +239,7 @@
       }
     }
 
-    .powered{
+    .powered {
       display: grid;
       justify-content: space-between;
       padding-left: 120px;
@@ -250,31 +247,31 @@
       @media screen and (max-width: 516px) {
         padding-left: 30px;
       }
-      span{
+      span {
         text-align: left;
-        color:rgba(254,254,254,0.2);
+        color: rgba(254, 254, 254, 0.2);
         font-family: 'RedHatDisplay-Bold';
         font-weight: 700;
       }
-      .imgdiv{
+      .imgdiv {
         display: grid;
-        grid-template-columns: repeat(2,125px);
+        grid-template-columns: repeat(2, 125px);
         align-items: center;
-        grid-gap:20px 45px;
+        grid-gap: 20px 45px;
         @media screen and (max-width: 516px) {
-          grid-template-columns: repeat(2,100px);
+          grid-template-columns: repeat(2, 100px);
         }
-        img{       
+        img {
           object-fit: contain;
           display: grid;
         }
       }
-      
     }
   }
 
   ///Compomnent2
   .Component2 {
+     margin-top: -2px;
     padding: 150px 0px 40px 0px;
     background: #000;
     display: grid;
@@ -282,7 +279,7 @@
     grid-gap: 25px;
     align-items: center;
     justify-content: center;
-    font-family: "RedHatDisplay-SemiBold";
+    font-family: 'RedHatDisplay-SemiBold';
     @media screen and (max-width: 1300px) {
       grid-template-columns: repeat(2, 282px);
     }
@@ -326,6 +323,7 @@
   }
 
   .Component3 {
+     margin-top: -2px;
     padding: 100px 120px;
     background-image: url('https://i.ibb.co/8gNW8n5/galaxy-2.png');
     background-color: #000;
@@ -373,18 +371,17 @@
         font-size: 14px;
         text-transform: uppercase;
         color: #5e5e5e;
-        font-family: "RedHatDisplay-Bold";
+        font-family: 'RedHatDisplay-Bold';
       }
 
       span:last-child {
-        font-family: "RedHatDisplay-Black";
+        font-family: 'RedHatDisplay-Black';
         font-style: normal;
         font-weight: 900;
         font-size: clamp(30px, 3.33vw, 48px);
         line-height: 64px;
         letter-spacing: 0.5px;
         color: #ffffff;
-
 
         @media screen and (max-width: 900px) {
           line-height: 50px;
@@ -417,7 +414,7 @@
           font-weight: 900;
           font-size: clamp(30px, 3.33vw, 48px);
           letter-spacing: 0.5px;
-          font-family: "RedHatDisplay-Black";
+          font-family: 'RedHatDisplay-Black';
         }
 
         span:last-child {
@@ -425,20 +422,24 @@
           font-weight: 400;
           font-size: 14px;
           color: #5e5e5e;
-          font-family: "RedHatDisplay-SemiBold";
+          font-family: 'RedHatDisplay-SemiBold';
         }
       }
     }
   }
 
   .Component4 {
+    // border: 1px solid red;
+    margin-top: -2px;
     background: #000;
     color: #fff;
-
+    padding-bottom: 130px; 
     figure:first-child {
       display: flex;
 
       .planet3 {
+        // border: 1px solid yellow;
+        margin-top: -200px;
         background-image: url('/image/planet3.png');
         background-position: right 32vw center;
         background-repeat: no-repeat;
@@ -531,11 +532,11 @@
           font-size: clamp(30px, 3.33vw, 48px);
           letter-spacing: 0.5px;
           color: #ffffff;
-          font-family: "Inter-Black";
+          font-family: 'Inter-Black';
         }
 
         .span2 {
-          font-family: "Inter-Regular";
+          font-family: 'Inter-Regular';
           font-style: normal;
           font-weight: 400;
           font-size: 18px;
