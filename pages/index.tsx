@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -32,8 +34,15 @@ const Index: NextPage = (props) => {
           />
 
           <figure>
-            <div className="child1">Whitepaper</div>
-            <div className="child2">Picth video</div>
+            <div className="child2">
+              <a
+                href="https://www.youtube.com/watch?v=7Pa9LKa_IQM"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Picth video
+              </a>
+            </div>
           </figure>
         </nav>
         <Component1 />

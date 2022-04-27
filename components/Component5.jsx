@@ -14,13 +14,10 @@ const Component5 = () => {
         <div className="pro-vers-text">
           <p className="pro-ver-title">Pro version</p>
           <p className="pro-ver-cont">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            Decentralized trading platform for spot FX with aggregated liquidity, streamlined market data for institutions, to exchange tokenised currencies/FX assets in an instant and transparent  way on the Solana blockchain with a custom FIX protocol.
           </p>
           <button className="pro-ver-button">
-            Explore &nbsp; <i className="fa-solid fa-arrow-right"></i>
+            Soon &nbsp; <i className="fa-solid fa-arrow-right"></i>
           </button>
         </div>
       </div>

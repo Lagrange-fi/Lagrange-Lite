@@ -16,7 +16,7 @@ const Component1 = () => {
         </aside>
         <aside>
           <span className="span1">
-            Does not require any broker or settlement periods.
+          Doesn&apos;t require any broker or settlement periods.
           </span>
           <span className="span2">
             Fully decentralized <br /> 24/7 FX market

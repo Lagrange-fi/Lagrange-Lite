@@ -7,7 +7,7 @@ const Component6 = () => {
       <div className="joinfast-and-sosialm">
         <div className="join-fast">
           <p className="mini-connect-title">Connect with us on social media</p>
-          <p className="join-main">Join a fast growing community</p>
+          <p className="join-main">Join our fast growing community</p>
         </div>
         <div className="sosial-media-part">
           <div className="twitter-follow">
@@ -15,7 +15,7 @@ const Component6 = () => {
             <div>
               <p className="twitter-title">Twitter</p>
               <p className="twitter-text">
-                Follow @lagrange to het the lstest news and updates
+                Follow @lagrange_fi to get the latest news and updates
               </p>
             </div>
             <a
@@ -59,7 +59,7 @@ const Component6 = () => {
       <div className="receive-input">
         <p className="receive-new">Receive new updates</p>
         <p className="recive-mini-cont">
-          Duis aute irure dolor in reprehenderit in voluptate velit
+          Subscribe now to keep up to date with Lagrange
         </p>
         <div className="input-i">
           <input placeholder="Your email" />
