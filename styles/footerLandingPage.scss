@@ -13,7 +13,7 @@
     );
     @include displayflex($ai: center, $jc: space-between);
     width: 100%;
-    @include media($d: 650px, $fd: column);
+    @include media($d: 900px, $fd: column);
     .img-privacy {
       @include displayflex($ai: center, $jc: space-between);
       @include font(
@@ -40,7 +40,7 @@
         $c: #ffffff,
         $ta: center
       );
-      @include media($d: 650px, $m: 5px 0 0 0);
+      @include media($d: 900px, $m: 5px 0 0 0);
     }
   }
 }

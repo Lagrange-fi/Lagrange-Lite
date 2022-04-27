@@ -155,11 +155,14 @@
   @media screen and (max-width: 650px) {
     height: 900px;
   }
-  @media screen and (max-width: 400px) {
-    height: 1100px;
+  @media screen and (max-width: 440px) {
+    height: 1000px;
   }
-  @media screen and (max-width: 370px) {
+  @media screen and (max-width: 400px) {
     height: 1170px;
+  }
+  @media screen and (max-width: 350px) {
+    height: 1200px;
   }
   .joinfast-and-sosialm {
     @include mp($m: clamp(50px, 16.0416vw, 231px) 0 0 0);
