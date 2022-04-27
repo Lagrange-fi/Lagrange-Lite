@@ -11,13 +11,16 @@ const Component6 = () => {
         </div>
         <div className="sosial-media-part">
           <div className="twitter-follow">
-            <i className="fa-brands fa-twitter-square"></i>
-            <div>
-              <p className="twitter-title">Twitter</p>
-              <p className="twitter-text">
-                Follow @lagrange_fi to get the latest news and updates
-              </p>
-            </div>
+            <figure>
+              <i className="fa-brands fa-twitter"></i>
+              <div>
+                <p className="twitter-title">Twitter</p>
+                <p className="twitter-text">
+                  Follow @lagrange_fi to get the latest news and updates
+                </p>
+              </div>
+            </figure>
+
             <a
               href="https://twitter.com/lagrange_fi"
               target="_blank"
@@ -27,11 +30,14 @@ const Component6 = () => {
             </a>
           </div>
           <div className="discord-follow">
-            <i className="fa-brands fa-discord"></i>
-            <div>
-              <p className="discord-title">Discord</p>
-              <p className="discord-text">Have a technical question?</p>
-            </div>
+            <figure>
+              <i className="fa-brands fa-discord"></i>
+              <div>
+                <p className="discord-title">Discord</p>
+                <p className="discord-text">Have a technical question?</p>
+              </div>
+            </figure>
+
             <a
               href="https://discord.com/invite/lagrange-fi"
               target="_blank"
@@ -41,11 +47,13 @@ const Component6 = () => {
             </a>
           </div>
           <div className="medium-follow">
-            <i className="fa-brands fa-medium"></i>
-            <div>
-              <p className="medium-title">Medium</p>
-              <p className="medium-text">Deeper in our community</p>
-            </div>
+            <figure>
+              <i className="fa-brands fa-medium"></i>
+              <div>
+                <p className="medium-title">Medium</p>
+                <p className="medium-text">Deeper in our community</p>
+              </div>
+            </figure>
             <a
               href="https://medium.com/lagrange"
               target="_blank"

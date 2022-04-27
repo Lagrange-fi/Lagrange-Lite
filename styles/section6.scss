@@ -66,7 +66,7 @@
         $w: clamp(150px, 23.3333vw, 336px),
         $h: clamp(190px, 29.7916vw, 429px)
       );
-      background-image: url('https://i.ibb.co/RP6rNcL/proversion2.png');
+      background-image: url('/image/orderbook.jpg');
       background-color: #000000;
       background-position: center;
       background-repeat: no-repeat;
@@ -212,16 +212,20 @@
         align-self: flex-end;
       }
       .twitter-follow {
+        figure{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
         @include mp(
           $p: clamp(20px, 2.7777vw, 40px) clamp(20px, 3.3333vw, 48px)
         );
         width: clamp(290px, 47.9166vw, 690px);
         background: linear-gradient(129.06deg, #252525 9.44%, #171717 105.84%);
         border-radius: 12px;
-        display: grid;
+        display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        grid-template-columns: repeat(3, auto);
         @media screen and (max-width: 650px) {
           width: clamp(250px, 76.923vw, 500px);
         }
@@ -245,22 +249,31 @@
             $ls: 0.5px
           );
         }
-        .fa-twitter-square {
-          margin-right: 10px;
-          font-size: clamp(36px, 3.1944vw, 46px);
+        .fa-twitter {
+          margin-right: 25px;
+          font-size: clamp(28px, 3.1944vw, 30px);
+          background: #ffffff;
+          padding: 8px;
+          color:#000000;
+          border-radius: 4px;
         }
         .fa-arrow-up-right-from-square {
           opacity: 0.5;
         }
       }
       .discord-follow {
+        figure{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
         @include mp(
           $p: clamp(20px, 2.7777vw, 40px) clamp(20px, 3.3333vw, 48px)
         );
         width: clamp(260px, 40.8333vw, 588px);
         background: linear-gradient(129.06deg, #252525 9.44%, #171717 105.84%);
         border-radius: 12px;
-        display: grid;
+        display: flex;
         align-items: flex-start;
         justify-content: space-between;
         grid-template-columns: repeat(3, auto);
@@ -288,24 +301,33 @@
           );
         }
         .fa-discord {
-          margin-right: 10px;
-          font-size: clamp(28px, 3.1944vw, 46px);
+          margin-right: 25px;
+          font-size: clamp(28px, 3.1944vw, 30px);
+          background: #ffffff;
+          padding: 8px;
+          color:#000000;
+          border-radius: 4px;
         }
         .fa-arrow-up-right-from-square {
           opacity: 0.5;
+          
         }
       }
       .medium-follow {
+        figure{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
         @include mp(
           $p: clamp(20px, 2.7777vw, 40px) clamp(20px, 3.3333vw, 48px)
         );
         width: clamp(230px, 31.875vw, 459px);
         background: linear-gradient(129.06deg, #252525 9.44%, #171717 105.84%);
         border-radius: 12px;
-        display: grid;
+        display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        grid-template-columns: repeat(3, auto);
         @media screen and (max-width: 650px) {
           width: clamp(190px, 61.5384vw, 400px);
         }
@@ -330,8 +352,13 @@
           );
         }
         .fa-medium {
-          margin-right: 10px;
+          margin-right: 25px;
           font-size: clamp(28px, 3.1944vw, 46px);
+          font-size: clamp(28px, 3.1944vw, 30px);
+          background: #ffffff;
+          padding: 8px;
+          color:#000000;
+          border-radius: 4px;
         }
         .fa-arrow-up-right-from-square {
           opacity: 0.5;

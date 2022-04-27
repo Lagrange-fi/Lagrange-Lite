@@ -5,7 +5,7 @@ const Component5 = () => {
     <div className="Section5">
       <div className="chart-lagrange">
         <div className="chart-pro">
-          <img src="https://i.ibb.co/Lx0bssq/pro-version-1.png" />
+          <img src="/image/chart2.png" />
         </div>
         <div className="lagrange-plnt"></div>
       </div>
