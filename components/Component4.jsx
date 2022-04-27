@@ -11,7 +11,8 @@ const Component4 = () => {
               <aside>
                 <span className="span1">Lite version</span>
                 <span className="span2">
-                A simple GUI for swaps between cash-backed stablecoins at the lowest fees possible, with yields for Liquidity providers.
+                  A simple GUI for swaps between cash-backed stablecoins at the
+                  lowest fees possible, with yields for Liquidity providers.
                 </span>
                 <button>
                   Explore

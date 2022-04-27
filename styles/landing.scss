@@ -31,9 +31,11 @@
         grid-template-columns: repeat(2, auto);
         grid-gap: 0px 10px;
         align-items: center;
+
         &:hover {
           cursor: pointer;
         }
+
         @media screen and (max-width: 660px) {
           grid-gap: 0px 7px;
         }
@@ -44,9 +46,11 @@
         grid-template-columns: repeat(2, auto);
         grid-gap: 0px 10px;
         align-items: center;
+
         &:hover {
           cursor: pointer;
         }
+
         @media screen and (max-width: 660px) {
           grid-gap: 0px 7px;
         }
@@ -201,8 +205,9 @@
         }
 
         @media screen and (max-width: 450px) {
-          font-size: 30px;
-          line-height: 40px;
+          margin-top: 10px;
+          font-size: 25px;
+          line-height: 35px;
         }
       }
 
@@ -234,8 +239,7 @@
           border-radius: 4px;
         }
 
-        button:last-child {
-        }
+        button:last-child {}
       }
     }
 
@@ -244,23 +248,28 @@
       justify-content: space-between;
       padding-left: 120px;
       margin-top: 120px;
+
       @media screen and (max-width: 516px) {
         padding-left: 30px;
       }
+
       span {
         text-align: left;
         color: rgba(254, 254, 254, 0.2);
         font-family: 'RedHatDisplay-Bold';
         font-weight: 700;
       }
+
       .imgdiv {
         display: grid;
         grid-template-columns: repeat(2, 125px);
         align-items: center;
         grid-gap: 20px 45px;
+
         @media screen and (max-width: 516px) {
           grid-template-columns: repeat(2, 100px);
         }
+
         img {
           object-fit: contain;
           display: grid;
@@ -271,7 +280,7 @@
 
   ///Compomnent2
   .Component2 {
-     margin-top: -2px;
+    margin-top: -2px;
     padding: 150px 0px 40px 0px;
     background: #000;
     display: grid;
@@ -280,6 +289,7 @@
     align-items: center;
     justify-content: center;
     font-family: 'RedHatDisplay-SemiBold';
+
     @media screen and (max-width: 1300px) {
       grid-template-columns: repeat(2, 282px);
     }
@@ -323,126 +333,82 @@
   }
 
   .Component3 {
-     margin-top: -2px;
-    padding: 100px 120px;
+    margin-top: -2px;
+    padding: 0px 150px;
     background-image: url('https://i.ibb.co/8gNW8n5/galaxy-2.png');
     background-color: #000;
     background-position: center 90%;
     background-repeat: no-repeat;
     background-size: contain;
-
-    @media screen and (max-width: 1137px) {
-      background-size: 150%;
-    }
-
-    @media screen and (max-width: 780px) {
-      background-size: 180%;
-    }
-
-    @media screen and (max-width: 655px) {
-      background-size: 200%;
-    }
-
-    @media screen and (max-width: 450px) {
-      background-size: 300%;
-    }
-
+    color: #fff;
     height: 890px;
     width: 100%;
-    color: #fff;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    @media screen and (max-width: 900px) {
-      flex-direction: column;
-      align-items: center;
+    justify-content: flex-start;
+    align-items: center;
+    @media screen and (max-width: 732px) {
+      padding: 0px 0px;
       justify-content: center;
+      height: 590px;
+
     }
 
-    aside:first-child {
-      display: grid;
-      grid-template-columns: repeat(1, auto);
-      grid-gap: 10px 0px;
+    aside {
+      display: flex;
+      flex-direction: column;
 
-      span:first-child {
-        font-style: normal;
+      span {
+        font-family: "RedHatDisplay-Bold";
+        font-size: 15px;
         font-weight: 700;
-        font-size: 14px;
+        line-height: 23px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #5E5E5E;
         text-transform: uppercase;
-        color: #5e5e5e;
-        font-family: 'RedHatDisplay-Bold';
+        margin-bottom:-5px ;
       }
 
-      span:last-child {
-        font-family: 'RedHatDisplay-Black';
-        font-style: normal;
+      ul {
+        display: flex;
+        flex-direction: column;
+        line-height: 50px;
+        font-family: "Inter-Black";
+        font-size: 13px;
         font-weight: 900;
-        font-size: clamp(30px, 3.33vw, 48px);
-        line-height: 64px;
         letter-spacing: 0.5px;
-        color: #ffffff;
-
-        @media screen and (max-width: 900px) {
-          line-height: 50px;
+        @media screen and (max-width: 732px) {
+          font-size: 10px;
+          line-height: 40px;
+          font-family: "Inter-Regular";
         }
 
-        @media screen and (max-width: 470px) {
-          font-size: 18px;
-          line-height: 30px;
-          white-space: nowrap;
-        }
       }
+
     }
 
-    aside:last-child {
-      display: grid;
-      grid-template-columns: repeat(1, auto);
-      grid-gap: 90px 0px;
 
-      @media screen and (max-width: 900px) {
-        margin-top: 50px;
-      }
-
-      figure {
-        display: grid;
-        grid-template-columns: repeat(1, auto);
-        grid-gap: 10px 0px;
-
-        span:first-child {
-          font-style: normal;
-          font-weight: 900;
-          font-size: clamp(30px, 3.33vw, 48px);
-          letter-spacing: 0.5px;
-          font-family: 'RedHatDisplay-Black';
-        }
-
-        span:last-child {
-          font-style: normal;
-          font-weight: 400;
-          font-size: 14px;
-          color: #5e5e5e;
-          font-family: 'RedHatDisplay-SemiBold';
-        }
-      }
-    }
   }
 
   .Component4 {
     margin-top: -2px;
     background: #000;
     color: #fff;
+
     figure:first-child {
       display: flex;
-      padding-bottom: 130px; 
+      padding-bottom: 130px;
+
       @media screen and (max-width: 1110px) {
         padding-top: 200px;
-        padding-bottom: 730px; 
+        padding-bottom: 730px;
       }
+
       @media screen and (max-width: 1000px) {
         padding-top: 200px;
-        padding-bottom: 830px; 
+        padding-bottom: 830px;
       }
+
       .planet3 {
         // border: 1px solid yellow;
         margin-top: -200px;
@@ -453,19 +419,24 @@
         background-size: cover;
         height: 1134px;
         width: 100%;
+
         @media screen and (max-width: 505px) {
           background-position: bottom 10vw center;
         }
+
         @media screen and (max-width: 1110px) {
           height: 400px;
         }
+
         @media screen and (min-width: 1540px) {
           background-size: 90%;
           background-position: right 40vw center;
         }
+
         @media screen and (min-width: 1640px) {
           background-size: 80%;
         }
+
         .lt1 {
           background: transparent;
           background-image: url('/image/lt1.png');
@@ -481,10 +452,12 @@
           @media screen and (min-width: 1640px) {
             left: 40%;
           }
+
           @media screen and (max-width: 1110px) {
             top: 0%;
             height: 400px;
           }
+
           @media screen and (max-width: 505px) {
             width: 280px;
             top: 50%;
@@ -503,22 +476,23 @@
       position: absolute;
       left: 10%;
       top: 55%;
+
       @media screen and (max-width: 1110px) {
-       flex-direction: column;
-       align-items: center;
-       justify-content: center;
-       position: initial;
-       margin-top: 350px;
-
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: initial;
+        margin-top: 350px;
       }
-
 
       @media screen and (min-width: 1540px) {
         left: 8%;
       }
+
       @media screen and (min-width: 1640px) {
         left: 12%;
       }
+
       aside {
         display: grid;
         grid-template-columns: repeat(1, auto);
@@ -526,6 +500,7 @@
         justify-content: center;
         width: clamp(400px, 49.44vw, 856px);
         margin-right: 20px;
+
         @media screen and (max-width: 600px) {
           width: 80%;
         }
@@ -547,6 +522,7 @@
           letter-spacing: 0.5px;
           color: rgba(255, 255, 255, 0.4);
           margin-top: 15px;
+
           @media screen and (max-width: 600px) {
             font-size: 15px;
           }
@@ -569,8 +545,9 @@
 
       .lt2 {
         @media screen and (max-width: 1110px) {
-        margin-top: 40px;  
-         }
+          margin-top: 40px;
+        }
+
         background: transparent;
         background-image: url('/image/lt2.png');
         background-position: center;
@@ -580,10 +557,12 @@
         width: 384px;
         border-radius: 12px;
         z-index: 10;
+
         @media screen and (max-width: 1000px) {
           order: -1;
           margin-bottom: 50px;
         }
+
         @media screen and (max-width: 600px) {
           width: 280px;
         }
