@@ -50,28 +50,27 @@
   }
   .orderbook-pro-vers {
     right: 0%;
-    top: 45%;
-    transform: translate(0%, -45%);
+    top: 35%;
+    transform: translate(0%, -35%);
     z-index: 100 !important;
     @include displayflex($ai: center, $jc: center);
     padding: 0px clamp(30px, 8.6111vw, 124px) 0px clamp(30px, 5.7638vw, 83px);
     @media screen and (max-width: 900px) {
       flex-direction: column;
       right: 0%;
-      top: 25%;
-      transform: translate(0%, -25%);
+      top: 19%;
+      transform: translate(0%, -19%);
     }
     .order-img {
+      background: linear-gradient(129.06deg, #252525 9.44%, #171717 105.84%);
       @include size(
-        $w: clamp(150px, 23.3333vw, 336px),
+        $w: clamp(150px, 23.3333vw, 336px), 
         $h: clamp(190px, 29.7916vw, 429px)
       );
-      background-image: url('/image/orderbook.jpg');
-      background-color: #000000;
+      background-image: url('/image/orderbook.png');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      z-index: 1000 !important;
       border-radius: 12px;
       @media screen and (max-width: 900px) {
         right: 100%;
