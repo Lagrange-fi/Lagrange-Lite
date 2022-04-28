@@ -64,7 +64,7 @@
     .order-img {
       background: linear-gradient(129.06deg, #252525 9.44%, #171717 105.84%);
       @include size(
-        $w: clamp(150px, 23.3333vw, 336px), 
+        $w: clamp(150px, 23.3333vw, 336px),
         $h: clamp(190px, 29.7916vw, 429px)
       );
       background-image: url('/image/orderbook.png');
@@ -163,7 +163,7 @@
   @media screen and (max-width: 360px) {
     height: 1450px;
   }
- 
+
   .joinfast-and-sosialm {
     @include mp($m: clamp(50px, 16.0416vw, 231px) 0 0 0);
     width: 100%;
@@ -214,7 +214,7 @@
         align-self: flex-end;
       }
       .twitter-follow {
-        figure{
+        figure {
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -256,7 +256,7 @@
           font-size: clamp(28px, 3.1944vw, 30px);
           background: #ffffff;
           padding: 8px;
-          color:#000000;
+          color: #000000;
           border-radius: 4px;
         }
         .fa-arrow-up-right-from-square {
@@ -264,7 +264,7 @@
         }
       }
       .discord-follow {
-        figure{
+        figure {
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -307,16 +307,15 @@
           font-size: clamp(28px, 3.1944vw, 30px);
           background: #ffffff;
           padding: 8px;
-          color:#000000;
+          color: #000000;
           border-radius: 4px;
         }
         .fa-arrow-up-right-from-square {
           opacity: 0.5;
-          
         }
       }
       .medium-follow {
-        figure{
+        figure {
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -359,7 +358,7 @@
           font-size: clamp(28px, 3.1944vw, 30px);
           background: #ffffff;
           padding: 8px;
-          color:#000000;
+          color: #000000;
           border-radius: 4px;
         }
         .fa-arrow-up-right-from-square {

@@ -4,7 +4,7 @@
 
 import Link from 'next/link'
 
-const Component1 = () => {
+const Component1 = () => { 
   return (
     <>
       <div className="Component1">
@@ -23,15 +23,16 @@ const Component1 = () => {
             24/7 FX market
           </span>
           <div className="buttondiv">
-            <button>
-              <Link href="/swap">
-                <a>Lite version</a>
-              </Link>
-              <i
-                className="fa-solid fa-arrow-right"
-                style={{ marginLeft: '10px' }}
-              ></i>
-            </button>
+          <Link href="/swap"><a>
+              <button>
+                Lite version
+                <i
+                  className="fa-solid fa-arrow-right"
+                  style={{ marginLeft: '10px' }}
+                ></i>
+              </button>
+            </a></Link>
+
             <button>
               Pro version
               <span

@@ -94,8 +94,6 @@
       background-size: clamp(900px, 76.38vw, 1100px);
       width: clamp(300px, 43.26vw, 623px);
       height: 623px;
-      z-index: 100;
-
       @media screen and (max-width: 1080px) {
         background-size: 650px;
         width: 350px;
@@ -239,7 +237,8 @@
           border-radius: 4px;
         }
 
-        button:last-child {}
+        button:last-child {
+        }
       }
     }
 
@@ -350,7 +349,6 @@
       padding: 0px 0px;
       justify-content: center;
       height: 590px;
-
     }
 
     aside {
@@ -358,36 +356,32 @@
       flex-direction: column;
 
       span {
-        font-family: "RedHatDisplay-Bold";
+        font-family: 'RedHatDisplay-Bold';
         font-size: 15px;
         font-weight: 700;
         line-height: 23px;
         letter-spacing: 0px;
         text-align: left;
-        color: #5E5E5E;
+        color: #5e5e5e;
         text-transform: uppercase;
-        margin-bottom:-5px ;
+        margin-bottom: -5px;
       }
 
       ul {
         display: flex;
         flex-direction: column;
         line-height: 50px;
-        font-family: "Inter-Black";
+        font-family: 'Inter-Black';
         font-size: 13px;
         font-weight: 900;
         letter-spacing: 0.5px;
         @media screen and (max-width: 732px) {
           font-size: 10px;
           line-height: 40px;
-          font-family: "Inter-Regular";
+          font-family: 'Inter-Regular';
         }
-
       }
-
     }
-
-
   }
 
   .Component4 {
