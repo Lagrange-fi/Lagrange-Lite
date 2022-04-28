@@ -152,17 +152,18 @@
     margin-top: -200px;
   }
   @media screen and (max-width: 650px) {
-    height: 900px;
+    height: 1150px;
   }
-  @media screen and (max-width: 440px) {
-    height: 1000px;
+  @media screen and (max-width: 484px) {
+    height: 1180px;
   }
-  @media screen and (max-width: 400px) {
-    height: 1170px;
+  @media screen and (max-width: 403px) {
+    height: 1400px;
   }
-  @media screen and (max-width: 350px) {
-    height: 1200px;
+  @media screen and (max-width: 360px) {
+    height: 1450px;
   }
+ 
   .joinfast-and-sosialm {
     @include mp($m: clamp(50px, 16.0416vw, 231px) 0 0 0);
     width: 100%;
@@ -180,6 +181,7 @@
       width: clamp(200px, 24.7916vw, 357px);
       @media screen and (max-width: 650px) {
         width: clamp(250px, 76.923vw, 500px);
+        margin-top: 200px;
       }
       .mini-connect-title {
         text-transform: uppercase;
@@ -193,10 +195,11 @@
         );
       }
       .join-main {
+        white-space: nowrap;
         @include font(
           $fm: 'Inter-Black',
           $fw: 900,
-          $fs: clamp(30px, 3.3333vw, 48px),
+          $fs: clamp(25px, 3.3333vw, 48px),
           $c: #ffffff,
           $ta: left,
           $ls: 0.5px

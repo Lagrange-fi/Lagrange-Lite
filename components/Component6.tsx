@@ -7,7 +7,9 @@ const Component6 = () => {
       <div className="joinfast-and-sosialm">
         <div className="join-fast">
           <p className="mini-connect-title">Connect with us on social media</p>
-          <p className="join-main">Join our fast growing community</p>
+          <p className="join-main">
+            Join <br /> our fast growing <br /> community
+          </p>
         </div>
         <div className="sosial-media-part">
           <div className="twitter-follow">

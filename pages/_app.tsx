@@ -126,7 +126,7 @@ const PageTitle = () => {
 
   return (
     <Head>
-      <title>{marketTitleString}Lagrange</title>
+      <title>Lagrange - Home</title>
     </Head>
   )
 }

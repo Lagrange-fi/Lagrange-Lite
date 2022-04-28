@@ -355,7 +355,7 @@ const Pools = (props) => {
   return (
     <>
       <Head>
-        <title>Lagrange.fi</title>
+        <title>Lagrange - Pools</title>
         {/* <meta name="viewport" content="initial-scale=1.0, width=device-width" />*/}
         <meta
           name="viewport"

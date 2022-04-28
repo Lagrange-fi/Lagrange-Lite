@@ -19,7 +19,7 @@ const Index: NextPage = (props) => {
   return (
     <>
       <Head>
-        <title>Lagrange.fi - Homepage</title>
+        <title>Lagrange - Home</title>
         {/* <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="viewport"
@@ -40,7 +40,7 @@ const Index: NextPage = (props) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Picth video
+                Pitch Video
               </a>
             </div>
           </figure>

@@ -46,7 +46,7 @@ const SwapMango: NextPage = (props) => {
   return (
     <>
       <Head>
-        <title>Lagrange.fi - Swap</title>
+        <title>Lagrange - Swap</title>
         {/*  <meta name="viewport" content="initial-scale=1.0, width=device-width" />*/}
         <meta
           name="viewport"

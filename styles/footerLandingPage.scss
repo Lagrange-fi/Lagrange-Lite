@@ -36,7 +36,7 @@
       @include font(
         $fm: 'RedHatDisplay-Regular',
         $fw: 400,
-        $fs: clamp(12px, 1.0416vw, 15px),
+        $fs: clamp(10px, 1.0416vw, 15px),
         $c: #ffffff,
         $ta: center
       );
