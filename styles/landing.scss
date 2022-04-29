@@ -94,6 +94,7 @@
       background-size: clamp(900px, 76.38vw, 1100px);
       width: clamp(300px, 43.26vw, 623px);
       height: 623px;
+
       @media screen and (max-width: 1080px) {
         background-size: 650px;
         width: 350px;
@@ -237,8 +238,7 @@
           border-radius: 4px;
         }
 
-        button:last-child {
-        }
+        button:last-child {}
       }
     }
 
@@ -333,7 +333,6 @@
 
   .Component3 {
     margin-top: -2px;
-    padding: 0px 150px;
     background-image: url('https://i.ibb.co/8gNW8n5/galaxy-2.png');
     background-color: #000;
     background-position: center 90%;
@@ -343,45 +342,101 @@
     height: 890px;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    @media screen and (max-width: 732px) {
+
+    @media screen and (max-width: 630px) {
       padding: 0px 0px;
       justify-content: center;
-      height: 590px;
+      height: 1150px;
     }
 
-    aside {
+    @media screen and (max-width: 425px) {
+      padding: 0px 0px;
+      justify-content: center;
+      height: 1950px;
+      background-position: center 90%;
+      background-size: 400%;
+    }
+
+    section {
       display: flex;
       flex-direction: column;
+    }
 
-      span {
-        font-family: 'RedHatDisplay-Bold';
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 23px;
-        letter-spacing: 0px;
-        text-align: left;
-        color: #5e5e5e;
-        text-transform: uppercase;
-        margin-bottom: -5px;
+    .title {
+      font-family: "Inter-Black";
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 23px;
+      letter-spacing: 0px;
+      text-align: left;
+      text-transform: uppercase;
+      margin-bottom: 60px;
+      @media screen and (max-width: 630px) {
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 0px;
+      }
+      @media screen and (max-width: 425px) {
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: -50px;
       }
 
-      ul {
+    }
+
+    ul {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      grid-gap: 25px;
+      grid-template-columns: repeat(6, 180px);
+      @media screen and (max-width: 1280px) {
+        margin: 100px 0px;
+        grid-template-columns: repeat(3, 180px);
+      }
+      @media screen and (max-width: 630px) {
+        grid-template-columns: repeat(2, 180px);
+      }
+      @media screen and (max-width: 425px) {
+        grid-template-columns: repeat(1, 180px);
+      }
+      
+
+      li {
         display: flex;
         flex-direction: column;
-        line-height: 50px;
-        font-family: 'Inter-Black';
-        font-size: 13px;
-        font-weight: 900;
-        letter-spacing: 0.5px;
-        @media screen and (max-width: 732px) {
-          font-size: 10px;
-          line-height: 40px;
-          font-family: 'Inter-Regular';
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 12px;
+        background: linear-gradient(129.06deg, rgba(37,37,37,0.5) 9.44%, rgba(23,23,23,0.5) 105.84%);
+        padding: 40px 0px;
+    
+      img{
+        width: 80px;
+        height: 80px;
+        margin-bottom: 30px;
+      }
+
+        span {
+          display: flex;
+          align-items: center;
+          height: 60px;
+          font-family: "Inter-Black";
+          font-size: 13px;
+          font-weight: 900;
+          line-height: 21px;
+          letter-spacing: 0.5px;
+          text-align: center;
+
         }
       }
+
+
     }
+
+
   }
 
   .Component4 {
@@ -541,6 +596,7 @@
         @media screen and (max-width: 1110px) {
           margin-top: 40px;
         }
+
         background: transparent;
         background-image: url('/image/lt2.png');
         background-position: center;

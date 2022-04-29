@@ -33,17 +33,7 @@ const Index: NextPage = (props) => {
             alt="logo==="
           />
 
-          <figure>
-            <div className="child2">
-              <a
-                href="https://www.youtube.com/watch?v=7Pa9LKa_IQM"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Pitch Video
-              </a>
-            </div>
-          </figure>
+          <figure></figure>
         </nav>
         <Component1 />
         <Component2 />

@@ -10,7 +10,6 @@ const Component5 = () => {
         <div className="lagrange-plnt"></div>
       </div>
       <div className="orderbook-pro-vers">
-        <div className="order-img"></div>
         <div className="pro-vers-text">
           <p className="pro-ver-title">Pro version</p>
           <p className="pro-ver-cont">

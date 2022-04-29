@@ -4,17 +4,18 @@ const Component3 = () => {
   return (
     <>
       <div className="Component3">
-        <aside>
-          <span>Why Lagrange?</span>
+        <section>
+          <div className="title">Why Lagrange?</div>
           <ul>
-            <li>1. Built for Forex traders.</li>
-            <li>2. Transparency, open standards, and interoperability.</li>
-            <li>3. Can be accessed anywhere.</li>
-            <li>4. Ability to earn yields by providing liquidity.</li>
-            <li>5. Access to new arbitrage opportunities</li>
-            <li>6. Minimal fees.</li>
+            <li>  <img src="/icons/icon6.png" /> <span>Built for <br />Forex traders</span> </li>
+            <li>  <img src="/icons/icon5.png" /> <span>Transparency, open standards, and interoperability.</span></li>
+            <li>   <img src="/icons/icon4.png" /> <span>Can be accessed anywhere</span> </li>
+            <li>  <img src="/icons/icon3.png" /> <span>Ability to earn yields <br />by providing liquidity</span> </li>
+            <li> <img src="/icons/icon2.png" />  <span>Access to new <br /> arbitrage opportunities</span> </li>
+            <li>  <img src="/icons/icon1.png" /> <span>Minimal fees</span> </li>
+
           </ul>
-        </aside>
+        </section>
       </div>
     </>
   )

@@ -217,7 +217,7 @@
         figure {
           display: flex;
           flex-direction: row;
-          align-items: center;
+          align-items: center; 
         }
         @include mp(
           $p: clamp(20px, 2.7777vw, 40px) clamp(20px, 3.3333vw, 48px)
@@ -256,7 +256,7 @@
           font-size: clamp(28px, 3.1944vw, 30px);
           background: #ffffff;
           padding: 8px;
-          color: #000000;
+          color: #454545;
           border-radius: 4px;
         }
         .fa-arrow-up-right-from-square {
@@ -307,7 +307,7 @@
           font-size: clamp(28px, 3.1944vw, 30px);
           background: #ffffff;
           padding: 8px;
-          color: #000000;
+          color: #454545;
           border-radius: 4px;
         }
         .fa-arrow-up-right-from-square {
@@ -358,7 +358,7 @@
           font-size: clamp(28px, 3.1944vw, 30px);
           background: #ffffff;
           padding: 8px;
-          color: #000000;
+          color: #454545;
           border-radius: 4px;
         }
         .fa-arrow-up-right-from-square {
