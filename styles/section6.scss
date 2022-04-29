@@ -217,7 +217,7 @@
         figure {
           display: flex;
           flex-direction: row;
-          align-items: center; 
+          align-items: center;
         }
         @include mp(
           $p: clamp(20px, 2.7777vw, 40px) clamp(20px, 3.3333vw, 48px)

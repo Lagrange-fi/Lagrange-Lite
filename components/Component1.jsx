@@ -4,15 +4,13 @@
 
 import Link from 'next/link'
 
-const Component1 = () => { 
+const Component1 = () => {
   return (
     <>
       <div className="Component1">
         <aside>
           <div className="planet"></div>
-          <div className="galaxy">
-            <div className="planet1"></div>
-          </div>
+          <div className="planet1"></div>          
         </aside>
         <aside>
           <span className="span1">
@@ -23,15 +21,17 @@ const Component1 = () => {
             24/7 FX market
           </span>
           <div className="buttondiv">
-          <Link href="/swap"><a>
-              <button>
-                Lite version
-                <i
-                  className="fa-solid fa-arrow-right"
-                  style={{ marginLeft: '10px' }}
-                ></i>
-              </button>
-            </a></Link>
+            <Link href="/swap">
+              <a>
+                <button>
+                  Lite version 
+                  <i
+                    className="fa-solid fa-arrow-right"
+                    style={{ marginLeft: '10px' }}
+                  ></i>
+                </button>
+              </a>
+            </Link>
 
             <button>
               Pro version
