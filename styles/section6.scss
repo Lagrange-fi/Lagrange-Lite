@@ -92,6 +92,7 @@
       );
       @include displayflex($fd: column, $ai: flex-end, $jc: center);
       .pro-ver-title {
+        margin-bottom: 16px;
         @include font(
           $fm: 'Inter-Black',
           $fw: 900,
