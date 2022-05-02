@@ -10,7 +10,7 @@ const Component1 = () => {
       <div className="Component1">
         <aside>
           <div className="planet"></div>
-          <div className="planet1"></div>          
+          <div className="planet1"></div>
         </aside>
         <aside>
           <span className="span1">
@@ -24,7 +24,7 @@ const Component1 = () => {
             <Link href="/swap">
               <a>
                 <button>
-                  Lite version 
+                  Lite version
                   <i
                     className="fa-solid fa-arrow-right"
                     style={{ marginLeft: '10px' }}

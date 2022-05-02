@@ -93,10 +93,9 @@
       background-position: 50% 70%;
     }
 
-
-  //  aside{
-  //    padding-top: 50px;
-  //  }
+    //  aside{
+    //    padding-top: 50px;
+    //  }
 
     aside:first-child {
       position: absolute;
@@ -127,8 +126,8 @@
       background-position: 100% 70%;
       background-repeat: no-repeat;
       background-size: cover;
-      width: clamp(60px,17.96vw, 270px);
-      height:  clamp(60px,17.96vw, 270px);
+      width: clamp(60px, 17.96vw, 270px);
+      height: clamp(60px, 17.96vw, 270px);
       top: 35%;
       right: 3%;
       @media screen and (max-width: 640px) {
@@ -136,7 +135,6 @@
         right: 16%;
       }
     }
-
 
     aside:last-child {
       display: flex;
@@ -215,7 +213,8 @@
           border-radius: 4px;
         }
 
-        button:last-child {}
+        button:last-child {
+        }
       }
     }
 
@@ -324,7 +323,6 @@
     @media screen and (max-width: 630px) {
       padding: 0px 0px;
       justify-content: center;
-
     }
 
     @media screen and (max-width: 425px) {
@@ -341,7 +339,6 @@
       flex-direction: column;
       @media screen and (max-width: 630px) {
         padding: 40px 0px;
-  
       }
     }
 
@@ -394,11 +391,13 @@
         align-items: center;
         justify-content: space-between;
         border-radius: 12px;
-        background: linear-gradient(129.06deg,
-            rgba(37, 37, 37, 0.5) 9.44%,
-            rgba(23, 23, 23, 0.5) 105.84%);
+        background: linear-gradient(
+          129.06deg,
+          rgba(37, 37, 37, 0.5) 9.44%,
+          rgba(23, 23, 23, 0.5) 105.84%
+        );
         padding: 40px 0px;
-         mix-blend-mode:lighten;
+        mix-blend-mode: lighten;
 
         img {
           width: 80px;
@@ -435,7 +434,6 @@
       @media screen and (max-width: 1000px) {
         padding-bottom: 830px;
       }
-    
 
       .planet3 {
         // border: 1px solid yellow;
@@ -470,7 +468,7 @@
 
         .lt1 {
           background: transparent;
-          background-image: url('/image/lt1.png');
+          background-image: url('/image/chart1.png');
           background-position: center;
           background-repeat: no-repeat;
           background-size: 100%;
