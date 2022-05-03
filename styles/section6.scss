@@ -127,6 +127,9 @@
         @include mp($m: clamp(20px, 2.5vw, 36px) 0 0 0);
         background: #fe9093;
         border-radius: 4px;
+        &:hover{
+          cursor: initial!important;
+        }
       }
     }
   }
