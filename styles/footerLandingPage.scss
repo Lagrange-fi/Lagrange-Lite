@@ -1,5 +1,6 @@
 @import './formul.scss';
 .FooterLanding {
+  cursor: context-menu!important;
   margin-top: clamp(100px, 11.8055vw, 170px);
   width: 100%;
   .hr {

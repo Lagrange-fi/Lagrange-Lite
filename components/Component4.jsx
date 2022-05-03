@@ -14,13 +14,13 @@ const Component4 = () => {
                   A simple GUI for swaps between cash-backed stablecoins at the
                   lowest fees possible, with yields for Liquidity providers.
                 </span>
-                <button>
+                <div className="button">
                   Explore
                   <i
                     className="fa-solid fa-arrow-right"
                     style={{ marginLeft: '10px' }}
                   ></i>
-                </button>
+                </div>
               </aside>
               <div className="lt2"></div>
             </div>

@@ -46,11 +46,6 @@
         grid-template-columns: repeat(2, auto);
         grid-gap: 0px 10px;
         align-items: center;
-
-        &:hover {
-          cursor: pointer;
-        }
-
         @media screen and (max-width: 660px) {
           grid-gap: 0px 7px;
         }
@@ -260,6 +255,7 @@
 
   ///Compomnent2
   .Component2 {
+    cursor: context-menu!important;
     padding: 50px 0px 10px 0px;
     background: #000;
     display: grid;
@@ -312,6 +308,7 @@
   }
 
   .Component3 {
+    cursor: context-menu!important;
     // position: relative;
     background-image: url('https://i.ibb.co/8gNW8n5/galaxy-2.png');
     background-color: #000;
@@ -426,6 +423,7 @@
   }
 
   .Component4 {
+    cursor: context-menu!important;
     background: #000;
     color: #fff;
     figure:first-child {
@@ -562,7 +560,7 @@
           }
         }
 
-        button {
+        .button {
           background: #fe9093;
           border-radius: 4px;
           height: 52px;
@@ -574,9 +572,6 @@
           display: flex; 
           align-items: center;
           justify-content: center;
-          &:hover{
-            cursor: initial!important;
-          }
         }
       }
 

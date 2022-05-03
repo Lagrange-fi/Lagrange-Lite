@@ -18,9 +18,9 @@ const Component5 = () => {
             tokenised currencies/FX assets in an instant and transparent way on
             the Solana blockchain with a custom FIX protocol.
           </p>
-          <button className="pro-ver-button">
+          <div className="pro-ver-button">
             SOON &nbsp; <i className="fa-solid fa-arrow-right"></i>
-          </button>
+          </div>
         </div>
       </div>
     </div>

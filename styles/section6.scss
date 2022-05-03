@@ -1,6 +1,7 @@
 @import './formul.scss';
 
 .Section5 {
+  cursor: context-menu!important;
   margin-top: -2px;
   color: #ffffff;
   background: #000000;
@@ -114,6 +115,9 @@
         );
       }
       .pro-ver-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include size(
           $w: clamp(120px, 13.4027vw, 193px),
           $h: clamp(35px, 3.6111vw, 52px)
@@ -127,9 +131,6 @@
         @include mp($m: clamp(20px, 2.5vw, 36px) 0 0 0);
         background: #fe9093;
         border-radius: 4px;
-        &:hover{
-          cursor: initial!important;
-        }
       }
     }
   }
@@ -138,6 +139,7 @@
 // -----------------------------Component6-----------------------------
 
 .Component6 {
+  cursor: context-menu!important;
   margin-top: -220px;
   color: #ffffff;
   background: #000000;
