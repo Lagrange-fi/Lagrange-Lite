@@ -70,7 +70,7 @@
     background: #000;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; 
+    align-items: flex-start;
     color: #fff;
     background-image: url('https://i.ibb.co/N2GvpPR/galaxy.png');
     background-position: 100% 100%;
@@ -208,7 +208,7 @@
           background: #fe9093;
           border-radius: 4px;
           z-index: 10;
-          &:hover{
+          &:hover {
             cursor: pointer;
           }
         }
@@ -255,7 +255,7 @@
 
   ///Compomnent2
   .Component2 {
-    cursor: context-menu!important;
+    // cursor: default;
     padding: 50px 0px 10px 0px;
     background: #000;
     display: grid;
@@ -297,6 +297,7 @@
       .span1 {
         font-size: 22px;
         color: #fff;
+        
       }
 
       .span2 {
@@ -308,7 +309,7 @@
   }
 
   .Component3 {
-    cursor: context-menu!important;
+    // cursor: default;
     // position: relative;
     background-image: url('https://i.ibb.co/8gNW8n5/galaxy-2.png');
     background-color: #000;
@@ -423,7 +424,7 @@
   }
 
   .Component4 {
-    cursor: context-menu!important;
+    // cursor: default;
     background: #000;
     color: #fff;
     figure:first-child {
@@ -569,7 +570,7 @@
           font-weight: 700;
           font-size: 16px;
           margin-top: 30px;
-          display: flex; 
+          display: flex;
           align-items: center;
           justify-content: center;
         }
