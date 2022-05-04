@@ -33,7 +33,12 @@ const Index: NextPage = (props) => {
             alt="logo==="
           />
 
-          <figure></figure>
+          <figure>
+            {' '}
+            <a href="https://docs.lagrange.fi" target="_blank" rel="noreferrer">
+              Docs
+            </a>
+          </figure>
         </nav>
         <Component1 />
         <Component2 />
