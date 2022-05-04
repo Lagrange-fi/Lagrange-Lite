@@ -1,5 +1,6 @@
 //@typescript-eslint/no-unused-vars
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import Link from 'next/link'
 const Component4 = () => {
   return (
     <>
@@ -15,11 +16,15 @@ const Component4 = () => {
                   lowest fees possible, with yields for Liquidity providers.
                 </span>
                 <div className="button">
-                  Explore
-                  <i
-                    className="fa-solid fa-arrow-right"
-                    style={{ marginLeft: '10px' }}
-                  ></i>
+                  <Link href="/swap">
+                    <a>
+                      Explore
+                      <i
+                        className="fa-solid fa-arrow-right"
+                        style={{ marginLeft: '10px' }}
+                      ></i>
+                    </a>
+                  </Link>
                 </div>
               </aside>
               <div className="lt2"></div>
