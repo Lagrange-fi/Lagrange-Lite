@@ -5,6 +5,7 @@ import { ThemeProvider } from 'next-themes'
 import '../node_modules/react-grid-layout/css/styles.css'
 import '../node_modules/react-resizable/css/styles.css'
 import 'intro.js/introjs.css'
+import '../styles/index.css'
 import useWallet from '../hooks/useWallet'
 import useHydrateStore from '../hooks/useHydrateStore'
 import Notifications from '../components/Notification'
@@ -36,6 +37,10 @@ import '../styles/pool.scss'
 import '../styles/swap.scss'
 import '../styles/topbar.scss'
 import '../styles/overview.scss'
+import '../styles/landing.scss'
+import '../styles/section6.scss'
+import '../styles/footerLandingPage.scss'
+import '../styles/settingsmodal.scss'
 
 const MangoStoreUpdater = () => {
   useHydrateStore()
@@ -121,7 +126,7 @@ const PageTitle = () => {
 
   return (
     <Head>
-      <title>{marketTitleString}Lagrange</title>
+      <title>Lagrange - Home</title>
     </Head>
   )
 }
@@ -151,7 +156,8 @@ function App({ Component, pageProps }) {
           sizes="192x192"
           href="/apple-touch-icon.png"
         />
-
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -160,12 +166,17 @@ function App({ Component, pageProps }) {
           name="twitter:description"
           content="Lagrange offers a fully decentralized 24/7 FX market that does not require any broker or settlement periods."
         />
+
         <meta
           name="twitter:image"
-          content="https://www.mango.markets/socials/twitter-image-1200x600.png?34567878"
+          content="https://i.ibb.co/YtTr6zg/Lagrange-logo-dark.png"
         />
+        {/* <meta
+          name="twitter:image"
+          content="https://www.mango.markets/socials/twitter-image-1200x600.png?34567878"
+        /> */}
         <meta name="google" content="notranslate" />
-        <link rel="manifest" href="/manifest.json"></link>
+        {/* <link rel="manifest" href="/manifest.json"></link> */}
       </Head>
       <ErrorBoundary>
         <ErrorBoundary>

@@ -1,9 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;700;900&display=swap');
 @import './formul.scss';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@font-face {
+  font-family: 'Inter-Bold';
+  src: local('Inter-Bold'), url(../InterFonts/Inter-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter-Black';
+  src: local('Inter-Black'),
+    url(../InterFonts/Inter-Black.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter-Regular';
+  src: local('Inter-Regular'),
+    url(../InterFonts/Inter-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'RedHatDisplay-Bold';
+  src: local('RedHatDisplay-Bold'),
+    url(../RedHatFonts/RedHatDisplay-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'RedHatDisplay-Regular';
+  src: local('RedHatDisplay-Regular'),
+    url(../RedHatFonts/RedHatDisplay-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'RedHatDisplay-Black';
+  src: local('RedHatDisplay-Black'),
+    url(../RedHatFonts/RedHatDisplay-Black.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'RedHatDisplay-SemiBold';
+  src: local('RedHatDisplay-SemiBold'),
+    url(../RedHatFonts/RedHatDisplay-SemiBold.ttf) format('truetype');
+}
 
 * {
   padding: 0px;
@@ -27,23 +67,40 @@
   }
 }
 
+[data-theme='Dark'] {
+  body {
+    background: #393939;
+    color: #fff;
+  }
+}
+
 body {
-  background: #393939;
+  background: #fff;
+  color: #000;
   mix-blend-mode: normal;
-  font-family: Roboto;
-  color: #fff;
+  font-family: 'Roboto';
 }
 
 input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+[data-theme='Dark'] {
+  input::placeholder {
+    color: #fff;
+  }
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #000;
+  }
+}
+
 input::placeholder {
-  color: #fff;
+  color: #000;
 }
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #fff;
+  color: #000;
 }
 
 .fsa {
@@ -52,10 +109,10 @@ input::placeholder {
 }
 
 .red {
-  color: #f70a0a;
+  color: #ff3b3b;
 }
 .green {
-  color: #31e918;
+  color: #4aaf05;
 }
 
 // ::-webkit-scrollbar {
@@ -79,7 +136,12 @@ input::placeholder {
 .Footer {
   height: 40px;
   margin-bottom: 20px;
-  // @media screen and (min-width:  1850px) {
+  margin-top: clamp(20px, 6.94vw, 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // @media screen and (min-height:  1400px) {
+  //   border:1px solid red;
   //   position: absolute;
   //   width: 100%;
   //   margin-bottom: 0px;
@@ -87,4 +149,16 @@ input::placeholder {
   //   right: 50%;
   //   transform: translate(50%, -50%);
   // }
+}
+
+[data-theme='Dark'] {
+  .line1 {
+    background: #444444;
+  }
+}
+.line1 {
+  background: #ededed;
+  width: 100%;
+  height: 1px;
+  margin-top: 25px;
 }

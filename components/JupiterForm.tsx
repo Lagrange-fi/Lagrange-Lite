@@ -379,28 +379,17 @@ const JupiterForm: FunctionComponent = () => {
 
   return (
     <div className="Swap">
-      <div className="title">Swap</div>
       <div className="contents">
         <div className="swapcontent">
           <div className="paydiv">
             <label htmlFor="inputMint">Pay</label>
-            <label htmlFor="amount">Bal {inputWalletBalance()}</label>
+            <label htmlFor="amount">
+              <span style={{ fontWeight: '400' }}>Balance</span>{' '}
+              {inputWalletBalance()}
+            </label>
           </div>
 
           <figure>
-            <button onClick={() => setShowInputTokenSelect(true)}>
-              {inputTokenInfo?.logoURI ? (
-                <img
-                  src={inputTokenInfo?.logoURI}
-                  alt={inputTokenInfo?.symbol}
-                />
-              ) : null}
-
-              <span>{inputTokenInfo?.symbol}</span>
-
-              <ChevronDownIcon className="icon" />
-            </button>
-
             <input
               name="amount"
               id="amount"
@@ -418,33 +407,37 @@ const JupiterForm: FunctionComponent = () => {
                 }))
               }}
             />
+
+            <button onClick={() => setShowInputTokenSelect(true)}>
+              {inputTokenInfo?.logoURI ? (
+                <img
+                  src={inputTokenInfo?.logoURI}
+                  alt={inputTokenInfo?.symbol}
+                />
+              ) : null}
+
+              <span>{inputTokenInfo?.symbol}</span>
+
+              <ChevronDownIcon className="icon" />
+            </button>
           </figure>
 
           <div className="switchdiv">
+            <div className="line"></div>
             <button onClick={handleSwitchMints}>
-              <SwitchVerticalIcon className="icon" />
+              <i className="fa-solid fa-repeat icon"></i>
             </button>
           </div>
 
           <div className="paydiv">
             <label htmlFor="outputMint">Receive</label>
-            <label htmlFor="amount">Bal {outputWalletBalance()}</label>
+            <label htmlFor="amount">
+              <span style={{ fontWeight: '400' }}>Balance</span>{' '}
+              {outputWalletBalance()}
+            </label>
           </div>
 
           <figure>
-            <button onClick={() => setShowOutputTokenSelect(true)}>
-              {outputTokenInfo?.logoURI ? (
-                <img
-                  src={outputTokenInfo?.logoURI}
-                  alt={outputTokenInfo?.symbol}
-                />
-              ) : null}
-
-              <span> {outputTokenInfo?.symbol} </span>
-
-              <ChevronDownIcon className="icon" />
-            </button>
-
             <input
               name="amount"
               id="amount"
@@ -462,16 +455,26 @@ const JupiterForm: FunctionComponent = () => {
                   : ''
               }
             />
+
+            <button onClick={() => setShowOutputTokenSelect(true)}>
+              {outputTokenInfo?.logoURI ? (
+                <img
+                  src={outputTokenInfo?.logoURI}
+                  alt={outputTokenInfo?.symbol}
+                />
+              ) : null}
+
+              <span> {outputTokenInfo?.symbol} </span>
+
+              <ChevronDownIcon className="icon" />
+            </button>
           </figure>
 
           {selectedRoute?.outAmount &&
           formValue.amount &&
           // @ts-ignore
           tokenPrices?.outputTokenPrice ? (
-            <div
-              className="absolute right-0 mt-1  text-th-fgd-3"
-              style={{ fontSize: '18px', margin: '10px 10px 0px 0px' }}
-            >
+            <div className="absolute left-0 mt-1  info info1">
               ≈ $
               {(
                 (selectedRoute?.outAmount /
@@ -483,14 +486,11 @@ const JupiterForm: FunctionComponent = () => {
           ) : null}
 
           {routes?.length && selectedRoute ? (
-            <div
-              className="text-th-fgd-3"
-              style={{ fontSize: '18px', marginTop: '55px' }}
-            >
-              <div className="px-3 space-y-2">
-                <div className="flex justify-between">
-                  <span>price-impact</span>
-                  <div className="text-right text-th-fgd-1">
+            <div className="info info2">
+              <div>
+                <div className="flex">
+                  <span style={{ marginRight: '5px' }}>price-impact: </span>
+                  <div className="text-left">
                     {selectedRoute?.priceImpactPct * 100 < 0.1
                       ? '< 0.1%'
                       : `~ ${(selectedRoute?.priceImpactPct * 100).toFixed(
@@ -498,8 +498,10 @@ const JupiterForm: FunctionComponent = () => {
                         )}%`}
                   </div>
                 </div>
-                <div className="flex justify-between">
-                  <span>{t('swap:minimum-received')}</span>
+                <div className="flex">
+                  <span style={{ marginRight: '5px' }}>
+                    swap:minimum-received:{' '}
+                  </span>
                   <div className="text-right text-th-fgd-1">
                     {numberFormatter.format(
                       selectedRoute?.outAmountWithSlippage /
@@ -510,8 +512,8 @@ const JupiterForm: FunctionComponent = () => {
                   </div>
                 </div>
                 {!isNaN(feeValue) ? (
-                  <div className="flex justify-between">
-                    <span>swap-fee</span>
+                  <div className="flex">
+                    <span style={{ marginRight: '5px' }}>swap-fee: </span>
                     <div className="flex items-center">
                       <div className="text-right text-th-fgd-1">
                         ≈ ${feeValue?.toFixed(2)}
@@ -551,11 +553,12 @@ const JupiterForm: FunctionComponent = () => {
                       (item) => item?.address === info.lpFee?.mint
                     )
                     return (
-                      <div className="flex justify-between" key={index}>
-                        <span>
-                          {/* {t('swap:fees-paid-to', {
-                                    feeRecipient: info.marketMeta?.amm?.label,
-                                  })}*/}
+                      <div className="flex" key={index}>
+                        <span style={{ marginRight: '5px' }}>
+                          {t('swap:fees-paid-to:', {
+                            feeRecipient: info.marketMeta?.amm?.label,
+                          })}
+                          :
                         </span>
                         <div className="text-right text-th-fgd-1">
                           {(
@@ -659,6 +662,9 @@ const JupiterForm: FunctionComponent = () => {
                 ) : null}
               </div>
             </div>
+          ) : null}
+          {routes?.length && selectedRoute ? (
+            <div className="line1"> </div>
           ) : null}
           {error && (
             <div className="flex items-center justify-center mt-2 text-th-red">
