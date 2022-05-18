@@ -85,11 +85,11 @@ const SwapTokenInfo: FunctionComponent<SwapTokenInfoProps> = ({
       today.getFullYear() +
       '-0' +
       (today.getMonth() + 1) +
-      '-0' +
+      '-' +
       today.getDate()
     console.log('2022-05-18')
     console.log(
-      `${today.getFullYear()}-0${today.getMonth() + 1}-0${today.getDate()}`
+      `${today.getFullYear()}-0${today.getMonth() + 1}-${today.getDate()}`
     )
     // setNative("2022-04-18");
     setNative(date)
