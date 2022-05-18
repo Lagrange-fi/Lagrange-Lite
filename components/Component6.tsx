@@ -1,4 +1,6 @@
-//@typescript-eslint/no-unused-vars
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import FooterLandingPage from './FooterLandingPage'
 
 const Component6 = () => {
@@ -72,8 +74,35 @@ const Component6 = () => {
           Subscribe now to keep up to date with Lagrange
         </p>
         <div className="input-i">
-          <input placeholder="Your email" />
-          <i className="fa-solid fa-arrow-right"></i>
+          <form
+            action="https://lagrange.us14.list-manage.com/subscribe/post?u=df9fd8062576294096e26a2e9&amp;id=5b02ca931a"
+            method="post"
+            name="mc-embedded-subscribe-form"
+            target="_blank"
+            className="form-action"
+          >
+            <input
+              placeholder="Your email"
+              type="text"
+              name="EMAIL"
+              className="required email"
+              id="mce-EMAIL"
+            />
+            <div
+              style={{ position: 'absolute', left: '-5000px' }}
+              aria-hidden="true"
+            >
+              <input
+                type="text"
+                name="b_df9fd8062576294096e26a2e9_5b02ca931a"
+                tabIndex="-1"
+                defaultValue=""
+              />
+            </div>
+            <button type="submit" name="subscribe" defaultValue="Subscribe">
+              <i className="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
         </div>
       </div>
       <FooterLandingPage />
