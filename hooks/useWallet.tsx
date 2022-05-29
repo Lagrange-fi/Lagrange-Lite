@@ -45,6 +45,7 @@ export default function useWallet() {
         ) as WalletAdapter
         setMangoStore((state) => {
           state.wallet.current = wallet
+          // state.wallet.current = wallet
         })
       }
 
@@ -90,7 +91,12 @@ export default function useWallet() {
         state.wallet.connected = false
         state.mangoAccounts = []
         state.selectedMangoAccount.current = null
-        state.tradeHistory = { spot: [], perp: [] }
+        state.tradeHistory = {
+          spot: [],
+          perp: [],
+          initialLoad: false,
+          parsed: [],
+        }
       })
       notify({
         type: 'info',

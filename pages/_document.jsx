@@ -16,7 +16,7 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
             referrerPolicy="no-referrer"
           />
-          {/*  <script src="/datafeeds/udf/dist/bundle.js" />*/}
+          <script src="/datafeeds/udf/dist/bundle.js" />
         </Head>
         <body>
           <Main />

@@ -18,6 +18,7 @@ import { PerpMarket } from '@blockworks-foundation/mango-client'
 import BN from 'bn.js'
 import { useViewport } from '../hooks/useViewport'
 import { useTranslation } from 'next-i18next'
+import SwitchMarketDropdown from './SwitchMarketDropdown'
 
 export function calculateFundingRate(perpStats, perpMarket) {
   const oldestStat = perpStats[perpStats.length - 1]
@@ -62,7 +63,6 @@ const MarketDetails = () => {
   const isPerpMarket = marketConfig.kind === 'perp'
 
   const previousMarketName: string = usePrevious(selectedMarketName)
-  const connected = useMangoStore((s) => s.wallet.connected)
   const { width } = useViewport()
   const isMobile = width ? width < 800 : false
 
@@ -176,7 +176,9 @@ const MarketDetails = () => {
     >
       <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="hidden md:block md:pb-4 md:pr-6 lg:pb-0">
-          <div className="flex items-center"></div>
+          <div className="flex items-center">
+            <SwitchMarketDropdown />
+          </div>
         </div>
         <div className="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-3 lg:grid-cols-none lg:grid-flow-col lg:grid-rows-1 lg:gap-6">
           <div className="flex items-center justify-between md:block">

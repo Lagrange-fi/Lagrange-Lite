@@ -20,7 +20,7 @@ import {
   marketsSelector,
 } from '../stores/selectors'
 
-function decodeBook(market, accInfo: AccountInfo<Buffer>): number[][] {
+export function decodeBook(market, accInfo: AccountInfo<Buffer>): number[][] {
   if (market && accInfo?.data) {
     const depth = 40
     if (market instanceof Market) {
@@ -51,6 +51,7 @@ const useHydrateStore = () => {
   // Fetches mango group as soon as page loads
   useEffect(() => {
     actions.fetchMangoGroup()
+    actions.fetchMarketsInfo()
   }, [actions])
 
   useInterval(() => {

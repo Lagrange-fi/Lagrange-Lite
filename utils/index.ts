@@ -6,6 +6,8 @@ import { PublicKey } from '@solana/web3.js'
 import BN from 'bn.js'
 import { Orderbook } from '../stores/useMangoStore'
 import { MarketKind } from '@blockworks-foundation/mango-client'
+import { TRIGGER_ORDER_TYPES } from '../components/trade_form/AdvancedTradeForm'
+import BigNumber from 'bignumber.js'
 
 export async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -102,26 +104,26 @@ export function isDefined<T>(argument: T | undefined): argument is T {
   return argument !== undefined
 }
 
-// export function calculateTradePrice(
-//   kind: MarketKind,
-//   tradeType: string,
-//   orderBook: Orderbook,
-//   baseSize: number,
-//   side: 'buy' | 'sell',
-//   price: string | number,
-//   triggerPrice?: string | number
-// ): number {
-//   if (tradeType === 'Market' && kind === 'spot') {
-//     return calculateMarketPrice(orderBook, baseSize, side)
-//   } else if (TRIGGER_ORDER_TYPES.includes(tradeType)) {
-//     if (tradeType === 'Take Profit Limit' || tradeType === 'Stop Limit') {
-//       return Number(price)
-//     } else {
-//       return Number(triggerPrice)
-//     }
-//   }
-//   return Number(price)
-// }
+export function calculateTradePrice(
+  kind: MarketKind,
+  tradeType: string,
+  orderBook: Orderbook,
+  baseSize: number,
+  side: 'buy' | 'sell',
+  price: string | number,
+  triggerPrice?: string | number
+): number {
+  if (tradeType === 'Market' && kind === 'spot') {
+    return calculateMarketPrice(orderBook, baseSize, side)
+  } else if (TRIGGER_ORDER_TYPES.includes(tradeType)) {
+    if (tradeType === 'Take Profit Limit' || tradeType === 'Stop Limit') {
+      return Number(price)
+    } else {
+      return Number(triggerPrice)
+    }
+  }
+  return Number(price)
+}
 
 export const calculateMarketPrice = (
   orderBook: Orderbook,
@@ -322,4 +324,8 @@ export function patchInternalMarketName(marketName: string) {
     marketName = marketName.replace('/USDC', '-SPOT')
   }
   return marketName
+}
+
+export function roundPerpSize(size: number, symbol: string) {
+  return new BigNumber(size).abs().toFormat(perpContractPrecision[symbol])
 }
