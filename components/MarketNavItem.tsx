@@ -26,7 +26,7 @@ const MarketNavItem: FunctionComponent<MarketNavItemProps> = ({
 
   const selectMarket = (market) => {
     buttonRef?.current?.click()
-    router.push(`/?name=${market.name}`, undefined, { shallow: true })
+    router.push(`/pro/trade?name=${market.name}`, undefined, { shallow: true })
     if (onClick) {
       onClick()
     }

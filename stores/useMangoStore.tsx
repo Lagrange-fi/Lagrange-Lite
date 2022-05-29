@@ -29,7 +29,7 @@ import { AccountInfo, Commitment, Connection, PublicKey } from '@solana/web3.js'
 import { EndpointInfo } from '../@types/types'
 import { isDefined, zipDict } from '../utils'
 import { Notification, notify } from '../utils/notifications'
-import { LAST_ACCOUNT_KEY } from '../components/AccountsModal'
+// import { LAST_ACCOUNT_KEY } from '../components/AccountsModal'
 import {
   DEFAULT_MARKET_KEY,
   initialMarket,
@@ -40,6 +40,17 @@ import { getProfilePicture, ProfilePicture } from '@solflare-wallet/pfp'
 import { decodeBook } from '../hooks/useHydrateStore'
 import { IOrderLineAdapter } from '../public/charting_library/charting_library'
 import { Wallet } from '@solana/wallet-adapter-react'
+import { WalletAdapter } from '../@types/types'
+
+export const INITIAL_STATE = {
+  WALLET: {
+    providerUrl: null,
+    connected: false,
+    current: null,
+    tokens: [],
+    pfp: null,
+  },
+}
 
 export const ENDPOINTS: EndpointInfo[] = [
   {
@@ -192,8 +203,11 @@ export type MangoStore = {
     triggerCondition: 'above' | 'below'
   }
   wallet: {
-    tokens: WalletToken[] | any[]
-    pfp: ProfilePicture | undefined
+    providerUrl: string
+    connected: boolean
+    current: WalletAdapter | undefined
+    tokens: WalletToken[]
+    pfp: ProfilePicture
   }
   settings: {
     uiLocked: boolean
@@ -206,7 +220,7 @@ export type MangoStore = {
   }
   set: (x: (x: MangoStore) => void) => void
   actions: {
-    fetchAllMangoAccounts: (wallet: Wallet) => Promise<void>
+    fetchAllMangoAccounts: () => Promise<void>
     fetchMangoGroup: () => Promise<void>
     [key: string]: (args?) => void
   }
@@ -321,10 +335,7 @@ const useMangoStore = create<
         triggerPrice: '',
         triggerCondition: 'above',
       },
-      wallet: {
-        tokens: [],
-        pfp: undefined,
-      },
+      wallet: INITIAL_STATE.WALLET,
       settings: {
         uiLocked: true,
       },
@@ -406,29 +417,30 @@ const useMangoStore = create<
             console.log('Could not get profile picture', e)
           }
         },
-        async fetchAllMangoAccounts(wallet) {
+        async fetchAllMangoAccounts() {
           const set = get().set
           const mangoGroup = get().selectedMangoGroup.current
           const mangoClient = get().connection.client
+          const wallet = get().wallet.current
           const actions = get().actions
-
-          if (!wallet?.adapter?.publicKey || !mangoGroup) return
 
           const delegateFilter = [
             {
               memcmp: {
                 offset: MangoAccountLayout.offsetOf('delegate'),
-                bytes: wallet.adapter.publicKey?.toBase58(),
+                bytes: wallet?.publicKey.toBase58(),
               },
             },
           ]
           const accountSorter = (a, b) =>
             a.publicKey.toBase58() > b.publicKey.toBase58() ? 1 : -1
 
+          if (!wallet?.publicKey || !mangoGroup) return
+
           return Promise.all([
             mangoClient.getMangoAccountsForOwner(
               mangoGroup,
-              wallet.adapter.publicKey,
+              wallet?.publicKey,
               true
             ),
             mangoClient.getAllMangoAccounts(mangoGroup, delegateFilter, false),
@@ -445,7 +457,7 @@ const useMangoStore = create<
                   state.selectedMangoAccount.initialLoad = false
                   state.mangoAccounts = sortedAccounts
                   if (!state.selectedMangoAccount.current) {
-                    const lastAccount = localStorage.getItem(LAST_ACCOUNT_KEY)
+                    const lastAccount = localStorage.getItem('s')
                     let currentAcct = sortedAccounts[0]
                     if (lastAccount) {
                       currentAcct =
@@ -466,7 +478,7 @@ const useMangoStore = create<
             })
             .catch((err) => {
               if (mangoAccountRetryAttempt < 2) {
-                actions.fetchAllMangoAccounts(wallet)
+                actions.fetchAllMangoAccounts()
                 mangoAccountRetryAttempt++
               } else {
                 notify({

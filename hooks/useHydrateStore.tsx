@@ -51,6 +51,7 @@ const useHydrateStore = () => {
   // Fetches mango group as soon as page loads
   useEffect(() => {
     actions.fetchMangoGroup()
+    actions.fetchMarketsInfo()
   }, [actions])
 
   useInterval(() => {

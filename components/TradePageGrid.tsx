@@ -123,6 +123,9 @@ const TradePageGrid: React.FC = () => {
 
   return !isMobile ? (
     <>
+      <div className="pt-2">
+        <MarketDetails />
+      </div>
       <div className="responsive-design-grid-layout">
         <div className="one-line">
           <div key="tvChart">
