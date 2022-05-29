@@ -15,13 +15,13 @@ const SwitchMarketDropdown = () => {
 
   const marketsInfo = useMangoStore((s) => s.marketsInfo)
 
-  const perpMarketsInfo = useMemo(
-    () =>
-      marketsInfo
-        .filter((mkt) => mkt?.name.includes('PERP'))
-        .sort((a, b) => b.volumeUsd24h - a.volumeUsd24h),
-    [marketsInfo]
-  )
+  // const perpMarketsInfo = useMemo(
+  //   () =>
+  //     marketsInfo
+  //       .filter((mkt) => mkt?.name.includes('PERP'))
+  //       .sort((a, b) => b.volumeUsd24h - a.volumeUsd24h),
+  //   [marketsInfo]
+  // )
 
   const spotMarketsInfo = useMemo(
     () =>
@@ -36,6 +36,7 @@ const SwitchMarketDropdown = () => {
   const buttonRef = useRef(null)
   const { t } = useTranslation('common')
   const filteredMarkets = marketsInfo
+    .filter((mkt) => mkt?.name.includes('USDC'))
     .filter((m) => m.name.toLowerCase().includes(searchString.toLowerCase()))
     .sort((a, b) => a.name.localeCompare(b.name))
 
@@ -132,20 +133,20 @@ const SwitchMarketDropdown = () => {
                 </div>
               ) : (
                 <div className="">
-                  <div className="flex justify-between py-1.5">
+                  {/* <div className="flex justify-between py-1.5">
                     <h4 className="text-xs font-normal">{t('futures')}</h4>
                     <p className="mb-0 hidden text-xs text-th-fgd-3 sm:block">
                       {t('favorite')}
                     </p>
-                  </div>
-                  {perpMarketsInfo.map((mkt) => (
+                  </div> */}
+                  {/* {perpMarketsInfo.map((mkt) => (
                     <MarketNavItem
                       buttonRef={buttonRef}
                       onClick={() => setSearchString('')}
                       market={mkt}
                       key={mkt.name}
                     />
-                  ))}
+                  ))} */}
                   <div className="flex justify-between py-1.5">
                     <h4 className="text-xs font-normal">{t('spot')}</h4>
                     <p className="mb-0 hidden text-xs text-th-fgd-3 sm:block">
