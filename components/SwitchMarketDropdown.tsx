@@ -1,4 +1,11 @@
-import { Fragment, useCallback, useMemo, useRef, useState } from 'react'
+import {
+  Fragment,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
@@ -6,6 +13,9 @@ import Input from './Input'
 import { useTranslation } from 'next-i18next'
 import MarketNavItem from './MarketNavItem'
 import useMangoStore from '../stores/useMangoStore'
+import Router from 'next/router'
+
+export const stableCoinsList = ['USDT']
 
 const SwitchMarketDropdown = () => {
   const groupConfig = useMangoStore((s) => s.selectedMangoGroup.config)
@@ -13,7 +23,23 @@ const SwitchMarketDropdown = () => {
   const baseSymbol = marketConfig.baseSymbol
   const isPerpMarket = marketConfig.kind === 'perp'
 
-  const marketsInfo = useMangoStore((s) => s.marketsInfo)
+  useEffect(() => {
+    if (isPerpMarket) {
+      Router.push('/pro/trade?name=USDT/USDC')
+    }
+  }, [])
+
+  const marketsInfo = useMangoStore((s) =>
+    s.marketsInfo.filter((mkt) => {
+      let result = false
+      stableCoinsList.map((coin) => {
+        if (mkt?.name.includes(coin)) {
+          result = true
+        }
+      })
+      return result
+    })
+  )
 
   // const perpMarketsInfo = useMemo(
   //   () =>
