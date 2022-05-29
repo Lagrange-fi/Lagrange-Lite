@@ -1,21 +1,35 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { Fragment, useCallback, useState } from 'react'
+import { useState } from 'react'
 import useMangoStore from '../stores/useMangoStore'
-import { Menu, Transition } from '@headlessui/react'
-import {
-  CurrencyDollarIcon,
-  DuplicateIcon,
-  LogoutIcon,
-} from '@heroicons/react/outline'
+import { Menu } from '@headlessui/react'
 import { PROVIDER_LOCAL_STORAGE_KEY } from '../hooks/useWallet'
 import useLocalStorageState from '../hooks/useLocalStorageState'
-import { abbreviateAddress, copyToClipboard } from '../utils'
-import WalletSelect from './WalletSelect'
-import { WalletIcon, ProfileIcon } from './icons'
 import { useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
 import { DEFAULT_PROVIDER, WALLET_PROVIDERS } from '../utils/wallet-adapters'
+import { WalletReadyState } from '@solana/wallet-adapter-base'
+import { Wallet } from '@solana/wallet-adapter-react'
+import { notify } from '../utils/notifications'
+
+export const handleWalletConnect = (wallet: Wallet) => {
+  if (!wallet) {
+    return
+  }
+  if (wallet.readyState === WalletReadyState.NotDetected) {
+    window.open(wallet.adapter.url, '_blank')
+  } else {
+    wallet?.adapter?.connect().catch((e) => {
+      if (e.name.includes('WalletLoadError')) {
+        notify({
+          title: `${wallet.adapter.name} Error`,
+          type: 'error',
+          description: `Please install ${wallet.adapter.name} and then reload this page.`,
+        })
+      }
+    })
+  }
+}
 
 const ConnectWalletButton = () => {
   const [toggle, setToggle] = useState(Boolean)
@@ -32,7 +46,6 @@ const ConnectWalletButton = () => {
   const pfp = useMangoStore((s) => s.wallet.pfp)
   const connected = useMangoStore((s) => s.wallet.connected)
   const set = useMangoStore((s) => s.set)
-  const [showAccountsModal, setShowAccountsModal] = useState(false)
   const [selectedWallet, setSelectedWallet] = useState(DEFAULT_PROVIDER.url)
   const [savedProviderUrl] = useLocalStorageState(
     PROVIDER_LOCAL_STORAGE_KEY,
@@ -56,10 +69,6 @@ const ConnectWalletButton = () => {
     wallet.disconnect()
     setToggle(false)
   }
-
-  const handleCloseAccounts = useCallback(() => {
-    setShowAccountsModal(false)
-  }, [])
 
   return (
     <>
