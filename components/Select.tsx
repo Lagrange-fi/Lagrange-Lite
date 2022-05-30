@@ -34,7 +34,7 @@ const Select = ({
             {open ? (
               <Listbox.Options
                 static
-                className={`absolute bg-[#EDEDED] left-0 max-h-60 mt-1 overflow-auto origin-top-left outline-none p-2 rounded-md thin-scroll w-full z-20`}
+                className={`option-panel absolute bg-[#EDEDED] left-0 max-h-60 mt-1 overflow-auto origin-top-left outline-none p-2 rounded-md thin-scroll w-full z-20`}
               >
                 {children}
               </Listbox.Options>

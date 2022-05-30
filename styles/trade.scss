@@ -43,7 +43,7 @@
   box-shadow: 0px 7px 14px rgb(0 0 0 / 8%);
   color: #ffffff;
   box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  border-radius: 10px;
   @include mp($m: 20px 0 0 0);
   // @include media($d: 930px, $w: clamp(280px, 75.2688vw, 700px));
 }
@@ -242,15 +242,7 @@
   .tradeform-title {
     @include size($w: 100%);
     @include mp($m: 4px 0 12px 0);
-    @include font(
-      $fm: 'Roboto',
-      $fw: 900,
-      $fs: 14px,
-      $c: #000000,
-      $ta: left,
-      $ls: 0.3px
-    );
-    // @include media($d: 1370px, $m: 4px 0 0 0);
+    @include font($fm: 'Roboto', $fw: 900, $fs: 14px, $ta: left, $ls: 0.3px);
   }
   .buy-sell-title {
     background: #ededed;
@@ -277,24 +269,17 @@
       );
       @include media($d: 930px, $m: -5px 0 0 0);
       &.buy {
-        color: #007C47;
+        color: #007c47;
       }
       &.sell {
-        color: #CF304A;
+        color: #cf304a;
       }
     }
   }
   .all-inputs-div {
     @include mp($m: clamp(10px, 1.3888vw, 20px) 0 0 0);
     .mini-labels {
-      @include font(
-        $fm: 'Roboto',
-        $fw: 500,
-        $fs: 12px,
-        $c: #000000,
-        $ta: left,
-        $ls: 0.3px
-      );
+      @include font($fm: 'Roboto', $fw: 500, $fs: 12px, $ta: left, $ls: 0.3px);
     }
     .select-option-border {
       padding-left: 8px;
@@ -304,7 +289,6 @@
           $fm: 'Roboto',
           $fw: 500,
           $fs: clamp(10px, 0.9722vw, 14px),
-          $c: #000000,
           $ta: left,
           $ls: 0.3px
         );
@@ -362,7 +346,6 @@
       $fm: 'Roboto',
       $fw: 400,
       $fs: clamp(10px, 0.8333vw, 12px),
-      $c: #000000,
       $ta: left,
       $ls: 0.3px
     );
@@ -463,19 +446,19 @@
 
 // ----------------Recent Market Trades Styles Start--------------------------
 .recent-market-trade-title {
-  @include mp($p: 20px 20px 12px);
+  @include mp($p: 20px 0 12px);
   @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $ta: left, $ls: 0.3px);
 }
 .recent-market-trade-numbers-title {
-  @include mp($p: 0 15px 0 20px);
+  @include mp($p: 0 1rem);
   @include font($fm: 'Roboto', $fw: 500, $c: #7d7c7c, $fs: 12px, $ls: 0.3px);
 }
 .recent-market-trade-amount {
-  @include mp($p: 0 15px 0 20px);
-  @include font($fm: 'Roboto', $fw: 500, $c: #000000, $fs: 14px, $ls: 0.3px);
+  @include mp($p: 0 1rem);
+  @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $ls: 0.3px);
 }
 .recent-market-trade-numbers {
-  @include mp($p: 0 10px 0 20px);
+  @include mp($p: 0 0.5rem 0 1rem);
   height: 66%;
   // @include media($d: 1400px, $h: 74%);
   // border: 1px solid red;
@@ -489,7 +472,7 @@
   );
 }
 .thin-numbers {
-  @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $c: #000000, $ls: 0.3px);
+  @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $ls: 0.3px);
 }
 .orther-price {
   @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $ls: 0.3px);
@@ -551,3 +534,63 @@
 }
 
 // -----------------Switch Market Dropdown Styles End--------------------
+
+[data-theme='Dark'] {
+  .chart1, .order-book-div, .trade-form-div, .recent-trade-div {
+    background-color: #2b2b2b;
+  }
+  .order-book-div {
+    .orderbook-header {
+      border-color: #393939;
+    }
+    .spread-section{
+      background-color: #393939;
+      border-color: transparent;
+    }
+  }
+  .trade-form-div {
+    .tradeform-header {
+      border-color: #393939;
+    }
+    .buy-sell-title {
+      background-color: #393939;
+      border-color: transparent;
+      .active-buy-sel-border {
+        &.buy-sell-buttons {
+          border: none;
+          background: transparent;
+        }
+      }
+      .buy-sell-buttons {
+        border-color: transparent;
+        background-color: #787878;
+      }
+    }
+    .select-option-border {
+      .option-panel {
+        background-color: #393939
+      }
+      .select-option-words {
+        &:hover {
+          background-color: #787878
+        }
+      }
+    }
+    .button-group {
+      &-container {
+        background-color: #393939;
+        .active {
+          background-color: #787878;
+        }
+      }
+    }
+  }
+  .recent-trade-div {
+    .recent-market-trade-header {
+      border-color: #393939;
+    }
+  }
+  .switch-dropdown-popup {
+    background-color: #393939;
+  }
+}

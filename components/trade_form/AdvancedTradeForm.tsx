@@ -784,7 +784,7 @@ export default function AdvancedTradeForm({
           {initLeverage}x
         </span>
         </ElementTitle>*/}
-      <div className="flex items-center justify-between mb-2.5 border-b">
+      <div className="tradeform-header flex items-center justify-between mb-2.5 border-b">
         <div className="tradeform-title">{marketConfig.name}</div>
       </div>
 
