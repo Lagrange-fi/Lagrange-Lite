@@ -90,9 +90,7 @@
 }
 
 .recent-trade-div {
-  @include size(
-    $h: clamp(300px, 33.84027vw, 300px)
-  );
+  @include size($h: clamp(300px, 33.84027vw, 300px));
   @include mp($m: 20px 0 0, $p: 0 0 20px 0);
   background: #fafafa;
   box-shadow: 0px 7px 14px rgb(0 0 0 / 8%);
@@ -104,7 +102,7 @@
 .three-line {
   @include displayflex($fd: row, $ai: center, $jc: center);
   @include media($d: 930px, $fd: column);
-  
+
   .balances-orders-fixed {
     @include size(
       $w: clamp(300px, 64.375vw, 927px),
@@ -197,25 +195,13 @@
 .orderbook-title {
   @include size($w: 100%);
   @include mp($m: 4px 0 12px 0);
-  @include font(
-    $fm: 'Roboto',
-    $fw: 900,
-    $fs: 14px,
-    $ta: left,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 900, $fs: 14px, $ta: left, $ls: 0.3px);
   // @include media($d: 1370px, $m: 4px 0 0 0);
 }
 .orderbook-coins-title {
   @include mp($m: 0 0 15px 0);
   @include displayflex($ai: center, $jc: space-between);
-  @include font(
-    $fm: 'Roboto',
-    $fw: 400,
-    $fs: 12px,
-    $c: #7d7c7c,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 400, $fs: 12px, $c: #7d7c7c, $ls: 0.3px);
   @include media($d: 1370px, $m: 4px 0 0 0);
 }
 .orderbook-numbers-general {
@@ -229,13 +215,7 @@
   }
 }
 .counts-simple {
-  @include font(
-    $fm: 'Roboto',
-    $fw: 500,
-    $fs: 14px,
-    $c: #000000,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $c: #000000, $ls: 0.3px);
   // margin-top: 6px;
   @include mp($m: 6px 0 0 0);
 }
@@ -243,25 +223,13 @@
   // height: clamp(15px, 1.4583vw, 21px);
   @include mp($m: 6px 0 0 0, $p: 0 10px 0 20px);
   background: rgba(25, 158, 54, 1);
-  @include font(
-    $fm: 'Roboto',
-    $fw: 400,
-    $fs: 14px,
-    $c: #ffffff,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 400, $fs: 14px, $c: #ffffff, $ls: 0.3px);
 }
 .counts-back-red {
   // height: clamp(15px, 1.4583vw, 21px);
   @include mp($m: 6px 0 0 0, $p: 0 20px 0 10px);
   background: rgba(158, 25, 25, 1);
-  @include font(
-    $fm: 'Roboto',
-    $fw: 400,
-    $fs: 14px,
-    $c: #ffffff,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 400, $fs: 14px, $c: #ffffff, $ls: 0.3px);
 }
 
 // -----------------------OrderBook Styles End------------------------
@@ -285,7 +253,7 @@
     // @include media($d: 1370px, $m: 4px 0 0 0);
   }
   .buy-sell-title {
-    background: #EDEDED;
+    background: #ededed;
     // @include mp($m: 9px 0 0 0);
     border-radius: 6px;
     .active-buy-sel-border {
@@ -294,10 +262,10 @@
         background: transparent;
       }
     }
-  
+
     .buy-sell-buttons {
-      background: #FFFFFF;
-      border: 1px solid #EDEDED;
+      background: #ffffff;
+      border: 1px solid #ededed;
       border-radius: 6px;
       @include font(
         $fm: 'Roboto',
@@ -309,10 +277,10 @@
       );
       @include media($d: 930px, $m: -5px 0 0 0);
       &.buy {
-        color: #06cb3d;
+        color: #007C47;
       }
       &.sell {
-        color: red;
+        color: #CF304A;
       }
     }
   }
@@ -496,33 +464,15 @@
 // ----------------Recent Market Trades Styles Start--------------------------
 .recent-market-trade-title {
   @include mp($p: 20px 20px 12px);
-  @include font(
-    $fm: 'Roboto',
-    $fw: 500,
-    $fs: 14px,
-    $ta: left,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $ta: left, $ls: 0.3px);
 }
 .recent-market-trade-numbers-title {
   @include mp($p: 0 15px 0 20px);
-  @include font(
-    $fm: 'Roboto',
-    $fw: 500,
-    $c: #7d7c7c,
-    $fs: 12px,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 500, $c: #7d7c7c, $fs: 12px, $ls: 0.3px);
 }
 .recent-market-trade-amount {
   @include mp($p: 0 15px 0 20px);
-  @include font(
-    $fm: 'Roboto',
-    $fw: 500,
-    $c: #000000,
-    $fs: 14px,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 500, $c: #000000, $fs: 14px, $ls: 0.3px);
 }
 .recent-market-trade-numbers {
   @include mp($p: 0 10px 0 20px);
@@ -539,21 +489,10 @@
   );
 }
 .thin-numbers {
-  @include font(
-    $fm: 'Roboto',
-    $fw: 500,
-    $fs: 14px,
-    $c: #000000,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $c: #000000, $ls: 0.3px);
 }
 .orther-price {
-  @include font(
-    $fm: 'Roboto',
-    $fw: 500,
-    $fs: 14px,
-    $ls: 0.3px
-  );
+  @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $ls: 0.3px);
 }
 .recent-market-trade-numbers::-webkit-scrollbar {
   width: 5px;
@@ -561,7 +500,7 @@
 }
 .recent-market-trade-numbers::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: #A4A4A4;
+  background-color: #a4a4a4;
 }
 .recent-market-trade-numbers::-webkit-scrollbar-track {
   background-color: inherit;
@@ -605,3 +544,10 @@
   height: 100%;
 }
 
+// -----------------Switch Market Dropdown Styles--------------------
+
+.thin-scroll {
+  box-shadow: 0px 7px 14px rgb(0 0 0 / 8%);
+}
+
+// -----------------Switch Market Dropdown Styles End--------------------
