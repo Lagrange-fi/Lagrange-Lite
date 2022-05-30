@@ -250,7 +250,7 @@ const MarketDetails = () => {
               </div>
             </>
           ) : null}
-          <div>
+          <div className="flex items-center justify-between md:block">
             <div className="text-left xl:text-center text-th-fgd-3 tiny-text pb-0.5">
               {t('daily-range')}
             </div>

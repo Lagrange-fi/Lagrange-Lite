@@ -21,7 +21,7 @@ const DayHighLow = ({ high, low, latest, isTableView }: DayHighLowProps) => {
         <div className={`pr-2 text-th-fgd-2 ${!isTableView && 'md:text-xs'}`}>
           {low ? formatUsdValue(low) : <MarketDataLoader />}
         </div>
-        <div className="h-1.5 flex rounded bg-th-bkg-3 w-16 sm:w-16">
+        <div className="day-high-low-range h-1.5 flex rounded bg-[#ededed] w-16 sm:w-16">
           <div
             style={{
               width: `${rangePercent}%`,
