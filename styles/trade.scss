@@ -370,7 +370,6 @@
       $ls: 0.3px
     );
     @include size(
-      $w: clamp(220px, 27.7777vw, 400px),
       $h: clamp(25px, 2.7083vw, 39px)
     );
   }
@@ -455,7 +454,7 @@
 }
 .recent-market-trade-amount {
   @include mp($p: 0 1rem);
-  @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $ls: 0.3px);
+  @include font($fm: 'Roboto', $fw: 500, $c: #000000, $fs: 14px, $ls: 0.3px);
 }
 .recent-market-trade-numbers {
   @include mp($p: 0 0.5rem 0 1rem);
@@ -472,7 +471,7 @@
   );
 }
 .thin-numbers {
-  @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $ls: 0.3px);
+  @include font($fm: 'Roboto', $fw: 500, $c: #000000, $fs: 14px, $ls: 0.3px);
 }
 .orther-price {
   @include font($fm: 'Roboto', $fw: 500, $fs: 14px, $ls: 0.3px);
@@ -536,14 +535,17 @@
 // -----------------Switch Market Dropdown Styles End--------------------
 
 [data-theme='Dark'] {
-  .chart1, .order-book-div, .trade-form-div, .recent-trade-div {
+  .chart1,
+  .order-book-div,
+  .trade-form-div,
+  .recent-trade-div {
     background-color: #2b2b2b;
   }
   .order-book-div {
     .orderbook-header {
       border-color: #393939;
     }
-    .spread-section{
+    .spread-section {
       background-color: #393939;
       border-color: transparent;
     }
@@ -568,11 +570,11 @@
     }
     .select-option-border {
       .option-panel {
-        background-color: #393939
+        background-color: #393939;
       }
       .select-option-words {
         &:hover {
-          background-color: #787878
+          background-color: #787878;
         }
       }
     }
@@ -589,8 +591,17 @@
     .recent-market-trade-header {
       border-color: #393939;
     }
+    .recent-market-trade-amount {
+      color: #ffffff;
+    }
+    .thin-numbers {
+      color: #ffffff;
+    }
   }
   .switch-dropdown-popup {
     background-color: #393939;
+  }
+  .day-high-low-range {
+    background-color: #787878;
   }
 }

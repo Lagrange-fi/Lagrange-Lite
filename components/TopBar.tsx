@@ -1,15 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import { useCallback, useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { abbreviateAddress } from '../utils/index'
-import useLocalStorageState from '../hooks/useLocalStorageState'
-import MenuItem from './MenuItem'
-import times from '../public/assets/icons/cancel.png'
-import useMangoStore from '../stores/useMangoStore'
 import ConnectWalletButton from './ConnectWalletButton'
-import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import Settings from './Settings'
 
@@ -20,19 +14,11 @@ const TopBar = () => {
   const [matches, setMatches] = useState(
     window.matchMedia('(max-width: 768px)').matches
   )
-  const { t } = useTranslation('common')
-  const mangoAccount = useMangoStore((s) => s.selectedMangoAccount.current)
-  const wallet = useMangoStore((s) => s.wallet.current)
-  const [showAccountsModal, setShowAccountsModal] = useState(false)
 
   useEffect(() => {
     window
       .matchMedia('(min-width: 768px)')
       .addEventListener('change', (e) => setMatches(e.matches))
-  }, [])
-
-  const handleCloseAccounts = useCallback(() => {
-    setShowAccountsModal(false)
   }, [])
 
   const burger = (e) => {
@@ -67,61 +53,70 @@ const TopBar = () => {
       <div className="topbar">
         <nav>
           <Link href="/">
-            <a>
+            <a className="flex items-center">
               <div className="img"></div>
+              {router.asPath.includes('/pro') && (
+                <div className="ml-2 mt-3 text-[30px] font-black text-[#FD9F81] leading-[26px]">
+                  PRO
+                </div>
+              )}
             </a>
           </Link>
-          <ul ref={burgerb}>
-            <li>
-              <img
-                src="/assets/icons/cancel.png"
-                className="fa-times"
-                alt=""
-                onClick={times}
-              />
-            </li>
-            <li className={router.asPath == '/swap' ? 'active' : ''}>
-              <Link href="/swap">
-                <a>
-                  Swap
-                  <div
-                    className={
-                      router.asPath == '/swap' ? 'activetop' : 'deactivetop'
-                    }
-                  ></div>
-                </a>
-              </Link>
-            </li>
-            <li className={router.asPath == '/overview' ? 'active' : ''}>
-              <Link href="/overview">
-                <a>
-                  Market Overview
-                  <div
-                    className={
-                      router.asPath == '/overview' ? 'activetop' : 'deactivetop'
-                    }
-                  ></div>
-                </a>
-              </Link>
-            </li>
-            <li className={router.asPath == '/pools' ? 'active' : ''}>
-              <Link href="/pools">
-                <a>
-                  Pools
-                  <div
-                    className={
-                      router.asPath == '/pools' ? 'activetop' : 'deactivetop'
-                    }
-                  ></div>
-                </a>
-              </Link>
-            </li>
-            {matches && (
+          {!router.asPath.includes('/pro') && (
+            <ul ref={burgerb}>
               <li>
-                <ConnectWalletButton />{' '}
+                <img
+                  src="/assets/icons/cancel.png"
+                  className="fa-times"
+                  alt=""
+                  onClick={times}
+                />
               </li>
-            )}
-          </ul>
+              <li className={router.asPath == '/swap' ? 'active' : ''}>
+                <Link href="/swap">
+                  <a>
+                    Swap
+                    <div
+                      className={
+                        router.asPath == '/swap' ? 'activetop' : 'deactivetop'
+                      }
+                    ></div>
+                  </a>
+                </Link>
+              </li>
+              <li className={router.asPath == '/overview' ? 'active' : ''}>
+                <Link href="/overview">
+                  <a>
+                    Market Overview
+                    <div
+                      className={
+                        router.asPath == '/overview'
+                          ? 'activetop'
+                          : 'deactivetop'
+                      }
+                    ></div>
+                  </a>
+                </Link>
+              </li>
+              <li className={router.asPath == '/pools' ? 'active' : ''}>
+                <Link href="/pools">
+                  <a>
+                    Pools
+                    <div
+                      className={
+                        router.asPath == '/pools' ? 'activetop' : 'deactivetop'
+                      }
+                    ></div>
+                  </a>
+                </Link>
+              </li>
+              {matches && (
+                <li>
+                  <ConnectWalletButton />{' '}
+                </li>
+              )}
+            </ul>
+          )}
 
           <div style={{ display: 'flex', alignItems: 'center' }}>
             {!matches && (
