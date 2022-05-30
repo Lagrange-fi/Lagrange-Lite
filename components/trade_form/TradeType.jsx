@@ -19,7 +19,7 @@ const TradeType = ({ value, onChange, offerTriggers = false }) => {
       onChange={onChange}
     >
       {TRADE_TYPES.map((type) => (
-        <Select.Option className="select-option-words" key={type} value={type}>
+        <Select.Option className="select-option-words pl-3 hover:bg-[#ffffff] py-1 rounded-md" key={type} value={type}>
           {t(type.replace(/\s+/g, '-').toLowerCase())}
         </Select.Option>
       ))}

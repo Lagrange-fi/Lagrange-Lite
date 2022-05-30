@@ -52,7 +52,9 @@ const SwitchMarketDropdown = () => {
   const spotMarketsInfo = useMemo(
     () =>
       marketsInfo
-        .filter((mkt) => mkt?.name.includes('USDC'))
+        .filter(
+          (mkt) => mkt?.name.includes('USDC') || mkt?.name.includes('USDT')
+        )
         .sort((a, b) => b.volumeUsd24h - a.volumeUsd24h),
     [marketsInfo]
   )

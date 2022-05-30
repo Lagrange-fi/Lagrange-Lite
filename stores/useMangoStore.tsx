@@ -988,6 +988,7 @@ const useMangoStore = create<
             `https://mango-all-markets-api.herokuapp.com/markets/`
           )
           const parsedMarketsInfo = await data.json()
+          console.log('========data===========', parsedMarketsInfo)
           set((state) => {
             state.marketsInfo = parsedMarketsInfo
           })

@@ -18,7 +18,6 @@ import { PerpTriggerOrder } from '../../@types/types'
 import { useTranslation } from 'next-i18next'
 import useLocalStorageState from '../../hooks/useLocalStorageState'
 import { useWallet, Wallet } from '@solana/wallet-adapter-react'
-
 export interface ChartContainerProps {
   symbol: ChartingLibraryWidgetOptions['symbol']
   interval: ChartingLibraryWidgetOptions['interval']
@@ -154,7 +153,7 @@ const TVChartContainer = () => {
       },
       overrides: {
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-        'paneProperties.background': '#1B1B1F',
+        'paneProperties.background': theme === 'Light' ? '#ffffff' : '#1B1B1F',
         // theme === 'Dark' ? '#1B1B1F' : theme === 'Light' ? '#fff' : '#1D1832',
         'mainSeriesProperties.candleStyle.barColorsOnPrevClose': true,
         'mainSeriesProperties.candleStyle.drawWick': true,
@@ -629,7 +628,7 @@ const TVChartContainer = () => {
     }
   }, [chartReady, openOrders, showOrderLines])
 
-  return <div id={defaultProps.containerId} className="tradingview-chart" />
+  return <div id={defaultProps.containerId} className="h-full" />
 }
 
 export default TVChartContainer

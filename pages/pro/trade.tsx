@@ -147,7 +147,7 @@ const PerpMarket: React.FC = () => {
         ) : null}
         <TopBar />
         <FavoritesShortcutBar />
-        <PageBodyWrapper className="p-1 sm:px-2 sm:py-1 md:px-2 md:py-1 xl:px-4">
+        <PageBodyWrapper className="px-8 py-1 md:px-8">
           <TradePageGrid />
         </PageBodyWrapper>
         {!alphaAccepted && (

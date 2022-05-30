@@ -36,93 +36,75 @@
 }
 
 // ---------------------General Divs Styles Start-----------------------
-.one-line {
-  @include displayflex($fd: row, $ai: center, $jc: center);
-  @include media($d: 930px, $fd: column);
-  .chart1 {
-    @include size(
-      $w: clamp(350px, 64.3055vw, 926px),
-      $h: clamp(380px, 36.0416vw, 519px)
-    );
-    top: 0;
-    left: 0;
-    background: rgba(27, 27, 31, 1);
-    color: #ffffff;
-    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    @include mp($m: 20px 0 0 0);
-    @include media($d: 930px, $w: clamp(280px, 75.2688vw, 700px));
-  }
-  .account-info {
-    @include size(
-      $w: clamp(300px, 31.25vw, 450px),
-      $h: clamp(380px, 36.0416vw, 519px)
-    );
-    background: #000000;
-    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    @include mp($m: 20px 0 0 15px, $p: 0);
-    @include media(
-      $d: 930px,
-      $m: 20px 10px 0 10px,
-      $w: clamp(280px, 48.387vw, 450px)
-    );
-  }
+.chart1 {
+  top: 0;
+  left: 0;
+  background: #fafafa;
+  box-shadow: 0px 7px 14px rgb(0 0 0 / 8%);
+  color: #ffffff;
+  box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  @include mp($m: 20px 0 0 0);
+  // @include media($d: 930px, $w: clamp(280px, 75.2688vw, 700px));
 }
-.two-line {
-  @include displayflex($fd: row, $ai: center, $jc: center);
-  @include media($d: 930px, $fd: column);
-  .order-book-div {
-    @include size(
-      $w: clamp(300px, 31.3888vw, 452px),
-      $h: clamp(385px, 29.8611vw, 430px)
-    );
-    @include mp($m: 20px 10px 0 10px, $p: 0px);
-    background: #000000;
-    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    // @include media($d: 1300px, $p: 0 0 405px 0);
-    @include media($d: 930px, $w: clamp(280px, 48.387vw, 450px));
-  }
-  .trade-form-div {
-    @include size(
-      $w: clamp(300px, 31.3888vw, 452px),
-      $h: clamp(380px, 29.8611vw, 430px)
-    );
-    @include mp($m: 20px 10px 0 10px, $p: 4px);
-    background: #000000;
-    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    @include media($d: 930px, $w: clamp(280px, 48.387vw, 450px));
-  }
-  .usdt-usdc-position-div {
-    @include size(
-      $w: clamp(300px, 31.3888vw, 452px),
-      $h: clamp(380px, 29.8611vw, 430px)
-    );
-    @include mp($m: 20px 10px 0 10px, $p: 0px);
-    background: #000000;
-    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    @include media($d: 930px, $w: clamp(280px, 48.387vw, 450px));
-  }
+.account-info {
+  @include size(
+    $w: clamp(300px, 31.25vw, 450px),
+    $h: clamp(380px, 36.0416vw, 519px)
+  );
+  background: #000000;
+  box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  @include mp($m: 20px 0 0 15px, $p: 0);
+  @include media(
+    $d: 930px,
+    $m: 20px 10px 0 10px,
+    $w: clamp(280px, 48.387vw, 450px)
+  );
+}
+.order-book-div {
+  @include mp($m: 20px 0 0, $p: 0px);
+  background: #fafafa;
+  box-shadow: 0px 7px 14px rgb(0 0 0 / 8%);
+  border-radius: 10px;
+  // @include media($d: 1300px, $p: 0 0 405px 0);
+  // @include media($d: 930px, $w: clamp(280px, 48.387vw, 450px));
+}
+.trade-form-div {
+  @include mp($m: 20px 0 0, $p: 0px);
+  background: #fafafa;
+  box-shadow: 0px 7px 14px rgb(0 0 0 / 8%);
+  border-radius: 10px;
+  // @include media($d: 930px, $w: clamp(280px, 48.387vw, 450px));
+}
+.usdt-usdc-position-div {
+  @include size(
+    $w: clamp(300px, 31.3888vw, 452px),
+    $h: clamp(380px, 29.8611vw, 430px)
+  );
+  @include mp($m: 20px 10px 0 10px, $p: 0px);
+  background: #000000;
+  box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  @include media($d: 930px, $w: clamp(280px, 48.387vw, 450px));
+}
+
+.recent-trade-div {
+  @include size(
+    $h: clamp(300px, 33.84027vw, 300px)
+  );
+  @include mp($m: 20px 0 0, $p: 0 0 20px 0);
+  background: #fafafa;
+  box-shadow: 0px 7px 14px rgb(0 0 0 / 8%);
+  border-radius: 10px;
+  // @include media($d: 1280px, $h: clamp(380px, 29.8611vw, 430px));
+  // @include media($d: 930px, $w: clamp(280px, 48.387vw, 450px));
 }
 
 .three-line {
   @include displayflex($fd: row, $ai: center, $jc: center);
   @include media($d: 930px, $fd: column);
-  .recent-trade-div {
-    @include size(
-      $w: clamp(300px, 31.3888vw, 452px),
-      $h: clamp(380px, 33.84027vw, 481px)
-    );
-    @include mp($m: 20px 10px 0 10px, $p: 0 0 20px 0);
-    background: #000000;
-    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    @include media($d: 1300px, $p: 0 0 15px 0);
-    @include media($d: 930px, $w: clamp(280px, 48.387vw, 450px));
-  }
+  
   .balances-orders-fixed {
     @include size(
       $w: clamp(300px, 64.375vw, 927px),
@@ -214,16 +196,15 @@
 
 .orderbook-title {
   @include size($w: 100%);
-  @include mp($m: 4px 0 20px 0);
+  @include mp($m: 4px 0 12px 0);
   @include font(
     $fm: 'Roboto',
-    $fw: 500,
-    $fs: clamp(18px, 2.4305vw, 35px),
-    $c: #ffffff,
+    $fw: 900,
+    $fs: 14px,
     $ta: left,
     $ls: 0.3px
   );
-  @include media($d: 1370px, $m: 4px 0 0 0);
+  // @include media($d: 1370px, $m: 4px 0 0 0);
 }
 .orderbook-coins-title {
   @include mp($m: 0 0 15px 0);
@@ -231,8 +212,8 @@
   @include font(
     $fm: 'Roboto',
     $fw: 400,
-    $fs: clamp(14px, 1.25vw, 18px),
-    $c: #ffffff,
+    $fs: 12px,
+    $c: #7d7c7c,
     $ls: 0.3px
   );
   @include media($d: 1370px, $m: 4px 0 0 0);
@@ -250,9 +231,9 @@
 .counts-simple {
   @include font(
     $fm: 'Roboto',
-    $fw: 400,
-    $fs: clamp(13px, 1.25vw, 18px) !important,
-    $c: #ffffff,
+    $fw: 500,
+    $fs: 14px,
+    $c: #000000,
     $ls: 0.3px
   );
   // margin-top: 6px;
@@ -265,7 +246,7 @@
   @include font(
     $fm: 'Roboto',
     $fw: 400,
-    $fs: clamp(13px, 1.25vw, 18px) !important,
+    $fs: 14px,
     $c: #ffffff,
     $ls: 0.3px
   );
@@ -277,7 +258,7 @@
   @include font(
     $fm: 'Roboto',
     $fw: 400,
-    $fs: clamp(13px, 1.25vw, 18px) !important,
+    $fs: 14px,
     $c: #ffffff,
     $ls: 0.3px
   );
@@ -288,36 +269,51 @@
 // -----------------------Trade Form Styles Start----------------------
 .tradeform-general {
   @include size($h: 100%);
-  @include mp($p: 4px 0 0 0);
+  @include mp($p: 0);
   @include media($d: 768px, $p: 10px 10px);
   .tradeform-title {
+    @include size($w: 100%);
+    @include mp($m: 4px 0 12px 0);
     @include font(
       $fm: 'Roboto',
-      $fw: 500,
-      $fs: clamp(18px, 2.4305vw, 35px),
-      $c: #ffffff,
+      $fw: 900,
+      $fs: 14px,
+      $c: #000000,
       $ta: left,
       $ls: 0.3px
     );
+    // @include media($d: 1370px, $m: 4px 0 0 0);
   }
   .buy-sell-title {
+    background: #EDEDED;
     // @include mp($m: 9px 0 0 0);
-    border-bottom: 1px solid rgba(90, 90, 90, 1);
+    border-radius: 6px;
     .active-buy-sel-border {
-      border-bottom: 2px solid #06cb3d !important;
-      border-radius: 0px;
+      &.buy-sell-buttons {
+        border: none;
+        background: transparent;
+      }
     }
+  
     .buy-sell-buttons {
-      border: 0px solid #000000;
+      background: #FFFFFF;
+      border: 1px solid #EDEDED;
+      border-radius: 6px;
       @include font(
         $fm: 'Roboto',
         $fw: 500,
-        $fs: clamp(16px, 1.1361vw, 25px),
-        $c: #ffffff,
+        $fs: 14px,
+        $c: white,
         $ta: left,
         $ls: 0.3px
       );
       @include media($d: 930px, $m: -5px 0 0 0);
+      &.buy {
+        color: #06cb3d;
+      }
+      &.sell {
+        color: red;
+      }
     }
   }
   .all-inputs-div {
@@ -326,27 +322,21 @@
       @include font(
         $fm: 'Roboto',
         $fw: 500,
-        $fs: clamp(12px, 0.9722vw, 14px),
-        $c: #ffffff,
+        $fs: 12px,
+        $c: #000000,
         $ta: left,
         $ls: 0.3px
       );
     }
     .select-option-border {
-      border: 1px solid #ffffff;
-      border-radius: 4px;
       padding-left: 8px;
-      @include size(
-        $w: clamp(130px, 13.6111vw, 196px),
-        $h: clamp(35px, 3.3333vw, 48px)
-      );
       @include media($d: 930px, $w: 100%, $h: 30px);
       .select-option-words {
         @include font(
           $fm: 'Roboto',
           $fw: 500,
           $fs: clamp(10px, 0.9722vw, 14px),
-          $c: #ffffff,
+          $c: #000000,
           $ta: left,
           $ls: 0.3px
         );
@@ -404,7 +394,7 @@
       $fm: 'Roboto',
       $fw: 400,
       $fs: clamp(10px, 0.8333vw, 12px),
-      $c: #ffffff,
+      $c: #000000,
       $ta: left,
       $ls: 0.3px
     );
@@ -505,12 +495,11 @@
 
 // ----------------Recent Market Trades Styles Start--------------------------
 .recent-market-trade-title {
-  @include mp($p: 20px);
+  @include mp($p: 20px 20px 12px);
   @include font(
     $fm: 'Roboto',
     $fw: 500,
-    $fs: clamp(18px, 2.4305vw, 35px),
-    $c: #ffffff,
+    $fs: 14px,
     $ta: left,
     $ls: 0.3px
   );
@@ -519,21 +508,31 @@
   @include mp($p: 0 15px 0 20px);
   @include font(
     $fm: 'Roboto',
-    $fw: 400,
-    $fs: clamp(14px, 1.25vw, 18px),
-    $c: #ffffff,
+    $fw: 500,
+    $c: #7d7c7c,
+    $fs: 12px,
+    $ls: 0.3px
+  );
+}
+.recent-market-trade-amount {
+  @include mp($p: 0 15px 0 20px);
+  @include font(
+    $fm: 'Roboto',
+    $fw: 500,
+    $c: #000000,
+    $fs: 14px,
     $ls: 0.3px
   );
 }
 .recent-market-trade-numbers {
   @include mp($p: 0 10px 0 20px);
-  height: 74%;
+  height: 66%;
   // @include media($d: 1400px, $h: 74%);
   // border: 1px solid red;
   overflow-y: scroll;
   @include font(
     $fm: 'Roboto',
-    $fw: 400,
+    $fw: 500,
     $fs: clamp(14px, 1.25vw, 18px),
     $c: #ffffff,
     $ls: 0.3px
@@ -542,28 +541,27 @@
 .thin-numbers {
   @include font(
     $fm: 'Roboto',
-    $fw: 300,
-    $fs: clamp(14px, 1.25vw, 18px),
-    $c: rgba(255, 255, 255, 0.6),
+    $fw: 500,
+    $fs: 14px,
+    $c: #000000,
     $ls: 0.3px
   );
 }
-.green-number {
+.orther-price {
   @include font(
     $fm: 'Roboto',
-    $fw: 400,
-    $fs: clamp(14px, 1.25vw, 18px),
-    $c: rgba(30, 172, 52, 1),
+    $fw: 500,
+    $fs: 14px,
     $ls: 0.3px
   );
 }
 .recent-market-trade-numbers::-webkit-scrollbar {
   width: 5px;
-  background-color: #000000;
+  background-color: transparent;
 }
 .recent-market-trade-numbers::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: #A4A4A4;
 }
 .recent-market-trade-numbers::-webkit-scrollbar-track {
   background-color: inherit;
@@ -606,3 +604,4 @@
 #tv_chart_container {
   height: 100%;
 }
+

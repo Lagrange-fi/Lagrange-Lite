@@ -19,7 +19,7 @@ const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({
 }) => {
   return (
     <div className="rounded-md bg-th-bkg-3">
-      <div className="relative flex">
+      <div className="h-10 rounded-md relative flex bg-[#ffffff]">
         {activeValue && values.includes(activeValue) ? (
           <div
             className={`absolute bg-th-bkg-4 default-transition h-full left-0 top-0 rounded-md transform`}
@@ -34,11 +34,7 @@ const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({
         {values.map((v, i) => (
           <button
             className={`${className} cursor-pointer default-transition font-normal px-2 py-1.5 relative rounded-md text-center text-xs w-1/2
-              ${
-                v === activeValue
-                  ? `text-th-primary`
-                  : `text-th-fgd-2 hover:text-th-primary`
-              }
+              ${v === activeValue ? `bg-[#EDEDED] rounded-md` : ``}
             `}
             key={`${v}${i}`}
             onClick={() => onChange(v)}
