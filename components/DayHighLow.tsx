@@ -26,7 +26,7 @@ const DayHighLow = ({ high, low, latest, isTableView }: DayHighLowProps) => {
             style={{
               width: `${rangePercent}%`,
             }}
-            className="flex rounded bg-th-primary"
+            className="flex rounded bg-[#007C47]"
           ></div>
         </div>
         <div className={`pl-2 text-th-fgd-2 ${!isTableView && 'md:text-xs'}`}>
