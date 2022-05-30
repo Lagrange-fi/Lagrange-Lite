@@ -269,8 +269,24 @@ export default function Orderbook({ depth = 8 }) {
         {defaultLayout ? (
           <FlipCardFront>
             <FloatingElement className="fadein-floating-element h-full">
-              <div className="flex items-center justify-between pb-2.5">
+              <div className="flex items-center justify-between mb-2.5 border-b">
                 <div className="orderbook-title"> {t('orderbook')}</div>
+                <div className="relative flex">
+                  <Tooltip
+                    content={t('tooltip-switch-layout')}
+                    className="py-1 text-xs"
+                  >
+                    <button
+                      onClick={handleLayoutChange}
+                      className="flex h-7 w-7 items-center justify-center rounded-full bg-th-bkg-4 hover:text-th-primary focus:outline-none"
+                    >
+                      <SwitchHorizontalIcon className="h-4 w-4" />
+                    </button>
+                  </Tooltip>
+                </div>
+              </div>
+              <div className="mb-3 flex items-center justify-center">
+                <MarkPriceComponent markPrice={markPrice} />
               </div>
               <div className="orderbook-coins-title">
                 <div className={`text-left`}>
@@ -344,7 +360,7 @@ export default function Orderbook({ depth = 8 }) {
                   )}
                 </div>
               </div>
-              {/*<OrderbookSpread orderbookData={orderbookData} />*/}
+              <OrderbookSpread orderbookData={orderbookData} />
             </FloatingElement>
           </FlipCardFront>
         ) : (
@@ -433,7 +449,7 @@ export default function Orderbook({ depth = 8 }) {
                   />
                 )
               )}
-              <div className="my-2 flex justify-between rounded-md bg-th-bkg-1 p-2 text-xs">
+              <div className="my-2 flex justify-betwee border rounded-md bg-[#ffffff] p-2 text-xs">
                 <div className="text-th-fgd-3">{t('spread')}</div>
                 <div className="text-th-fgd-1">
                   {orderbookData?.spread.toFixed(2)}
@@ -565,9 +581,9 @@ const OrderbookSpread = ({ orderbookData }) => {
   }, [selectedMarket])
 
   return (
-    <div className="mb-0 mt-3 flex justify-between rounded-md bg-th-bkg-1 p-2 text-xs">
+    <div className="mb-0 mt-4 flex justify-between rounded-md border bg-[#ffffff] p-2 text-xs">
       <div className="hidden text-th-fgd-3 sm:block">{t('spread')}</div>
-      <div style={{ border: '1px solid red' }} className="test text-th-fgd-1">
+      <div className="text-th-fgd-1">
         {orderbookData?.spread.toFixed(decimals)}
       </div>
       <div className="text-th-fgd-1">
@@ -652,24 +668,24 @@ const OrderbookRow = React.memo<any>(
             <Line
               invert
               data-width={sizePercent + '%'}
-              className={`absolute left-0 ${
-                side === 'buy' ? `bg-th-green-muted` : `bg-th-red-muted`
+              className={`absolute left-0 opacity-[0.2] ${
+                side === 'buy' ? `bg-[#03A66D]` : `bg-[#F6465D]`
               }`}
             />
             <div className="flex w-full items-center justify-between hover:font-semibold">
               <div
                 onClick={handlePriceClick}
-                className={`counts-back-red z-10 leading-5 md:pl-5 ${
+                className={`z-10 text-xs leading-5 md:pl-5 md:leading-6 ${
                   side === 'buy'
-                    ? `text-th-green`
-                    : `text-th-red brightness-125`
+                    ? `text-[#007C47]`
+                    : `text-[#CF304A] brightness-125`
                 }`}
               >
                 {usdFormatter(formattedPrice, groupingDecimalCount, false)}
               </div>
 
               <div
-                className={`counts-simple z-10 text-xs ${
+                className={`z-10 text-xs ${
                   hasOpenOrder ? 'text-th-primary' : 'text-th-fgd-2'
                 }`}
                 onClick={handleSizeClick}
@@ -682,7 +698,7 @@ const OrderbookRow = React.memo<any>(
           <>
             <div className="flex w-full items-center justify-between hover:font-semibold">
               <div
-                className={`counts-simple z-10 leading-5  ${
+                className={`z-10 text-xs leading-5 md:leading-6 ${
                   hasOpenOrder ? 'text-th-primary' : 'text-th-fgd-2'
                 }`}
                 onClick={handleSizeClick}
@@ -690,10 +706,10 @@ const OrderbookRow = React.memo<any>(
                 {usdFormatter(formattedSize, minOrderSizeDecimals, false)}
               </div>
               <div
-                className={`counts-back-green z-10 leading-5 md:pr-4 ${
+                className={`z-10 text-xs leading-5 md:pr-4 md:leading-6 ${
                   side === 'buy'
-                    ? `text-th-green`
-                    : `text-th-red brightness-125`
+                    ? `text-[#007C47]`
+                    : `text-[#CF304A] brightness-125`
                 }`}
                 onClick={handlePriceClick}
               >
@@ -702,8 +718,8 @@ const OrderbookRow = React.memo<any>(
             </div>
 
             <Line
-              className={`absolute right-0 ${
-                side === 'buy' ? `bg-th-green-muted` : `bg-th-red-muted`
+              className={`absolute right-0 opacity-[0.2] ${
+                side === 'buy' ? `bg-[#007C47]` : `bg-[#F6465D]`
               }`}
               data-width={sizePercent + '%'}
             />
@@ -729,17 +745,17 @@ const MarkPriceComponent = React.memo<{ markPrice: number }>(
       <div
         className={`flex items-center justify-center font-bold md:w-1/3 md:text-base ${
           markPrice > previousMarkPrice
-            ? `text-th-green`
+            ? `text-[#007C47]`
             : markPrice < previousMarkPrice
-            ? `text-th-red`
+            ? `text-[#CF304A]`
             : `text-th-fgd-1`
         }`}
       >
         {markPrice > previousMarkPrice && (
-          <ArrowUpIcon className={`mr-1 h-4 w-4 text-th-green`} />
+          <ArrowUpIcon className={`mr-1 h-4 w-4 text-[#007C47]`} />
         )}
         {markPrice < previousMarkPrice && (
-          <ArrowDownIcon className={`mr-1 h-4 w-4 text-th-red`} />
+          <ArrowDownIcon className={`mr-1 h-4 w-4 text-[#CF304A]`} />
         )}
         {markPrice || '----'}
       </div>

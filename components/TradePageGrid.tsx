@@ -127,45 +127,41 @@ const TradePageGrid: React.FC = () => {
         <MarketDetails />
       </div>
       <div className="responsive-design-grid-layout">
-        <div className="one-line">
-          <div key="tvChart">
-            <FloatingElement className="chart1">
+        <div className="grid xl:grid-cols-2 grid-cols-1 w-full gap-5">
+          <div className="tvChart h-full">
+            <FloatingElement className="chart1 w-full h-3/4 min-h-[500px]">
               <TVChartContainer />
             </FloatingElement>
           </div>
-          <div key="accountInfo">
-            <FloatingElement className="account-info" showConnect>
-              <AccountInfo />
-            </FloatingElement>
+          <div>
+            <div className="grid xl:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-5">
+              <div className="order-book-div" key="orderbook">
+                <Orderbook depth={orderbookDepth} />
+              </div>
+              <div className="trade-form-div" key="tradeForm">
+                <TradeForm />
+              </div>
+              <div key="marketTrades">
+                <FloatingElement className="recent-trade-div">
+                  <RecentMarketTrades />
+                </FloatingElement>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="two-line">
-          <div className="order-book-div" key="orderbook">
-            <Orderbook depth={orderbookDepth} />
-          </div>
-
-          <div className="trade-form-div" key="tradeForm">
-            <TradeForm />
-          </div>
-
-          <div key="marketPosition">
-            <FloatingElement className="usdt-usdc-position-div" showConnect>
-              <UserMarketInfo />
-            </FloatingElement>
-          </div>
+        {/* <FloatingElement className="account-info" showConnect>
+          <AccountInfo />
+        </FloatingElement>
+        <div key="marketPosition">
+          <FloatingElement className="usdt-usdc-position-div" showConnect>
+            <UserMarketInfo />
+          </FloatingElement>
         </div>
-        <div className="three-line">
-          <div key="marketTrades">
-            <FloatingElement className="recent-trade-div">
-              <RecentMarketTrades />
-            </FloatingElement>
-          </div>
-          <div key="userInfo">
-            <FloatingElement className="balances-orders-fixed">
-              <UserInfo />
-            </FloatingElement>
-          </div>
-        </div>
+        <div key="userInfo">
+          <FloatingElement className="balances-orders-fixed">
+            <UserInfo />
+          </FloatingElement>
+        </div> */}
         <Footer />
       </div>
     </>

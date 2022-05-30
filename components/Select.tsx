@@ -10,7 +10,9 @@ const Select = ({
   disabled = false,
 }) => {
   return (
-    <div className={`relative ${className}`}>
+    <div
+      className={`h-10 relative ${className} border rounded-md default-transition hover:border-th-fgd-4 focus:border-th-fgd-4 focus:outline-none `}
+    >
       <Listbox value={value} onChange={onChange} disabled={disabled}>
         {({ open }) => (
           <>
@@ -19,7 +21,7 @@ const Select = ({
             >
               <div
                 style={{ minHeight: '2.5rem' }}
-                className={`flex items-center justify-between space-x-2 p-2 text-th-fgd-1`}
+                className={`flex items-center justify-between space-x-2 text-th-fgd-1 text-[14px]`}
               >
                 {value ? value : placeholder}
                 <ChevronDownIcon
@@ -32,7 +34,7 @@ const Select = ({
             {open ? (
               <Listbox.Options
                 static
-                className={`absolute bg-th-bkg-3 left-0 max-h-60 mt-1 overflow-auto origin-top-left outline-none p-2 rounded-md text-th-fgd-1 thin-scroll w-full z-20`}
+                className={`absolute bg-[#EDEDED] left-0 max-h-60 mt-1 overflow-auto origin-top-left outline-none p-2 rounded-md thin-scroll w-full z-20`}
               >
                 {children}
               </Listbox.Options>

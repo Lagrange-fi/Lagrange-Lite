@@ -784,7 +784,10 @@ export default function AdvancedTradeForm({
           {initLeverage}x
         </span>
         </ElementTitle>*/}
-      <div className="tradeform-title">{marketConfig.name}</div>
+      <div className="flex items-center justify-between mb-2.5 border-b">
+        <div className="tradeform-title">{marketConfig.name}</div>
+      </div>
+
       {insufficientSol ? (
         <div className="text-left">
           <InlineNotification desc={t('add-more-sol')} type="warning" />
@@ -902,7 +905,7 @@ export default function AdvancedTradeForm({
             }
           />
         </div>
-        <div className="col-span-12 mt-1">
+        <div className="col-span-12 mt-4">
           <ButtonGroup
             activeValue={positionSizePercent}
             onChange={(p) => handleSetPositionSize(p, spotMargin, reduceOnly)}
@@ -926,7 +929,7 @@ export default function AdvancedTradeForm({
               </div>
             ) : null
           ) : null}
-          <div className="nowrap">
+          <div className="nowrap mt-4">
             {isLimitOrder ? (
               <div className="flex">
                 <div className="mr-4">
@@ -952,16 +955,68 @@ export default function AdvancedTradeForm({
                     placement="left"
                     content={t('tooltip-ioc')}
                   >
-                    <div className="flex items-center text-xs text-th-fgd-3">
-                      <Checkbox
-                        checked={ioc}
-                        onChange={(e) => iocOnChange(e.target.checked)}
-                      >
-                        IOC
-                      </Checkbox>
-                    </div>
+                    <Checkbox
+                      checked={ioc}
+                      onChange={(e) => iocOnChange(e.target.checked)}
+                    >
+                      IOC
+                    </Checkbox>
                   </Tooltip>
                 </div>
+                {marketConfig.kind === 'perp' ? (
+                  <div className="ioc-check mr-4 mt-0">
+                    <Tooltip
+                      className="hidden md:block"
+                      delay={250}
+                      placement="left"
+                      content={t('tooltip-reduce')}
+                    >
+                      <Checkbox
+                        checked={reduceOnly}
+                        onChange={(e) => reduceOnChange(e.target.checked)}
+                        disabled={isTriggerOrder}
+                      >
+                        Reduce Only
+                      </Checkbox>
+                    </Tooltip>
+                  </div>
+                ) : null}
+                {marketConfig.kind === 'perp' && tradeType === 'Limit' ? (
+                  <div className="ioc-check mr-4 mt-0">
+                    <Tooltip
+                      className="hidden md:block"
+                      delay={250}
+                      placement="left"
+                      content={t('tooltip-post-and-slide')}
+                    >
+                      <Checkbox
+                        checked={postOnlySlide}
+                        onChange={(e) =>
+                          postOnlySlideOnChange(e.target.checked)
+                        }
+                        disabled={isTriggerOrder}
+                      >
+                        Slide
+                      </Checkbox>
+                    </Tooltip>
+                  </div>
+                ) : null}
+                {marketConfig.kind === 'spot' ? (
+                  <div className="ioc-check mr-4 mt-0">
+                    <Tooltip
+                      delay={250}
+                      placement="left"
+                      content={t('tooltip-enable-margin')}
+                    >
+                      <Checkbox
+                        checked={spotMargin}
+                        onChange={(e) => marginOnChange(e.target.checked)}
+                      >
+                        {t('margin')}
+                      </Checkbox>
+                    </Tooltip>
+                  </div>
+                ) : null}
               </div>
             ) : null}
             {/*
@@ -969,58 +1024,6 @@ export default function AdvancedTradeForm({
                 auto updating the reduceOnly state when doing a market order:
                 && showReduceOnly(perpAccount?.basePosition.toNumber())
              */}
-            {marketConfig.kind === 'perp' ? (
-              <div className="">
-                <Tooltip
-                  className="hidden md:block"
-                  delay={250}
-                  placement="left"
-                  content={t('tooltip-reduce')}
-                >
-                  <Checkbox
-                    checked={reduceOnly}
-                    onChange={(e) => reduceOnChange(e.target.checked)}
-                    disabled={isTriggerOrder}
-                  >
-                    Reduce Only
-                  </Checkbox>
-                </Tooltip>
-              </div>
-            ) : null}
-            {/*  {marketConfig.kind === 'perp' && tradeType === 'Limit' ? (
-              <div className="mt-3">
-                <Tooltip
-                  className="hidden md:block"
-                  delay={250}
-                  placement="left"
-                  content={t('tooltip-post-and-slide')}
-                >
-                  <Checkbox
-                    checked={postOnlySlide}
-                    onChange={(e) => postOnlySlideOnChange(e.target.checked)}
-                    disabled={isTriggerOrder}
-                  >
-                    Slide
-                  </Checkbox>
-                </Tooltip>
-              </div>
-            ) : null}*/}
-            {/*{marketConfig.kind === 'spot' ? (
-              <div className="mt-3">
-                <Tooltip
-                  delay={250}
-                  placement="left"
-                  content={t('tooltip-enable-margin')}
-                >
-                  <Checkbox
-                    checked={spotMargin}
-                    onChange={(e) => marginOnChange(e.target.checked)}
-                  >
-                    {t('margin')}
-                  </Checkbox>
-                </Tooltip>
-              </div>
-            ) : null}*/}
           </div>
           {warnUserSlippage ? (
             <div className="mt-1 flex items-center text-th-red">
@@ -1035,7 +1038,7 @@ export default function AdvancedTradeForm({
               <button
                 disabled={disabledTradeButton}
                 onClick={onSubmit}
-                className={`flex-grow rounded-full font-bold text-white hover:brightness-[1.1] focus:outline-none disabled:cursor-not-allowed disabled:bg-th-bkg-4 disabled:text-th-fgd-4 disabled:hover:brightness-100 ${
+                className={`flex-grow text-[14px] rounded-full font-bold text-white hover:brightness-[1.1] focus:outline-none disabled:cursor-not-allowed disabled:bg-th-bkg-4 disabled:text-th-fgd-4 disabled:hover:brightness-100 ${
                   side === 'buy' ? 'bg-th-green-dark' : 'bg-th-red'
                 }`}
               >
@@ -1151,14 +1154,14 @@ export default function AdvancedTradeForm({
               )}
             </div>
           ) : (
-            <div className="flex items-center justify-center">
-              <div className="tradeform-end-div">
+            <div className="flex items-center justify-center text-[12px] text-[grey] mt-2">
+              <span className="mr-1">
                 {t('maker-fee')}: {percentFormat.format(makerFee)}
-              </div>
-              <span className="tradeform-end-div">|</span>
-              <div className="tradeform-end-div">
+              </span>
+              <span className="">|</span>
+              <span className="ml-1">
                 {t('taker-fee')}: {percentFormat.format(takerFee)}
-              </div>
+              </span>
             </div>
           )}
         </div>

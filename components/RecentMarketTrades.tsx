@@ -52,8 +52,9 @@ export default function RecentMarketTrades() {
 
   return !isMobile ? (
     <>
-      {/*<ElementTitle>{t('recent-trades')}</ElementTitle>*/}
-      <div className="recent-market-trade-title">{t('recent-trades')}</div>
+      <div className="flex items-center justify-between mb-2.5 border-b">
+        <div className="recent-market-trade-title">{t('recent-trades')}</div>
+      </div>
       <div className={`recent-market-trade-numbers-title grid grid-cols-3`}>
         <div>{`${t('price')} (${mangoConfig.quoteSymbol})`} </div>
         <div className={`text-right`}>
@@ -62,12 +63,12 @@ export default function RecentMarketTrades() {
         <div className={`text-right`}>{t('time')}</div>
       </div>
       {!!trades.length && (
-        <div className="recent-market-trade-numbers">
+        <div className="recent-market-trade-numbers mt-2">
           {trades.map((trade: ChartTradeType, i: number) => (
             <div key={i} className={`grid grid-cols-3 leading-6`}>
               <div
-                className={`green-number ${
-                  trade.side === 'buy' ? `text-th-green` : `text-th-red`
+                className={`orther-price ${
+                  trade.side === 'buy' ? `text-[#007C47]` : `text-[#CF304A]`
                 }`}
               >
                 {market?.tickSize && !isNaN(trade.price)
@@ -78,7 +79,7 @@ export default function RecentMarketTrades() {
                     )
                   : ''}
               </div>
-              <div className={`recent-market-trade-numbers-title text-right`}>
+              <div className={`recent-market-trade-amount text-right`}>
                 {market?.minOrderSize && !isNaN(trade.size)
                   ? Number(trade.size).toLocaleString(undefined, {
                       maximumFractionDigits: getDecimalCount(
@@ -88,7 +89,10 @@ export default function RecentMarketTrades() {
                   : ''}
               </div>
               <div className={`thin-numbers text-right text-th-fgd-3`}>
-                {trade.time && new Date(trade.time).toLocaleTimeString()}
+                {trade.time &&
+                  new Date(trade.time).toLocaleTimeString('en-GB', {
+                    hour12: false,
+                  })}
               </div>
             </div>
           ))}

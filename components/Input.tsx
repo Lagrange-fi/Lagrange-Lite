@@ -39,7 +39,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         onChange={onChange}
         className={`${className} bg-th-bkg-1 pb-px px-2 flex-1 rounded-md h-10 text-th-fgd-1 w-full
           border ${
-            error ? 'border-th-red' : 'border-th-bkg-4'
+            error ? 'border-th-red' : ''
           } default-transition hover:border-th-fgd-4 
           focus:border-th-fgd-4 focus:outline-none 
           ${

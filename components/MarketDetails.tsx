@@ -78,6 +78,7 @@ const MarketDetails = () => {
         selectedMarketName
       )}`
     )
+    console.log('============', patchInternalMarketName(selectedMarketName))
     const parsedMarketInfo = await marketInfo.json()
     setChange24h(parsedMarketInfo?.change24h)
   }, [selectedMarketName])
