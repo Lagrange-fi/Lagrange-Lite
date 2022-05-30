@@ -269,7 +269,7 @@ export default function Orderbook({ depth = 8 }) {
         {defaultLayout ? (
           <FlipCardFront>
             <FloatingElement className="fadein-floating-element h-full">
-              <div className="flex items-center justify-between mb-2.5 border-b">
+              <div className="orderbook-header flex items-center justify-between mb-2.5 border-b">
                 <div className="orderbook-title"> {t('orderbook')}</div>
                 <div className="relative flex">
                   <Tooltip
@@ -449,7 +449,7 @@ export default function Orderbook({ depth = 8 }) {
                   />
                 )
               )}
-              <div className="my-2 flex justify-betwee border rounded-md bg-[#ffffff] p-2 text-xs">
+              <div className="spread-section my-2 flex justify-betwee border rounded-md bg-[#ffffff] p-2 text-xs">
                 <div className="text-th-fgd-3">{t('spread')}</div>
                 <div className="text-th-fgd-1">
                   {orderbookData?.spread.toFixed(2)}
@@ -581,7 +581,7 @@ const OrderbookSpread = ({ orderbookData }) => {
   }, [selectedMarket])
 
   return (
-    <div className="mb-0 mt-4 flex justify-between rounded-md border bg-[#ffffff] p-2 text-xs">
+    <div className="spread-section mb-0 mt-4 flex justify-between rounded-md border bg-[#ffffff] p-2 text-xs">
       <div className="hidden text-th-fgd-3 sm:block">{t('spread')}</div>
       <div className="text-th-fgd-1">
         {orderbookData?.spread.toFixed(decimals)}
@@ -675,7 +675,7 @@ const OrderbookRow = React.memo<any>(
             <div className="flex w-full items-center justify-between hover:font-semibold">
               <div
                 onClick={handlePriceClick}
-                className={`z-10 text-xs leading-5 md:pl-5 md:leading-6 ${
+                className={`z-10 text-[14px] font-medium leading-5 md:pl-5 md:leading-6 ${
                   side === 'buy'
                     ? `text-[#007C47]`
                     : `text-[#CF304A] brightness-125`
@@ -685,7 +685,7 @@ const OrderbookRow = React.memo<any>(
               </div>
 
               <div
-                className={`z-10 text-xs ${
+                className={`z-10 text-[14px] font-medium ${
                   hasOpenOrder ? 'text-th-primary' : 'text-th-fgd-2'
                 }`}
                 onClick={handleSizeClick}
@@ -698,7 +698,7 @@ const OrderbookRow = React.memo<any>(
           <>
             <div className="flex w-full items-center justify-between hover:font-semibold">
               <div
-                className={`z-10 text-xs leading-5 md:leading-6 ${
+                className={`z-10 text-[14px] font-medium leading-5 md:leading-6 ${
                   hasOpenOrder ? 'text-th-primary' : 'text-th-fgd-2'
                 }`}
                 onClick={handleSizeClick}
@@ -706,7 +706,7 @@ const OrderbookRow = React.memo<any>(
                 {usdFormatter(formattedSize, minOrderSizeDecimals, false)}
               </div>
               <div
-                className={`z-10 text-xs leading-5 md:pr-4 md:leading-6 ${
+                className={`z-10 text-[14px] font-medium leading-5 md:pr-4 md:leading-6 ${
                   side === 'buy'
                     ? `text-[#007C47]`
                     : `text-[#CF304A] brightness-125`

@@ -52,7 +52,7 @@ export default function RecentMarketTrades() {
 
   return !isMobile ? (
     <>
-      <div className="flex items-center justify-between mb-2.5 border-b">
+      <div className="mx-[1rem] recent-market-trade-header flex items-center justify-between mb-2.5 border-b">
         <div className="recent-market-trade-title">{t('recent-trades')}</div>
       </div>
       <div className={`recent-market-trade-numbers-title grid grid-cols-3`}>
