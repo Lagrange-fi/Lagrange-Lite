@@ -162,3 +162,11 @@ input::placeholder {
   height: 1px;
   margin-top: 25px;
 }
+
+.tooltip {
+  background-color: #ededed;
+}
+
+[data-theme='Dark'] {
+  background-color: #444444;
+}

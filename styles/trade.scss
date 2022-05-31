@@ -369,9 +369,7 @@
       $ta: left,
       $ls: 0.3px
     );
-    @include size(
-      $h: clamp(25px, 2.7083vw, 39px)
-    );
+    @include size($h: clamp(25px, 2.7083vw, 39px));
   }
   .tradeform-persent-text-general {
     // width: 100%;
@@ -528,7 +526,7 @@
 
 // -----------------Switch Market Dropdown Styles--------------------
 
-.thin-scroll {
+.switch-dropdown-popup {
   box-shadow: 0px 7px 14px rgb(0 0 0 / 8%);
 }
 
