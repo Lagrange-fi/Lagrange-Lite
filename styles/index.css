@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities; */
 
-
 /* :root {
   --primary: theme('colors.light-theme.orange.DEFAULT');
   --primary-dark: theme('colors.light-theme.orange.dark');
@@ -65,4 +64,3 @@
   --fgd-4: theme('colors.mango-theme.fgd-4');
   --bkg-button: theme('colors.mango-theme.bkg-button');
 } */
-
