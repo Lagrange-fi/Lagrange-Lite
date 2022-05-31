@@ -150,9 +150,9 @@ const PerpMarket: React.FC = () => {
         <PageBodyWrapper className="px-8 py-1 md:px-8">
           <TradePageGrid />
         </PageBodyWrapper>
-        {!alphaAccepted && (
+        {/* {!alphaAccepted && (
           <AlphaModal isOpen={!alphaAccepted} onClose={() => {}} />
-        )}
+        )} */}
       </div>
     </>
   )

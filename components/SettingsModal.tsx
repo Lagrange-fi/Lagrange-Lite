@@ -115,11 +115,15 @@ const ThemeSettings = ({ setSettingsView }) => {
     <div className="ThemeSettings">
       <Label>{t('theme')}</Label>
       <ButtonGroup
+        className="theme-setting-button"
         activeValue={theme}
         onChange={(t) => setTheme(t)}
         values={THEMES}
       />
-      <Button onClick={() => setSettingsView('')} className="mt-6 w-full">
+      <Button
+        onClick={() => setSettingsView('')}
+        className="mt-6 w-full hover:text-[#007C47]"
+      >
         <div className={`flex items-center justify-center`}>{t('save')}</div>
       </Button>
     </div>

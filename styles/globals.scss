@@ -167,6 +167,16 @@ input::placeholder {
   background-color: #ededed;
 }
 
-[data-theme='Dark'] {
-  background-color: #444444;
+.bg-light-dark {
+  background-color: #ededed;
 }
+
+[data-theme='Dark'] {
+  .tooltip {
+    background-color: #444444;
+  }
+  .bg-light-dark {
+    background-color: #444444;
+  }
+}
+

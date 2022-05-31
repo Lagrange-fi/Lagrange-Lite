@@ -38,7 +38,7 @@ const Modal = ({
 
           {isOpen ? (
             <div
-              className={`inline-block bg-th-bkg-2 min-h-screen sm:min-h-full
+              className={`inline-block bg-light-dark min-h-screen sm:min-h-full
               sm:rounded-lg text-left ${
                 noPadding ? '' : 'px-8 pt-6 pb-6'
               } shadow-lg transform transition-all align-middle sm:max-w-md w-full`}
