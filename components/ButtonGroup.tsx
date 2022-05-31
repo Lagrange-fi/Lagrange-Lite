@@ -7,6 +7,7 @@ interface ButtonGroupProps {
   unit?: string
   values: Array<string>
   names?: Array<string>
+  groupClassName?: string
 }
 
 const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({
@@ -18,7 +19,7 @@ const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({
   names,
 }) => {
   return (
-    <div className="button-group rounded-md bg-th-bkg-3">
+    <div className={`button-group rounded-md bg-th-bkg-3`}>
       <div className="button-group-container h-10 rounded-md relative flex bg-[#ffffff]">
         {activeValue && values.includes(activeValue) ? (
           <div

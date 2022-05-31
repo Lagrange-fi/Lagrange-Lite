@@ -262,14 +262,14 @@ const MarketDetails = () => {
           </div>
         </div>
       </div>
-      <div className="absolute right-0 bottom-0 sm:bottom-auto lg:right-3 flex items-center justify-end space-x-2">
+      {/* <div className="absolute right-0 bottom-0 sm:bottom-auto lg:right-3 flex items-center justify-end space-x-2">
         {!isMobile ? (
           <div id="layout-tip">
             <UiLock />
           </div>
         ) : null}
         <div id="data-refresh-tip"></div>
-      </div>
+      </div> */}
     </div>
   )
 }
