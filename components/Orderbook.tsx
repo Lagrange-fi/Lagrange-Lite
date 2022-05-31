@@ -675,7 +675,7 @@ const OrderbookRow = React.memo<any>(
             <div className="flex w-full items-center justify-between hover:font-semibold">
               <div
                 onClick={handlePriceClick}
-                className={`z-10 text-[14px] font-medium leading-5 md:pl-5 md:leading-6 ${
+                className={`z-10 text-[14px] font-medium md:pl-5 ${
                   side === 'buy'
                     ? `text-[#007C47]`
                     : `text-[#CF304A] brightness-125`
@@ -698,7 +698,7 @@ const OrderbookRow = React.memo<any>(
           <>
             <div className="flex w-full items-center justify-between hover:font-semibold">
               <div
-                className={`z-10 text-[14px] font-medium leading-5 md:leading-6 ${
+                className={`z-10 text-[14px] font-medium  ${
                   hasOpenOrder ? 'text-th-primary' : 'text-th-fgd-2'
                 }`}
                 onClick={handleSizeClick}
@@ -706,7 +706,7 @@ const OrderbookRow = React.memo<any>(
                 {usdFormatter(formattedSize, minOrderSizeDecimals, false)}
               </div>
               <div
-                className={`z-10 text-[14px] font-medium leading-5 md:pr-4 md:leading-6 ${
+                className={`z-10 text-[14px] font-medium  md:pr-4 ${
                   side === 'buy'
                     ? `text-[#007C47]`
                     : `text-[#CF304A] brightness-125`
