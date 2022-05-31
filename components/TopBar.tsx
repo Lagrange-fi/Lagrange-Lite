@@ -56,7 +56,7 @@ const TopBar = () => {
             <a className="flex items-center">
               <div className="img"></div>
               {router.asPath.includes('/pro') && (
-                <div className="ml-2 mt-3 text-[30px] font-black text-[#FD9F81] leading-[26px]">
+                <div className="ml-2 mt-3 xl:text-[30px] lg:text-[25px] md:text-[20px] font-black text-[#FD9F81] leading-[26px]">
                   PRO
                 </div>
               )}
