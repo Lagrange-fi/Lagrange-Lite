@@ -271,7 +271,7 @@ export default function Orderbook({ depth = 8 }) {
             <FloatingElement className="fadein-floating-element h-full">
               <div className="orderbook-header flex items-center justify-between mb-2.5 border-b">
                 <div className="orderbook-title"> {t('orderbook')}</div>
-                <div className="relative flex">
+                {/* <div className="relative flex">
                   <Tooltip
                     content={t('tooltip-switch-layout')}
                     className="py-1 text-xs"
@@ -283,7 +283,7 @@ export default function Orderbook({ depth = 8 }) {
                       <SwitchHorizontalIcon className="h-4 w-4" />
                     </button>
                   </Tooltip>
-                </div>
+                </div> */}
               </div>
               <div className="mb-3 flex items-center justify-center">
                 <MarkPriceComponent markPrice={markPrice} />
