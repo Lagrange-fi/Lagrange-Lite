@@ -167,7 +167,7 @@ function App({ Component, pageProps }) {
         <meta name="theme-color" content="#000000" />
         <meta
           name="keywords"
-          content="Lagrange, Serum, SRM, Serum DEX, DEFI, Decentralized Finance, Decentralised Finance, Crypto, ERC20, Ethereum, Decentralize, Solana, SOL, SPL, Cross-Chain, Trading, Fastest, Fast, SerumBTC, SerumUSD, SRM Tokens, SPL Tokens"
+          content="Lagrange, DEX, DEFI, Decentralized Finance, Decentralised Finance, Crypto, ERC20, Ethereum, Decentralize, Solana, SOL, SPL, Cross-Chain, Trading, Fastest, Fast, SPL Tokens"
         />
         <meta
           name="description"
